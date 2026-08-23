@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lm2000.github.io/nora-intelligence-system-online/sitemap.xml
+Sitemap: https://nora-intelligence-system.com/sitemap.xml
