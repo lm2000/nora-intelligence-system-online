@@ -1,0 +1,235 @@
+.site-nav a[aria-current="page"] {
+  color: var(--white);
+  position: relative;
+}
+
+.site-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--violet));
+}
+
+.site-nav a:focus-visible {
+  outline: 3px solid rgba(55, 208, 181, 0.7);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+.subtabs {
+  background: var(--navy-2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.subtabs-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 0;
+}
+
+.subtab {
+  padding: 9px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: #bbccd7;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.subtab:hover {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.subtab:focus-visible {
+  outline: 3px solid rgba(55, 208, 181, 0.7);
+  outline-offset: 3px;
+}
+
+.subtab--active,
+.subtab[aria-current="page"] {
+  color: #05271f;
+  border-color: transparent;
+  background: linear-gradient(135deg, #62efd3, #a7f5e6);
+  box-shadow: 0 10px 24px rgba(28, 210, 177, 0.22);
+}
+
+/* ---------- Diagram figure (used on Business Value, Architecture, Operating Principles) ---------- */
+.diagram-figure {
+  margin: 48px 0 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #f9fbfc;
+  box-shadow: var(--shadow-soft);
+}
+
+.diagram-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.diagram-figure figcaption {
+  margin-top: 14px;
+  padding: 0 4px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.diagram-figure figcaption strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 720;
+  letter-spacing: -0.015em;
+}
+
+.diagram-figure figcaption .text-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #08705f;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.diagram-figure figcaption .text-link:hover {
+  text-decoration: underline;
+}
+
+.diagram-figure figcaption .text-link:focus-visible {
+  outline: 3px solid rgba(55, 208, 181, 0.7);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Header / nav overrides (do not modify styles.css) ---------- */
+/* Restore real navigation below 1080px and keep the full brand visible at all widths. */
+
+@media (max-width: 1080px) {
+  .site-header {
+    position: relative;
+    background: var(--navy);
+  }
+
+  .hero-layout {
+    padding-top: 64px;
+  }
+
+  .nav-wrap {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 18px;
+    padding-block: 14px;
+  }
+
+  .site-nav {
+    display: flex;
+    flex: 1 1 100%;
+    order: 3;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    margin-left: 0;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .site-nav a {
+    min-height: 44px;
+    padding: 10px 4px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site-nav a[aria-current="page"]::after {
+    bottom: 4px;
+  }
+
+  .nav-wrap > .button {
+    order: 2;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-nav a[aria-current="page"]::after {
+    bottom: -6px;
+  }
+
+  .subtabs-wrap {
+    padding: 10px 0;
+    gap: 6px;
+  }
+
+  .subtab {
+    padding: 7px 12px;
+    font-size: 0.76rem;
+  }
+
+  /* Keep the full brand visible; only tighten the brand text on small screens. */
+  .brand span {
+    font-size: 0.92rem;
+  }
+
+  .brand span::after {
+    content: none;
+  }
+
+  .nav-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 10px;
+    row-gap: 8px;
+  }
+
+  .brand {
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .brand img {
+    flex-shrink: 0;
+  }
+
+  .brand strong {
+    display: block;
+  }
+
+  .site-nav {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    gap: 10px 18px;
+  }
+
+  .site-nav a {
+    min-height: 44px;
+    padding: 10px 2px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand span {
+    font-size: 0.86rem;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-wrap > .button {
+    padding-inline: 12px;
+    font-size: 0.78rem;
+  }
+}
