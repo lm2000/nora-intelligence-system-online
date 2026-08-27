@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1000" width="1280" height="1000" role="img" aria-labelledby="title desc">
+  <title id="title">Nora SuperIntelligence Lab — System Overview</title>
+  <desc id="desc">High-level conceptual architecture: people and business goals feed into a central Nora coordination node, which exchanges context with approved context and knowledge and memory peers, routes work to specialist AI agents, then to human review, then to tools and business workflows, producing outcomes and learning that feed back to knowledge and memory.</desc>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#087F7D"/>
+    </marker>
+    <marker id="arrL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5A6B78"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas -->
+  <rect x="0" y="0" width="1280" height="1000" fill="#F5F7F9"/>
+
+  <!-- Title -->
+  <text x="640" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#071827">Nora SuperIntelligence Lab</text>
+  <text x="640" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#071827">One coordinated system. People remain in control.</text>
+
+  <!-- =================== CONNECTORS (drawn first) =================== -->
+
+  <!-- Goals -> Nora (down) -->
+  <line x1="640" y1="270" x2="640" y2="338" stroke="#087F7D" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Approved context <-> Nora (bidirectional, right edge of left card to left edge of Nora) -->
+  <line x1="290" y1="407" x2="348" y2="407" stroke="#5A6B78" stroke-width="2.5" marker-end="url(#arrL)" marker-start="url(#arrL)"/>
+
+  <!-- Nora <-> Knowledge & memory (bidirectional, right edge of Nora to left edge of right card) -->
+  <line x1="932" y1="407" x2="990" y2="407" stroke="#5A6B78" stroke-width="2.5" marker-end="url(#arrL)" marker-start="url(#arrL)"/>
+
+  <!-- Nora -> Specialist agents (outside routing: down-left from Nora bottom-left corner to top of agents card) -->
+  <path d="M 430 475 L 430 540 L 225 540 L 225 578" fill="none" stroke="#087F7D" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Agents -> Human review (horizontal through gap between cards) -->
+  <line x1="410" y1="660" x2="453" y2="660" stroke="#087F7D" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Human review -> Tools (horizontal through gap) -->
+  <line x1="825" y1="660" x2="868" y2="660" stroke="#087F7D" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Tools -> Outcomes (above the outcomes card, separate from the feedback route) -->
+  <path d="M 1055 740 L 1055 775 L 820 775 L 820 808" fill="none" stroke="#087F7D" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Outcomes -> Knowledge & memory (feedback, OUTSIDE gutter on the right) -->
+  <path d="M 932 865 L 1260 865 L 1260 407 L 1242 407" fill="none" stroke="#5A6B78" stroke-width="2.5" marker-end="url(#arrL)"/>
+
+  <!-- =================== NODES =================== -->
+
+  <!-- Top band: People & business goals -->
+  <rect x="350" y="160" width="580" height="110" rx="10" ry="10" fill="#FFFFFF" stroke="#A9D6D4" stroke-width="2"/>
+  <text x="640" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#071827">People &amp; business goals</text>
+  <text x="640" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">Desired outcomes, priorities,</text>
+  <text x="640" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">and boundaries</text>
+
+  <!-- Left peer: Approved context -->
+  <rect x="40" y="340" width="250" height="135" rx="10" ry="10" fill="#FFFFFF" stroke="#A9D6D4" stroke-width="2"/>
+  <text x="165" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#071827">Approved context</text>
+  <text x="165" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">Documents and</text>
+  <text x="165" y="438" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">prior work</text>
+
+  <!-- Center: Nora coordination -->
+  <rect x="350" y="340" width="580" height="135" rx="10" ry="10" fill="#087F7D" stroke="#087F7D" stroke-width="2"/>
+  <text x="640" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">Nora coordination</text>
+  <text x="640" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF">Plan, route, combine,</text>
+  <text x="640" y="438" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF">and review work</text>
+
+  <!-- Right peer: Knowledge & memory -->
+  <rect x="990" y="340" width="250" height="135" rx="10" ry="10" fill="#FFFFFF" stroke="#A9D6D4" stroke-width="2"/>
+  <text x="1115" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#071827">Knowledge</text>
+  <text x="1115" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#071827">&amp; memory</text>
+  <text x="1115" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">Evidence and</text>
+  <text x="1115" y="456" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">feedback over time</text>
+
+  <!-- Lower row: Specialist AI agents -->
+  <rect x="40" y="580" width="370" height="160" rx="10" ry="10" fill="#FFFFFF" stroke="#A9D6D4" stroke-width="2"/>
+  <text x="225" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#071827">Specialist AI agents</text>
+  <text x="225" y="652" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">Research, options,</text>
+  <text x="225" y="678" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">and draft outputs</text>
+
+  <!-- Lower row: Human review -->
+  <rect x="455" y="580" width="370" height="160" rx="10" ry="10" fill="#FFFFFF" stroke="#A9D6D4" stroke-width="2"/>
+  <text x="640" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#071827">Human review</text>
+  <text x="640" y="652" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">Approve, revise,</text>
+  <text x="640" y="678" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">or stop</text>
+
+  <!-- Lower row: Tools & business workflows -->
+  <rect x="870" y="580" width="370" height="160" rx="10" ry="10" fill="#FFFFFF" stroke="#A9D6D4" stroke-width="2"/>
+  <text x="1055" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#071827">Tools &amp; business workflows</text>
+  <text x="1055" y="652" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">Execute approved</text>
+  <text x="1055" y="678" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">actions</text>
+
+  <!-- Bottom: Outcomes & learning -->
+  <rect x="350" y="810" width="580" height="110" rx="10" ry="10" fill="#FFFFFF" stroke="#A9D6D4" stroke-width="2"/>
+  <text x="640" y="850" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#071827">Outcomes &amp; learning</text>
+  <text x="640" y="882" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">Results, signals, and</text>
+  <text x="640" y="908" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">improvement over time</text>
+
+  <!-- Footer -->
+  <text x="640" y="970" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#5A6B78">Conceptual architecture · Provider-flexible · Human-governed</text>
+</svg>

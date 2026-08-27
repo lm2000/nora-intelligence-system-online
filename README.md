@@ -1,14 +1,29 @@
-# Nora Intelligence System
+# Nora SuperIntelligence Lab
 
-## From strategy to coordinated, auditable action
+## From strategy to coordinated action
 
-**AI-native orchestration · Human-governed decisions · Durable workflows · Continuous learning**
+**AI-native orchestration · Human-led decisions · Durable workflows · Continuous learning**
 
-Most AI tools stop at an answer. Nora is designed to carry a business objective through context, planning, bounded execution, human approval, evidence, and learning.
+Nora SuperIntelligence Lab explores how to carry a business objective through context, planning, bounded execution, human review, evidence, and learning.
 
 Nora connects people, institutional knowledge, AI agents, and operational tools in a modular system. The goal is practical: help organizations improve decisions, accelerate execution, scale expertise, deliver measurable client value, and turn successful work into a repeatable advantage.
 
-> **Current stage:** Nora has a canonical architecture and a locally tested, provider-free runtime foundation. The next milestone is a bounded, measured pilot with a design partner—not a broad autonomous rollout.
+> **Current stage:** This repository presents the architecture, public website, and selected demonstrations. These artifacts explain the intended approach; they do not establish a production-ready autonomous platform. A bounded pilot is the next step for testing value in a real workflow.
+
+## Architecture at a glance
+
+Connect existing tools and business context to an orchestration layer, specialist agents, and shared knowledge and memory. People review important decisions; evidence and feedback inform the next cycle.
+
+![Nora system overview: people and goals, approved context, coordination, knowledge and memory, specialist agents, human review, tools, and a learning loop.](assets/diagrams/nora-overview.png)
+
+*A high-level view of the intended system: coordination connects the parts, while people remain in control of important decisions.*
+
+| Layer | Responsibility |
+|---|---|
+| **Context and connections** | Bring relevant documents, business systems, and approved information into the workflow. |
+| **Orchestration and agents** | Break objectives into bounded work, select appropriate tools and models, and coordinate results. |
+| **Knowledge and memory** | Carry useful context, evidence, and prior feedback across tasks. |
+| **People and outcomes** | Review decisions, act on approved work, and evaluate what actually happened. |
 
 ## The problem Nora addresses
 
@@ -31,22 +46,21 @@ Nora is being built as the operating layer between intent and execution.
 | **Consulting companies** | Package expert methods into repeatable delivery workflows while preserving human judgment, review, and client-specific evidence. |
 | **Technology and venture partners** | Explore a modular AI-native platform with durable state, human governance, integration boundaries, and a testable path from pilot to scale. |
 
-## How a Nora workflow works
+## How Nora works
 
-```mermaid
-flowchart LR
-    A[Business objective] --> B[Approved context<br/>and knowledge]
-    B --> C[Nora orchestration]
-    C --> D[Bounded AI agents]
-    D --> E{Human decision}
-    E -->|Approve| F[Business tools<br/>and workflows]
-    E -->|Revise| C
-    F --> G[Evidence, outcomes,<br/>and receipts]
-    G --> H[Learning loop]
-    H --> B
-```
+Understand the objective and context, plan bounded work, prepare useful outputs, review them, and improve the result.
+
+![How Nora works: Understand, Plan, Execute, Review, Improve. Review can send work back to planning for revision.](assets/diagrams/how-nora-works.png)
+
+*The same coordination pattern can support research, decision preparation, project delivery, and other expert-led workflows.*
 
 The human remains the decision owner. AI agents receive bounded tasks. Important actions can pause for review. Outcomes are captured so the next workflow starts with better context instead of starting over.
+
+### Feedback improves the next iteration
+
+![Learning loop: Deliverable, Evaluation, Human feedback, Approved learning, Next cycle.](assets/diagrams/learning-loop.png)
+
+*Evaluation and human feedback help identify what to retain or change. Approved learning can inform shared context, working methods, and future tasks. Model-generated reviews remain distinct from observed outcomes.*
 
 ## Concrete pilot opportunities
 
@@ -59,7 +73,7 @@ The human remains the decision owner. AI agents receive bounded tasks. Important
 
 Each pilot begins with one bounded workflow, one accountable owner, a real baseline, agreed acceptance criteria, and a clear decision to stop, revise, integrate, or scale.
 
-## What makes Nora different
+## Design principles
 
 - **A system, not another chatbot.** Nora coordinates work across tools, people, knowledge, and specialized agents.
 - **Human authority stays explicit.** High-impact decisions remain attached to a named person and an exact proposed action.
@@ -68,15 +82,15 @@ Each pilot begins with one bounded workflow, one accountable owner, a real basel
 - **Providers remain replaceable.** Models, tools, and integrations sit behind clear boundaries instead of owning the business workflow.
 - **Learning compounds.** Outcomes and feedback can improve the next decision, plan, and execution cycle.
 
-## Foundation already established
+## Technical foundation
 
-The broader Nora project currently includes:
+The broader project's architecture covers:
 
 - a canonical high-level architecture and explicit ownership model;
 - a Python modular runtime foundation with typed domain contracts;
 - PostgreSQL migrations, repositories, operation tracking, append-only journals, and atomic event outbox writes;
 - versioned event and receipt schemas;
-- a provider-free acceptance suite that passed **72 tests against PostgreSQL 16**; and
+- provider-independent validation and repeatable acceptance checks; and
 - defined boundaries for workflow state, knowledge, agents, approvals, model routing, external tools, and human-facing projections.
 
 The first production workflow and full cross-system lifecycle are the next proof points. They are not presented as already deployed.
@@ -98,10 +112,6 @@ If you own a workflow where judgment, coordination, and evidence matter, Nora ma
 - Open a repository issue titled **Partnership inquiry** with a high-level description of the workflow or opportunity.
 
 Please keep confidential client or company information out of public issues. A private discussion can follow through the contact method on Michael's GitHub profile.
-
-## Repository purpose
-
-This repository is the public, business-facing window into Nora Intelligence System. It is intended for shareable explanations, demonstrations, partnership material, and selected public artifacts. Core implementation details and client-specific material remain separate unless they are intentionally published here.
 
 ## License
 

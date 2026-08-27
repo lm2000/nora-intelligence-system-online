@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="t2 d2">
+  <title id="t2">Learning loop</title>
+  <desc id="d2">A five-step learning loop: Deliverable, Evaluation, Human feedback, Approved learning, Next cycle, with a return arrow from Next cycle back to Deliverable indicating that learning is reviewed, not assumed.</desc>
+  <rect x="0" y="0" width="1280" height="720" fill="#F5F7F9"/>
+  <text x="64" y="120" font-family="Arial, sans-serif" font-size="22" letter-spacing="3" fill="#087F7D">NORA SUPERINTELLIGENCE LAB</text>
+  <text x="64" y="180" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#071827">Better context for the next cycle.</text>
+  <g font-family="Arial, sans-serif">
+    <g>
+      <rect x="64" y="280" width="210" height="215" rx="12" ry="12" fill="#FFFFFF" stroke="#ABD5D5" stroke-width="2"/>
+      <text x="169" y="320" text-anchor="middle" font-size="26" font-weight="bold" fill="#087F7D">Deliverable</text>
+      <text x="79" y="360" font-size="22" fill="#071827">
+        <tspan x="79" dy="0">Capture the</tspan>
+        <tspan x="79" dy="28">output and its</tspan>
+        <tspan x="79" dy="28">supporting</tspan>
+        <tspan x="79" dy="28">evidence.</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="294" y="280" width="210" height="215" rx="12" ry="12" fill="#FFFFFF" stroke="#ABD5D5" stroke-width="2"/>
+      <text x="399" y="320" text-anchor="middle" font-size="26" font-weight="bold" fill="#087F7D">Evaluation</text>
+      <text x="309" y="360" font-size="22" fill="#071827">
+        <tspan x="309" dy="0">Assess quality</tspan>
+        <tspan x="309" dy="28">against agreed</tspan>
+        <tspan x="309" dy="28">criteria.</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="524" y="280" width="210" height="215" rx="12" ry="12" fill="#FFFFFF" stroke="#ABD5D5" stroke-width="2"/>
+      <text x="629" y="311" text-anchor="middle" font-size="26" font-weight="bold" fill="#087F7D"><tspan x="629">Human</tspan><tspan x="629" dy="29">feedback</tspan></text>
+      <text x="539" y="382" font-size="22" fill="#071827">
+        <tspan x="539" dy="0">Record corrections</tspan>
+        <tspan x="539" dy="28">and practical</tspan>
+        <tspan x="539" dy="28">judgment.</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="754" y="280" width="210" height="215" rx="12" ry="12" fill="#FFFFFF" stroke="#ABD5D5" stroke-width="2"/>
+      <text x="859" y="311" text-anchor="middle" font-size="26" font-weight="bold" fill="#087F7D"><tspan x="859">Approved</tspan><tspan x="859" dy="29">learning</tspan></text>
+      <text x="769" y="382" font-size="22" fill="#071827">
+        <tspan x="769" dy="0">Update context,</tspan>
+        <tspan x="769" dy="28">methods and</tspan>
+        <tspan x="769" dy="28">working memory.</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="984" y="280" width="210" height="215" rx="12" ry="12" fill="#087F7D" stroke="#087F7D" stroke-width="2"/>
+      <text x="1089" y="320" text-anchor="middle" font-size="26" font-weight="bold" fill="#FFFFFF">Next cycle</text>
+      <text x="999" y="360" font-size="22" fill="#FFFFFF">
+        <tspan x="999" dy="0">Reuse what helped</tspan>
+        <tspan x="999" dy="28">and test what</tspan>
+        <tspan x="999" dy="28">changed.</tspan>
+      </text>
+    </g>
+  </g>
+  <g stroke="#087F7D" stroke-width="2" fill="none">
+    <line x1="274" y1="387" x2="294" y2="387"/>
+    <polygon points="294,387 286,383 286,391" fill="#087F7D"/>
+    <line x1="504" y1="387" x2="524" y2="387"/>
+    <polygon points="524,387 516,383 516,391" fill="#087F7D"/>
+    <line x1="734" y1="387" x2="754" y2="387"/>
+    <polygon points="754,387 746,383 746,391" fill="#087F7D"/>
+    <line x1="964" y1="387" x2="984" y2="387"/>
+    <polygon points="984,387 976,383 976,391" fill="#087F7D"/>
+  </g>
+  <g stroke="#087F7D" stroke-width="2" fill="none">
+    <path d="M 1089 495 L 1089 560 L 169 560 L 169 495"/>
+    <polygon points="169,495 165,503 173,503" fill="#087F7D"/>
+  </g>
+  <text x="629" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#071827">Learning is reviewed, not assumed</text>
+  <text x="64" y="640" font-family="Arial, sans-serif" font-size="22" fill="#071827">Model-generated reviews support reflection; observed outcomes and human feedback remain distinct.</text>
+</svg>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="t1 d1">
+  <title id="t1">How Nora works</title>
+  <desc id="d1">A five-step workflow: Understand, Plan, Execute, Review, Improve, with a return arrow from Review back to Plan indicating that review can send work back for revision.</desc>
+  <rect x="0" y="0" width="1280" height="720" fill="#F5F7F9"/>
+  <text x="64" y="120" font-family="Arial, sans-serif" font-size="22" letter-spacing="3" fill="#087F7D">NORA SUPERINTELLIGENCE LAB</text>
+  <text x="64" y="180" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#071827">From a clear objective to a useful outcome.</text>
+  <g font-family="Arial, sans-serif">
+    <g>
+      <rect x="64" y="280" width="210" height="215" rx="12" ry="12" fill="#FFFFFF" stroke="#ABD5D5" stroke-width="2"/>
+      <text x="169" y="320" text-anchor="middle" font-size="26" font-weight="bold" fill="#087F7D">Understand</text>
+      <text x="79" y="360" font-size="22" fill="#071827">
+        <tspan x="79" dy="0">Clarify the</tspan>
+        <tspan x="79" dy="28">objective,</tspan>
+        <tspan x="79" dy="28">context and</tspan>
+        <tspan x="79" dy="28">constraints.</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="294" y="280" width="210" height="215" rx="12" ry="12" fill="#FFFFFF" stroke="#ABD5D5" stroke-width="2"/>
+      <text x="399" y="320" text-anchor="middle" font-size="26" font-weight="bold" fill="#087F7D">Plan</text>
+      <text x="309" y="360" font-size="22" fill="#071827">
+        <tspan x="309" dy="0">Develop options</tspan>
+        <tspan x="309" dy="28">and assign</tspan>
+        <tspan x="309" dy="28">bounded work.</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="524" y="280" width="210" height="215" rx="12" ry="12" fill="#FFFFFF" stroke="#ABD5D5" stroke-width="2"/>
+      <text x="629" y="320" text-anchor="middle" font-size="26" font-weight="bold" fill="#087F7D">Execute</text>
+      <text x="539" y="360" font-size="22" fill="#071827">
+        <tspan x="539" dy="0">Specialist agents</tspan>
+        <tspan x="539" dy="28">prepare evidence</tspan>
+        <tspan x="539" dy="28">and deliverables.</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="754" y="280" width="210" height="215" rx="12" ry="12" fill="#FFFFFF" stroke="#ABD5D5" stroke-width="2"/>
+      <text x="859" y="320" text-anchor="middle" font-size="26" font-weight="bold" fill="#087F7D">Review</text>
+      <text x="769" y="360" font-size="22" fill="#071827">
+        <tspan x="769" dy="0">People check the</tspan>
+        <tspan x="769" dy="28">result and approve</tspan>
+        <tspan x="769" dy="28">the next step.</tspan>
+      </text>
+    </g>
+    <g>
+      <rect x="984" y="280" width="210" height="215" rx="12" ry="12" fill="#087F7D" stroke="#087F7D" stroke-width="2"/>
+      <text x="1089" y="320" text-anchor="middle" font-size="26" font-weight="bold" fill="#FFFFFF">Improve</text>
+      <text x="999" y="360" font-size="22" fill="#FFFFFF">
+        <tspan x="999" dy="0">Refine the output</tspan>
+        <tspan x="999" dy="28">and retain</tspan>
+        <tspan x="999" dy="28">approved learning.</tspan>
+      </text>
+    </g>
+  </g>
+  <g stroke="#087F7D" stroke-width="2" fill="none">
+    <line x1="274" y1="387" x2="294" y2="387"/>
+    <polygon points="294,387 286,383 286,391" fill="#087F7D"/>
+    <line x1="504" y1="387" x2="524" y2="387"/>
+    <polygon points="524,387 516,383 516,391" fill="#087F7D"/>
+    <line x1="734" y1="387" x2="754" y2="387"/>
+    <polygon points="754,387 746,383 746,391" fill="#087F7D"/>
+    <line x1="964" y1="387" x2="984" y2="387"/>
+    <polygon points="984,387 976,383 976,391" fill="#087F7D"/>
+  </g>
+  <g stroke="#087F7D" stroke-width="2" fill="none">
+    <path d="M 859 495 L 859 560 L 399 560 L 399 495"/>
+    <polygon points="399,495 395,503 403,503" fill="#087F7D"/>
+  </g>
+  <text x="629" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#071827">Review can send work back for revision</text>
+  <text x="64" y="640" font-family="Arial, sans-serif" font-size="22" fill="#071827">Tools act within agreed permissions; important decisions remain with people.</text>
+</svg>
