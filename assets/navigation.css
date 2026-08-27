@@ -3,6 +3,15 @@
   position: relative;
 }
 
+/* Compact headline scale; preserve the existing layout and body typography. */
+h1 {
+  font-size: clamp(2rem, 4.6vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
 .site-nav a[aria-current="page"]::after {
   content: "";
   position: absolute;
