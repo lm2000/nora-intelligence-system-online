@@ -108,7 +108,7 @@ The first production workflow and full cross-system lifecycle are the next proof
 
 If you own a workflow where judgment, coordination, and evidence matter, Nora may be worth exploring.
 
-- [Connect with Michael on GitHub](https://github.com/lm2000)
+- [Connect on GitHub](https://github.com/lm2000)
 - Open a repository issue titled **Partnership inquiry** with a high-level description of the workflow or opportunity.
 
 Please keep confidential client or company information out of public issues. A private discussion can follow through the contact method on Michael's GitHub profile.
