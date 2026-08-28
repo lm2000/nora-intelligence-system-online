@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 700" width="1440" height="700" role="img" aria-labelledby="title desc">
+  <title id="title">Nora SuperIntelligence Lab technical architecture</title>
+  <desc id="desc">Technical architecture showing systems of record, context assembly, agent orchestration, knowledge and memory, human workflows, control plane, and provider-flexible services.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#092033"/><stop offset="1" stop-color="#10294a"/></linearGradient>
+    <linearGradient id="core" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0b786f"/><stop offset="1" stop-color="#2458a1"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#5ce3d0"/></marker>
+    <style>.ey{font:700 13px Inter,Arial,sans-serif;fill:#75ead6;letter-spacing:2px}.n{font:700 19px Inter,Arial,sans-serif;fill:#f6fbfd}.p{font:400 13px Inter,Arial,sans-serif;fill:#b8ceda}.s{font:600 13px Inter,Arial,sans-serif;fill:#d8eef1}.flow{stroke:#5ce3d0;stroke-width:2.5;fill:none;stroke-dasharray:9 10;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1440" height="700" rx="24" fill="url(#bg)"/><circle cx="1280" cy="-65" r="250" fill="#44399b" opacity=".22"/>
+  <g>
+    <rect x="58" y="60" width="220" height="154" rx="16" fill="#102941" stroke="#4f8196"/><text x="80" y="93" class="ey">INPUTS</text><text x="80" y="127" class="n">Systems of record</text><text x="80" y="156" class="p">Files · CRM · email · calendar</text><text x="80" y="178" class="p">APIs · research · source data</text>
+    <path d="M278 137H322" class="flow"><animate attributeName="stroke-dashoffset" from="38" to="0" dur="2.6s" repeatCount="indefinite"/></path>
+    <rect x="322" y="60" width="220" height="154" rx="16" fill="#102941" stroke="#4f8196"/><text x="344" y="93" class="ey">COMPOSE</text><text x="344" y="127" class="n">Context assembly</text><text x="344" y="156" class="p">Objective · scope · evidence</text><text x="344" y="178" class="p">Policies · roles · boundaries</text>
+    <path d="M542 137H586" class="flow"><animate attributeName="stroke-dashoffset" from="38" to="0" dur="2.6s" begin=".4s" repeatCount="indefinite"/></path>
+    <rect x="586" y="46" width="268" height="182" rx="18" fill="url(#core)" stroke="#79f2de" stroke-width="2"/><text x="610" y="84" class="ey">COORDINATE</text><text x="610" y="123" class="n">Agent orchestration</text><text x="610" y="153" class="p" fill="#e3f8f7">Plan · route · review · recover</text><text x="610" y="176" class="p" fill="#e3f8f7">Bounded specialist work</text><rect x="610" y="188" width="216" height="24" rx="12" fill="#d8fff7" opacity=".15"/><text x="627" y="205" class="p" fill="#e8fffb">typed state · receipts · approvals</text>
+    <path d="M854 137H898" class="flow"><animate attributeName="stroke-dashoffset" from="38" to="0" dur="2.6s" begin=".8s" repeatCount="indefinite"/></path>
+    <rect x="898" y="60" width="220" height="154" rx="16" fill="#102941" stroke="#4f8196"/><text x="920" y="93" class="ey">RETAIN</text><text x="920" y="127" class="n">Knowledge &amp; memory</text><text x="920" y="156" class="p">Journals · semantic retrieval</text><text x="920" y="178" class="p">Feedback · reusable methods</text>
+    <path d="M1118 137H1162" class="flow"><animate attributeName="stroke-dashoffset" from="38" to="0" dur="2.6s" begin="1.2s" repeatCount="indefinite"/></path>
+    <rect x="1162" y="60" width="220" height="154" rx="16" fill="#102941" stroke="#4f8196"/><text x="1184" y="93" class="ey">ACT</text><text x="1184" y="127" class="n">Human workflows</text><text x="1184" y="156" class="p">Review · decisions · handoffs</text><text x="1184" y="178" class="p">Approved next actions</text>
+  </g>
+  <path d="M720 228V280" class="flow"><animate attributeName="stroke-dashoffset" from="38" to="0" dur="2.6s" begin="1.6s" repeatCount="indefinite"/></path>
+  <rect x="58" y="280" width="1324" height="98" rx="16" fill="#0d2c40" stroke="#328e98"/><text x="84" y="315" class="ey">CONTROL PLANE</text><text x="84" y="350" class="s">Objectives and boundaries  ·  typed workflow state  ·  routing and review gates  ·  audit receipts  ·  recovery paths</text>
+  <path d="M720 378V420" class="flow"><animate attributeName="stroke-dashoffset" from="38" to="0" dur="2.6s" begin="2s" repeatCount="indefinite"/></path>
+  <rect x="58" y="420" width="1324" height="178" rx="16" fill="#11243b" stroke="#526884"/><text x="84" y="456" class="ey">PROVIDER-FLEXIBLE MODEL &amp; INTEGRATION SERVICES</text>
+  <g fill="#172f48" stroke="#4b708b"><rect x="84" y="486" width="246" height="72" rx="12"/><rect x="356" y="486" width="246" height="72" rx="12"/><rect x="628" y="486" width="246" height="72" rx="12"/><rect x="900" y="486" width="456" height="72" rx="12"/></g>
+  <text x="108" y="516" class="s">Model providers</text><text x="108" y="539" class="p">Fireworks · Ollama · hosted APIs</text>
+  <text x="380" y="516" class="s">Specialist agents</text><text x="380" y="539" class="p">research · analysis · drafting · simulation</text>
+  <text x="652" y="516" class="s">Tool connectors</text><text x="652" y="539" class="p">browser · files · search · APIs</text>
+  <text x="924" y="516" class="s">Systems remain authoritative</text><text x="924" y="539" class="p">the workflow connects to the systems people already trust and use</text>
+  <rect x="58" y="626" width="1324" height="42" rx="14" fill="#0f766e" opacity=".2" stroke="#6ee6d2"/><text x="84" y="653" class="s">HUMAN AUTHORITY: people retain the objective, approval, accountability, and the right to change direction.</text>
+</svg>

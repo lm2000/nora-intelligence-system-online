@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 780" width="1440" height="780" role="img" aria-labelledby="title desc">
+  <title id="title">Nora AI Lab architecture map</title>
+  <desc id="desc">A component map showing human authority, systems of record, knowledge and memory, specialist agents, model and tool services, the Nora coordination core, and its control plane.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#092033"/><stop offset="1" stop-color="#112a49"/></linearGradient>
+    <linearGradient id="core" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0c766e"/><stop offset="1" stop-color="#254f9c"/></linearGradient>
+    <style>.ey{font:700 13px Inter,Arial,sans-serif;fill:#75ead6;letter-spacing:2.3px}.t{font:700 24px Inter,Arial,sans-serif;fill:#f6fbfd}.h{font:700 19px Inter,Arial,sans-serif;fill:#f6fbfd}.p{font:400 14px Inter,Arial,sans-serif;fill:#b9cfda}.s{font:600 13px Inter,Arial,sans-serif;fill:#d8eff0}.wire{stroke:#62decf;stroke-width:2;fill:none;stroke-dasharray:8 9;opacity:.72}</style>
+  </defs>
+  <rect width="1440" height="780" rx="25" fill="url(#bg)"/><circle cx="1235" cy="-60" r="250" fill="#453a9e" opacity=".22"/><circle cx="82" cy="730" r="210" fill="#087d78" opacity=".15"/>
+  <rect x="254" y="44" width="932" height="72" rx="16" fill="#112b42" stroke="#f5c451" stroke-width="1.6"/><rect x="276" y="60" width="164" height="40" rx="12" fill="#f5c451"/><text x="305" y="86" style="font:700 14px Inter,Arial,sans-serif;fill:#0a2030">HUMAN AUTHORITY</text><text x="470" y="78" class="h">Objectives, approvals, accountability, and the right to change direction.</text><text x="470" y="99" class="p">The system makes work more legible; it does not take ownership from people.</text>
+  <path d="M720 116V184" class="wire"/>
+  <rect x="522" y="184" width="396" height="248" rx="22" fill="url(#core)" stroke="#78f0dc" stroke-width="2"/><text x="558" y="226" class="ey">NORA AI LAB</text><text x="558" y="270" class="t">Coordination core</text><text x="558" y="302" class="p" fill="#e8fffb">One durable layer that keeps every contribution</text><text x="558" y="325" class="p" fill="#e8fffb">attached to its context, owner, and next decision.</text>
+  <rect x="558" y="354" width="146" height="46" rx="10" fill="#e3fff9" opacity=".15"/><rect x="732" y="354" width="146" height="46" rx="10" fill="#e3fff9" opacity=".15"/><text x="578" y="382" class="s">Context assembly</text><text x="758" y="382" class="s">Review + routing</text>
+  <rect x="72" y="196" width="330" height="146" rx="18" fill="#102a40" stroke="#4c8196"/><text x="100" y="230" class="ey">INPUTS</text><text x="100" y="266" class="h">Systems of record</text><text x="100" y="295" class="p">Files · CRM · email · calendar · APIs</text><text x="100" y="318" class="p">Existing workflows stay authoritative.</text>
+  <path d="M402 270H522" class="wire"/>
+  <rect x="1038" y="196" width="330" height="146" rx="18" fill="#102a40" stroke="#4c8196"/><text x="1066" y="230" class="ey">RETAIN</text><text x="1066" y="266" class="h">Knowledge &amp; memory</text><text x="1066" y="295" class="p">Evidence · methods · receipts · feedback</text><text x="1066" y="318" class="p">Learning remains reusable across cycles.</text>
+  <path d="M918 270H1038" class="wire"/>
+  <rect x="92" y="486" width="356" height="146" rx="18" fill="#102a40" stroke="#4c8196"/><text x="120" y="520" class="ey">SPECIALIST WORK</text><text x="120" y="556" class="h">Bounded agents</text><text x="120" y="585" class="p">Research · analysis · drafting · simulation</text><text x="120" y="608" class="p">Each role has a defined scope and handoff.</text>
+  <path d="M448 558L522 432" class="wire"/>
+  <rect x="992" y="486" width="356" height="146" rx="18" fill="#102a40" stroke="#4c8196"/><text x="1020" y="520" class="ey">SERVICES</text><text x="1020" y="556" class="h">Models, tools &amp; connectors</text><text x="1020" y="585" class="p">Fireworks · Ollama · browser · search · APIs</text><text x="1020" y="608" class="p">Provider-flexible, replaceable capabilities.</text>
+  <path d="M992 558L918 432" class="wire"/>
+  <rect x="354" y="668" width="732" height="66" rx="16" fill="#0d2d40" stroke="#45a9a2" stroke-width="1.4"/><text x="382" y="696" class="ey">CONTROL PLANE</text><text x="382" y="719" class="s">Typed state · policies · review gates · audit receipts · recovery paths</text>
+  <path d="M720 432V668" class="wire"/>
+</svg>

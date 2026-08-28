@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1080" width="1440" height="1080" role="img" aria-labelledby="title desc">
+  <title id="title">Nora SuperIntelligence Lab Foundation — detailed coordination architecture</title>
+  <desc id="desc">A detailed Nora SuperIntelligence Lab architecture diagram showing human authority, approved context, the coordination layer, specialist agents, approved tools, durable workflow state, and feedback loops.</desc>
+  <defs>
+    <linearGradient id="canvas" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f8fafb"/><stop offset="1" stop-color="#edf3f6"/></linearGradient>
+    <linearGradient id="core" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2452a0"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#55dbc4"/></marker>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8aa5b5"/></marker>
+    <style>
+      .title { font: 700 42px Inter, Arial, sans-serif; fill: #071827; letter-spacing: -1px; }
+      .subtitle { font: 400 20px Inter, Arial, sans-serif; fill: #4d6572; }
+      .eyebrow { font: 700 14px Inter, Arial, sans-serif; fill: #75ead6; letter-spacing: 3px; }
+      .node-title { font: 700 22px Inter, Arial, sans-serif; fill: #071827; }
+      .node-copy { font: 400 16px Inter, Arial, sans-serif; fill: #4d6572; }
+      .chip { font: 600 14px Inter, Arial, sans-serif; fill: #244454; }
+      .core-title { font: 700 28px Inter, Arial, sans-serif; fill: #fff; }
+      .core-copy { font: 500 15px Inter, Arial, sans-serif; fill: #e8fffa; }
+      .note { font: 600 13px Inter, Arial, sans-serif; fill: #5f7785; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="1080" rx="26" fill="url(#canvas)"/>
+  <path d="M 1100 -20 C 1280 140 1380 290 1440 520 L 1440 0 L 1100 0 Z" fill="#dce2ff" opacity=".62"/>
+  <path d="M 0 980 C 300 890 520 970 680 1080 L 0 1080 Z" fill="#c9f0e8" opacity=".45"/>
+
+  <text x="72" y="76" class="eyebrow">NORA FOUNDATION</text>
+  <text x="72" y="128" class="title">A coordination layer with visible authority and durable learning.</text>
+  <text x="72" y="164" class="subtitle">Every important outcome remains connected to the objective, approved context, review, action, and feedback that produced it.</text>
+
+  <!-- connectors behind the nodes -->
+  <path d="M 720 280 L 720 338" stroke="#55dbc4" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 380 470 L 490 470" stroke="#8aa5b5" stroke-width="2.5" fill="none" marker-end="url(#arrow-muted)"/>
+  <path d="M 950 470 L 1060 470" stroke="#8aa5b5" stroke-width="2.5" fill="none" marker-end="url(#arrow-muted)"/>
+  <path d="M 600 682 L 410 758" stroke="#55dbc4" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 840 682 L 1030 758" stroke="#55dbc4" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 410 900 L 580 964" stroke="#8aa5b5" stroke-width="2.5" fill="none" marker-end="url(#arrow-muted)"/>
+  <path d="M 1030 900 L 860 964" stroke="#8aa5b5" stroke-width="2.5" fill="none" marker-end="url(#arrow-muted)"/>
+  <path d="M 720 1000 L 720 1030 L 1310 1030 L 1310 470 L 1240 470" stroke="#55dbc4" stroke-width="2.5" stroke-dasharray="8 8" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- authority -->
+  <rect x="432" y="206" width="576" height="76" rx="16" fill="#ffffff" stroke="#78cfc3" stroke-width="1.5"/>
+  <circle cx="472" cy="244" r="12" fill="#71ead5"/>
+  <text x="502" y="241" class="node-title">Human authority</text>
+  <text x="502" y="265" class="node-copy">Objective · scope · approval · exception handling · accountability</text>
+
+  <!-- approved context -->
+  <rect x="72" y="380" width="308" height="180" rx="18" fill="#ffffff" stroke="#b4d8d5" stroke-width="1.5"/>
+  <text x="102" y="420" class="eyebrow">INPUTS</text>
+  <text x="102" y="458" class="node-title">Approved context</text>
+  <text x="102" y="488" class="node-copy">Relevant sources, constraints,</text>
+  <text x="102" y="512" class="node-copy">prior decisions, and policies.</text>
+  <rect x="102" y="530" width="104" height="26" rx="13" fill="#e9f4f3"/><text x="118" y="548" class="chip">Evidence</text>
+  <rect x="216" y="530" width="118" height="26" rx="13" fill="#e9f4f3"/><text x="232" y="548" class="chip">Boundaries</text>
+
+  <!-- core -->
+  <rect x="490" y="338" width="460" height="344" rx="22" fill="url(#core)" stroke="#7bf2dc" stroke-width="2"/>
+  <text x="530" y="384" class="eyebrow" fill="#d8fff7">NORA AI LAB COORDINATION LAYER</text>
+  <text x="530" y="426" class="core-title">Make the work legible.</text>
+  <text x="530" y="456" class="core-copy">The layer connects each contribution to a shared objective,</text>
+  <text x="530" y="478" class="core-copy">its evidence, its owner, and its next accountable decision.</text>
+  <line x1="530" y1="506" x2="910" y2="506" stroke="#d8fff7" opacity=".28"/>
+  <rect x="530" y="530" width="168" height="48" rx="10" fill="#d9f4ef" opacity=".94"/><text x="548" y="559" class="chip">Objective + scope</text>
+  <rect x="716" y="530" width="164" height="48" rx="10" fill="#d9f4ef" opacity=".94"/><text x="734" y="559" class="chip">Workflow state</text>
+  <rect x="530" y="594" width="168" height="48" rx="10" fill="#d9f4ef" opacity=".94"/><text x="548" y="623" class="chip">Evidence + receipts</text>
+  <rect x="716" y="594" width="164" height="48" rx="10" fill="#d9f4ef" opacity=".94"/><text x="734" y="623" class="chip">Review + routing</text>
+
+  <!-- knowledge -->
+  <rect x="1060" y="380" width="308" height="180" rx="18" fill="#ffffff" stroke="#b4d8d5" stroke-width="1.5"/>
+  <text x="1090" y="420" class="eyebrow">DURABLE CONTEXT</text>
+  <text x="1090" y="458" class="node-title">Knowledge &amp; memory</text>
+  <text x="1090" y="488" class="node-copy">Approved facts, working methods,</text>
+  <text x="1090" y="512" class="node-copy">outcomes, and reusable learning.</text>
+  <rect x="1090" y="530" width="104" height="26" rx="13" fill="#e9f4f3"/><text x="1106" y="548" class="chip">Journals</text>
+  <rect x="1204" y="530" width="122" height="26" rx="13" fill="#e9f4f3"/><text x="1220" y="548" class="chip">Feedback</text>
+
+  <!-- agents -->
+  <rect x="72" y="758" width="338" height="142" rx="18" fill="#ffffff" stroke="#b4d8d5" stroke-width="1.5"/>
+  <text x="102" y="798" class="eyebrow">SPECIALIST WORK</text>
+  <text x="102" y="836" class="node-title">Bounded agents</text>
+  <text x="102" y="864" class="node-copy">Research · analysis · drafting · simulation</text>
+
+  <!-- tools -->
+  <rect x="1030" y="758" width="338" height="142" rx="18" fill="#ffffff" stroke="#b4d8d5" stroke-width="1.5"/>
+  <text x="1060" y="798" class="eyebrow">APPROVED ACTION</text>
+  <text x="1060" y="836" class="node-title">Tools &amp; workflows</text>
+  <text x="1060" y="864" class="node-copy">Systems, handoffs, and next actions</text>
+
+  <!-- durable record -->
+  <rect x="500" y="940" width="440" height="94" rx="18" fill="#ffffff" stroke="#78cfc3" stroke-width="1.5"/>
+  <text x="530" y="976" class="eyebrow">SYSTEM OF RECORD</text>
+  <text x="530" y="1008" class="node-title">Durable state, outcomes, and learning</text>
+
+  <text x="72" y="1055" class="note">SOLID ARROWS: APPROVED WORKFLOW · DOTTED ARROW: OUTCOMES RETURN AS CONTEXT FOR THE NEXT CYCLE</text>
+</svg>

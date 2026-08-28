@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="0; url=../index.html#operating-principles">
+    <link rel="canonical" href="../index.html#operating-principles">
   <title>Nora SuperIntelligence Lab | Foundation — Operating Principles</title>
   <meta name="description" content="Nora operating principles: People Decide, Clear Edges, Learning Compounds—reflecting expert review, bounded execution, and approved learning.">
   <meta name="theme-color" content="#071827">
@@ -40,8 +42,8 @@
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero">
+  <main id="main" data-page-index="custom">
+    <section class="hero" id="overview" data-index-label="Overview">
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
       <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
@@ -62,13 +64,14 @@
           </ul>
         </div>
 
-        <aside class="orchestration-card" aria-label="Nora principles summary">
+        <aside class="orchestration-card orchestration-card--nav" data-orchestration-nav aria-label="Operating Principles navigation">
           <div class="card-kicker">Three principles</div>
           <h2>How Nora approaches every workflow</h2>
           <ol class="mini-flow">
-            <li><span>01</span><div><strong>People Decide</strong><small>Expert review and human approval</small></div></li>
-            <li><span>02</span><div><strong>Clear Edges</strong><small>Bounded execution with explicit scope</small></div></li>
-            <li><span>03</span><div><strong>Learning Compounds</strong><small>Approved feedback improves the next cycle</small></div></li>
+            <li><span>01</span><div><a href="#overview"><strong>Overview</strong><small>How Nora approaches work</small></a></div></li>
+            <li><span>02</span><div><a href="#loop"><strong>Loop</strong><small>Feedback and learning carry forward</small></a></div></li>
+            <li><span>03</span><div><a href="#principles"><strong>Principles</strong><small>People decide and scope stays clear</small></a></div></li>
+            <li><span>04</span><div><a href="#next"><strong>Next</strong><small>See the architecture in practice</small></a></div></li>
           </ol>
           <div class="loop-line"><span></span><em>Each cycle carries knowledge forward</em></div>
         </aside>
@@ -82,7 +85,7 @@
       </div>
     </nav>
 
-    <section class="section workflow-section" aria-labelledby="op-loop-heading">
+    <section class="section workflow-section" id="loop" aria-labelledby="op-loop-heading" data-index-label="Loop">
       <div class="shell">
         <div class="section-heading section-heading--center">
           <p class="section-label">Operating principles</p>
@@ -108,7 +111,7 @@
       </div>
     </section>
 
-    <section class="section pilots-section">
+    <section class="section pilots-section" id="principles" data-index-label="Principles">
       <div class="shell">
         <div class="section-heading section-heading--split">
           <div>
@@ -147,7 +150,7 @@
       </div>
     </section>
 
-    <section class="section partnership-section">
+    <section class="section partnership-section" id="next" data-index-label="Next">
       <div class="shell partnership-card">
         <div>
           <p class="section-label section-label--light">Keep reading</p>
@@ -176,5 +179,8 @@
       </div>
     </div>
   </footer>
+  <script src="../../assets/navigation.js?v=1"></script>
+  <script src="../../assets/page-index.js"></script>
+  <script src="../../assets/orchestration-nav.js?v=2"></script>
 </body>
 </html>
