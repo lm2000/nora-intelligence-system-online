@@ -222,6 +222,15 @@
   }
 }
 
+/* Compact headline scale; preserve the existing layout and body typography. */
+h1 {
+  font-size: clamp(2rem, 4.6vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
 @media (max-width: 420px) {
   .brand span {
     font-size: 0.86rem;
