@@ -6,7 +6,7 @@
 
 Nora SuperIntelligence Lab explores how to carry a business objective through context, planning, bounded execution, human review, evidence, and learning.
 
-Nora connects people, institutional knowledge, AI agents, and operational tools in a modular system. The goal is practical: help organizations improve decisions, accelerate execution, scale expertise, deliver measurable client value, and turn successful work into a repeatable advantage.
+Nora AI Lab connects people, institutional knowledge, AI agents, and operational tools in a modular system. The goal is practical: help organizations improve decisions, accelerate execution, scale expertise, deliver measurable client value, and turn successful work into a repeatable advantage.
 
 > **Current stage:** This repository presents the architecture, public website, and selected demonstrations. These artifacts explain the intended approach; they do not establish a production-ready autonomous platform. A bounded pilot is the next step for testing value in a real workflow.
 
@@ -14,7 +14,7 @@ Nora connects people, institutional knowledge, AI agents, and operational tools 
 
 Connect existing tools and business context to an orchestration layer, specialist agents, and shared knowledge and memory. People review important decisions; evidence and feedback inform the next cycle.
 
-![Nora system overview: people and goals, approved context, coordination, knowledge and memory, specialist agents, human review, tools, and a learning loop.](assets/diagrams/nora-overview.png)
+![Nora AI Lab system overview: people and goals, approved context, coordination, knowledge and memory, specialist agents, human review, tools, and a learning loop.](assets/diagrams/nora-overview.png)
 
 *A high-level view of the intended system: coordination connects the parts, while people remain in control of important decisions.*
 
@@ -25,7 +25,7 @@ Connect existing tools and business context to an orchestration layer, specialis
 | **Knowledge and memory** | Carry useful context, evidence, and prior feedback across tasks. |
 | **People and outcomes** | Review decisions, act on approved work, and evaluate what actually happened. |
 
-## The problem Nora addresses
+## The problem Nora AI Lab addresses
 
 Organizations do not lack AI tools. They lack a reliable way to coordinate those tools around real business work.
 
@@ -35,9 +35,9 @@ Organizations do not lack AI tools. They lack a reliable way to coordinate those
 - Valuable methods disappear when an engagement, campaign, or employee moves on.
 - Leaders cannot confidently trace what happened, why it happened, or what was learned.
 
-Nora is being built as the operating layer between intent and execution.
+Nora AI Lab is being built as the operating layer between intent and execution.
 
-## Where Nora creates value
+## Where Nora AI Lab creates value
 
 | Audience | Potential value |
 |---|---|
@@ -46,11 +46,11 @@ Nora is being built as the operating layer between intent and execution.
 | **Consulting companies** | Package expert methods into repeatable delivery workflows while preserving human judgment, review, and client-specific evidence. |
 | **Technology and venture partners** | Explore a modular AI-native platform with durable state, human governance, integration boundaries, and a testable path from pilot to scale. |
 
-## How Nora works
+## How Nora AI Lab works
 
 Understand the objective and context, plan bounded work, prepare useful outputs, review them, and improve the result.
 
-![How Nora works: Understand, Plan, Execute, Review, Improve. Review can send work back to planning for revision.](assets/diagrams/how-nora-works.png)
+![How Nora AI Lab works: Understand, Plan, Execute, Review, Improve. Review can send work back to planning for revision.](assets/diagrams/how-nora-works.png)
 
 *The same coordination pattern can support research, decision preparation, project delivery, and other expert-led workflows.*
 
@@ -75,7 +75,7 @@ Each pilot begins with one bounded workflow, one accountable owner, a real basel
 
 ## Design principles
 
-- **A system, not another chatbot.** Nora coordinates work across tools, people, knowledge, and specialized agents.
+- **A system, not another chatbot.** Nora AI Lab coordinates work across tools, people, knowledge, and specialized agents.
 - **Human authority stays explicit.** High-impact decisions remain attached to a named person and an exact proposed action.
 - **Work can survive interruption.** Durable workflow state and operation records are designed to support safe pause, recovery, and resume.
 - **Evidence travels with the result.** Sources, decisions, operations, and receipts can be connected rather than reconstructed later.
@@ -100,13 +100,13 @@ The first production workflow and full cross-system lifecycle are the next proof
 | Partner type | A useful first conversation |
 |---|---|
 | **Design partner** | Bring one high-value, repeatable workflow and co-design a bounded pilot with measurable success criteria. |
-| **Consulting or channel partner** | Combine Nora's orchestration patterns with your industry expertise, client access, and delivery model. |
+| **Consulting or channel partner** | Combine Nora AI Lab's orchestration patterns with your industry expertise, client access, and delivery model. |
 | **Technology partner** | Test a focused integration involving models, agents, knowledge, workflow tools, or governed external actions. |
 | **Strategic or venture advisor** | Pressure-test the category, commercial wedge, distribution path, operating model, and milestones required for scale. |
 
 ## Start a conversation
 
-If you own a workflow where judgment, coordination, and evidence matter, Nora may be worth exploring.
+If you own a workflow where judgment, coordination, and evidence matter, Nora SuperIntelligence Lab may be worth exploring.
 
 - [Connect on GitHub](https://github.com/lm2000)
 - Open a repository issue titled **Partnership inquiry** with a high-level description of the workflow or opportunity.
@@ -119,4 +119,4 @@ Licensed under the [Apache License 2.0](LICENSE).
 
 ---
 
-**Nora is built around one simple idea: AI should make important work more coordinated, accountable, and reusable—not less.**
+**Nora AI Lab is built around one simple idea: AI should make important work more coordinated, accountable, and reusable—not less.**

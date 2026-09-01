@@ -7,7 +7,7 @@
 
 .case-hero {
   position: relative;
-  min-height: 480px;
+  min-height: 420px;
   overflow: hidden;
   color: var(--white);
   background: var(--case-navy);
@@ -42,8 +42,8 @@
   grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
   gap: clamp(32px, 4vw, 52px);
   align-items: center;
-  min-height: 480px;
-  padding: 72px 0 62px;
+  min-height: 420px;
+  padding: 52px 0 48px;
 }
 
 .case-kicker,
@@ -56,7 +56,7 @@
   text-transform: uppercase;
 }
 
-.case-hero h1 { max-width: 740px; margin-bottom: 18px; color: var(--white); font-size: clamp(2rem, 3.6vw, 3.3rem); }
+.case-hero h1 { max-width: 740px; margin-bottom: 18px; color: var(--white); font-size: clamp(1.85rem, 3.2vw, 2.85rem); }
 .case-hero__lede { max-width: 690px; margin-bottom: 28px; color: #c4d6e2; font-size: clamp(0.94rem, 1.25vw, 1.05rem); line-height: 1.58; }
 .case-actions,
 .case-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; }

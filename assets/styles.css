@@ -63,8 +63,8 @@ h3 {
 }
 
 h1 {
-  margin-bottom: 26px;
-  font-size: clamp(2.45rem, 4.8vw, 4.35rem);
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
   font-weight: 760;
 }
 
@@ -294,7 +294,7 @@ a:focus-visible {
 
 .hero {
   position: relative;
-  min-height: 760px;
+  min-height: 580px;
   overflow: hidden;
   color: var(--white);
   background: var(--navy);
@@ -337,21 +337,21 @@ a:focus-visible {
 .hero-layout {
   position: relative;
   z-index: 2;
-  min-height: 760px;
-  padding-top: 78px;
-  padding-bottom: 72px;
+  min-height: 580px;
+  padding-top: 52px;
+  padding-bottom: 48px;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
   align-items: center;
-  gap: clamp(48px, 8vw, 100px);
+  gap: clamp(32px, 6vw, 72px);
 }
 
 .hero--home {
-  min-height: 700px;
+  min-height: 540px;
 }
 
 .hero--home .hero-layout {
-  min-height: 700px;
+  min-height: 540px;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.7fr);
 }
 
@@ -483,10 +483,10 @@ a:focus-visible {
 
 .hero-lede {
   max-width: 710px;
-  margin-bottom: 34px;
+  margin-bottom: 22px;
   color: #b9cbd6;
-  font-size: clamp(1rem, 1.55vw, 1.22rem);
-  line-height: 1.58;
+  font-size: clamp(0.98rem, 1.4vw, 1.14rem);
+  line-height: 1.55;
 }
 
 .hero-actions {
@@ -500,7 +500,7 @@ a:focus-visible {
 }
 
 .hero-signals {
-  margin: 34px 0 0;
+  margin: 20px 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -1329,10 +1329,6 @@ a:focus-visible {
 }
 
 @media (max-width: 1080px) {
-  .site-nav {
-    display: none;
-  }
-
   .hero-layout {
     grid-template-columns: 1fr 0.72fr;
     gap: 48px;
@@ -1380,6 +1376,10 @@ a:focus-visible {
 
   .hero-layout {
     padding-top: 72px;
+    grid-template-columns: 1fr;
+  }
+
+  .hero--home .hero-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1462,8 +1462,8 @@ a:focus-visible {
   }
 
   .brand span::after {
-    content: "Nora";
-    font-size: 0.96rem;
+    content: "Nora AI Lab";
+    font-size: 0.82rem;
     font-weight: 750;
   }
 
@@ -1477,7 +1477,7 @@ a:focus-visible {
   }
 
   h1 {
-    font-size: clamp(3rem, 16vw, 4.6rem);
+    font-size: clamp(1.75rem, 7vw, 2.35rem);
   }
 
   .hero-actions,

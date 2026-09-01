@@ -7,7 +7,7 @@
 
 .case-hero {
   position: relative;
-  min-height: 480px;
+  min-height: 420px;
   overflow: hidden;
   color: var(--white);
   background: var(--case-navy);
@@ -41,8 +41,8 @@
 }
 
 .case-hero__layout {
-  min-height: 480px;
-  padding: 72px 0 62px;
+  min-height: 420px;
+  padding: 52px 0 48px;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
   gap: clamp(32px, 4vw, 52px);
@@ -60,9 +60,9 @@
 
 .case-hero h1 {
   max-width: 740px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   color: var(--white);
-  font-size: clamp(2rem, 3.6vw, 3.3rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.85rem);
 }
 
 .case-hero__lede {
