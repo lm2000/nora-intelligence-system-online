@@ -29,8 +29,84 @@ h2 {
   border-radius: 4px;
 }
 
-.subtabs {
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: #bbccd7;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  list-style: none;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  opacity: 0.78;
+  transform: rotate(45deg);
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.nav-dropdown[open] summary::after {
+  transform: rotate(225deg);
+  opacity: 1;
+}
+
+.nav-dropdown summary:focus-visible {
+  outline: 3px solid rgba(55, 208, 181, 0.7);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+.nav-dropdown__menu {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
   background: var(--navy-2);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+}
+
+.nav-dropdown__menu a {
+  display: block;
+  padding: 9px 11px;
+  border-radius: 6px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.nav-dropdown__menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-dropdown--foundation .nav-dropdown__menu {
+  right: auto;
+  left: 0;
+}
+
+.subtabs {
+  background: var(--navy);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -38,7 +114,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 14px 0;
+  padding: 10px 0;
 }
 
 .subtab {
@@ -127,12 +203,29 @@ h2 {
   border-radius: 4px;
 }
 
+/* Embedded technical architecture: a visual part of the Foundation page, not a presentation slide. */
+.workflow-section .diagram-figure--architecture {
+  max-width: 1180px;
+  margin: 30px auto 0;
+  padding: 0;
+  overflow: hidden;
+  border-color: rgba(108, 226, 208, 0.26);
+  background: #0b2032;
+  box-shadow: none;
+}
+
+
+.workflow-section .diagram-figure--architecture img {
+  border-radius: 0;
+  background: transparent;
+}
+
+
 /* ---------- Header / nav overrides (do not modify styles.css) ---------- */
 /* Restore real navigation below 1080px and keep the full brand visible at all widths. */
 
 @media (max-width: 1080px) {
   .site-header {
-    position: relative;
     background: var(--navy);
   }
 
@@ -163,6 +256,10 @@ h2 {
     padding: 10px 4px;
     display: inline-flex;
     align-items: center;
+  }
+
+  .nav-dropdown summary {
+    padding: 10px 4px;
   }
 
   .site-nav a[aria-current="page"]::after {
@@ -228,6 +325,63 @@ h2 {
   .site-nav a {
     min-height: 44px;
     padding: 10px 2px;
+  }
+
+  .nav-dropdown summary {
+    padding: 10px 2px;
+  }
+
+  .nav-dropdown__menu {
+    right: auto;
+    left: 0;
+  }
+}
+
+/* Compact headline scale; preserve the existing layout and body typography. */
+h1 {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+}
+
+h2 {
+  font-size: clamp(1.55rem, 2.6vw, 2.15rem);
+}
+
+.orchestration-card--nav h2 {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  margin-bottom: 14px;
+}
+
+@media (max-width: 860px) {
+  .hero--home,
+  .hero--home .hero-layout {
+    min-height: auto;
+  }
+
+  .orchestration-card--nav {
+    width: 100%;
+    max-width: none;
+    padding: 22px 20px;
+  }
+
+  .orchestration-card--nav .mini-flow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+  }
+
+  .orchestration-card--nav .mini-flow li {
+    margin: 0;
+    min-height: auto;
+  }
+
+  .orchestration-card--nav .mini-flow li:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .orchestration-card--nav .mini-flow {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1000" width="1280" height="1000" role="img" aria-labelledby="title desc">
   <title id="title">Nora SuperIntelligence Lab — System Overview</title>
-  <desc id="desc">High-level conceptual architecture: people and business goals feed into a central Nora coordination node, which exchanges context with approved context and knowledge and memory peers, routes work to specialist AI agents, then to human review, then to tools and business workflows, producing outcomes and learning that feed back to knowledge and memory.</desc>
+  <desc id="desc">High-level conceptual architecture: people and business goals feed into a central Nora AI Lab coordination node, which exchanges context with approved context and knowledge and memory peers, routes work to specialist AI agents, then to human review, then to tools and business workflows, producing outcomes and learning that feed back to knowledge and memory.</desc>
 
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
@@ -59,9 +59,9 @@
   <text x="165" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">Documents and</text>
   <text x="165" y="438" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#071827">prior work</text>
 
-  <!-- Center: Nora coordination -->
+  <!-- Center: Nora AI Lab coordination -->
   <rect x="350" y="340" width="580" height="135" rx="10" ry="10" fill="#087F7D" stroke="#087F7D" stroke-width="2"/>
-  <text x="640" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">Nora coordination</text>
+  <text x="640" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">Nora AI Lab coordination</text>
   <text x="640" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF">Plan, route, combine,</text>
   <text x="640" y="438" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF">and review work</text>
 
