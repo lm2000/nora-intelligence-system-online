@@ -232,3 +232,8 @@ Owner expanded the source-reuse scope: career covers job search, self-learning a
 
 
 Full-cycle expansion preview READY: https://nora-intelligence-system-online-nim7lnlnl-nora-builders.vercel.app/use-cases/ (dpl_5S4MY52WsaMseWKTnRZggHu9XYEN), source commit 76105b1. Zero Astro diagnostics, all 15 tests, root/Pages builds and 499 links pass. Desktop/mobile readback confirms containment across four updated routes; venture-research selection closes the mobile disclosure and lands below the header. The four hosted routes match the approved local build. Production and GitHub main remain unchanged.
+
+
+## Coordinated website and LinkedIn service ownership
+
+Owner consolidated website, use-case and related LinkedIn service alignment into this chat. Published Founders source from origin/main 619ae1c is integrated in d5beeb0 without replacing newer use-case work; Founders source/data match main. Production currently aliases READY dpl_EqryQQpgnd4dQFNb6hiM89dNvU6q; live Founders matches the approved expansion receipt. The maintained offering definition and exact channel proposal are in the existing local LinkedIn Remaining Improvements review record, with a matching owner update in the LinkedIn handover. These service-copy changes are proposals for review, not published copy. All tools, qualifications, examples, contacts and both Featured cards remain. Combined local verification passes zero Astro diagnostics, 15 tests, root/Pages builds and 500 links; 390px readback retains 6 expertise areas, 14 Skills groups and 3 examples without overflow.
