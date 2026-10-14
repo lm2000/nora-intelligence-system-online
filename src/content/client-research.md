@@ -1,36 +1,36 @@
-## Start with a reason to engage
+<h2 id="start-with-a-reason-to-engage" data-index-label="Purpose">Start with a reason to engage</h2>
 
-A marketing agency needs more than a list of companies. It needs a view of which accounts fit, what public evidence supports that view, and what to ask in the first conversation.
+For an agency choosing which accounts to pursue, useful research explains account fit, supports a point of view, and identifies questions for the first conversation. This proposed workflow adapts Nora SuperIntelligence Lab’s client-acquisition concept.
 
-This proposed workflow adapts Nora SuperIntelligence Lab’s legacy client-acquisition concept. It describes research and preparation, with the agency selecting accounts and approving the pitch. It does not represent a delivered client engagement or measured commercial results.
+<h2 id="workflow" data-index-label="Workflow">Workflow</h2>
 
-## Workflow
+1. **Frame the shortlist.** Agree on account criteria and services the agency can deliver. A pilot could examine ten candidates and select three for deeper research.
+2. **Research.** Gather public company and buyer information, link observations to sources, and separate facts from hypotheses.
+3. **Select.** The agency reviews account fit and decides which opportunities deserve a pitch.
+4. **Prepare.** Produce an account brief, opening message, discovery questions, and suggested next action.
 
-1. **Frame the shortlist.** Define the target market, account criteria, available expertise, and the services the agency can actually deliver. A manageable pilot might start with ten candidate companies and select three for deeper research.
-2. **Research the accounts.** Gather public company, market, competitor, and buyer information. Link each observation to its source. Record gaps and distinguish reported facts from an opportunity hypothesis.
-3. **Select and challenge.** The agency reviews account fit and the proposed point of view. It decides which companies deserve attention and removes unsupported assumptions before preparing a pitch.
-4. **Prepare the conversation.** Draft an account brief, message options, discovery questions, relevant proof, and a suggested next action. The agency reviews the package and owns any outreach.
+<h2 id="example-account-brief" data-index-label="Example">Example account brief and pitch</h2>
 
-## Example account brief
+**Synthetic scenario: a retailer expanding its online storefront.** The company and expansion are invented for this example.
 
-**Synthetic example: a retailer expanding its online storefront.** This is an invented scenario, not a real prospect or a claim about a company.
-
-> **Scenario input:** The retailer is expanding its online storefront.
+> **Account signal:** Storefront expansion.
 >
-> **Hypothesis to test:** Its team may need a clearer view of which acquisition channels contribute to repeat purchases.
+> **Hypothesis:** The team may need a clearer connection between acquisition channels and repeat purchases.
 >
 > **Discovery question:** How do you connect campaign reporting with repeat-purchase behavior today?
 >
-> **Conversation angle:** Discuss a bounded measurement review before proposing a broader marketing engagement.
+> **Suggested first step:** Map the existing measurement approach and choose one gap to investigate.
 
-For a real account, the package would include source-linked observations, open questions, an explicit hypothesis, evidence of the agency’s relevant experience, and a pitch draft. A reviewer should be able to see how the proposed message follows from the research.
+**Illustrative opening message**
 
-## Agency ownership
+> Your storefront expansion suggests a useful first conversation: how are you connecting acquisition spend with repeat purchases? We could start by mapping the current measurement approach and identifying one question worth testing.
 
-The agency defines account fit, checks commercial assumptions, approves claims, and leads client relationships. Research supports that judgment. Draft messages remain drafts until a person approves the recipient and content.
+The account brief provides the reasoning behind the message. A real package would attach public sources and relevant agency experience to support that reasoning.
 
-The suggested shortlist size is a pilot example. A pilot would test whether the research package is useful to the agency before extending the workflow.
+<h2 id="agency-ownership" data-index-label="Human review">Agency review</h2>
 
-## Connection to the lab
+The agency verifies the account signal, challenges the hypothesis, and checks that the proposed work matches its expertise. It approves the message and leads the client relationship.
 
-The workflow illustrates why knowledge, tools, state, and human review matter together. The [AI Harness Landscape case study](../ai-harness-landscape/) supplies a comparison framework. The [knowledge-assistant architecture](../../architecture/) shows the lab’s current technical foundation.
+<h2 id="connection-to-the-lab" data-index-label="Related work">Related work</h2>
+
+Explore the [AI Harness Landscape comparison framework](../ai-harness-landscape/) or the lab’s [knowledge-assistant architecture](../../architecture/).

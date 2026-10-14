@@ -21,3 +21,7 @@ Keep page ownership clear: Architecture explains components and flows; Decisions
 Use cases at /use-cases/ is a top-level page with its own numbered floating index. It links existing knowledge-assistant examples and the AI Harness Landscape case study; avoid adding unsupported projects or client outcomes.
 
 Interview Preparation (/case-studies/interview-preparation/) adapts the legacy preparation method. Client Research and Pitch Preparation (/case-studies/client-research/) remains a workflow concept. Both are listed on Use cases and own a floating index. Keep public examples illustrative and preserve the client-workflow concept label.
+
+Use cases is a compact four-entry directory under the original hero, retaining existing fragment IDs. Reader-page indexes use short labels through heading data-index-label attributes; case-study return links restore their own hub entry. Mobile primary navigation keeps all five links in balanced rows with 44px minimum height. Preserve the concise purpose/workflow/example/review/related-work ownership.
+
+On the grouped Use cases directory, keep entries neutral during ordinary scrolling. Highlight a visible entry only when its fragment is selected; do not automatically select the last grid item at the page bottom.

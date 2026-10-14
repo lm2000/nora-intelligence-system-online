@@ -11,13 +11,14 @@ interface Props {
   tagline?: string;
   entries: Entry[];
   ariaLabel?: string;
+  grouped?: boolean;
 }
 
-const { title, tagline, entries, ariaLabel = 'Page navigation' } = Astro.props;
+const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false } = Astro.props;
 ---
 <details class="contents-disclosure" open>
   <summary>On this page</summary>
-  <aside class="orchestration-card orchestration-card--nav" data-orchestration-nav aria-label={ariaLabel}>
+  <aside class="orchestration-card orchestration-card--nav" data-orchestration-nav data-grouped-index={grouped ? 'true' : undefined} aria-label={ariaLabel}>
     {tagline && <div class="card-kicker">{tagline}</div>}
     {title && <h2>{title}</h2>}
     <ol class="mini-flow">
@@ -100,6 +101,19 @@ const { title, tagline, entries, ariaLabel = 'Page navigation' } = Astro.props;
         var doc = document.documentElement;
         var nearBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 120;
         var current = sections[0].section.id;
+        if (nav.hasAttribute('data-grouped-index')) {
+          var selectedId = window.location.hash.slice(1);
+          for (var g = 0; g < sections.length; g++) {
+            var groupRect = sections[g].section.getBoundingClientRect();
+            if (sections[g].section.id === selectedId && groupRect.bottom > line && groupRect.top < window.innerHeight) {
+              activate(selectedId);
+              return;
+            }
+          }
+          var overviewRect = sections[0].section.getBoundingClientRect();
+          activate(overviewRect.bottom > line ? sections[0].section.id : '');
+          return;
+        }
         for (var k = 0; k < sections.length; k++) {
           if (sections[k].section.getBoundingClientRect().top <= line) {
             current = sections[k].section.id;

@@ -191,7 +191,7 @@ function initPageIndex(): void {
     }
     if (!h.id && id !== parentSection?.id) h.id = id;
 
-    const label = h.tagName === 'H1' ? 'Overview' : (parentSection?.getAttribute('data-index-label') || rawText.replace(/\.$/, ''));
+    const label = h.tagName === 'H1' ? 'Overview' : (h.getAttribute('data-index-label') || parentSection?.getAttribute('data-index-label') || rawText.replace(/\.$/, ''));
     if (!label) return;
 
     const li = document.createElement('li');

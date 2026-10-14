@@ -2,8 +2,8 @@
 import SiteLayout from './SiteLayout.astro';
 import PageIndex from '../components/PageIndex.astro';
 import { href } from '../lib/constants.mjs';
-interface Props { title: string; summary: string; path: string; kind: string; }
-const { title, summary, path, kind } = Astro.props;
+interface Props { title: string; summary: string; path: string; kind: string; returnAnchor: string; }
+const { title, summary, path, kind, returnAnchor } = Astro.props;
 ---
 <SiteLayout title={`${title} — Nora SuperIntelligence Lab`} description={summary} path={path}>
   <article class="container content-page case-study">
@@ -12,13 +12,13 @@ const { title, summary, path, kind } = Astro.props;
     <p class="page-intro">{summary}</p>
     <PageIndex />
     <slot />
-    <p class="case-back"><a class="text-link" href={href('/use-cases/')}>All use cases <span aria-hidden="true">→</span></a></p>
+    <p class="case-back"><a class="text-link" href={href(`/use-cases/#${returnAnchor}`)}>All use cases <span aria-hidden="true">→</span></a></p>
   </article>
 </SiteLayout>
 <style>
   .case-study { padding-block: 48px 80px; min-width: 0; }
   .case-study h1 { max-width: 18ch; overflow-wrap: break-word; }
-  .page-intro { max-width: 65ch; color: var(--ink-soft); font-size: 1.125rem; line-height: 1.7; }
+  .page-intro { max-width: 65ch; color: var(--ink-soft); font-size: 18px; line-height: 1.7; }
   .case-study :global(h2) { margin-top: 2.5em; }
   .case-study :global(p), .case-study :global(li) { max-width: 68ch; line-height: 1.7; }
   .case-study :global(li) { margin-bottom: 12px; }
