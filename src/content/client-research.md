@@ -11,6 +11,23 @@ For an agency choosing which accounts to pursue, useful research explains accoun
 
 <h2 id="example-account-brief" data-index-label="Example">Example account brief and pitch</h2>
 
+### An illustrative shortlist
+
+These three invented candidates show how a reviewer narrows a shortlist. Signals and decisions are synthetic; a real shortlist would link each observation to its public source.
+
+<dl class="shortlist-example">
+  <dt>Retailer A · Research further</dt>
+  <dd><strong>Signal:</strong> Storefront expansion. <strong>Fit hypothesis:</strong> Acquisition and repeat-purchase measurement. <strong>Unknown:</strong> Reporting stack and ownership. <strong>Next action:</strong> Verify the expansion and prepare a measurement discovery question.</dd>
+  <dt>Manufacturer B · Hold</dt>
+  <dd><strong>Signal:</strong> A new regional sales team. <strong>Fit hypothesis:</strong> Support for entering a market. <strong>Unknown:</strong> Whether marketing help is needed. <strong>Next action:</strong> Resolve the need before preparing a pitch.</dd>
+  <dt>Software company C · Pass</dt>
+  <dd><strong>Signal:</strong> A product announcement. <strong>Fit hypothesis:</strong> No clear match to the agency’s services. <strong>Unknown:</strong> Buying intent. <strong>Next action:</strong> Leave it out of this round.</dd>
+</dl>
+
+The agency selects Retailer A for a deeper brief; a signal alone does not justify a pitch.
+
+### The selected account
+
 **Synthetic scenario: a retailer expanding its online storefront.** The company and expansion are invented for this example.
 
 > **Account signal:** Storefront expansion.

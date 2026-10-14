@@ -27,6 +27,20 @@ For candidates preparing a technical or leadership interview, the starting point
 >
 > **Debrief prompt:** Record the weakest explanation, the feedback received, and the next practice task.
 
+### Carry feedback into the next brief
+
+A fictional rehearsal exposes one gap in the same system-design example:
+
+> **Before:** The brief names an idempotent consumer but does not explain the failure sequence.
+>
+> **Feedback:** What happens if processing succeeds and the service stops before committing its offset?
+>
+> **Next brief:** Add a timeline: process the event, persist the result, then commit the offset. Explain how replay is handled and where an idempotency key is checked.
+>
+> **Next practice task:** Rehearse the failure and recovery in two minutes, stating the assumptions that make the design safe.
+
+The feedback becomes a specific revision and practice task, rather than another disconnected note.
+
 <h2 id="candidate-ownership" data-index-label="Human review">Candidate review</h2>
 
 The candidate checks the experience story, decides what to emphasize, and answers in their own voice. Research supports preparation; only their actual work supports personal achievement claims.

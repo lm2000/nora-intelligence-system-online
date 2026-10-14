@@ -2,6 +2,7 @@
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import PageIndex from '../../components/PageIndex.astro';
 import HarnessComparisonMap from '../../components/HarnessComparisonMap.astro';
+import { href } from '../../lib/constants.mjs';
 import { Content } from '../../content/ai-harness-landscape.md';
 
 const intro = 'From models to useful AI products: a public-source comparison of the software and processes that connect knowledge, tools, persistent state, and human review.';
@@ -18,12 +19,13 @@ const intro = 'From models to useful AI products: a public-source comparison of 
     <PageIndex />
 
     <section class="comparison-map-section" aria-labelledby="comparison-map-title">
-      <h2 id="comparison-map-title">Comparison map</h2>
-      <p class="map-note">A visual summary of the dimensions used in the case study. Select a part of the harness to see the question it raises.</p>
+      <h2 id="comparison-map-title" data-index-label="Map">Comparison map</h2>
+      <p class="map-note">A visual summary of the dimensions used in the case study. Choose a dimension to explore its question. The map and tables use the same comparison framework.</p>
       <HarnessComparisonMap />
     </section>
 
     <Content />
+    <p class="case-back"><a class="text-link" href={href('/use-cases/#ai-harness-landscape')}>All use cases <span aria-hidden="true">→</span></a></p>
   </article>
 </SiteLayout>
 
@@ -40,6 +42,10 @@ const intro = 'From models to useful AI products: a public-source comparison of 
       wrapper.setAttribute('aria-label', `Scrollable table ${index + 1}`);
       table.parentNode?.insertBefore(wrapper, table);
       wrapper.appendChild(table);
+      const cue = document.createElement('p');
+      cue.className = 'table-swipe-note';
+      cue.textContent = 'Swipe the table to read all columns.';
+      wrapper.before(cue);
     });
   };
 
@@ -51,6 +57,9 @@ const intro = 'From models to useful AI products: a public-source comparison of 
 </script>
 
 <style>
+  .case-back { margin-top: 48px; }
+  :global(.table-swipe-note) { display: none; }
+  @media (max-width: 680px) { :global(.table-swipe-note) { display: block; font-size: 15px; color: var(--ink-soft); margin: 24px 0 8px; } }
   .content-page { padding-top: 40px; padding-bottom: 40px; }
   .content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
   .content-page :global(h2) { margin-top: 2.5em; }

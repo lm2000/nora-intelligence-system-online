@@ -182,9 +182,9 @@ import SourceMap from '../components/SourceMap.astro';
 .step-counter { font-size: 14px; font-weight: 700; color: var(--color-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
 .step-title { margin: 8px 0 16px; }
 .step-scenario { font-size: 18px; margin-bottom: 16px; font-weight: 500; color: var(--color-ink); }
-.step-detail-disclosure { margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid var(--color-border); border-radius: 8px; }
-.step-detail-disclosure summary { cursor: pointer; font-weight: 600; color: var(--color-teal); }
-.step-detail-content { margin-top: 16px; }
+.step-detail-disclosure { margin-top: 24px; margin-bottom: 24px; border: 1px solid var(--color-border); border-radius: 8px; }
+.step-detail-disclosure summary { padding: 16px; min-height: 52px; cursor: pointer; font-weight: 600; color: var(--color-teal); }
+.step-detail-content { padding: 0 16px 16px; }
 .step-detail-content :global(p) { max-width: 66ch; }
 .step-source { font-weight: 600; display: inline-block; margin-bottom: 24px; }
 .step-controls { display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--color-border); padding-top: 24px; }
@@ -203,9 +203,9 @@ import SourceMap from '../components/SourceMap.astro';
 .ctrl-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .ctrl-reset { border-color: var(--color-border); color: var(--color-secondary); }
 .map-section { margin-top: 48px; }
-.source-figure-details { margin-top: 24px; padding: 16px; border: 1px solid var(--color-border); border-radius: 8px; }
-.source-figure-details summary { cursor: pointer; font-weight: 600; color: var(--color-teal); }
-.walkthrough-figure { margin-top: 16px; }
+.source-figure-details { margin-top: 24px; border: 1px solid var(--color-border); border-radius: 8px; }
+.source-figure-details summary { padding: 16px; min-height: 52px; cursor: pointer; font-weight: 600; color: var(--color-teal); }
+.walkthrough-figure { margin: 16px; }
 @media (min-width: 1081px) {
   .walkthroughs-page {
     max-width: 1180px;

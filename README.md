@@ -39,7 +39,7 @@ pnpm build
 ## Website Content Guidelines
 
 - The website is a static build with in-page HTML diagram interactions and a guided fictional walkthrough. It has no live chat functionality.
-- Main navigation: Home, Architecture, Walkthroughs, and Founders, each on its own page with its own index. Supporting technical pages remain accessible through contextual and footer links.
+- Main navigation: Home, Architecture, Walkthroughs, Use cases, and Founders, each on its own page with its own index. Supporting technical pages remain accessible through contextual and footer links.
 - Founder profile on `/founders/` is Michael Lvov (alone). The profile array lives in `src/data/site.json`.
 - Public contact supplied by owner: `mailto:michael.lm00@gmail.com`.
 - GitHub: `https://github.com/lm2000`.

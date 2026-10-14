@@ -2,7 +2,7 @@
   "home": {
     "heading": "Building knowledge assistants and",
     "headingEmphasis": "practical AI systems.",
-    "intro": "I lead an independent lab building knowledge assistants and practical AI systems. My current project is a knowledge assistant, built around retrieval, tool use, and durable conversation state."
+    "intro": "I’m Michael Lvov. My current project is a knowledge assistant built around retrieval, tool use, and durable conversation state."
   },
   "founders": [
     {
@@ -23,8 +23,13 @@
         {
           "label": "GitHub profile",
           "url": "https://github.com/lm2000"
+        },
+        {
+          "label": "View my LinkedIn profile",
+          "url": "https://www.linkedin.com/in/michael-lvov-05a8125/"
         }
-      ]
+      ],
+      "background": "My background includes real-time streaming at Capital One and petabyte-scale healthcare ingestion at Aetion. At Nora SuperIntelligence Lab, I apply that experience to stateful agents and retrieval systems."
     }
   ],
   "contact": {
