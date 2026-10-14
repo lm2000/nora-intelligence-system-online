@@ -30,7 +30,7 @@ The expected result is that `make validate` completes without errors.
 
 These development checks do not exercise real GCS bucket creation, credentials, or upload; local verification uses a `FakeGCSClient` double. Optional Docling conversion and additional client identities remain unverified. Follow the setup guide for the application and real retrieval smoke test.
 
-For the dated evidence behind these checks, see [Validation](../validation/).
+For the evidence behind these checks, see [Validation](../validation/).
 
 <h2 id="reference">Reference</h2>
 

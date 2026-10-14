@@ -124,3 +124,22 @@ Read-only review of Home, Architecture, Walkthroughs, and Founders on the latest
 Owner accepted the hosted review and authorized publication. The official Vercel promotion flow created production deployment `dpl_F3EC49Mk7fh2LZboHXheBbQe7j3r` from accepted website commit `9e2fdd9d4a31a9720a315034db3f9631bb5fcfd1`. Production is public at https://nora-intelligence-system.com/; the preview remains separately available with its existing protection. Main was fast-forwarded to the accepted source so the Website source link matches the release.
 
 Unauthenticated HTTP checks return 200 for all seven routes and match the accepted build. All 18 configured legacy redirects return their configured 301 and resolve to working destinations. Browser checks confirm request Next reaches Grounding, Bounded Reasoning and Plain Answer; Previous returns to Bounded Reasoning; Reset returns to Current Question; Founders retains the approved contact. Earlier release checks passed 15 tests, zero Astro diagnostics, root/Pages builds, and 362 links across 28 HTML files. No changes to the private harness services or corpus were made. Subsequent documentation-only release-record commits do not change the accepted website content.
+
+
+## AI Harness Landscape supporting case study — 2026-10-14
+
+Owner authorized integrating the public research draft as a supporting page at /case-studies/ai-harness-landscape/ with a card under Home Current work. Four main tabs and existing Home anchors remain. The page uses its own shared floating index, compact mobile disclosure, and direct HTML comparison-map controls; vendor statements retain public-source links. Ollama Cloud generated the page/card/map and reviewed fresh desktop/mobile captures. Integration corrected generated markup, TypeScript types, button semantics, header/index configuration, and a long index heading.
+
+Local validation: zero Astro diagnostics, all 15 existing tests pass, root and GitHub Pages builds pass 380 links across 29 HTML files. Browser checks verify card navigation, keyboard selection and Escape reset, mobile index auto-close, all four mobile header links, header clearance, and no page overflow. Hosted preview is being prepared; production is unchanged.
+
+Hosted case-study review: https://nora-intelligence-system-online-reka3xehq-nora-builders.vercel.app/case-studies/ai-harness-landscape/ . Deployment dpl_BfsJ1xEneGQ7jrdxyrK3gMuwf1YS is READY (preview). Authenticated hosted HTML and browser readback confirm the page and inline map. Existing preview protection is retained. Production is unchanged.
+
+
+## Remove visible calendar dates
+
+Owner requested removing dates everywhere in visible website copy. Case-study byline and Method, Founders outcome label, and Validation table/copy now omit calendar dates. Validation rows are identified by check name; evidence links and limits remain. All eight active pages pass a rendered-text date scan. Fifteen tests, root build, and 380 link checks pass. Preview deployment dpl_Da3CHBeeS4Cwp8zkm58waRo77itZ is READY at https://nora-intelligence-system-online-i79gk24gu-nora-builders.vercel.app/ . Browser readback confirms no displayed dates on the case study. Production is unchanged.
+
+
+## Published AI Harness Landscape integration
+
+Owner accepted the date-free preview and authorized publication. Vercel promotion created production deployment dpl_6WfEejBJ6iaH9HNFiBr3WfoRzdQk, confirmed READY and aliased to https://nora-intelligence-system.com/ . Unauthenticated readback of all eight active routes returns 200 and matches the accepted local build byte-for-byte. Date checks pass for all eight rendered pages. Browser readback confirms the single-author byline, four main tabs, and map selection on the production case study. Earlier checks passed all 15 tests and 380 local links; root and Pages builds passed.

@@ -33,11 +33,11 @@ test('Founders links current Nora examples to evidence anchors', () => {
   assert.match(founders, /\/validation\/#isolated-container-checks/);
 });
 
-test('Validation records dated and undated checks in a semantic table', () => {
+test('Validation identifies checks in a semantic table without display dates', () => {
   assert.match(validation, /<table class="validation-table">/);
-  assert.match(validation, /datetime="2026-09-14"/);
-  assert.match(validation, /datetime="2026-10-13"/);
-  assert.match(validation, /<th scope="row">Undated<\/th>/);
+  assert.doesNotMatch(validation, /<time\b|\b2026-\d{2}-\d{2}\b/);
+  assert.match(validation, /<th scope="row">Isolated container checks<\/th>/);
+  assert.match(validation, /<th scope="row">Contract and retrieval fixture checks<\/th>/);
   assert.match(validation, /Checkpoint persistence does not establish clean-target restoration/);
 });
 

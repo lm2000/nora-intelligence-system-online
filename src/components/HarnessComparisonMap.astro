@@ -1,0 +1,207 @@
+---
+
+---
+
+<div class="harness-map" data-harness-map>
+  <div class="harness-map__grid" role="group" aria-label="Comparison dimensions">
+    <button type="button" class="harness-map__node is-selected" data-topic="task" aria-pressed="true">
+      <span class="harness-map__name">Task</span>
+      <span class="harness-map__hint">Unit of work</span>
+    </button>
+    <button type="button" class="harness-map__node" data-topic="knowledge" aria-pressed="false">
+      <span class="harness-map__name">Knowledge</span>
+      <span class="harness-map__hint">Grounding sources</span>
+    </button>
+    <button type="button" class="harness-map__node" data-topic="model" aria-pressed="false">
+      <span class="harness-map__name">Model/workflow</span>
+      <span class="harness-map__hint">Reasoning path</span>
+    </button>
+    <button type="button" class="harness-map__node" data-topic="tools" aria-pressed="false">
+      <span class="harness-map__name">Tools</span>
+      <span class="harness-map__hint">Systems it can touch</span>
+    </button>
+    <button type="button" class="harness-map__node" data-topic="human-review" aria-pressed="false">
+      <span class="harness-map__name">Human review</span>
+      <span class="harness-map__hint">Escalation and checks</span>
+    </button>
+    <button type="button" class="harness-map__node" data-topic="work-product" aria-pressed="false">
+      <span class="harness-map__name">Work product</span>
+      <span class="harness-map__hint">Artifacts and records</span>
+    </button>
+  </div>
+
+  <div class="harness-map__detail" data-detail aria-live="polite">
+    <p class="harness-map__eyebrow">Conceptual lens</p>
+    <h3 class="harness-map__title" data-detail-title>Task</h3>
+    <p class="harness-map__text" data-detail-text>
+      What is the smallest useful unit of work the product is trying to complete, and what counts as done?
+    </p>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const root = document.querySelector<HTMLElement>('[data-harness-map]');
+    if (!root) return;
+
+    const topics: Record<string, { title: string; text: string }> = {
+      task: {
+        title: 'Task',
+        text: 'What is the smallest useful unit of work the product is trying to complete, and what counts as done?'
+      },
+      knowledge: {
+        title: 'Knowledge',
+        text: 'What sources ground the system: uploaded documents, curated knowledge, customer records, or the model itself?'
+      },
+      model: {
+        title: 'Model/workflow',
+        text: 'How is the model arranged inside the larger workflow, and where does orchestration or process logic shape the result?'
+      },
+      tools: {
+        title: 'Tools',
+        text: 'Can the system only read and suggest, or can it act in connected systems, write to records, or trigger follow-up work?'
+      },
+      'human-review': {
+        title: 'Human review',
+        text: 'Where do people review, sample, approve, correct, or take over, and how is escalation built into the normal path?'
+      },
+      'work-product': {
+        title: 'Work product',
+        text: 'What durable artifact or record results: a draft, a decision, a scheduled action, an audit trail, or a corrected chart?'
+      }
+    };
+
+    const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-topic]'));
+    const titleEl = root.querySelector('[data-detail-title]');
+    const textEl = root.querySelector('[data-detail-text]');
+
+    const render = (topicKey: string | undefined) => {
+      if (!topicKey) return;
+      const topic = topics[topicKey];
+      if (!topic) return;
+
+      buttons.forEach((button) => {
+        button.classList.toggle('is-selected', button.dataset.topic === topicKey);
+        button.setAttribute('aria-pressed', String(button.dataset.topic === topicKey));
+      });
+
+      if (titleEl) titleEl.textContent = topic.title;
+      if (textEl) textEl.textContent = topic.text;
+    };
+
+    const reset = () => render('task');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => render(button.dataset.topic));
+    });
+
+    root.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') reset();
+    });
+  })();
+</script>
+
+<style>
+  .harness-map {
+    display: grid;
+    gap: 22px;
+  }
+
+  .harness-map__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .harness-map__node {
+    position: relative;
+    min-height: 118px;
+    padding: 18px 18px 16px;
+    border: 1px solid rgba(178, 205, 219, 0.16);
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, rgba(11, 36, 54, 0.78), rgba(7, 24, 39, 0.9));
+    color: var(--ink);
+    text-align: left;
+    box-shadow: 0 18px 38px rgba(1, 11, 18, 0.14);
+    cursor: pointer;
+  }
+
+  .harness-map__node::after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(55, 208, 181, 0.28);
+    box-shadow: 0 0 0 6px rgba(55, 208, 181, 0.08);
+  }
+
+  .harness-map__node:hover {
+    border-color: rgba(55, 208, 181, 0.45);
+  }
+
+  .harness-map__node:focus-visible {
+    outline: 3px solid rgba(55, 208, 181, 0.7);
+    outline-offset: 3px;
+  }
+
+  .harness-map__node.is-selected {
+    border-color: rgba(55, 208, 181, 0.75);
+    background: linear-gradient(180deg, rgba(12, 44, 58, 0.95), rgba(7, 24, 39, 0.96));
+  }
+
+  .harness-map__name {
+    display: block;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 750;
+    line-height: 1.25;
+  }
+
+  .harness-map__hint {
+    display: block;
+    margin-top: 10px;
+    color: var(--teal);
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+
+  .harness-map__detail {
+    padding: 20px 20px 18px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: rgba(11, 36, 54, 0.58);
+  }
+
+  .harness-map__eyebrow {
+    margin: 0 0 10px;
+    color: var(--teal);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .harness-map__title {
+    margin: 0 0 10px;
+    color: var(--white);
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .harness-map__text {
+    margin: 0;
+    max-width: 66ch;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 680px) {
+    .harness-map__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

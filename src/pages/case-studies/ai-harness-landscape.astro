@@ -1,0 +1,118 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageIndex from '../../components/PageIndex.astro';
+import HarnessComparisonMap from '../../components/HarnessComparisonMap.astro';
+import { Content } from '../../content/ai-harness-landscape.md';
+
+const intro = 'From models to useful AI products: a public-source comparison of the software and processes that connect knowledge, tools, persistent state, and human review.';
+---
+
+<SiteLayout title="AI Harness Landscape — Nora SuperIntelligence Lab" description="Research case study comparing how AI products connect knowledge, tools, durable state, and human review into a useful workflow." path="/case-studies/ai-harness-landscape/">
+  <article class="container content-page ai-harness-page" data-supporting-page="ai-harness-landscape">
+    <h1 id="ai-harness-landscape">AI Harness Landscape</h1>
+
+    <p class="page-intro">{intro}</p>
+    <p class="page-subintro">Michael Lvov</p>
+    <p class="page-subintro">A simplified conceptual lens for comparing product architecture. It is not a universal pipeline and not a vendor topology.</p>
+
+    <PageIndex />
+
+    <section class="comparison-map-section" aria-labelledby="comparison-map-title">
+      <h2 id="comparison-map-title">Comparison map</h2>
+      <p class="map-note">A visual summary of the dimensions used in the case study. Select a part of the harness to see the question it raises.</p>
+      <HarnessComparisonMap />
+    </section>
+
+    <Content />
+  </article>
+</SiteLayout>
+
+<script>
+  const wrapTables = () => {
+    const article = document.querySelector('.ai-harness-page');
+    if (!article) return;
+    article.querySelectorAll('table').forEach((table, index) => {
+      if (table.closest('.table-scroll')) return;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-scroll';
+      wrapper.setAttribute('tabindex', '0');
+      wrapper.setAttribute('role', 'region');
+      wrapper.setAttribute('aria-label', `Scrollable table ${index + 1}`);
+      table.parentNode?.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wrapTables);
+  } else {
+    wrapTables();
+  }
+</script>
+
+<style>
+  .content-page { padding-top: 40px; padding-bottom: 40px; }
+  .content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
+  .content-page :global(h2) { margin-top: 2.5em; }
+  .content-page .page-intro { scroll-margin-top: calc(var(--header-height) + 24px); font-size: 18px; line-height: 1.7; max-width: 66ch; color: var(--ink-soft); }
+  .content-page .page-subintro { margin-top: 12px; max-width: 66ch; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+
+  .comparison-map-section { margin-top: 2.5em; }
+  .comparison-map-section h2 { margin: 0 0 12px; }
+  .map-note { margin: 0 0 18px; max-width: 66ch; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+
+  :global(.table-scroll) {
+    max-width: 100%;
+    margin-top: 28px;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: rgba(11, 36, 54, 0.58);
+    -webkit-overflow-scrolling: touch;
+  }
+  :global(.table-scroll:focus-visible) {
+    outline: 3px solid rgba(55, 208, 181, 0.7);
+    outline-offset: 4px;
+  }
+  :global(.table-scroll table) {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  :global(.table-scroll caption) {
+    padding: 20px 22px 16px;
+    color: var(--ink);
+    font-size: 1.1rem;
+    font-weight: 720;
+    text-align: left;
+  }
+  :global(.table-scroll th),
+  :global(.table-scroll td) {
+    padding: 18px 16px;
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+    text-align: left;
+  }
+  :global(.table-scroll thead th) {
+    color: var(--teal-light);
+    background: rgba(7, 24, 39, 0.62);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  :global(.table-scroll tbody tr:nth-child(even)) {
+    background: rgba(7, 24, 39, 0.22);
+  }
+  :global(.table-scroll code) { color: var(--ink); font-size: 0.9em; }
+  :global(.table-scroll a) { color: var(--color-muted-blue); font-weight: 650; }
+
+  @media (max-width: 680px) {
+    :global(.table-scroll) {
+      margin-inline: -4px;
+      border-radius: var(--radius-sm);
+    }
+  }
+</style>
