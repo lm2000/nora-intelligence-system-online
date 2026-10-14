@@ -1,3 +1,5 @@
+The checks below describe the linked source snapshot. For later corrections and rollout outcomes, see the [public repository README](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/main/README.md).
+
 <h2 id="validation-evidence">Recorded validation evidence</h2>
 
 The table keeps the environment, observed result, and qualification together.
@@ -38,7 +40,9 @@ The table keeps the environment, observed result, and qualification together.
 
 <h2 id="boundaries-and-recovery">Known limits and bounded follow-up</h2>
 
-Representative answer quality, correction behavior, other CPU/host targets, resource and failure limits, real GCS access, optional Docling conversion, and additional client identities remain unverified. The latest local repair and heading-whitespace correction passed two fresh preparation questions and one follow-up in an isolated Ollama Cloud `gpt-oss:20b` check. The correction was subsequently deployed on the private `glm-5.3-flash` route; two fresh gateway questions and a follow-up passed. This bounded result does not establish general reliability. Enterprise shared memory, Kubernetes/SSO, commercial scale, and measured customer AI latency are unimplemented and unverified. Tailscale private communication is selected but not established by this pass.
+Representative answer quality, correction behavior, other CPU/host targets, resource and failure limits, real GCS access, optional Docling conversion, and additional client identities remain unverified. The earlier local repair and heading-whitespace correction passed two fresh preparation questions and one follow-up in an isolated Ollama Cloud `gpt-oss:20b` check. The correction was subsequently deployed on the private `glm-5.3-flash` route; two fresh gateway questions and a follow-up passed. This bounded result does not establish general reliability. Enterprise shared memory, Kubernetes/SSO, commercial scale, and measured customer AI latency are unimplemented and unverified. Tailscale private communication is selected but not established by this pass.
+
+A later named-guide and follow-up correction passed a separate six-case isolated check. During rollout, that candidate failed two of three selected wording checks and was rolled back to the prior image. This bounded result does not establish general reliability.
 
 <h2 id="reference">Reference</h2>
 

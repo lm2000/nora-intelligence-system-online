@@ -10,7 +10,7 @@ const indexEntries = [
   { id: 'michael', label: 'Michael', description: 'Founder of Nora SuperIntelligence Lab' },
   { id: 'expertise', label: 'Expertise', description: 'Focus areas from the public profile' },
   { id: 'opportunities', label: 'Opportunities', description: 'Roles and projects in scope' },
-  { id: 'contact', label: 'Contact', description: 'Email and GitHub' }
+  { id: 'contact', label: 'Contact', description: 'Email, GitHub and LinkedIn' }
 ];
 ---
 <SiteLayout title="Founders — Nora SuperIntelligence Lab" description="The people behind Nora SuperIntelligence Lab." path="/founders/" customIndex={true}>
@@ -47,6 +47,7 @@ const indexEntries = [
           {f.image && <img class="founder-portrait" src={href('/' + f.image)} alt={`Portrait of ${f.name}`} width="200" height="200" />}
           <div class="founder-main">
             <p class="founder-bio">{f.bio}</p>
+            {f.background && <p class="founder-bio">{f.background}</p>}
             {f.focus && f.focus.length > 0 && (
               <div class="founder-expertise" id="expertise" data-index-label="Expertise">
                 <h3 class="founder-subheading">Focus areas.</h3>

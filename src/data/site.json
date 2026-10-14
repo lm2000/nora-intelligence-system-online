@@ -23,8 +23,13 @@
         {
           "label": "GitHub profile",
           "url": "https://github.com/lm2000"
+        },
+        {
+          "label": "View my LinkedIn profile",
+          "url": "https://www.linkedin.com/in/michael-lvov-05a8125/"
         }
-      ]
+      ],
+      "background": "My background includes real-time streaming at Capital One and petabyte-scale healthcare ingestion at Aetion. At Nora SuperIntelligence Lab, I apply that experience to stateful agents and retrieval systems."
     }
   ],
   "contact": {
