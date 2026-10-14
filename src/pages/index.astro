@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import OriginalIndex from '../components/OriginalIndex.astro';
+import EmailAddress from '../components/EmailAddress.astro';
 import { href } from '../lib/constants.mjs';
 import site from '../data/site.json';
 import walkthroughs from '../data/walkthroughs.json';
@@ -74,7 +75,7 @@ const indexEntries = [
       <div class="foundation-list" role="list">
         <div role="listitem">
           <span>01</span>
-          <p><strong>Start with a concrete use case.</strong> Use a concrete task to guide what the system needs to do.</p>
+          <p><strong>Start with a concrete use case</strong> to guide what the system needs to do.</p>
         </div>
         <div role="listitem">
           <span>02</span>
@@ -92,13 +93,13 @@ const indexEntries = [
     <div class="shell foundation-layout">
       <div class="foundation-copy">
         <p class="section-label">Founders</p>
-        <h2>I’m Michael Lvov. I lead Nora SuperIntelligence Lab’s knowledge-assistant project.</h2>
+        <h2>The person behind the lab.</h2>
       </div>
       {founder && (
         <div class="foundation-list">
           <div class="founder-entry">
             <span>01</span>
-            <p><strong>I’m Michael.</strong> I’m exploring how people, knowledge, agents, and tools can work together without losing human judgment.</p>
+            <p>I lead the knowledge-assistant project at Nora SuperIntelligence Lab, exploring how people, knowledge, agents, and tools can work together without losing human judgment.</p>
             <p class="founder-links"><a class="text-link" href={href('/founders/')}>More about me <span aria-hidden="true">→</span></a></p>
           </div>
         </div>
@@ -122,6 +123,7 @@ const indexEntries = [
           ))}
           <a class="button button--ghost" href="https://www.linkedin.com/in/michael-lvov-05a8125/">View my LinkedIn profile</a>
         </div>
+        <EmailAddress />
       </div>
     </section>
   )}

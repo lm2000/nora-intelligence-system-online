@@ -1,6 +1,7 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import OriginalIndex from '../../components/OriginalIndex.astro';
+import EmailAddress from '../../components/EmailAddress.astro';
 import { href } from '../../lib/constants.mjs';
 
 const entries = [
@@ -69,6 +70,7 @@ const entries = [
       <p>Discuss a scoped workflow project with Michael Lvov. Independent work at Nora SuperIntelligence Lab informs his engineering services: readiness assessments, architecture reviews and scoped prototypes with an evaluation plan.</p>
       </div>
       <a class="button button--primary" href="mailto:michael.lm00@gmail.com">Discuss a workflow with Michael <span aria-hidden="true">→</span></a>
+      <EmailAddress />
     </div>
   </section>
 </SiteLayout>
