@@ -1,58 +1,125 @@
 ---
-import { href, sourceUrl } from '../lib/constants.mjs';
-
+import { href } from '../lib/constants.mjs';
 interface Props {
   previewSrc: string;
   htmlUrl?: string;
   gifUrl?: string;
-  sourcePath: string;
+  sourcePath?: string;
   alt: string;
   caption?: string;
   title?: string;
   purpose?: string;
 }
 
-const { previewSrc, htmlUrl, gifUrl, sourcePath, alt, caption, title, purpose } = Astro.props;
+const { previewSrc, htmlUrl, alt, caption, title, purpose } = Astro.props;
 
-const base = (previewSrc.split('/').pop() || '').replace('-preview.svg', '').replace(/\-/g, ' ').replace(/^\w/, c => c.toUpperCase());
+const base = (previewSrc.split('/').pop() || '')
+  .replace('-preview.svg', '')
+  .replace(/\-/g, ' ')
+  .replace(/^\w/, (c) => c.toUpperCase());
 const derivedTitle = title || base;
-const resolvedSourcePath = sourcePath.startsWith('diagrams/') ? `architecture/${sourcePath}` : sourcePath;
+
+const files = import.meta.glob('../../public/diagrams/*.html', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+
+let svgString = '';
+let details: Record<string, { label: string; detail: string }> = {};
+
+if (htmlUrl) {
+  const basename = htmlUrl.split('/').pop();
+  if (basename && files[`../../public/diagrams/${basename}`]) {
+    const rawHtml = files[`../../public/diagrams/${basename}`] as string;
+    const svgMatch = rawHtml.match(/<svg[\s\S]*?<\/svg>/i);
+    if (svgMatch) svgString = svgMatch[0];
+    const detailsMatch = rawHtml.match(/const details\s*=\s*(\{[\s\S]*?\});\s*let playing/);
+    if (detailsMatch) {
+      try {
+        // Parsed directly: the canonical details block is a valid JSON literal.
+        details = JSON.parse(detailsMatch[1]) as Record<string, { label: string; detail: string }>;
+      } catch (e) {
+        details = {};
+      }
+    }
+  }
+}
+
+svgString = svgString
+  .replace(/\srole="button"/g, '')
+  .replace(/\stabindex="0"/g, '')
+  .replace(/\saria-pressed="[^"]*"/g, '');
+
+const keys = Object.keys(details);
+const isInteractive = keys.length > 0 && svgString.length > 0;
+const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
 ---
+
 <figure class="diagram">
-  <div class="diagram-frame">
-    <div class="diagram-header">
-      <h3 class="diagram-title">{derivedTitle}</h3>
-      {purpose && <p class="diagram-purpose">{purpose}</p>}
-    </div>
-    <div class="diagram-image-wrapper">
+  <div class="diagram-header">
+    <h3 class="diagram-title">{derivedTitle}</h3>
+    {purpose && <p class="diagram-purpose">{purpose}</p>}
+  </div>
+
+  {isInteractive ? (
+    <interactive-diagram>
+      <div class="diagram-interactive" data-diagram-interactive>
+        <div class="diagram-controls">
+          <label class="diagram-select-label">
+            <span class="visually-hidden">Select a component</span>
+            <select class="diagram-select" aria-label="Select a component for details" disabled>
+              <option value="" selected>Select a component for details</option>
+              {keys.map((k) => (
+                <option value={k}>{details[k].label}</option>
+              ))}
+            </select>
+          </label>
+          <button type="button" class="diagram-reset" disabled>Reset selection</button>
+        </div>
+
+        <div class="diagram-viewport" data-diagram-viewport>
+          <div class="diagram-scroll-area" data-diagram-scroll-area>
+            <div class="diagram-svg-host" data-diagram-svg-host set:html={svgString}></div>
+          </div>
+          <p class="diagram-swipe-hint" aria-hidden="true">Swipe to explore</p>
+        </div>
+
+        <div class="diagram-detail-area">
+          <p class="diagram-hint">Hint: Select a component for details.</p>
+          <div class="diagram-selection-detail" aria-live="polite">
+            <p class="diagram-detail-label" data-diagram-detail-label></p>
+            <p class="diagram-detail-text" data-diagram-detail-text></p>
+          </div>
+        </div>
+
+        <details class="diagram-fallback">
+          <summary>View all component details</summary>
+          <ul class="diagram-fallback-list">
+            {keys.map((k) => (
+              <li><strong>{details[k].label}:</strong> {details[k].detail}</li>
+            ))}
+          </ul>
+        </details>
+
+        <script type="application/json" data-diagram-details set:html={detailsJson}></script>
+      </div>
+    </interactive-diagram>
+  ) : (
+    <div class="diagram-static-wrapper">
       <img src={href(previewSrc)} alt={alt} loading="lazy" />
     </div>
-  </div>
-  <figcaption>
-    {caption && <p class="caption-text">{caption}</p>}
-    <div class="diagram-links">
-      <a href={href(previewSrc)}>Open full figure</a>
-      {htmlUrl && <a href={href(htmlUrl)}>View HTML source</a>}
-      {gifUrl && <a href={href(gifUrl)}>View GIF</a>}
-      <a href={sourceUrl(resolvedSourcePath)}>View on GitHub</a>
-    </div>
-  </figcaption>
+  )}
+
+  {caption && <figcaption><p class="caption-text">{caption}</p></figcaption>}
 </figure>
+
 <style>
-.diagram {
-  margin: 0;
-}
-.diagram-frame {
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 24px;
-  background: var(--color-surface);
-}
-.diagram-header {
-  margin-bottom: 20px;
-}
+.diagram { margin: 0; }
+.diagram-header { margin-bottom: 20px; }
 .diagram-title {
-  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-family: inherit;
+  font-weight: 700;
   font-size: 24px;
   color: var(--color-ink);
   margin: 0 0 8px;
@@ -63,43 +130,282 @@ const resolvedSourcePath = sourcePath.startsWith('diagrams/') ? `architecture/${
   font-size: 15px;
   color: var(--color-secondary);
 }
-.diagram-image-wrapper {
-  width: 100%;
-}
-.diagram-frame img {
+
+interactive-diagram { display: block; }
+.diagram-interactive { display: flex; flex-direction: column; gap: 16px; }
+.diagram-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.diagram-select {
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 15px;
+  min-height: 44px;
   width: 100%;
   max-width: 100%;
-  height: auto;
-  display: block;
+  min-width: 0;
 }
-figcaption {
-  margin-top: 16px;
-}
-.caption-text {
+.diagram-select:disabled { opacity: 0.6; cursor: wait; }
+.diagram-reset {
+  padding: 10px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: transparent;
   color: var(--color-secondary);
-  font-size: 15px;
-  margin: 0 0 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  min-height: 44px;
 }
-.diagram-links {
+.diagram-reset:hover:not(:disabled) { background: var(--color-cool); }
+.diagram-reset:disabled { opacity: 0.6; cursor: wait; }
+
+.diagram-viewport {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  padding: 16px;
+}
+.diagram-scroll-area {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: center;
 }
-.diagram-links a {
-  font-size: 15px;
-  font-weight: 500;
+.diagram-svg-host { width: 100%; background: #fff; border-radius: 8px; }
+.diagram-swipe-hint { display: none; text-align: center; font-size: 13px; color: var(--color-secondary); margin: 8px 0 0; }
+.diagram-static-wrapper { width: 100%; }
+.diagram-static-wrapper img { width: 100%; max-width: 100%; height: auto; display: block; }
+
+.diagram-detail-area {
+  background: var(--color-cool);
+  border-radius: 8px;
+  padding: 16px 20px;
+  min-height: 80px;
 }
-@media (max-width: 760px) {
-  .diagram-frame {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .diagram-image-wrapper {
-    min-width: 1000px;
-  }
-  .diagram-frame img {
-    min-width: 1000px;
-    max-width: none;
-  }
+.diagram-hint { margin: 0; font-size: 15px; color: var(--color-secondary); font-style: italic; }
+.diagram-selection-detail { display: none; }
+.diagram-detail-label { margin: 0 0 4px; font-weight: 700; color: var(--color-ink); }
+.diagram-detail-text { margin: 0; font-size: 15px; color: var(--color-body); }
+.diagram-detail-area.has-selection .diagram-hint { display: none; }
+.diagram-detail-area.has-selection .diagram-selection-detail { display: block; }
+
+.diagram-fallback { margin-top: 4px; }
+.diagram-fallback summary { cursor: pointer; font-size: 14px; color: var(--color-secondary); }
+.diagram-fallback-list { list-style: none; padding: 16px 0 0; margin: 0; display: grid; gap: 12px; }
+.diagram-fallback-list li { font-size: 15px; color: var(--color-body); max-width: 80ch; }
+.diagram-fallback-list strong { color: var(--color-ink); }
+
+figcaption { margin-top: 16px; }
+.caption-text { color: var(--color-secondary); font-size: 15px; margin: 0; }
+
+@media (max-width: 768px) {
+  .diagram-scroll-area { justify-content: flex-start; }
+  .diagram-svg-host { min-width: 900px; }
+  .diagram-swipe-hint { display: block; }
 }
 </style>
+
+<script>
+class InteractiveDiagram extends HTMLElement {
+  private initialized = false;
+
+  connectedCallback(): void {
+    if (this.initialized) return;
+    this.initialized = true;
+
+    const container = this.querySelector<HTMLElement>('[data-diagram-interactive]');
+    const host = this.querySelector<HTMLElement>('[data-diagram-svg-host]');
+    const select = this.querySelector<HTMLSelectElement>('.diagram-select');
+    const resetBtn = this.querySelector<HTMLButtonElement>('.diagram-reset');
+    const detailArea = this.querySelector<HTMLElement>('.diagram-detail-area');
+    const detailLabel = this.querySelector<HTMLElement>('[data-diagram-detail-label]');
+    const detailText = this.querySelector<HTMLElement>('[data-diagram-detail-text]');
+    const fallback = this.querySelector<HTMLDetailsElement>('.diagram-fallback');
+    const scrollArea = this.querySelector<HTMLElement>('[data-diagram-scroll-area]');
+    const viewport = this.querySelector<HTMLElement>('[data-diagram-viewport]');
+    const detailsScript = this.querySelector<HTMLScriptElement>('script[data-diagram-details]');
+
+    const svg = host ? host.querySelector<SVGSVGElement>('svg') : null;
+    if (!container || !host || !select || !svg || !detailsScript) return;
+
+    let details: Record<string, { label: string; detail: string }> = {};
+    try {
+      details = JSON.parse(detailsScript.textContent || '{}') as Record<
+        string,
+        { label: string; detail: string }
+      >;
+    } catch (e) {
+      return;
+    }
+
+    const styleEl = svg.querySelector('style');
+    let cssText = styleEl && styleEl.textContent ? styleEl.textContent : '';
+    if (styleEl) styleEl.remove();
+
+    // Isolate IDs and marker URL references to the shadow they will live in.
+    cssText = cssText
+      .replace(/"fonts"/g, '"diagram-fonts"')
+      .replace(/"ink"/g, '"diagram-ink"');
+    const serializeId = (id: string) => 'diagram-' + id;
+    svg.querySelectorAll('[id]').forEach((el) => {
+      const id = el.getAttribute('id');
+      if (id) el.setAttribute('id', serializeId(id));
+    });
+    svg.querySelectorAll('*').forEach((el) => {
+      Array.from(el.attributes).forEach((attr) => {
+        if (attr.value.indexOf('url(#') !== -1) {
+          attr.value = attr.value.replace(/url\(#([^)]+)\)/g, 'url(#diagram-$1)');
+        }
+      });
+      const href = el.getAttribute('href') || el.getAttribute('xlink:href');
+      if (href && href.charAt(0) === '#') {
+        el.setAttribute('href', '#diagram-' + href.slice(1));
+        if (el.hasAttribute('xlink:href')) el.setAttribute('xlink:href', '#diagram-' + href.slice(1));
+      }
+    });
+
+    svg.removeAttribute('role');
+    svg.removeAttribute('aria-labelledby');
+    svg.setAttribute('role', 'group');
+    svg.setAttribute(
+      'aria-label',
+      'Interactive architecture diagram. Select components in the dropdown or activate nodes to read details.'
+    );
+
+    svg.querySelectorAll<SVGElement>('.pulse').forEach((n) => {
+      n.style.display = 'none';
+    });
+
+    const nodes = Array.from(svg.querySelectorAll<SVGGElement>('.node'));
+    const edges = Array.from(svg.querySelectorAll<SVGGElement>('.edge'));
+
+    // Shadow ONLY on the SVG host so the light-DOM controls stay visible.
+    const root = host.attachShadow({ mode: 'open' });
+
+    const style = document.createElement('style');
+    style.textContent = `
+      :host { display: block; }
+      svg { width: 100%; height: auto; max-width: 100%; display: block; }
+      ${cssText}
+      text { font-family: inherit; fill: #1a2733; }
+      .node { cursor: pointer; outline: none; }
+      .node:hover rect { stroke: #075973; }
+      .node:focus-visible rect { stroke: #075973; stroke-width: 2.5; }
+      .node.active rect {
+        stroke-width: 3.5;
+        filter: drop-shadow(0 3px 5px #254c6a55);
+        stroke: #075973 !important;
+        fill: #f0fbff !important;
+      }
+      .edge.active path { stroke: #075973; stroke-width: 3; }
+    `;
+    root.appendChild(style);
+    // Moves the live SVG (with listeners intact) from light DOM into the shadow.
+    root.appendChild(svg);
+
+    nodes.forEach((n) => {
+      n.setAttribute('tabindex', '0');
+      n.setAttribute('role', 'button');
+      n.setAttribute('aria-pressed', 'false');
+      const labelEl = n.querySelectorAll('text')[1];
+      const labelText = labelEl && labelEl.textContent ? labelEl.textContent : n.id;
+      n.setAttribute('aria-label', 'Select component: ' + labelText);
+    });
+
+    let focusId: string | null = null;
+
+    const selectNode = (rawId: string, restoreFocus = false): void => {
+      svg.querySelectorAll<SVGGElement>('.node.active').forEach((n) => {
+        n.classList.remove('active');
+        n.setAttribute('aria-pressed', 'false');
+      });
+      edges.forEach((e) => e.classList.remove('active'));
+
+      if (!rawId || !details[rawId]) {
+        select.value = '';
+        if (detailArea) detailArea.classList.remove('has-selection');
+        if (detailLabel) detailLabel.textContent = '';
+        if (detailText) detailText.textContent = '';
+        // Keep the fallback (hidden at enhancement) out of the live flow.
+        if (fallback) fallback.hidden = true;
+        return;
+      }
+
+      const node = svg.querySelector<SVGGElement>('#' + CSS.escape(serializeId(rawId)));
+      if (!node) return;
+
+      node.classList.add('active');
+      node.setAttribute('aria-pressed', 'true');
+      edges.forEach((e) => {
+        if (e.getAttribute('data-from') === rawId || e.getAttribute('data-to') === rawId) {
+          e.classList.add('active');
+        }
+      });
+
+      select.value = rawId;
+      if (fallback) fallback.hidden = true;
+
+      if (detailLabel) detailLabel.textContent = details[rawId].label;
+      if (detailText) detailText.textContent = details[rawId].detail;
+      if (detailArea) detailArea.classList.add('has-selection');
+
+      // Pan only the diagram's own scroll area — never scroll the page.
+      if (scrollArea && viewport && window.matchMedia('(max-width: 768px)').matches) {
+        try {
+          const bbox = node.getBBox();
+          const vtm = node.getScreenCTM();
+          const viewportRect = viewport.getBoundingClientRect();
+          const nodeRect = node.getBoundingClientRect();
+          if (vtm && bbox.width > 0) {
+            const nodeCenter = nodeRect.left + nodeRect.width / 2;
+            const currentFocal = viewportRect.left + scrollArea.clientWidth / 2;
+            const delta = nodeCenter - currentFocal;
+            scrollArea.scrollLeft = scrollArea.scrollLeft + delta;
+          }
+        } catch (e) {
+          /* geometry unavailable — leave scroll position unchanged */
+        }
+      }
+
+      if (restoreFocus && focusId !== null) {
+        const target = svg.querySelector<SVGGElement>('#' + CSS.escape(serializeId(focusId)));
+        if (target) target.focus();
+      }
+    };
+
+    select.addEventListener('change', () => selectNode(select.value));
+    resetBtn &&
+      resetBtn.addEventListener('click', () => {
+        selectNode('');
+        select.focus();
+      });
+
+    nodes.forEach((node) => {
+      const originalId = node.id.replace(/^diagram-/, '');
+      node.addEventListener('click', () => {
+        focusId = originalId;
+        selectNode(originalId, true);
+      });
+      node.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          focusId = originalId;
+          selectNode(originalId, true);
+        }
+      });
+    });
+
+    // Ready: enable controls and hide the no-JS fallback.
+    select.disabled = false;
+    if (resetBtn) resetBtn.disabled = false;
+    if (fallback) fallback.hidden = true;
+  }
+}
+
+if (!customElements.get('interactive-diagram')) {
+  customElements.define('interactive-diagram', InteractiveDiagram);
+}
+</script>

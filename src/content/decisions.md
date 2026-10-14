@@ -1,6 +1,6 @@
 ## Purpose
 
-This page owns the current accepted design for the Nora Intelligence System. Dated deployment evidence lives in validation records; superseded choices remain in Git history.
+This page owns the current accepted design for the knowledge assistant presented by Nora SuperIntelligence Lab. Dated deployment evidence lives in validation records; superseded choices remain in Git history.
 
 ## Example
 

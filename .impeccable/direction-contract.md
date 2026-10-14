@@ -1,11 +1,7 @@
-# Light Architecture Atlas
+# Existing website style
 
-The owner selected option 1, `exec-4a060da8-acaa-4d61-80b8-9b0bf5aa475c.png`, before implementation. The opening view explains one assistant and clear service boundaries, then offers a request walkthrough and the architecture reference.
+On 2026-10-14 the owner requested reuse of the existing live website style, UI/UX and functionality, including its floating content index. This supersedes the earlier light Option 1 visual direction. Use Nora SuperIntelligence Lab for the public website name.
 
-The visual system uses a cool white surface, navy serif headings with blue emphasis, teal pill actions, and fine borders around source diagrams. The visitor path moves from the system overview to request/manual-ingestion steps, decisions, validation, and reproduction. Founders and the contact action continue that system below the worked example.
+Reuse dark navy surfaces, bold Public Sans headings, teal accents, compact sticky navigation, pill actions and numbered discovery links. Long reading pages use a floating section index with active markers on desktop and an On this page disclosure on narrower screens. Keep the updated six-route technical portfolio, fictional Atlas walkthrough, Michael Lvov founder profile and approved public contact.
 
-Canonical public harness diagrams replace the generated drawing. The actual source diagram has a taller aspect; accurate relationships and readable labels take priority over its mockup geometry. Decorative contours and marketing microcopy are omitted. Michael Lvov is the only current founder, with the supplied email contact for roles and projects. The data structure can accommodate Alla later.
-
-The interaction is an illustrative static walkthrough with reversible navigation and deep links. No model inference, uploads, or public chat is included. Preview review precedes production publication.
-
-The owner approved this three-page repair using the old live journey and option3 compact overview, with concrete Atlas scenes and source component focus. The light visual system remains the selected foundation.
+Use source-based HTML diagram interaction where it helps explore responsibilities or follow steps. Homepage remains a simple overview. Preserve original source geometry and a light SVG canvas for readable labels. Remove special diagram format/source link bars. Canonical source files and checksums remain available for maintenance. Preview review precedes production publication.

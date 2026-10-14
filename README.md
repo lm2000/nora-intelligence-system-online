@@ -1,10 +1,10 @@
-# Nora Intelligence System
+# Nora SuperIntelligence Lab
 
-This repository contains the static Astro website for the Nora Intelligence System.
+This repository contains the static Astro website for the Nora SuperIntelligence Lab.
 
 ## Purpose
 
-Give technical interviewers a guided view of the Nora Intelligence System: service boundaries, request and ingestion paths, design decisions, validation, and reproduction instructions.
+Give technical interviewers a guided view of the Nora SuperIntelligence Lab: service boundaries, request and ingestion paths, design decisions, validation, and reproduction instructions.
 
 The homepage includes one static fictional example: “What still blocks the Atlas release?” → “The load test and rollback rehearsal remain.” The walkthrough explains the request path; the example does not call a model or describe a real release.
 
@@ -38,7 +38,7 @@ pnpm build
 
 ## Website Content Guidelines
 
-- All browser illustrations are static; there is no live chat functionality.
+- The website is a static build with in-page HTML diagram interactions and a guided fictional walkthrough. It has no live chat functionality.
 - Founder profile is Michael Lvov (alone). The profile array lives in `src/data/site.json`.
 - Public contact supplied by owner: `mailto:michael.lm00@gmail.com`.
 - GitHub: `https://github.com/lm2000`.

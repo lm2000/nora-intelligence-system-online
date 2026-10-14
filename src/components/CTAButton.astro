@@ -32,14 +32,14 @@ const iconSrc = icon === 'arrow' ? href('/images/icons/arrow-right.svg') : icon 
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 .cta-primary {
-  background: var(--color-teal);
-  color: #fff;
+  background: var(--color-action-fill);
+  color: var(--color-action-text);
 }
 .cta-primary:hover {
-  background: var(--color-teal-hover);
+  background: var(--color-action-fill-hover);
 }
 .cta-primary .cta-icon {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%) invert(13%) sepia(10%) saturate(1234%) hue-rotate(157deg) brightness(95%) contrast(95%);
 }
 .cta-outline {
   background: transparent;
@@ -47,7 +47,8 @@ const iconSrc = icon === 'arrow' ? href('/images/icons/arrow-right.svg') : icon 
   border-color: var(--color-teal);
 }
 .cta-outline:hover {
-  background: var(--color-cool);
+  background: rgba(95, 232, 205, 0.1);
 }
+.cta-outline .cta-icon { filter: brightness(0) invert(1); }
 .cta-icon { display: inline-block; }
 </style>

@@ -1,7 +1,8 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { href, BASE } from '../lib/constants.mjs';
+import PageIndex from '../components/PageIndex.astro';
+import { href, SITE_NAME } from '../lib/constants.mjs';
 import '../styles/global.css';
 
 interface Props {
@@ -16,25 +17,32 @@ const cleanPath = path === '/' || path === '' ? '/' : path.replace(/^\/+/, '/');
 const u = new URL(cleanPath, 'http://e.o');
 const canonicalPath = u.pathname.replace(/\/$/, '');
 const canonical = new URL(canonicalPath, canonicalDomain).href;
-const siteBasePath = BASE !== '/' ? BASE : '';
+const normalizedTitle = title.replace(/Nora Intelligence System/gi, SITE_NAME);
+const normalizedDescription = description.replace(/Nora Intelligence System/gi, SITE_NAME);
+const indexPaths = ['/', '/architecture', '/decisions', '/validation', '/reproduce'];
+const routePath = canonicalPath || '/';
+const showIndex = !routePath.includes('walkthroughs') && routePath !== '/404' && indexPaths.some(p => p === routePath);
 ---
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
+  <title>{normalizedTitle}</title>
+  <meta name="description" content={normalizedDescription} />
+  <meta name="theme-color" content="#071827" />
+  <link rel="icon" href={href('/images/nora-mark.svg')} type="image/svg+xml" />
   <link rel="canonical" href={canonical} />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:title" content={normalizedTitle} />
+  <meta property="og:description" content={normalizedDescription} />
   <meta property="og:url" content={canonical} />
   <meta name="twitter:card" content="summary" />
 </head>
-<body>
+<body class={showIndex ? 'has-page-index' : ''}>
   <a class="skip-link" href="#main">Skip to content</a>
   <Header />
+  {showIndex && <PageIndex />}
   <main id="main">
     <slot />
   </main>

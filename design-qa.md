@@ -1,30 +1,22 @@
-# Three-page UI/UX repair review — 2026-10-14
+# Design QA — 2026-10-14
 
-Final result: **passed for the supplied pilot views and named repairs**. Owner acceptance is pending. This supersedes the earlier screenshot pass, which missed unstyled controls and did not assess the experience against the older references.
+Scope: owner-requested reuse of existing website style, Nora SuperIntelligence Lab branding, floating content index and in-page HTML diagrams without format/source link bars.
 
-The owner approved a compact homepage overview, numbered visitor journey, concrete Atlas walkthrough with source-map highlights, and diagram-first architecture navigation. The references are the old live site's guided navigation and option 3's compact white notebook, within the selected Light Architecture Atlas palette.
+Disposition: pass for supplied desktop and mobile screenshots. Root/Pages builds, 354 references across 27 HTML files, eight state tests, and targeted browser interaction checks pass.
 
-## Evidence and result
+## Visual findings
 
-Fresh local desktop captures use CSS 1440 × 1023; mobile uses 390 × 843. Native capture padding is cropped without rescaling content. Images are retained in the task's redesign-review folder: home-desktop.png, walkthrough-desktop.png, architecture-desktop.png, home-mobile.png, walkthrough-mobile.png, before-after.png.
+No material findings in the supplied views.
 
-Fresh Ollama Cloud review using kimi-k3 returned **pass** for these five views. This substituted for a native reviewer to honor the owner's provider routing; browser behavior was checked separately.
+## Limits
 
-## Verified repairs
+- Founders section heading appears only at the bottom edge of desktop capture 2; founder content, single-founder listing, and approved contact details below the fold are not visible in supplied views
+- Mobile Menu button expanded state, navigation link rendering, and close behavior not captured
+- Architecture Selection detail panel and diagram geometry partially outside desktop viewport capture; lower detail text and full figure bottom not visible
+- Responsive behavior between 390px and 1440px breakpoints (tablet widths) not observed
+- Interactive states not verifiable from static captures: scroll-spy active tracking, dropdown change handling, keyboard Enter selection, Reset behavior, mobile index auto-close, and diagram pan performance
+- Walkthrough steps 1, 3-5, Manual ingestion tab content, and previous/next/reset button behavior not shown in supplied views
+- Color contrast ratios, focus indicator visibility beyond static appearance, and WCAG conformance cannot be confirmed from screenshots alone
+- Physical pixel scale differences between desktop and mobile captures noted as expected; no visual regression inferred from scaling
 
-- Homepage pairs the overview with a compact source diagram and exposes request, decisions, validation, and reproduction destinations.
-- Numbered step controls have a visible current state and measured 47.48px height.
-- Fictional Atlas notes and per-step results appear beside the selected stage; technical detail is available under How this step works.
-- Grounding highlights runtime, Retrieval MCP, BGE, and Qdrant; initial request focus is Browser UI plus Coordination. All steps remain selectable.
-- Architecture shows the main figure before long prose and all five section anchors resolve.
-- Tested mobile pages have no document horizontal overflow and offer a full-figure action.
-
-## Checks and limits
-
-Astro check: 0 errors, 0 warnings, 11 unused-variable hints. Eight walkthrough-state tests passed. Root and GitHub Pages builds each verify 367 internal references across 27 HTML files; the prefixed request link was exercised in the browser.
-
-Browser checks passed for history, keyboard flow switching, last-step bounds, Reset, ingestion deep-link reload, Atlas scenes, and active SVG nodes. No site-origin console error was observed. Six canonical HTML/GIF checksums remain unchanged. The sole founder and supplied email remain present.
-
-DesignSystem findings are advisory font-ramp documentation differences. DESIGN.md and its sidecar were refreshed from the implementation.
-
-The reviewer retained P3 follow-ups for text-link affordances and placing the walkthrough map closer to its controls. User acceptance, formal accessibility compliance, unobserved states, real-provider quality, and production publication are not established by this review.
+Mobile expanded navigation, one founder/contact, scroll tracking, component selection and keyboard/reset behavior were checked separately in the browser. Owner acceptance and production publication are pending.

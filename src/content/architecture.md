@@ -1,6 +1,6 @@
 ## Purpose
 
-The Nora Intelligence System (NIS) separates conversation handling from knowledge retrieval and document preparation. A user asks one question through a single assistant; a shared retrieval service finds prepared passages; an agent produces a plain answer and retains the conversation state in PostgreSQL.
+The knowledge assistant (NIS) presented by Nora SuperIntelligence Lab separates conversation handling from knowledge retrieval and document preparation. A user asks one question through a single assistant; a shared retrieval service finds prepared passages; an agent produces a plain answer and retains the conversation state in PostgreSQL.
 
 ## Example
 

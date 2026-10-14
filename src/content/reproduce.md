@@ -1,6 +1,6 @@
 ## Purpose
 
-Reproduce the Nora Intelligence System harness checks using pinned public source and a working setup interface.
+Reproduce the Nora SuperIntelligence Lab knowledge-agent harness checks using pinned public source and a working setup interface.
 
 ## Example
 

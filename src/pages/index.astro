@@ -10,8 +10,8 @@ import atlasExample from '../data/atlas-example.json';
 const firstRequestStep = walkthroughs.request[0].id;
 const founders = site.founders.filter(f => f && f.name);
 ---
-<SiteLayout title="Nora Intelligence System — Architecture" description="One assistant. Clear service boundaries. Explore how a knowledge assistant retrieves prepared documents, produces an answer, and keeps conversation state." path=">">
-  <section class="hero container">
+<SiteLayout title="Nora SuperIntelligence Lab — Architecture" description="One assistant. Clear service boundaries. Explore how a knowledge assistant retrieves prepared documents, produces an answer, and keeps conversation state." path="/">
+  <section id="overview" class="hero container">
     <div class="hero-content">
       <h1>{site.home.heading} <span class="emphasis">{site.home.headingEmphasis}</span></h1>
       <p class="hero-intro">{site.home.intro}</p>
@@ -25,7 +25,7 @@ const founders = site.founders.filter(f => f && f.name);
     </div>
   </section>
 
-  <section class="container journey-section">
+  <section id="explore" class="container journey-section">
     <h2>Explore the system</h2>
     <ol class="journey-list">
       <li>
@@ -59,7 +59,7 @@ const founders = site.founders.filter(f => f && f.name);
     </ol>
   </section>
 
-  <section class="container example-section">
+  <section id="example" class="container example-section" data-index-label="Atlas example">
     <h2>Worked example — Fictional Atlas</h2>
     <div class="example-strip">
       <div class="example-cell">
@@ -116,7 +116,7 @@ const founders = site.founders.filter(f => f && f.name);
   </section>
 
   {site.contact && (
-    <section class="container contact-section">
+    <section id="contact" class="container contact-section" data-index-label="Contact">
       <h2>{site.contact.heading}</h2>
       <p>{site.contact.body}</p>
       <div class="contact-links">
@@ -184,8 +184,8 @@ const founders = site.founders.filter(f => f && f.name);
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--color-teal);
-  color: #fff;
+  background: var(--color-action-fill);
+  color: var(--color-action-text);
   font-weight: 700;
   font-size: 14px;
 }
@@ -336,7 +336,7 @@ const founders = site.founders.filter(f => f && f.name);
     grid-template-columns: 1fr;
   }
   .hero-map {
-    order: -1;
+    order: 0;
   }
   .example-strip { flex-direction: column; }
   .example-cell:first-child { border-right: none; border-bottom: 1px solid var(--color-border); }

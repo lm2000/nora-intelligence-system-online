@@ -16,7 +16,7 @@ Technical interviewers, senior engineers, architects and hiring managers followi
 
 ## Product Purpose
 
-Present Nora Intelligence System as a guided technical architecture portfolio. Visitors should understand the principal responsibilities within 90 seconds and follow a concrete request in a five-minute walkthrough.
+Present Nora SuperIntelligence Lab as a guided technical architecture portfolio. Visitors should understand the principal responsibilities within 90 seconds and follow a concrete request in a five-minute walkthrough.
 
 ## Operating Context
 
@@ -24,15 +24,15 @@ Six primary routes: Home, Architecture, Walkthroughs, Decisions, Validation and 
 
 ## Capabilities and Constraints
 
-Static guided explanations and browser interactions; no public live chat, private corpus, uploads or model traffic. Website only; no downloadable slide deck or PDF. Preserve legacy route access, existing hosting and pending local direction context. Option 1 of the three OpenAI mockups is the selected visual foundation. The homepage also includes a Founders section for job and project inquiries. It lists Michael Lvov alone; profiles are data-driven so Alla can be added later.
+Static guided explanations and browser interactions; no public live chat, private corpus, uploads or model traffic. Website only; no downloadable slide deck or PDF. Preserve legacy route access, existing hosting and pending local direction context. The owner now requests reuse of the existing live website style: dark navy surfaces, bold sans-serif headings, teal accents, and a floating content index. This supersedes the earlier light Option 1 direction. The homepage also includes a Founders section for job and project inquiries. It lists Michael Lvov alone; profiles are data-driven so Alla can be added later.
 
 ## Brand Commitments
 
-Use the full name Nora Intelligence System or NIS. Durable content is English. Preserve the existing N mark as the source logo.
+Use Nora SuperIntelligence Lab for website branding. Preserve NIS and exact interface names where they identify the source knowledge-assistant system. Durable content is English. Preserve the existing N mark as the source logo.
 
 ## Evidence on Hand
 
-Public harness architecture snapshot 10bd370c711afabdfc7b23b516911c31ff58bcb4 supplies diagrams and fictional fixtures. HTML with inline SVG and matching GIF remains the diagram source convention. The website retains Apache licensing; imported MIT material carries its original notice.
+Public harness architecture snapshot 10bd370c711afabdfc7b23b516911c31ff58bcb4 supplies diagrams and fictional fixtures. Canonical HTML/SVG and matching GIF files retain source provenance. Show in-page HTML interactions only where component exploration or step focus helps; omit diagram-format link bars. The website retains Apache licensing; imported MIT material carries its original notice.
 
 ## Product Principles
 
