@@ -45,3 +45,5 @@ Keep a shared footer Contact link to /use-cases/#workflow-contact, resolved thro
 Keep the Founders standalone mailto text link at least 44px tall without changing its visible font, color or wording. Center the contact row so the larger hit area does not shift the visual baseline of neighboring links. Mobile flow checks must distinguish responsive browser task completion from physical-device or human-participant usability testing.
 
 Below 360px, keep header links at their natural content widths with two wrapped rows and 44px targets. Preserve the existing grid at wider mobile sizes; do not shrink the font, hide tabs or add a header row to resolve narrow label spacing.
+
+OriginalIndex section jumps settle the destination dock state before measuring the scroll. Keep that state through the jump, then return to normal scroll tracking; cancel pending jumps on manual scroll input or resize. Preserve history, fragment entry, grouped-directory neutrality, mobile disclosure closure and internal active-row visibility. Validate the first jump from a fresh page, not only a second selection.

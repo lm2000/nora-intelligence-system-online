@@ -40,6 +40,7 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
 
 <script is:inline>
 (function () {
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function initNav(nav) {
     if (nav.getAttribute('data-onav-init')) return;
@@ -59,8 +60,9 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
     }
     if (!sections.length) return;
 
+    var desktop = window.matchMedia('(min-width: 1081px)');
+
     if (disclosure) {
-      var desktop = window.matchMedia('(min-width: 1081px)');
       var applyDisclosure = function () {
         if (desktop.matches) {
           disclosure.setAttribute('open', '');
@@ -75,13 +77,6 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
       applyDisclosure();
       if (typeof desktop.addEventListener === 'function') {
         desktop.addEventListener('change', applyDisclosure);
-      }
-      for (var c = 0; c < links.length; c++) {
-        (function (lnk) {
-          lnk.addEventListener('click', function () {
-            if (!desktop.matches && disclosure) disclosure.removeAttribute('open');
-          });
-        })(links[c]);
       }
     }
 
@@ -103,6 +98,56 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
         } else {
           sections[j].link.removeAttribute('aria-current');
         }
+      }
+      keepActiveVisible();
+    }
+
+    var navigationToken = 0;
+    var jumping = false;
+    var destinationY = null;
+
+    function finishJump() {
+      if (jumping && destinationY !== null && Math.abs(window.scrollY - destinationY) <= 2) {
+        jumping = false;
+        destinationY = null;
+      }
+    }
+
+    function cancelJump() {
+      navigationToken++;
+      jumping = false;
+      destinationY = null;
+      update();
+      dock();
+    }
+
+    // Synchronous dock — used on init and from deferred dock()
+    function syncDock() {
+      finishJump();
+      if (jumping) return;
+      if (hero.getBoundingClientRect().height === 0) return;
+      var shouldDock = desktop.matches && window.scrollY > hero.offsetHeight - 150;
+      nav.classList.toggle('is-docked', shouldDock);
+      document.documentElement.classList.toggle('has-docked-orchestration', shouldDock);
+      if (disclosure) {
+        if (desktop.matches && !shouldDock) {
+          disclosure.style.minHeight = Math.ceil(nav.getBoundingClientRect().height) + 'px';
+        } else if (!desktop.matches) {
+          disclosure.style.minHeight = '';
+        }
+      }
+      keepActiveVisible();
+    }
+
+    // Force dock state synchronously based on where the target lives,
+    // so the content gutter reflows BEFORE we measure the scroll destination.
+    function forceDockForTarget(target) {
+      var targetTop = target.getBoundingClientRect().top + window.scrollY;
+      var shouldDock = desktop.matches && targetTop > hero.offsetHeight - 150;
+      nav.classList.toggle('is-docked', shouldDock);
+      document.documentElement.classList.toggle('has-docked-orchestration', shouldDock);
+      if (disclosure && desktop.matches && !shouldDock) {
+        disclosure.style.minHeight = Math.ceil(nav.getBoundingClientRect().height) + 'px';
       }
       keepActiveVisible();
     }
@@ -161,19 +206,126 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
       if (dockFrame) return;
       dockFrame = requestAnimationFrame(function () {
         dockFrame = undefined;
-        if (hero.getBoundingClientRect().height === 0) return;
-        var shouldDock = window.matchMedia('(min-width: 1081px)').matches && window.scrollY > hero.offsetHeight - 150;
-        nav.classList.toggle('is-docked', shouldDock);
-        document.documentElement.classList.toggle('has-docked-orchestration', shouldDock);
-        keepActiveVisible();
+        syncDock();
       });
     }
 
+    // Core fix: force dock → bounded rAF settle → scrollIntoView → activate
+    function navigateTo(id, pushState) {
+      var target = null;
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].section.id === id) {
+          target = sections[i].section;
+          break;
+        }
+      }
+      if (!target) return;
+
+      var token = ++navigationToken;
+      jumping = true;
+      destinationY = null;
+      // 1. Force matching desktop dock state synchronously
+      forceDockForTarget(target);
+
+      // 2. Bounded rAF settlement — let layout reflow from dock change
+      var framesLeft = 2;
+      function settle() {
+        if (token !== navigationToken) return;
+        framesLeft--;
+        if (framesLeft > 0) {
+          requestAnimationFrame(settle);
+          return;
+        }
+        // 3. Scroll using settled positions; CSS scroll-margin-top offsets header
+        var margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+        destinationY = Math.max(0, Math.min(
+          target.getBoundingClientRect().top + window.scrollY - margin,
+          document.documentElement.scrollHeight - window.innerHeight
+        ));
+        var behavior = reducedMotion.matches ? 'instant' : 'smooth';
+        target.scrollIntoView({ behavior: behavior, block: 'start' });
+        // 4. Select target and update active after dock
+        activate(id);
+        requestAnimationFrame(function () { finishJump(); dock(); update(); });
+        if (pushState && window.location.hash !== '#' + id) {
+          history.pushState(null, '', '#' + id);
+        }
+      }
+      requestAnimationFrame(settle);
+    }
+
+    // Link click handlers — intercept only unmodified primary clicks
+    for (var c = 0; c < links.length; c++) {
+      (function (lnk) {
+        lnk.addEventListener('click', function (e) {
+          if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          var href = lnk.getAttribute('href') || '';
+          var id = href.slice(1);
+          if (!id) return;
+          var hasSection = false;
+          for (var s = 0; s < sections.length; s++) {
+            if (sections[s].section.id === id) { hasSection = true; break; }
+          }
+          if (!hasSection) return;
+          e.preventDefault();
+          if (!desktop.matches && disclosure) {
+            disclosure.removeAttribute('open');
+          }
+          navigateTo(id, true);
+        });
+      })(links[c]);
+    }
+
+    // Hashchange — back/forward and deep-link navigation
+    function onHashChange() {
+      cancelJump();
+      var id = window.location.hash.slice(1);
+      if (!id) {
+        update();
+        return;
+      }
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].section.id === id) {
+          navigateTo(id, false);
+          return;
+        }
+      }
+      update();
+    }
+    window.addEventListener('hashchange', onHashChange);
+
+    // Initial URL fragment — bounded font/layout readiness, not perpetual observer
+    function handleInitialHash() {
+      var id = window.location.hash.slice(1);
+      if (!id) return;
+      var found = false;
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].section.id === id) { found = true; break; }
+      }
+      if (!found) return;
+
+      var token = navigationToken;
+      var loaded = document.readyState === 'complete' ? Promise.resolve() :
+        new Promise(function (resolve) { window.addEventListener('load', resolve, { once: true }); });
+      var fonts = document.fonts ? document.fonts.ready : Promise.resolve();
+      Promise.all([loaded, fonts]).then(function () {
+        if (token === navigationToken && window.location.hash.slice(1) === id) navigateTo(id, false);
+      });
+    }
+
+    window.addEventListener('wheel', cancelJump, { passive: true });
+    window.addEventListener('touchstart', cancelJump, { passive: true });
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].indexOf(event.key) !== -1) cancelJump();
+    });
+    document.addEventListener('scrollend', function () { finishJump(); dock(); update(); });
+
     window.addEventListener('scroll', function () { update(); dock(); }, { passive: true });
-    window.addEventListener('resize', function () { update(); dock(); }, { passive: true });
-    window.addEventListener('hashchange', update);
+    window.addEventListener('resize', cancelJump, { passive: true });
+
+    syncDock();
     update();
-    dock();
+    handleInitialHash();
   }
 
   function initAll() {
