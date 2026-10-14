@@ -29,4 +29,6 @@ The accepted overhaul plan uses an Astro static guided portfolio with six primar
 
 Production deployment has not occurred. The original checkout and its pending local changes remain intact. Preview review is the next release step.
 
-Vercel review preview: https://nora-intelligence-system-online-1tb99fxt9-nora-builders.vercel.app . Remote build READY and authenticated homepage readback succeeded. Existing Vercel login protection is enabled. Source-reference correction is being included in the final preview before review.
+Vercel review preview: https://nora-intelligence-system-online-rnayxk9p9-nora-builders.vercel.app . Remote build READY and authenticated homepage readback succeeded. Existing Vercel login protection is enabled. The final preview includes the corrected pinned source references, verified by authenticated readback.
+
+Implementation commit: e5c8fa9f407d6914ac1bbee2d7ff3f04a06f8b9d. The review branch codex/portfolio-overhaul-20261014 is published on GitHub. Main and the production domain await preview review.
