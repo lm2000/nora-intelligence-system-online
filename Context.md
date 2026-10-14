@@ -153,3 +153,18 @@ Owner requested Nora SuperIntelligence Lab consistently. Visible lab references,
 ## Published full-name correction
 
 Owner explicitly approved publication of the reviewed naming-correction preview. Promotion created production deployment dpl_8xEnW9bpSMTPGw5rqjHAPv5HqFAW, confirmed READY and aliased to nora-intelligence-system.com. All eight unauthenticated route responses return 200 and match the accepted build byte-for-byte. Browser readback confirms Nora SuperIntelligence Lab in the brand, case-study heading, and index with no page overflow. The previous production approval block is resolved by owner approval.
+
+
+## Top-level Use cases navigation
+
+Owner requested a top-level Use cases tab, superseding the four-tab navigation choice. Header and footer now contain Home, Architecture, Walkthroughs, Use cases, and Founders. /use-cases/ has an original-style hero and page-owned floating index, linking the existing knowledge-assistant example and AI Harness Landscape case study. The Use cases tab stays selected on case-study pages. No new projects or outcome claims were added. Zero Astro diagnostics, all 15 existing tests, root and Pages builds, and 420 links across 30 HTML files pass. Browser checks at actual 1600px and 390px widths confirm no horizontal overflow, five header links, mobile index auto-close, and case-study parent selection. Review preview dpl_2xmusRxMF3p2XViovMcQu41auDwX is READY at https://nora-intelligence-system-online-j9zv9es70-nora-builders.vercel.app/use-cases/ . Production remains unchanged pending review.
+
+
+## Interview and client-research use cases
+
+Owner selected recommendations 1 and 3. Added /case-studies/interview-preparation/ and /case-studies/client-research/ with a shared original-style supporting-page layout and separate floating indexes. Use cases lists both alongside the existing knowledge-assistant example and AI Harness Landscape research. Interview Preparation adapts the legacy method and includes an illustrative stage pack; Client Research and Pitch Preparation is explicitly a workflow concept with a synthetic account brief. No project-handover expansion was made. Dates remain absent from visible copy. Zero Astro diagnostics, all 15 existing tests, root and Pages builds, and 466 links across 32 HTML files pass. Browser checks at actual 1600px and 390px widths confirm containment, index targets, mobile disclosure auto-close, return links, and selected Use cases parent navigation. Preview deployment dpl_5wjAnexuW8SZyXsFjpXYiPpm69Mu is READY at https://nora-intelligence-system-online-a4x6uzvvg-nora-builders.vercel.app/ . Hosted browser readback confirms both pages. Production remains unchanged pending review.
+
+
+## Published Use cases and additional case studies
+
+Owner explicitly approved the Use cases tab, Interview Preparation, Client Research and Pitch Preparation, and subtle border fix in preview dpl_9UZMSjDwPS7ux23u1xZkBSmwTsnE. Promotion created production deployment dpl_wfu7CncHKCYXnTDeFW3eSwe11H47, confirmed READY and aliased to nora-intelligence-system.com. All eleven active public routes return 200 and match the reviewed build byte-for-byte. Browser verification confirms five main tabs, both case-study links, selected Use cases navigation, and 1px borders on all sides of the illustrative example block with no page overflow. Earlier checks passed zero Astro diagnostics, all 15 tests, root and Pages builds, and 466 link checks. The thick accent border finding was fixed without suppression.

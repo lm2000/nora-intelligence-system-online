@@ -58,3 +58,7 @@ See `PRODUCT.md` for the audience and content structure, `DESIGN.md` for the vis
 ## License
 
 The original website content retains its Apache LICENSE. The testing harness source is MIT licensed. See `NOTICE.md` for details.
+
+Use cases is a top-level page linking the lab’s knowledge-assistant example and AI Harness Landscape research case study. It uses the original floating-index pattern; detailed case studies keep their own index.
+
+Additional use cases: Interview Preparation describes a stage-specific preparation method; Client Research and Pitch Preparation is a proposed agency workflow. Both include illustrative examples and a page-owned content index.

@@ -10,10 +10,14 @@ Use the full lab name in headings and lab references. Refer to its current proje
 
 Omit calendar dates from visible public page copy, bylines, and evidence tables. Keep technical versions, source pins, and maintainer records intact.
 
-Main navigation is Home, Architecture, Walkthroughs, and Founders, each on a separate page with its own numbered content index. Keep supporting Decisions, Validation, and Reproduce pages reachable through relevant content and the footer; do not restore Explore. Use compact mobile “On this page” disclosures. The walkthrough index owns its active flow's step selection and must preserve query deep links, browser history, and previous/next/reset behavior.
+Main navigation is Home, Architecture, Walkthroughs, Use cases, and Founders, each on a separate page with its own numbered content index. Keep supporting Decisions, Validation, and Reproduce pages reachable through relevant content and the footer; do not restore Explore. Use compact mobile “On this page” disclosures. The walkthrough index owns its active flow's step selection and must preserve query deep links, browser history, and previous/next/reset behavior.
 
 Home introduces the independent lab, current Nora project, working approach, people, and contact. Keep detailed service architecture and diagrams on Architecture and fictional Atlas examples on Walkthroughs. Preserve Home anchors overview, example (Current work), system-map (Approach), founders (People), and contact.
 
-AI Harness Landscape is a supporting research case study at /case-studies/ai-harness-landscape/, linked by a card under Home's Current work. Keep its own floating index and the four main navigation links. Attribute vendor capabilities to public sources and distinguish comparison questions from measured results.
+AI Harness Landscape is a supporting research case study at /case-studies/ai-harness-landscape/, linked by a card under Home's Current work. Keep its own floating index and a selected Use cases parent tab. Attribute vendor capabilities to public sources and distinguish comparison questions from measured results.
 
 Keep page ownership clear: Architecture explains components and flows; Decisions records accepted choices and tradeoffs; Validation owns dated evidence, scope, and limits; Reproduce owns prerequisites, commands, and expected results. Link between these pages instead of repeating full explanations. Keep supporting-page mobile indexes after the title and introduction. Distinguish Nora source (public harness) from Website source in shared navigation. Founders groups the profile with expertise and opportunities with contact while retaining its existing anchors.
+
+Use cases at /use-cases/ is a top-level page with its own numbered floating index. It links existing knowledge-assistant examples and the AI Harness Landscape case study; avoid adding unsupported projects or client outcomes.
+
+Interview Preparation (/case-studies/interview-preparation/) adapts the legacy preparation method. Client Research and Pitch Preparation (/case-studies/client-research/) remains a workflow concept. Both are listed on Use cases and own a floating index. Keep public examples illustrative and preserve the client-workflow concept label.
