@@ -32,3 +32,11 @@ Production deployment has not occurred. The original checkout and its pending lo
 Vercel review preview: https://nora-intelligence-system-online-rnayxk9p9-nora-builders.vercel.app . Remote build READY and authenticated homepage readback succeeded. Existing Vercel login protection is enabled. The final preview includes the corrected pinned source references, verified by authenticated readback.
 
 Implementation commit: e5c8fa9f407d6914ac1bbee2d7ff3f04a06f8b9d. The review branch codex/portfolio-overhaul-20261014 is published on GitHub. Main and the production domain await preview review.
+
+## Comparative UI/UX review — 2026-10-14
+
+The owner requested reassessment against the existing live website and option 3 browser prototype. Fresh captures identified material UI/UX regressions: the homepage lacks a compact guided entry, Architecture delays diagrams behind long prose, walkthrough step buttons miss their intended styles, and mobile diagram panning lacks clear guidance. The prior screenshot QA pass does not establish acceptance. Recommended next scope: a homepage/walkthrough pilot using the old site's numbered visitor journey and option 3's compact overview, plus diagram-first architecture navigation. Preserve current technical source, six routes, and founder/contact. Production publication remains pending design review.
+
+## Approved three-page repair — 2026-10-14
+
+The owner accepted the recommended pilot. Homepage now has a compact paired overview and four discovery links; walkthrough has numbered controls, a concrete fictional Atlas scene, and source SVG component focus; Architecture places its main figure before long prose with working section anchors. Root/Pages builds verify367 references across27 HTML files; eight state tests and browser history, keyboard, bounds, reset, reload, and highlight checks pass. Fresh screenshot review passes the supplied views with P3 follow-ups for link affordances and map proximity. Revised preview review remains pending.

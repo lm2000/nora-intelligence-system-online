@@ -1,0 +1,189 @@
+---
+import { href } from '../lib/constants.mjs';
+import systemSvg from '../../public/diagrams/01-system-architecture-preview.svg?raw';
+
+interface Props {
+  mapId?: string;
+  initialFocus?: string;
+}
+
+const { mapId = 'system-map', initialFocus = '' } = Astro.props;
+const svgUrl = href('/diagrams/01-system-architecture-preview.svg');
+---
+
+<source-map data-active={initialFocus}>
+  <template data-source-svg set:html={systemSvg}></template>
+  <noscript>
+    <img class="fallback-img" src={svgUrl} alt="System architecture fallback showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP." loading="lazy" />
+  </noscript>
+  <div class="map-container" role="img" aria-label="System architecture diagram"></div>
+  <p class="focus-caption" data-focus-caption></p>
+  <a class="full-map-link" href={svgUrl}>Open full system figure</a>
+</source-map>
+
+<style>
+source-map {
+  display: block;
+  width: 100%;
+}
+source-map .map-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 300px;
+}
+source-map .map-container svg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+source-map .focus-caption {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--color-secondary);
+  min-height: 1.5em;
+}
+source-map .focus-caption strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+source-map .fallback-img {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  source-map .map-container svg {
+    min-width: 1000px;
+  }
+  source-map .map-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+</style>
+
+<script>
+
+class SourceMap extends HTMLElement {
+  static observedAttributes = ['data-active'];
+
+  connectedCallback() {
+    if (this.shadowRoot) return;
+    const tpl = this.querySelector(':scope > [data-source-svg]') as HTMLTemplateElement | null;
+    const container = this.querySelector(':scope > .map-container') as HTMLElement | null;
+    const caption = this.querySelector(':scope > [data-focus-caption]') as HTMLElement | null;
+
+    if (tpl && container && 'content' in document.createElement('template')) {
+      const svg = tpl.content.querySelector('svg');
+      if (svg) {
+        const clone = svg.cloneNode(true) as SVGElement;
+        const root = (container as any).shadowRoot || container.attachShadow({ mode: 'open' });
+
+        const styleEl = clone.querySelector('style');
+        let cssText = '';
+        if (styleEl) {
+          cssText = styleEl.textContent || '';
+          styleEl.remove();
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.style.width = '100%';
+        wrapper.style.display = 'block';
+
+        const innerSvg = clone;
+        innerSvg.style.maxWidth = '100%';
+        innerSvg.style.height = 'auto';
+        innerSvg.style.display = 'block';
+        innerSvg.removeAttribute('role');
+        innerSvg.removeAttribute('aria-labelledby');
+
+        innerSvg.querySelectorAll('.node').forEach(n => {
+          n.removeAttribute('role');
+          n.removeAttribute('tabindex');
+          n.removeAttribute('aria-label');
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+          :host { display: block; width: 100%; }
+          svg { max-width: 100%; height: auto; display: block; }
+          ${cssText}
+          .node { cursor: default; }
+          .node.active rect {
+            stroke-width: 3.5;
+            filter: drop-shadow(0 3px 5px #254c6a55);
+            stroke: #075973 !important;
+            fill: #f0fbff !important;
+          }
+          .edge.active path {
+            stroke: #075973;
+            stroke-width: 3;
+          }
+        `;
+
+        wrapper.appendChild(innerSvg);
+        root.appendChild(style);
+        root.appendChild(wrapper);
+
+        (this as any).svg = innerSvg;
+        (this as any).captionEl = caption;
+        this.updateHighlights();
+      }
+    }
+  }
+
+  attributeChangedCallback() {
+    if ((this as any).svg) {
+      this.updateHighlights();
+    }
+  }
+
+  updateHighlights() {
+    const svg = (this as any).svg as SVGSVGElement | undefined;
+    const captionEl = (this as any).captionEl as HTMLElement | undefined;
+    if (!svg) return;
+
+    const activeAttr = this.getAttribute('data-active') || '';
+    const activeIds = activeAttr.split(/\s+/).filter(Boolean);
+
+    svg.querySelectorAll('.node').forEach(n => {
+      n.classList.remove('active');
+      if (activeIds.includes(n.id)) {
+        n.classList.add('active');
+      }
+    });
+
+    svg.querySelectorAll('.edge').forEach(e => {
+      e.classList.remove('active');
+      const from = e.getAttribute('data-from');
+      const to = e.getAttribute('data-to');
+      if (from && to && activeIds.includes(from) && activeIds.includes(to)) {
+        e.classList.add('active');
+      }
+    });
+
+    if (captionEl) {
+      if (activeIds.length > 0) {
+        const labels = activeIds.map(id => {
+          const node = svg.querySelector(`#${CSS.escape(id)}`);
+          if (!node) return id;
+          const textEls = node.querySelectorAll('text');
+          return textEls[1] ? textEls[1].textContent : id;
+        });
+        captionEl.innerHTML = `Focused services: <strong>${labels.join(', ')}</strong>`;
+      } else {
+        captionEl.textContent = 'System overview';
+      }
+    }
+  }
+}
+
+if (!customElements.get('source-map')) {
+  customElements.define('source-map', SourceMap);
+}
+</script>

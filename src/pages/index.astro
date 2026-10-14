@@ -1,35 +1,62 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import Diagram from '../components/Diagram.astro';
 import CTAButton from '../components/CTAButton.astro';
+import SourceMap from '../components/SourceMap.astro';
 import { href } from '../lib/constants.mjs';
 import site from '../data/site.json';
 import walkthroughs from '../data/walkthroughs.json';
+import atlasExample from '../data/atlas-example.json';
 
 const firstRequestStep = walkthroughs.request[0].id;
 const founders = site.founders.filter(f => f && f.name);
 ---
-<SiteLayout title="Nora Intelligence System — Architecture" description="One assistant. Clear service boundaries. Explore how a knowledge assistant retrieves prepared documents, produces an answer, and keeps conversation state." path="/">
+<SiteLayout title="Nora Intelligence System — Architecture" description="One assistant. Clear service boundaries. Explore how a knowledge assistant retrieves prepared documents, produces an answer, and keeps conversation state." path=">">
   <section class="hero container">
-    <h1>{site.home.heading} <span class="emphasis">{site.home.headingEmphasis}</span></h1>
-    <p class="hero-intro">{site.home.intro}</p>
-    <div class="cta-group">
-      <CTAButton href={`/walkthroughs/?flow=request&step=${firstRequestStep}`} label="Follow a request" icon="arrow" />
-      <CTAButton href="/architecture/" label="Read the architecture" variant="outline" icon="arrow" />
+    <div class="hero-content">
+      <h1>{site.home.heading} <span class="emphasis">{site.home.headingEmphasis}</span></h1>
+      <p class="hero-intro">{site.home.intro}</p>
+      <div class="cta-group">
+        <CTAButton href={`/walkthroughs/?flow=request&step=${firstRequestStep}`} label="Follow a request" icon="arrow" />
+        <CTAButton href={'/architecture/'} label="Read the architecture" variant="outline" icon="arrow" />
+      </div>
+    </div>
+    <div class="hero-map">
+      <SourceMap initialFocus="" />
     </div>
   </section>
 
-  <section class="container architecture-section">
-    <Diagram
-      previewSrc="/diagrams/01-system-architecture-preview.svg"
-      htmlUrl="/diagrams/01-system-architecture.html"
-      gifUrl="/diagrams/01-system-architecture.gif"
-      sourcePath="diagrams/01-system-architecture.html"
-      title="System architecture"
-      purpose="A complete view of the Nora Intelligence System boundaries and primary components."
-      alt="System architecture diagram showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP."
-      caption="Browser conversations reach Coordination through AG-UI. MCP clients use the gateway or embedded FastMCP; retrieval, inference, and checkpoint storage remain separate."
-    />
+  <section class="container journey-section">
+    <h2>Explore the system</h2>
+    <ol class="journey-list">
+      <li>
+        <a href={href(`/walkthroughs/?flow=request&step=current-question`)}>
+          <span class="step-number">1</span>
+          <span class="step-label">Follow a request</span>
+        </a>
+        <p class="step-subtitle">Walk through the Browser UI to Coordination flow.</p>
+      </li>
+      <li>
+        <a href={href('/architecture/#decisions-tradeoffs')}>
+          <span class="step-number">2</span>
+          <span class="step-label">Examine decisions</span>
+        </a>
+        <p class="step-subtitle">Review NIS service boundaries and tradeoffs.</p>
+      </li>
+      <li>
+        <a href={href('/validation/')}>
+          <span class="step-number">3</span>
+          <span class="step-label">Validation</span>
+        </a>
+        <p class="step-subtitle">Inspect validation and checkpoint persistence.</p>
+      </li>
+      <li>
+        <a href={href('/reproduce/')}>
+          <span class="step-number">4</span>
+          <span class="step-label">Reproduce</span>
+        </a>
+        <p class="step-subtitle">Understand reproduction steps and limitations.</p>
+      </li>
+    </ol>
   </section>
 
   <section class="container example-section">
@@ -37,15 +64,25 @@ const founders = site.founders.filter(f => f && f.name);
     <div class="example-strip">
       <div class="example-cell">
         <span class="cell-label">Question</span>
-        <p class="cell-text">{site.home.exampleQuestion}</p>
+        <p class="cell-text">{atlasExample.question}</p>
       </div>
       <div class="example-cell">
         <span class="cell-label">Answer</span>
-        <p class="cell-text">{site.home.exampleAnswer}</p>
+        <p class="cell-text">{atlasExample.answer}</p>
       </div>
     </div>
+    <details class="example-details">
+      <summary>View illustrative steps</summary>
+      <ol>
+        {atlasExample.steps.map(step => (
+          <li>
+            <strong>{step.label}:</strong> {step.detail}
+          </li>
+        ))}
+      </ol>
+    </details>
     <div class="example-cta">
-      <CTAButton href="/walkthroughs/" label="Explore walkthrough" icon="arrow" />
+      <CTAButton href={`/walkthroughs/?flow=request&step=${firstRequestStep}`} label="Explore walkthrough" icon="arrow" />
     </div>
   </section>
 
@@ -92,8 +129,12 @@ const founders = site.founders.filter(f => f && f.name);
 </SiteLayout>
 <style>
 .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   padding-top: 40px;
   padding-bottom: 20px;
+  align-items: center;
 }
 .hero h1 {
   margin-bottom: 24px;
@@ -111,9 +152,51 @@ const founders = site.founders.filter(f => f && f.name);
   flex-wrap: wrap;
   gap: 16px;
 }
-.architecture-section {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.journey-section {
+  padding-top: 40px;
+}
+.journey-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  counter-reset: journey;
+}
+.journey-list li {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--color-cool);
+}
+.journey-list a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+.step-label {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.step-subtitle {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: 15px;
 }
 .example-section {
   padding-top: 40px;
@@ -148,6 +231,25 @@ const founders = site.founders.filter(f => f && f.name);
   margin: 0;
   font-size: 18px;
   color: var(--color-ink);
+}
+.example-details {
+  margin-top: 16px;
+  padding: 16px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+}
+.example-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-teal);
+}
+.example-details ol {
+  padding-left: 20px;
+  margin-top: 12px;
+}
+.example-details li {
+  margin-bottom: 8px;
 }
 .example-cta {
   margin-top: 24px;
@@ -230,6 +332,12 @@ const founders = site.founders.filter(f => f && f.name);
   font-weight: 600;
 }
 @media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-map {
+    order: -1;
+  }
   .example-strip { flex-direction: column; }
   .example-cell:first-child { border-right: none; border-bottom: 1px solid var(--color-border); }
   .founder-card { flex-direction: column; align-items: center; text-align: center; padding: 24px; }

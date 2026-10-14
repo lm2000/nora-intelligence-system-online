@@ -2,35 +2,68 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Diagram from '../components/Diagram.astro';
 import { Content } from '../content/architecture.md';
+import { href } from '../lib/constants.mjs';
 ---
 <SiteLayout title="Architecture — Nora Intelligence System" description="System architecture for the Nora intelligence system: Browser UI, Coordination, and MCP gateway with clear service boundaries." path="/architecture/">
   <article class="container content-page">
     <h1>Architecture</h1>
-    <Content />
-    <Diagram
-      previewSrc="/diagrams/01-system-architecture-preview.svg"
-      htmlUrl="/diagrams/01-system-architecture.html"
-      gifUrl="/diagrams/01-system-architecture.gif"
-      sourcePath="architecture/diagrams/01-system-architecture.html"
-      alt="System architecture diagram showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP."
-      caption="The system architecture: Browser UI (AG-UI) connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway → embedded FastMCP or direct FastMCP. Coordination does NOT call gateway for external tools; owns DeepAgents LangGraph, selector and checkpoints; inference Ollama Cloud Fireworks. Retrieval MCP BGE Qdrant prepared text; manual jobs outside conversation."
-    />
-    <Diagram
-      previewSrc="/diagrams/architecture-request-path-preview.svg"
-      htmlUrl="/diagrams/architecture-request-path.html"
-      gifUrl="/diagrams/architecture-request-path.gif"
-      sourcePath="architecture/diagrams/architecture-request-path.html"
-      alt="Architecture request path diagram"
-      caption="The request path shows how Coordination handles inference and retrieval directly."
-    />
-    <Diagram
-      previewSrc="/diagrams/manual-ingestion-preview.svg"
-      htmlUrl="/diagrams/manual-ingestion.html"
-      gifUrl="/diagrams/manual-ingestion.gif"
-      sourcePath="architecture/diagrams/manual-ingestion.html"
-      alt="Manual ingestion pipeline diagram"
-      caption="Manual ingestion runs outside the conversation flow to prepare text for retrieval."
-    />
+    <p class="intro-text">One assistant coordinates retrieval and inference while PostgreSQL retains conversation state. Browser access, MCP access, retrieval, and manual ingestion have separate responsibilities.</p>
+
+    <nav class="anchor-nav" aria-label="Architecture sections">
+      <ul>
+        <li><a href="#system-map">System map</a></li>
+        <li><a href="#purpose">Purpose</a></li>
+        <li><a href="#request-path">Request path</a></li>
+        <li><a href="#manual-ingestion">Manual ingestion</a></li>
+        <li><a href="#decisions-tradeoffs">Decisions & tradeoffs</a></li>
+      </ul>
+    </nav>
+
+    <section id="system-map" class="diagram-section">
+      <h2>System map</h2>
+      <Diagram
+        title="System architecture"
+        previewSrc="/diagrams/01-system-architecture-preview.svg"
+        htmlUrl="/diagrams/01-system-architecture.html"
+        gifUrl="/diagrams/01-system-architecture.gif"
+        sourcePath="architecture/diagrams/01-system-architecture.html"
+        alt="System architecture diagram showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP."
+        caption="The system architecture: Browser UI (AG-UI) connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway → embedded FastMCP or direct FastMCP. Coordination does NOT call gateway for external tools; owns DeepAgents LangGraph, selector and checkpoints; inference Ollama Cloud Fireworks. Retrieval MCP BGE Qdrant prepared text; manual jobs outside conversation."
+      />
+    </section>
+
+    <div class="content-wrapper">
+      <Content />
+    </div>
+
+    <section id="request-path" class="diagram-section">
+      <h2>Request path</h2>
+      <Diagram
+        previewSrc="/diagrams/architecture-request-path-preview.svg"
+        htmlUrl="/diagrams/architecture-request-path.html"
+        gifUrl="/diagrams/architecture-request-path.gif"
+        sourcePath="architecture/diagrams/architecture-request-path.html"
+        alt="Architecture request path diagram"
+        caption="The request path shows how Coordination handles inference and retrieval directly."
+      />
+    </section>
+
+    <section id="manual-ingestion" class="diagram-section">
+      <h2>Manual ingestion</h2>
+      <Diagram
+        previewSrc="/diagrams/manual-ingestion-preview.svg"
+        htmlUrl="/diagrams/manual-ingestion.html"
+        gifUrl="/diagrams/manual-ingestion.gif"
+        sourcePath="architecture/diagrams/manual-ingestion.html"
+        alt="Manual ingestion pipeline diagram"
+        caption="Manual ingestion runs outside the conversation flow to prepare text for retrieval."
+      />
+    </section>
+
+    <section id="decisions-tradeoffs" class="diagram-section">
+      <h2>Decisions & tradeoffs</h2>
+      <p>For full details on architectural decisions and tradeoffs, see the <a href={href('/decisions/')}>Decisions route</a>.</p>
+    </section>
   </article>
 </SiteLayout>
 <style>
@@ -38,4 +71,57 @@ import { Content } from '../content/architecture.md';
 .content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
 .content-page :global(h2) { margin-top: 2.5em; }
 .content-page :global(ul), .content-page :global(ol) { max-width: 66ch; }
+
+.intro-text {
+  font-size: 20px;
+  color: var(--color-body);
+  max-width: 70ch;
+  margin-bottom: 32px;
+}
+
+.anchor-nav {
+  position: sticky;
+  top: 100px;
+  background: var(--color-cool);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin-bottom: 40px;
+  z-index: 10;
+}
+.anchor-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.anchor-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+.anchor-nav a:hover {
+  color: var(--color-teal);
+  text-decoration: underline;
+}
+
+.diagram-section { margin-top: 32px; }
+.diagram-section > h2 { margin-top: 0; margin-bottom: 16px; }
+
+.content-wrapper :global(h2) {
+  padding-top: 80px;
+  margin-top: -40px;
+}
+
+@media (max-width: 768px) {
+  .anchor-nav {
+    position: static;
+  }
+  .anchor-nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 </style>

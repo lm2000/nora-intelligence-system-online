@@ -1,0 +1,35 @@
+{
+  "question": "What still blocks the Atlas release?",
+  "answer": "The load test and rollback rehearsal remain.",
+  "steps": [
+    {
+      "id": "current-question",
+      "label": "Current Question",
+      "detail": "The CopilotKit browser UI sends the Atlas question to NIS Coordination via AG-UI."
+    },
+    {
+      "id": "grounding",
+      "label": "Grounding",
+      "detail": "NIS requests an automatic search. Shared BGE encodes the query; Qdrant finds prepared Atlas project notes identifying load test and rollback gaps.",
+      "notes": [
+        "Release checklist: load test pending",
+        "Recovery notes: rollback rehearsal pending"
+      ]
+    },
+    {
+      "id": "bounded-reasoning",
+      "label": "Bounded Reasoning",
+      "detail": "The Deep Agent reads retrieved passages and calls inference providers to evaluate release readiness."
+    },
+    {
+      "id": "plain-answer",
+      "label": "Plain Answer",
+      "detail": "NIS returns the plain answer to the UI. No internal IDs are exposed."
+    },
+    {
+      "id": "checkpoint-continuation",
+      "label": "Checkpoint Continuation",
+      "detail": "Conversation state is persisted to PostgreSQL to continue using the same thread identifier in future turns."
+    }
+  ]
+}

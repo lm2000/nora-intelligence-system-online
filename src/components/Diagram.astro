@@ -24,7 +24,9 @@ const resolvedSourcePath = sourcePath.startsWith('diagrams/') ? `architecture/${
       <h3 class="diagram-title">{derivedTitle}</h3>
       {purpose && <p class="diagram-purpose">{purpose}</p>}
     </div>
-    <img src={href(previewSrc)} alt={alt} loading="lazy" />
+    <div class="diagram-image-wrapper">
+      <img src={href(previewSrc)} alt={alt} loading="lazy" />
+    </div>
   </div>
   <figcaption>
     {caption && <p class="caption-text">{caption}</p>}
@@ -61,6 +63,9 @@ const resolvedSourcePath = sourcePath.startsWith('diagrams/') ? `architecture/${
   font-size: 15px;
   color: var(--color-secondary);
 }
+.diagram-image-wrapper {
+  width: 100%;
+}
 .diagram-frame img {
   width: 100%;
   max-width: 100%;
@@ -88,6 +93,9 @@ figcaption {
   .diagram-frame {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+  .diagram-image-wrapper {
+    min-width: 1000px;
   }
   .diagram-frame img {
     min-width: 1000px;
