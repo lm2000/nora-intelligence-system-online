@@ -266,5 +266,60 @@ h2[data-step-title] {
   .site-header .site-nav a { grid-column: span 2; justify-self: center; width: max-content; max-width: 100%; display: flex; justify-content: center; align-items: center; min-height: 44px; padding: 4px 8px; font-size: 15px; }
   .site-header .site-nav a:nth-child(n+4) { grid-column: span 3; }
 }
-/* Reader indexes keep short labels legible without changing their geometry. */
-body.has-page-index .page-index-item a { font-size: 12px; letter-spacing: 0.025em; }
+/* Reader indexes retain the original rail, with readable labels and one active cue. */
+.page-index-title { display: none; }
+body.has-page-index .page-index .page-index-list { gap: 2px; }
+body.has-page-index .page-index .page-index-item a {
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 8px;
+  padding: 12px 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-transform: none;
+  border-radius: 6px;
+}
+body.has-page-index .page-index .page-index-item a::before {
+  flex: 0 0 20px;
+  color: inherit;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: normal;
+}
+body.has-page-index .page-index .page-index-item a::after { content: none; }
+body.has-page-index .page-index .page-index-item a:hover {
+  color: var(--ink);
+  background: rgba(178, 205, 219, 0.06);
+}
+body.has-page-index .page-index .page-index-item a[aria-current="location"] {
+  color: var(--color-teal);
+  background: rgba(115, 236, 217, 0.09);
+}
+body.has-page-index .page-index .page-index-item a:focus-visible {
+  color: var(--ink);
+  outline: 2px solid var(--color-teal);
+  outline-offset: -2px;
+}
+@media (min-width: 1081px) {
+  body.has-page-index .page-index:not([hidden]) { padding: 8px; overflow: hidden; }
+  .page-index-title {
+    display: block;
+    padding: 8px 8px 10px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+  .page-index-nav {
+    max-height: calc(100dvh - var(--header-height, 86px) - 92px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ink-soft) var(--navy-2);
+  }
+}
+@media (max-width: 1080px) {
+  body.has-page-index .page-index .page-index-list { gap: 0; }
+  body.has-page-index .page-index .page-index-item a { padding-inline: 16px; border-radius: 0; }
+}

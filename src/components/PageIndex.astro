@@ -3,6 +3,7 @@
 
 <details class="page-index" hidden>
   <summary>On this page</summary>
+  <div class="page-index-title" aria-hidden="true">On this page</div>
   <nav class="page-index-nav" aria-label="On this page">
     <ol class="page-index-list"></ol>
   </nav>
@@ -232,10 +233,22 @@ function initPageIndex(): void {
         if (href === `#${target}`) a.setAttribute('aria-current', 'location');
         else a.removeAttribute('aria-current');
       });
+      if (desktop.matches) {
+        const viewport = container.querySelector<HTMLElement>('.page-index-nav');
+        const active = nav.querySelector<HTMLElement>('[aria-current="location"]');
+        if (viewport && active) {
+          const bounds = viewport.getBoundingClientRect();
+          const item = active.getBoundingClientRect();
+          if (item.top < bounds.top) viewport.scrollTop += item.top - bounds.top;
+          else if (item.bottom > bounds.bottom) viewport.scrollTop += item.bottom - bounds.bottom;
+        }
+      }
     });
   };
 
   window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('hashchange', update);
   update();
 }
 
