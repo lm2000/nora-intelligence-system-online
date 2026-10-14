@@ -109,6 +109,28 @@ Stored documents, records, and conversations make context available. A deeper re
 
 For a practical way to turn these questions into a first pilot, see [AI and data readiness](../ai-data-readiness/).
 
+<h2 id="venture-research" data-index-label="Venture research">Use the framework for venture-capital market research</h2>
+
+For a venture researcher, the useful output is a market thesis and a set of diligence questions: which workflow a company owns, why a customer adopts it, what makes delivery repeatable, and which assumptions need evidence.
+
+1. **Map the market.** Separate model providers, orchestration and runtime tooling, horizontal platforms, and vertical applications. Group companies by customer problem as well as by technical capability.
+2. **Examine the workflow.** Identify the buyer, user, work product, domain context, integrations, review responsibilities, and what counts as completion.
+3. **Test the business thesis.** Ask how much deployment work repeats across customers, what creates differentiation, who pays, and whether operating cost and review effort scale with revenue.
+4. **Prepare diligence.** Assemble source-linked company briefs, comparable workflows, unknowns, and questions for product, engineering, customer, and commercial conversations.
+5. **Update the thesis.** Retain new evidence and contradictions, revise the comparison, and distinguish a company’s stated capability from demonstrated behavior.
+
+### An illustrative research brief
+
+> **Thesis:** Products that complete a specific professional workflow may create value through integration, domain context, and accountable review.
+>
+> **Evidence to collect:** A completed work product, customer adoption requirements, deployment responsibilities, correction behavior, and the cost of delivery.
+>
+> **Counter-question:** Does each new customer require substantial bespoke work or review capacity that limits repeatability?
+>
+> **Next action:** Compare two products serving a similar workflow and identify the evidence needed to distinguish their operating models.
+
+This is a research workflow, not an investment rating. The seven public examples provide starting points; they do not establish market size, financial performance, or investment suitability.
+
 <h2 id="connection-to-nora" data-index-label="Lab connection">Connection to Nora SuperIntelligence Lab</h2>
 
 The same questions apply to Nora SuperIntelligence Lab’s knowledge assistant:

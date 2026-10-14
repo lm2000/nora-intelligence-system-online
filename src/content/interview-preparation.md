@@ -1,10 +1,12 @@
-<h2 id="prepare-for-the-actual-conversation" data-index-label="Purpose">Prepare for the actual conversation</h2>
+<h2 id="prepare-for-the-actual-conversation" data-index-label="Purpose">One connected job-search and learning cycle</h2>
 
-For candidates preparing a technical or leadership interview, the starting point is the next conversation: its format, expectations, and the experience worth discussing. The method connects opportunity research, an evidence bank, stage preparation, rehearsal, and feedback in one evolving preparation record.
+For an experienced professional, the search starts before an interview and keeps producing useful learning after a hiring decision. Connect career direction, opportunity discovery, applications, relationships, preparation, feedback, and skill development so that each next action starts with the context already gathered.
 
-<h2 id="preparation-inputs" data-index-label="Inputs">One opportunity, connected context</h2>
+This use case expands the lab’s interview-preparation method into a career operating cycle. The example below is fictional; the website explains the method rather than running a job-search service.
 
-Keep the context small enough to use before a conversation, with links to the deeper material:
+<h2 id="preparation-inputs" data-index-label="Context">A profile, a pipeline, and a learning record</h2>
+
+Keep three connected records: a profile and experience bank, an opportunity pipeline with next actions, and a learning record. Each opportunity links to its documents and conversations rather than becoming a separate pile of notes. Capture:
 
 - **Opportunity:** Role description, company context, interview stage, people involved, and questions still unanswered.
 - **Experience:** Relevant projects, the candidate’s own contribution, supporting evidence, and the limits of each example.
@@ -13,10 +15,42 @@ Keep the context small enough to use before a conversation, with links to the de
 
 <h2 id="workflow" data-index-label="Workflow">Workflow</h2>
 
-1. **Frame the stage.** Capture the role, interview format, questions to resolve, and missing context. A recruiter conversation, a coding exercise, and a leadership round need different preparation.
-2. **Build the brief.** Connect requirements to actual experience, relevant research, and a small set of practice questions. Keep a concise stage brief, an experience bank, and a rehearsal plan together.
-3. **Rehearse.** Practice the expected format and identify where an answer needs clearer reasoning or a better example.
-4. **Debrief.** Record the questions asked, useful feedback, gaps, and follow-ups. Update the next brief and retain the useful learning across opportunities.
+1. **Assess and position.** Clarify the roles, work, constraints, and strengths to pursue. Connect each positioning claim to actual experience and identify gaps worth addressing.
+2. **Discover and qualify.** Gather opportunities from saved searches, recruiters, professional networks, and targeted company research. Deduplicate entries and compare role fit, company context, and questions to resolve.
+3. **Prepare and apply.** Match requirements to the experience bank, tailor the resume and cover letter, and retain the submitted version. Record the application, contact, status, and next action in the pipeline.
+4. **Build relationships and follow through.** Prepare relevant outreach and follow-ups, retain conversation context, and track commitments. Update the opportunity when new information arrives.
+5. **Prepare and interview.** Build a stage brief and practice the actual format: recruiter conversation, coding, system design, or leadership. Use relevant stories, worked exercises, and questions for the interviewer.
+6. **Debrief and decide.** Record the questions, feedback, gaps, and follow-ups. Compare the role and offer with the candidate’s goals, including unanswered questions. Close or continue the opportunity with an explicit next action.
+7. **Learn and improve.** Convert recurring gaps into targeted study and practice. Retain stronger explanations, update the experience bank and preparation templates, and use the learning to refine targeting and the next search cycle.
+
+<h2 id="career-automation" data-index-label="Automation">Automate the coordination work</h2>
+
+Automation is most useful where it keeps these records connected:
+
+<dl class="shortlist-example">
+  <dt>Opportunity intake and pipeline updates</dt>
+  <dd>Extract the company, role, contact, stage, and action from career communications or saved opportunities. Match an existing record before creating a new one, and surface conflicts for review.</dd>
+  <dt>Research and application preparation</dt>
+  <dd>Assemble company and role context, map requirements to experience, draft tailored material, and retain the submitted version. The candidate reviews the positioning and chooses where to apply.</dd>
+  <dt>Follow-up and scheduling</dt>
+  <dd>Surface unanswered messages, upcoming conversations, and due actions. Prepare a follow-up draft or meeting brief from the retained context, with the candidate choosing the message and timing.</dd>
+  <dt>Preparation and learning updates</dt>
+  <dd>Turn interview or practice notes into a concise debrief, connect repeated gaps, propose the next drill, and refresh the preparation brief and learning view.</dd>
+</dl>
+
+A tracker, email/calendar integration, document store, and practice tools can support the cycle. The method does not depend on a particular vendor. Useful automation records what changed and leaves a clear way to correct a mistaken match, status, or draft.
+
+<h2 id="continuous-learning" data-index-label="Learning">Turn a gap into demonstrated improvement</h2>
+
+Self-learning needs a concrete task and a return to practice:
+
+1. **Notice a repeated gap.** Separate an unclear explanation from a missing technical skill, weak evidence, or uncertainty about the interview format.
+2. **Choose one learning objective.** For example, explain consumer replay after a failure with a precise event timeline.
+3. **Study and build.** Use documentation, a worked example, or a small lab. Produce an artifact: runnable code, a design sketch, or a clearer experience story.
+4. **Rehearse and review.** Attempt the task again, compare it with the previous attempt, and capture feedback against the same criteria.
+5. **Carry the result forward.** Update the next stage brief, drills, story bank, and learning record. Revisit weak areas rather than treating one successful attempt as permanent mastery.
+
+A useful review tracks open actions, recurring skill gaps, practice attempts, and completed learning artifacts. Interview outcomes inform the picture, but an offer or rejection alone does not identify what improved or what caused the decision.
 
 <h2 id="stage-formats" data-index-label="Stage formats">Prepare for the format</h2>
 
@@ -59,11 +93,15 @@ A fictional rehearsal exposes one gap in the same system-design example:
 >
 > **Next practice task:** Rehearse the failure and recovery in two minutes, stating the assumptions that make the design safe.
 
-The feedback becomes a specific revision and practice task, rather than another disconnected note.
+The next cycle can go further: build a small consumer-replay lab, record the failure sequence, practice the explanation, and add the artifact to the learning record. The next system-design brief then starts with both a stronger explanation and a worked example.
+
+### Carry learning across opportunities
+
+In this fictional search, the candidate qualifies a platform role, prepares an application from the experience bank, and records a recruiter follow-up. A rehearsal exposes the replay gap. The lab and practice task address it before the interview; the debrief captures what still needs work. When that opportunity closes, the candidate retains the useful exercise and updates targeting and preparation for the next role.
 
 <h2 id="candidate-ownership" data-index-label="Human review">Candidate review</h2>
 
-The candidate checks the experience story, decides what to emphasize, and answers in their own voice. Research supports preparation; only their actual work supports personal achievement claims. The preparation system organizes context and suggests drills. The candidate chooses the story, revises the brief, and leads every employer conversation.
+The candidate checks the experience story, decides what to emphasize, and answers in their own voice. Research supports preparation; only their actual work supports personal achievement claims. The preparation system organizes context and suggests drills. The candidate chooses the roles, approves application and outreach material, revises the brief, leads employer conversations, and makes career decisions. Automation keeps context and follow-through organized; it does not supply personal experience or decide which job to accept.
 
 <h2 id="connection-to-the-lab" data-index-label="Related work">Related work</h2>
 

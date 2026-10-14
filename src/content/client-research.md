@@ -66,6 +66,22 @@ The account brief provides the reasoning behind the message. A real package woul
 
 A useful package holds the account brief, buyer context, value hypothesis, message options, discovery questions, and next action together. It includes links to the supporting observations and the relevant agency work. A reviewer should be able to see why the proposed conversation fits this account.
 
+<h2 id="agency-testing-and-learning" data-index-label="Test & learn">Test, revise, and retain the agency’s judgment</h2>
+
+The Boutique Marketing Agency source material develops the pilot through five moves: understand the account, propose relevant ideas, shape the offer and entry point, evaluate reactions and objections, and refine the pitch package.
+
+Before a client conversation, a simulated buyer panel can challenge the message from different perspectives: the marketing lead, finance, and operations. Compare variants for account relevance, evidence, clarity, and likely objections. Simulated reactions generate hypotheses to test; they are not customer interviews or measured buyer demand.
+
+> **Illustrative revision:** A draft promises “better growth.” A simulated finance reviewer asks how the agency would distinguish campaign effects from changes in customer mix. The strategist replaces the promise with a measurement-discovery proposal and adds that question to the account brief.
+
+After the real conversation, record the agency’s feedback and the buyer’s actual objections separately from the simulation. Retain approved changes to account criteria, message patterns, brand voice, and research questions. Reuse those lessons while keeping client-specific information within the appropriate account context.
+
+<h2 id="agency-automation" data-index-label="Automation">Connect the workflow to the agency’s tools</h2>
+
+The source proposal includes CRM history, market and analytics data, documents, and API-connected tools as possible inputs. A scoped integration could assemble account context when a record changes, prepare research and message variants, and route the package to a strategist for review.
+
+Useful outputs include a structured account brief, a selection recommendation with reasons, a draft pitch, and a follow-up task. Approved conversations and delivery feedback can update the account record and reusable playbooks. Actual integrations depend on the agency’s systems and data access; this page describes the proposed operating model, not deployed CRM or campaign automation.
+
 <h2 id="after-the-pitch" data-index-label="Delivery loop">After the pitch: retain account learning</h2>
 
 The older agency materials also describe an intelligence layer behind delivery. This is a possible extension of the acquisition workflow:

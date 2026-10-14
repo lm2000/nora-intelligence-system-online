@@ -213,3 +213,6 @@ Owner requested reuse from website offerings and legacy content, NIS artifacts, 
 
 
 Source-reuse preview READY: https://nora-intelligence-system-online-qnecm1517-nora-builders.vercel.app/use-cases/ (dpl_EXfErq4xuEd3U1bJ8pVd1wCSmRh5), implementation commit 3a80cf0 on codex/use-case-source-reuse-20261014. Root/Pages builds, all 15 tests, zero Astro diagnostics, and 499 link checks pass. Desktop/mobile review of all five affected routes confirms containment; the Outputs label replaces a split word. Readiness return selection and offset are correct, product notes expand, and all twelve deployed routes match the local build apart from Home’s Vercel preview script. Production and GitHub main remain unchanged by this preview.
+
+
+Owner expanded the source-reuse scope: career covers job search, self-learning and automation; agency uses NIS/Boutique Marketing Agency’s full pilot/feedback/integration method; Landscape includes venture-capital market research. Career now connects positioning, pipeline, applications, outreach, interview practice, decisions and learning. Agency simulation is distinguished from actual buyer feedback and proposed integrations remain scoped as proposals. Existing routes/bookmarks and original style remain. Validation and refreshed preview are in progress.
