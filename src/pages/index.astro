@@ -10,14 +10,14 @@ const founder = site.founders.filter(f => f && f.name)[0];
 
 const indexEntries = [
   { id: 'overview', label: 'Overview', description: 'The lab and its current knowledge-assistant work' },
-  { id: 'example', label: 'Current work', description: 'Nora, the knowledge-assistant project' },
+  { id: 'example', label: 'Current work', description: 'The lab’s knowledge-assistant project' },
   { id: 'system-map', label: 'Approach', description: 'A practical way to build useful systems' },
   { id: 'founders', label: 'Founders', description: 'Michael and the work behind the lab' },
   { id: 'contact', label: 'Contact', description: 'Get in touch about roles or projects' }
 ];
 ---
 
-<SiteLayout title="Home — Nora SuperIntelligence Lab" description="I lead Nora SuperIntelligence Lab, an independent lab building knowledge assistants and practical AI systems. Nora is the current knowledge-assistant project." path="/" customIndex={true}>
+<SiteLayout title="Home — Nora SuperIntelligence Lab" description="I lead Nora SuperIntelligence Lab, an independent lab building knowledge assistants and practical AI systems. The current project is a knowledge assistant." path="/" customIndex={true}>
   <section class="hero hero--home" id="overview" data-index-label="Overview">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
@@ -27,7 +27,7 @@ const indexEntries = [
         <h1>{site.home.heading} {site.home.headingEmphasis}</h1>
         <p class="hero-lede">{site.home.intro}</p>
         <div class="hero-actions home-actions">
-          <a class="button button--primary" href={href('/architecture/')}>Explore Nora <span aria-hidden="true">→</span></a>
+          <a class="button button--primary" href={href('/architecture/')}>Explore the architecture <span aria-hidden="true">→</span></a>
           <a class="button button--ghost" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow a walkthrough <span aria-hidden="true">→</span></a>
         </div>
       </div>
@@ -42,9 +42,9 @@ const indexEntries = [
           <p class="section-label">How the work moves</p>
           <h2 id="home-process-title">A concrete question becomes an inspectable answer.</h2>
         </div>
-        <p>Nora keeps the path visible: a question is grounded in prepared knowledge, connected to tools, carried through conversation state, and returned as an answer someone can examine.</p>
+        <p>The knowledge assistant keeps the path visible: a question is grounded in prepared knowledge, connected to tools, carried through conversation state, and returned as an answer someone can examine.</p>
       </div>
-      <ol class="home-process__flow" aria-label="Nora request flow">
+      <ol class="home-process__flow" aria-label="Knowledge-assistant request flow">
         <li>
           <span aria-hidden="true">01</span>
           <strong>Question</strong>
@@ -79,9 +79,9 @@ const indexEntries = [
       <div class="section-heading section-heading--split">
         <div>
           <p class="section-label">Current work</p>
-          <h2>Nora, a knowledge assistant.</h2>
+          <h2>A knowledge assistant.</h2>
         </div>
-        <p>Nora explores how an assistant can work with prepared knowledge, use tools, and retain conversation state. Its public harness makes the architecture and checks available to examine.</p>
+        <p>The project explores how an assistant can work with prepared knowledge, use tools, and retain conversation state. Its public harness makes the architecture and checks available to examine.</p>
       </div>
       <div class="hero-actions home-actions">
         <a class="text-link" href={href('/architecture/')}>Architecture <span aria-hidden="true">→</span></a>
@@ -125,7 +125,7 @@ const indexEntries = [
     <div class="shell foundation-layout">
       <div class="foundation-copy">
         <p class="section-label">Founders</p>
-        <h2>I’m Michael Lvov. I lead the current Nora knowledge-assistant project.</h2>
+        <h2>I’m Michael Lvov. I lead Nora SuperIntelligence Lab’s knowledge-assistant project.</h2>
       </div>
       {founder && (
         <div class="foundation-list">

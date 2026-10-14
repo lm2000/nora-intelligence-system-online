@@ -6,6 +6,8 @@ The confirmed goal is a technical architecture portfolio linked from Michael's r
 
 Use Nora SuperIntelligence Lab consistently for website branding. Reuse the current live website dark navy, sans-serif, teal visual system and its floating content-index pattern. Use in-page HTML diagrams where interaction explains components or steps; omit separate format/source/download link bars. Preserve exact technical identifiers and source provenance.
 
+Use the full lab name in headings and lab references. Refer to its current project as the knowledge assistant; avoid alternate public names such as Nora AI Lab, Nora Lab, or Nora Intelligence System in website branding.
+
 Omit calendar dates from visible public page copy, bylines, and evidence tables. Keep technical versions, source pins, and maintainer records intact.
 
 Main navigation is Home, Architecture, Walkthroughs, and Founders, each on a separate page with its own numbered content index. Keep supporting Decisions, Validation, and Reproduce pages reachable through relevant content and the footer; do not restore Explore. Use compact mobile “On this page” disclosures. The walkthrough index owns its active flow's step selection and must preserve query deep links, browser history, and previous/next/reset behavior.

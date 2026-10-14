@@ -49,11 +49,11 @@ These are my current readings of the public material:
 3. **Treat write access as a design boundary.** A suggested answer and a recorded action carry different consequences. When a system changes records, the comparison should examine authorization, review, retries, and recovery separately.
 4. **Human handoff is designed in.** Counsel's physician handoff and Arbiter's staff handoff encode escalation as part of the normal path, which appears central to how these products present trustworthiness.
 
-## Connection to Nora
+<h2 id="connection-to-nora">Connection to Nora SuperIntelligence Lab</h2>
 
-Nora is my single-assistant knowledge project at Nora SuperIntelligence Lab. Its current architecture is public: [architecture](https://nora-intelligence-system.com/architecture/) and [validation](https://nora-intelligence-system.com/validation/). In brief, Nora coordinates one assistant through open-source Deep Agents and LangGraph, **retrieval runs as a separate MCP server** over operator-prepared documents using shared BGE embeddings and Qdrant, and conversation state persists as **PostgreSQL checkpoints**. Document preparation is **manual and operator-triggered**, kept separate from conversations so provenance stays explicit.
+At Nora SuperIntelligence Lab, I am building a single-assistant knowledge project. Its current architecture is public: [architecture](https://nora-intelligence-system.com/architecture/) and [validation](https://nora-intelligence-system.com/validation/). In brief, the system coordinates one assistant through open-source Deep Agents and LangGraph, **retrieval runs as a separate MCP server** over operator-prepared documents using shared BGE embeddings and Qdrant, and conversation state persists as **PostgreSQL checkpoints**. Document preparation is **manual and operator-triggered**, kept separate from conversations so provenance stays explicit.
 
-Mapping the dimensions table onto Nora is a useful exercise: even a small, single-assistant project answers the same harness questions—task framing, knowledge, tools, durable state, human review, evaluation, integration—as the larger products above.
+Mapping the dimensions table onto the lab’s knowledge assistant is a useful exercise: even a small, single-assistant project answers the same harness questions—task framing, knowledge, tools, durable state, human review, evaluation, integration—as the larger products above.
 
 ## Limits
 

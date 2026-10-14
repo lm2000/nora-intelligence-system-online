@@ -116,7 +116,7 @@ body.has-custom-index .page-index {
   margin: 30px auto 0;
 }
 
-/* Nora Option-1 readability pass, Architecture page only */
+/* Architecture readability pass */
 body:has(#request-path){--dock-w:210px;--dock-r:20px;--dock-pad:14px;--rail-gap:240px;}
 body:has(#request-path) .orchestration-card--nav.is-docked{position:fixed;top:104px;right:var(--dock-r);z-index:45;width:var(--dock-w);padding:var(--dock-pad);box-sizing:border-box;}
 body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow{padding:0;}

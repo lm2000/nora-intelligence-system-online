@@ -143,3 +143,13 @@ Owner requested removing dates everywhere in visible website copy. Case-study by
 ## Published AI Harness Landscape integration
 
 Owner accepted the date-free preview and authorized publication. Vercel promotion created production deployment dpl_6WfEejBJ6iaH9HNFiBr3WfoRzdQk, confirmed READY and aliased to https://nora-intelligence-system.com/ . Unauthenticated readback of all eight active routes returns 200 and matches the accepted local build byte-for-byte. Date checks pass for all eight rendered pages. Browser readback confirms the single-author byline, four main tabs, and map selection on the production case study. Earlier checks passed all 15 tests and 380 local links; root and Pages builds passed.
+
+
+## Consistent full lab name
+
+Owner requested Nora SuperIntelligence Lab consistently. Visible lab references, case-study heading/index, Home copy, Founders labels, metadata, and logo accessible title now use the full brand or describe the knowledge-assistant project directly. Source links are labeled Public harness. The existing connection-to-nora bookmark is preserved. Zero Astro diagnostics, 15 tests, build and 380 link checks pass. Preview dpl_Am65WejWCfWAmAWmABgrPnFDqMu3 is READY at https://nora-intelligence-system-online-dtyvfzz5q-nora-builders.vercel.app/ . Browser readback confirms full branding and no page overflow. Automatic approval review rejected immediate production deployment of the modified checkout, requesting review of the updated version; production and GitHub main remain unchanged pending owner approval.
+
+
+## Published full-name correction
+
+Owner explicitly approved publication of the reviewed naming-correction preview. Promotion created production deployment dpl_8xEnW9bpSMTPGw5rqjHAPv5HqFAW, confirmed READY and aliased to nora-intelligence-system.com. All eight unauthenticated route responses return 200 and match the accepted build byte-for-byte. Browser readback confirms Nora SuperIntelligence Lab in the brand, case-study heading, and index with no page overflow. The previous production approval block is resolved by owner approval.
