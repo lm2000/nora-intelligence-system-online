@@ -9,10 +9,13 @@ interface Props {
   description: string;
   path?: string;
   customIndex?: boolean;
+  socialImage?: string;
+  socialImageAlt?: string;
 }
 
 const canonicalDomain = 'https://nora-intelligence-system.com/';
-const { title, description, path = '', customIndex = false } = Astro.props;
+const { title, description, path = '', customIndex = false, socialImage, socialImageAlt } = Astro.props;
+const socialImageUrl = socialImage ? new URL(href(socialImage), Astro.site || canonicalDomain).href : undefined;
 const cleanPath = path === '/' || path === '' ? '/' : path.replace(/^\/+/, '/');
 const u = new URL(cleanPath, 'http://e.o');
 const canonicalPath = u.pathname.replace(/\/$/, '');
@@ -37,7 +40,16 @@ const showIndex = !customIndex && !routePath.includes('walkthroughs') && routePa
   <meta property="og:title" content={normalizedTitle} />
   <meta property="og:description" content={normalizedDescription} />
   <meta property="og:url" content={canonical} />
-  <meta name="twitter:card" content="summary" />
+  {socialImageUrl && <>
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
+  </>}
+  <meta name="twitter:card" content={socialImageUrl ? 'summary_large_image' : 'summary'} />
 </head>
 <body class={customIndex ? 'has-custom-index' : (showIndex ? 'has-page-index' : '')}>
   <a class="skip-link" href="#main">Skip to content</a>

@@ -2,7 +2,7 @@
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import PageIndex from '../../components/PageIndex.astro';
 import HarnessComparisonMap from '../../components/HarnessComparisonMap.astro';
-import { href } from '../../lib/constants.mjs';
+import CaseStudyLinks from '../../components/CaseStudyLinks.astro';
 import { Content } from '../../content/ai-harness-landscape.md';
 
 const intro = 'From models to useful AI products: a public-source comparison of the software and processes that connect knowledge, tools, persistent state, and human review.';
@@ -25,7 +25,7 @@ const intro = 'From models to useful AI products: a public-source comparison of 
     </section>
 
     <Content />
-    <p class="case-back"><a class="text-link" href={href('/use-cases/#ai-harness-landscape')}>All use cases <span aria-hidden="true">→</span></a></p>
+    <CaseStudyLinks returnAnchor="ai-harness-landscape" />
   </article>
 </SiteLayout>
 
@@ -63,7 +63,6 @@ const intro = 'From models to useful AI products: a public-source comparison of 
   .ai-harness-page :global(.research-note summary:focus-visible) { outline: 2px solid var(--teal-light); outline-offset: 4px; }
   .ai-harness-page :global(.research-note p) { margin-block: 0 18px; }
   .ai-harness-page :global(h3) { margin-top: 32px; }
-  .case-back { margin-top: 48px; }
   :global(.table-swipe-note) { display: none; }
   @media (max-width: 680px) { :global(.table-swipe-note) { display: block; font-size: 15px; color: var(--ink-soft); margin: 24px 0 8px; } }
   .content-page { padding-top: 40px; padding-bottom: 40px; }

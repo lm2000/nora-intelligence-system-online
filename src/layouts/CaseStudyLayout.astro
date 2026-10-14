@@ -1,8 +1,8 @@
 ---
 import SiteLayout from './SiteLayout.astro';
 import PageIndex from '../components/PageIndex.astro';
-import { href } from '../lib/constants.mjs';
-interface Props { title: string; summary: string; path: string; kind: string; returnAnchor: string; }
+import CaseStudyLinks from '../components/CaseStudyLinks.astro';
+interface Props { title: string; summary: string; path: string; kind: string; returnAnchor: 'interview-preparation' | 'client-research' | 'ai-data-readiness'; }
 const { title, summary, path, kind, returnAnchor } = Astro.props;
 ---
 <SiteLayout title={`${title} — Nora SuperIntelligence Lab`} description={summary} path={path}>
@@ -12,7 +12,7 @@ const { title, summary, path, kind, returnAnchor } = Astro.props;
     <p class="page-intro">{summary}</p>
     <PageIndex />
     <slot />
-    <p class="case-back"><a class="text-link" href={href(`/use-cases/#${returnAnchor}`)}>All use cases <span aria-hidden="true">→</span></a></p>
+    <CaseStudyLinks returnAnchor={returnAnchor} />
   </article>
 </SiteLayout>
 <style>
@@ -27,5 +27,4 @@ const { title, summary, path, kind, returnAnchor } = Astro.props;
   .case-study :global(.shortlist-example dt) { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink); font-weight: 700; }
   .case-study :global(.shortlist-example dd) { margin: 8px 0 0; max-width: 68ch; line-height: 1.7; color: var(--ink-soft); }
   .case-study :global(h3) { margin-top: 32px; }
-  .case-back { margin-top: 48px; }
 </style>

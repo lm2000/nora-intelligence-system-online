@@ -1,0 +1,20 @@
+---
+import { href } from '../lib/constants.mjs';
+
+const contactLabels = {
+  'interview-preparation': 'Discuss career automation',
+  'client-research': 'Discuss an agency workflow',
+  'ai-data-readiness': 'Discuss an assessment',
+  'ai-harness-landscape': 'Discuss a research workflow'
+};
+interface Props { returnAnchor: keyof typeof contactLabels; }
+const { returnAnchor } = Astro.props;
+---
+<nav class="case-links" aria-label="Case study next steps">
+  <a class="text-link" href={href('/use-cases/#workflow-contact')}>{contactLabels[returnAnchor]} <span aria-hidden="true">→</span></a>
+  <a class="text-link" href={href(`/use-cases/#${returnAnchor}`)}>All use cases <span aria-hidden="true">→</span></a>
+</nav>
+<style>
+  .case-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 48px; }
+  .case-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
+</style>
