@@ -40,3 +40,5 @@ The owner requested reassessment against the existing live website and option 3 
 ## Approved three-page repair — 2026-10-14
 
 The owner accepted the recommended pilot. Homepage now has a compact paired overview and four discovery links; walkthrough has numbered controls, a concrete fictional Atlas scene, and source SVG component focus; Architecture places its main figure before long prose with working section anchors. Root/Pages builds verify367 references across27 HTML files; eight state tests and browser history, keyboard, bounds, reset, reload, and highlight checks pass. Fresh screenshot review passes the supplied views with P3 follow-ups for link affordances and map proximity. Revised preview review remains pending.
+
+Revised repair preview: https://nora-intelligence-system-online-1yao8pnf2-nora-builders.vercel.app. Remote build is READY. Repair commit 8c20be910c32ea1023fa6ca347ac6769b89ab0ac is published on the review branch. Preview login protection remains enabled; owner review precedes production publication.
