@@ -105,3 +105,22 @@ Owner approved all three audit batches. Architecture retains its three interacti
 Ollama Cloud generated the cleanup and a scoped fix for Founders index tracking when a bookmark cannot align at the maximum scroll position. Integration corrected base-path links, redundant introductions, checkpoint wording, and hash-change refresh. Root and GitHub Pages builds and 359 local links across 28 HTML files pass. Astro reports zero errors/warnings and 11 existing hints; eight walkthrough state tests pass. Browser checks cover all seven desktop/mobile routes, containment at 1600/390px, no duplicate IDs, mobile index placement and closing, anchor offsets, and Founders Expertise/Contact active states. Old Home, Founders, Architecture, and supporting-page fragments remain. Home content, Walkthroughs, diagram assets and component, fixtures, founder/contact data, source pins, and original stylesheets are unchanged. The shared OriginalIndex receives only the compact Founders tracking fix and hash-change refresh.
 
 Fresh screenshot review found no material regressions in the supplied views; Architecture closing was additionally inspected from a full-page capture after its initial viewport capture was blank. This is local verification, not full accessibility compliance or owner acceptance. No commit, push, preview deployment, or production publication was performed for this cleanup. Local review remains http://127.0.0.1:8876/.
+
+
+## Latest hosted review preview — 2026-10-14
+
+Owner requested a hosted preview with all latest website changes. Source commit `9e2fdd9d4a31a9720a315034db3f9631bb5fcfd1` is published on `codex/portfolio-overhaul-20261014`. GitHub automatically created Vercel preview deployment `dpl_43jSLWH8JHMP6nDXTT2FFW7jG3Sp`, confirmed READY. Review URL: https://nora-intelligence-system-online-bcy45x1t7-nora-builders.vercel.app.
+
+All 15 tests pass. Astro reports zero errors, warnings, or hints. Root and GitHub Pages builds and 362 local links across 28 HTML files pass. Authenticated readback succeeds for all seven routes; six HTML documents match the local build exactly, and Home differs only by the Vercel preview feedback script. Browser access retains existing Vercel sign-in protection. Production remains deployment `dpl_HdjhywmjHfnSBgFYR3h3eEHHYNSq`; no production promotion was performed.
+
+
+## Hosted reader journey review — 2026-10-14
+
+Read-only review of Home, Architecture, Walkthroughs, and Founders on the latest hosted preview covers desktop 1280px and mobile 390px. All five Atlas request and six separate ingestion stages were traversed; reset, final bounds, contact and settled floating-index states were checked. Ollama Cloud found no material blockers in the supplied captures. Supporting technical pages were not fully re-audited and accessibility compliance is not established. Website implementation and production remain unchanged; owner acceptance is pending. Evidence is retained in the hosted-reader-review runtime folder and the Career deliverables review.
+
+
+## Accepted production publication — 2026-10-14
+
+Owner accepted the hosted review and authorized publication. The official Vercel promotion flow created production deployment `dpl_F3EC49Mk7fh2LZboHXheBbQe7j3r` from accepted website commit `9e2fdd9d4a31a9720a315034db3f9631bb5fcfd1`. Production is public at https://nora-intelligence-system.com/; the preview remains separately available with its existing protection. Main was fast-forwarded to the accepted source so the Website source link matches the release.
+
+Unauthenticated HTTP checks return 200 for all seven routes and match the accepted build. All 18 configured legacy redirects return their configured 301 and resolve to working destinations. Browser checks confirm request Next reaches Grounding, Bounded Reasoning and Plain Answer; Previous returns to Bounded Reasoning; Reset returns to Current Question; Founders retains the approved contact. Earlier release checks passed 15 tests, zero Astro diagnostics, root/Pages builds, and 362 links across 28 HTML files. No changes to the private harness services or corpus were made. Subsequent documentation-only release-record commits do not change the accepted website content.
