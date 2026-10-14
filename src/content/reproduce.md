@@ -1,4 +1,4 @@
-<h2 id="example" data-index-label="Prerequisites">Prerequisites</h2>
+<h2 id="example" data-index-label="Setup">Prerequisites</h2>
 
 Use Python 3.12, Node.js 22.22 or newer, and pnpm 12.8.1. Conda and mise must also be installed.
 

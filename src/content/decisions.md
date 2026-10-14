@@ -1,4 +1,4 @@
-<h2 id="example" data-index-label="Conversation">Assistant and conversation contract</h2>
+<h2 id="example" data-index-label="Contract">Assistant and conversation contract</h2>
 
 **Choice.** One NIS assistant handles separate topic conversations through `ask_nis(question, thread_id=None)`. The response contains a plain answer and its conversation UUID; follow-ups reuse that UUID. Research, knowledge questions, and interview analysis are tasks for the same assistant.
 
