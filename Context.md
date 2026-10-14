@@ -216,3 +216,6 @@ Source-reuse preview READY: https://nora-intelligence-system-online-qnecm1517-no
 
 
 Owner expanded the source-reuse scope: career covers job search, self-learning and automation; agency uses NIS/Boutique Marketing Agency’s full pilot/feedback/integration method; Landscape includes venture-capital market research. Career now connects positioning, pipeline, applications, outreach, interview practice, decisions and learning. Agency simulation is distinguished from actual buyer feedback and proposed integrations remain scoped as proposals. Existing routes/bookmarks and original style remain. Validation and refreshed preview are in progress.
+
+
+Full-cycle expansion preview READY: https://nora-intelligence-system-online-nim7lnlnl-nora-builders.vercel.app/use-cases/ (dpl_5S4MY52WsaMseWKTnRZggHu9XYEN), source commit 76105b1. Zero Astro diagnostics, all 15 tests, root/Pages builds and 499 links pass. Desktop/mobile readback confirms containment across four updated routes; venture-research selection closes the mobile disclosure and lands below the header. The four hosted routes match the approved local build. Production and GitHub main remain unchanged.
