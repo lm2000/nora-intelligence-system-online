@@ -8,10 +8,11 @@ const entries = [
   { id: 'knowledge-assistant', label: 'Knowledge assistant', description: 'Retrieval, tools, and state' },
   { id: 'interview-preparation', label: 'Interview preparation', description: 'Prepare, rehearse, and debrief' },
   { id: 'client-research', label: 'Client research', description: 'Research and pitch preparation' },
+  { id: 'ai-data-readiness', label: 'AI/data readiness', description: 'Choose and scope a first pilot' },
   { id: 'ai-harness-landscape', label: 'AI Harness Landscape', description: 'A public-source research case study' }
 ];
 ---
-<SiteLayout title="Use cases — Nora SuperIntelligence Lab" description="Explore knowledge-assistant work, interview preparation, client research, and AI Harness Landscape research from Nora SuperIntelligence Lab." path="/use-cases/" customIndex={true}>
+<SiteLayout title="Use cases — Nora SuperIntelligence Lab" description="Explore knowledge-assistant work, interview preparation, agency workflows, AI/data readiness, and AI Harness Landscape research from Nora SuperIntelligence Lab." path="/use-cases/" customIndex={true}>
   <section class="hero use-cases-hero" id="overview" data-index-label="Overview">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
@@ -19,7 +20,7 @@ const entries = [
     <div class="shell hero-layout">
       <div class="hero-copy">
         <h1>Use cases.</h1>
-        <p class="hero-lede">Choose a practical workflow or explore research from Nora SuperIntelligence Lab.</p>
+        <p class="hero-lede">Prepare a conversation, choose a client, scope an AI pilot, or examine the systems behind useful AI products.</p>
       </div>
       <OriginalIndex tagline="Nora SuperIntelligence Lab" title="Use cases" entries={entries} ariaLabel="Use cases navigation" grouped={true} />
     </div>
@@ -30,25 +31,31 @@ const entries = [
         <article id="knowledge-assistant" class="use-case-entry">
           <p class="section-label">Knowledge-assistant project</p>
           <h2>Knowledge assistant</h2>
-          <p>Follow a fictional Atlas question through retrieval, tools, and conversation state.</p>
+          <p>Find an answer in prepared documents and continue with retained context. Follow a fictional Atlas question through retrieval, tools, and conversation state.</p>
           <a class="text-link" href={href('/walkthroughs/?flow=request&step=current-question')}>Follow the example <span aria-hidden="true">→</span></a>
         </article>
         <article id="interview-preparation" class="use-case-entry">
           <p class="section-label">Preparation workflow</p>
           <h2>Interview preparation</h2>
-          <p>Build a stage brief, rehearse the conversation, and carry feedback into the next round.</p>
+          <p>Connect role research, an experience bank, stage-specific practice, and feedback. See a preparation brief and its next revision.</p>
           <a class="text-link" href={href('/case-studies/interview-preparation/')}>View the preparation pack <span aria-hidden="true">→</span></a>
         </article>
         <article id="client-research" class="use-case-entry">
           <p class="section-label">Workflow concept</p>
-          <h2>Client research</h2>
-          <p>Research a shortlist and prepare an account brief and pitch for agency review.</p>
-          <a class="text-link" href={href('/case-studies/client-research/')}>View the account brief <span aria-hidden="true">→</span></a>
+          <h2>Client research and agency workflow</h2>
+          <p>Start with ten accounts, choose three, and prepare a tailored pitch package. Explore the account-learning loop after the conversation.</p>
+          <a class="text-link" href={href('/case-studies/client-research/')}>Explore the agency workflow <span aria-hidden="true">→</span></a>
+        </article>
+        <article id="ai-data-readiness" class="use-case-entry">
+          <p class="section-label">Assessment method</p>
+          <h2>AI and data readiness</h2>
+          <p>Compare opportunities, inspect data and integration gaps, and choose one pilot with a baseline and an owner.</p>
+          <a class="text-link" href={href('/case-studies/ai-data-readiness/')}>View the assessment <span aria-hidden="true">→</span></a>
         </article>
         <article id="ai-harness-landscape" class="use-case-entry">
           <p class="section-label">Research case study</p>
           <h2>AI Harness Landscape</h2>
-          <p>Compare the knowledge, tools, state, and human review behind seven public AI products.</p>
+          <p>Compare seven public AI products through their workflow, integration, human review, adoption, and economics.</p>
           <a class="text-link" href={href('/case-studies/ai-harness-landscape/')}>Read the research <span aria-hidden="true">→</span></a>
         </article>
       </div>

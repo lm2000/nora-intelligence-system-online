@@ -57,6 +57,12 @@ const intro = 'From models to useful AI products: a public-source comparison of 
 </script>
 
 <style>
+  .ai-harness-page :global(.research-note) { margin-block: 12px; border-bottom: 1px solid var(--line); }
+  .ai-harness-page :global(.research-note summary) { padding: 16px 0; min-height: 48px; cursor: pointer; font-weight: 700; color: var(--ink); }
+  .ai-harness-page :global(.research-note summary:hover) { color: var(--teal-light); }
+  .ai-harness-page :global(.research-note summary:focus-visible) { outline: 2px solid var(--teal-light); outline-offset: 4px; }
+  .ai-harness-page :global(.research-note p) { margin-block: 0 18px; }
+  .ai-harness-page :global(h3) { margin-top: 32px; }
   .case-back { margin-top: 48px; }
   :global(.table-swipe-note) { display: none; }
   @media (max-width: 680px) { :global(.table-swipe-note) { display: block; font-size: 15px; color: var(--ink-soft); margin: 24px 0 8px; } }

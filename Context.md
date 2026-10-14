@@ -205,3 +205,8 @@ Hosted preview READY: https://nora-intelligence-system-online-qw9ad0xzg-nora-bui
 ## Published whole-site consistency review
 
 Michael explicitly approved publication of the reviewed preview and synchronization to GitHub main. Promotion of dpl_3bvujKLH3ts6kzinYad7FjuhShce created production dpl_5bSZdT4Y753zcN3qZjYgosgQBcru, confirmed READY and aliased to nora-intelligence-system.com. All eleven public routes returned HTTP 200 and matched the approved root build byte-for-byte. The newer main commit d3de21a was integrated without changing the reviewed site source: its profile and validation additions were already included in the preview. Both publication records are retained. Original style, five navigation tabs, source pins, diagrams, and walkthrough behavior remain intact.
+
+
+## Use-case source reuse
+
+Owner requested reuse from website offerings and legacy content, NIS artifacts, AI Harness Landscape Artifacts, and Consulting. Expanded the interview context/learning loop, stage-specific preparation, agency ten-to-three pilot, selection scorecard, pitch package, delivery artifacts and decision journal. Added a supporting AI/data-readiness assessment method with a fictional triage and pilot brief. Landscape adds seven public-source product disclosures and deployment/adoption/economics questions adapted from the research package. Original styles and five main tabs remain; old bookmarks are preserved. Local root checks pass with zero Astro diagnostics, all 15 tests, and 499 links across 33 files. Responsive inspection and hosted preview are in progress.

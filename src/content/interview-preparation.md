@@ -1,13 +1,33 @@
 <h2 id="prepare-for-the-actual-conversation" data-index-label="Purpose">Prepare for the actual conversation</h2>
 
-For candidates preparing a technical or leadership interview, the starting point is the next conversation: its format, expectations, and the experience worth discussing. This preparation method uses an illustrative example from Nora SuperIntelligence Lab’s interview-preparation material.
+For candidates preparing a technical or leadership interview, the starting point is the next conversation: its format, expectations, and the experience worth discussing. The method connects opportunity research, an evidence bank, stage preparation, rehearsal, and feedback in one evolving preparation record.
+
+<h2 id="preparation-inputs" data-index-label="Inputs">One opportunity, connected context</h2>
+
+Keep the context small enough to use before a conversation, with links to the deeper material:
+
+- **Opportunity:** Role description, company context, interview stage, people involved, and questions still unanswered.
+- **Experience:** Relevant projects, the candidate’s own contribution, supporting evidence, and the limits of each example.
+- **Previous conversations:** What was discussed, what the interviewer emphasized, and commitments or follow-up questions.
+- **Practice record:** The latest rehearsal, feedback, and one improvement to carry into the next attempt.
 
 <h2 id="workflow" data-index-label="Workflow">Workflow</h2>
 
-1. **Frame the stage.** Capture the role, interview format, questions to resolve, and missing context.
-2. **Build the brief.** Connect requirements to actual experience, relevant research, and a small set of practice questions.
+1. **Frame the stage.** Capture the role, interview format, questions to resolve, and missing context. A recruiter conversation, a coding exercise, and a leadership round need different preparation.
+2. **Build the brief.** Connect requirements to actual experience, relevant research, and a small set of practice questions. Keep a concise stage brief, an experience bank, and a rehearsal plan together.
 3. **Rehearse.** Practice the expected format and identify where an answer needs clearer reasoning or a better example.
-4. **Debrief.** Update the brief with feedback and one concrete preparation action for the next conversation.
+4. **Debrief.** Record the questions asked, useful feedback, gaps, and follow-ups. Update the next brief and retain the useful learning across opportunities.
+
+<h2 id="stage-formats" data-index-label="Stage formats">Prepare for the format</h2>
+
+<dl class="shortlist-example">
+  <dt>Recruiter or hiring-manager conversation</dt>
+  <dd>Prepare a short introduction, a clear reason for the role, two relevant examples, and questions about expectations. The output is a conversation brief.</dd>
+  <dt>Coding or system design</dt>
+  <dd>Practice requirements, reasoning, implementation or architecture, tests, failures, and tradeoffs. The output is a worked exercise plus a targeted drill for the weakest explanation.</dd>
+  <dt>Behavioral or leadership round</dt>
+  <dd>Choose a small set of actual situations covering decisions, conflict, delivery, and learning. The output is an evidence-backed story bank with prompts rather than a memorized script.</dd>
+</dl>
 
 <h2 id="example-preparation-pack" data-index-label="Example">Example preparation pack</h2>
 
@@ -43,8 +63,8 @@ The feedback becomes a specific revision and practice task, rather than another 
 
 <h2 id="candidate-ownership" data-index-label="Human review">Candidate review</h2>
 
-The candidate checks the experience story, decides what to emphasize, and answers in their own voice. Research supports preparation; only their actual work supports personal achievement claims.
+The candidate checks the experience story, decides what to emphasize, and answers in their own voice. Research supports preparation; only their actual work supports personal achievement claims. The preparation system organizes context and suggests drills. The candidate chooses the story, revises the brief, and leads every employer conversation.
 
 <h2 id="connection-to-the-lab" data-index-label="Related work">Related work</h2>
 
-Explore the [knowledge-assistant architecture](../../architecture/) or its [technical validation](../../validation/).
+For the same brief-to-feedback pattern in a business setting, see [client research and agency workflow](../client-research/). Explore the [knowledge-assistant architecture](../../architecture/) or its [technical validation](../../validation/).
