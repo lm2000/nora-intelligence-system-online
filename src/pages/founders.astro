@@ -9,6 +9,7 @@ const founders = site.founders.filter(f => f && f.name);
 const indexEntries = [
   { id: 'michael', label: 'Michael', description: 'Founder of Nora SuperIntelligence Lab' },
   { id: 'expertise', label: 'Expertise', description: 'Focus areas from the public profile' },
+  { id: 'technologies', label: 'Skills', description: 'Technologies and tools' },
   { id: 'opportunities', label: 'Opportunities', description: 'Roles and projects in scope' },
   { id: 'contact', label: 'Contact', description: 'Email, GitHub and LinkedIn' }
 ];
@@ -41,19 +42,57 @@ const indexEntries = [
             <p class="section-label">Founder {String(i + 1).padStart(2, '0')}</p>
             <h2>{f.name}</h2>
           </div>
-          <p>{f.role}</p>
+          <p>{f.profileRole || f.role}</p>
         </div>
         <div class="founder-layout">
           {f.image && <img class="founder-portrait" src={href('/' + f.image)} alt={`Portrait of ${f.name}`} width="200" height="200" />}
           <div class="founder-main">
             <p class="founder-bio">{f.bio}</p>
             {f.background && <p class="founder-bio">{f.background}</p>}
-            {f.focus && f.focus.length > 0 && (
+
+            {i === 0 && (f.outcomes || f.expertise || f.skillGroups) && (
               <div class="founder-expertise" id="expertise" data-index-label="Expertise">
-                <h3 class="founder-subheading">Focus areas.</h3>
-                <ul class="hero-signals founder-focus" aria-label={`${f.name} focus areas`}>
-                  {f.focus.map(item => <li>{item}</li>)}
-                </ul>
+
+                {f.outcomes && f.outcomes.length > 0 && (
+                  <>
+                    <h3 class="founder-subheading">Selected engineering outcomes.</h3>
+                    <ul class="founder-outcomes" aria-label={`${f.name} selected engineering outcomes`}>
+                      {f.outcomes.map(item => <li>{item}</li>)}
+                    </ul>
+                  </>
+                )}
+
+                {f.expertise && f.expertise.length > 0 && (
+                  <>
+                    <h3 class="founder-subheading">Core areas of expertise.</h3>
+                    <div class="founder-core-list">
+                      {f.expertise.map(area => (
+                        <article class="founder-core-item">
+                          <h4>{area.title}</h4>
+                          <p>{area.body}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </>
+                )}
+
+                {f.skillGroups && f.skillGroups.length > 0 && (
+                  <div class="founder-technologies" id="technologies" data-index-label="Skills">
+                    <h3 class="founder-subheading">Technologies and tools.</h3>
+                    {f.skillsIntro && <p class="founder-skills-intro">{f.skillsIntro}</p>}
+                    <div class="founder-skills-table">
+                      {f.skillGroups.map(group => (
+                        <details class="founder-skill-row">
+                          <summary class="founder-skill-summary">
+                            <span class="founder-skill-title">{group.title}</span>
+                          </summary>
+                          <p class="founder-skill-body">{group.body}</p>
+                        </details>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div class="founder-evidence" aria-labelledby="nora-examples-heading">
                   <h3 class="founder-subheading" id="nora-examples-heading">Current knowledge-assistant examples.</h3>
                   <div class="founder-evidence-list">
@@ -79,6 +118,16 @@ const indexEntries = [
                 </div>
               </div>
             )}
+
+            {i !== 0 && f.focus && f.focus.length > 0 && (
+              <div class="founder-expertise" id="expertise" data-index-label="Expertise">
+                <h3 class="founder-subheading">Focus areas.</h3>
+                <ul class="hero-signals founder-focus" aria-label={`${f.name} focus areas`}>
+                  {f.focus.map(item => <li>{item}</li>)}
+                </ul>
+              </div>
+            )}
+
           </div>
         </div>
       </div>
@@ -154,6 +203,103 @@ const indexEntries = [
 }
 .founder-expertise {
   scroll-margin-top: calc(var(--header-height) + 24px);
+}
+.founder-outcomes {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 12px 0 0;
+  max-width: 66ch;
+}
+.founder-outcomes li {
+  margin: 10px 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.founder-core-list {
+  margin-top: 12px;
+}
+.founder-core-item h4 {
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 1.4em 0 0.4em;
+  color: var(--ink);
+}
+.founder-core-item p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 1em;
+  color: var(--ink-soft);
+  max-width: 66ch;
+}
+.founder-technologies {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+  margin-top: 42px;
+}
+.founder-skills-intro {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+  max-width: 66ch;
+}
+.founder-skills-table {
+  border-collapse: collapse;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.founder-skill-row {
+  border-bottom: 1px solid var(--line);
+}
+.founder-skill-summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink);
+  background: transparent;
+  transition: background-color 0.15s ease;
+}
+.founder-skill-summary::-webkit-details-marker {
+  display: none;
+}
+.founder-skill-summary::marker {
+  content: '';
+}
+.founder-skill-summary:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.founder-skill-summary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: -2px;
+  background: rgba(45, 212, 191, 0.05);
+}
+.founder-skill-title::before {
+  content: '+';
+  margin-right: 12px;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.founder-skill-row[open] .founder-skill-title::before {
+  content: '−';
+}
+.founder-skill-body {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 4px 16px 16px 38px;
+  color: var(--ink-soft);
+  max-width: 66ch;
+  word-break: break-word;
 }
 .founder-focus {
   margin-top: 12px;
