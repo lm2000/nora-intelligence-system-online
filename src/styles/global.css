@@ -257,6 +257,11 @@ h2[data-step-title] {
 /* Compact five-link mobile navigation; preserve the original palette and focus states. */
 @media (max-width: 680px) {
   .site-header .nav-wrap { min-height: 0; padding-block: 8px; row-gap: 4px; }
+  .site-header .brand { gap: 8px; min-height: 44px; }
+  .site-header .brand img { width: 28px; height: 28px; }
+  .site-header .brand span { line-height: 1.35; }
+  .site-header .brand strong { display: inline; }
+  .site-header .nav-wrap > .button { min-height: 44px; padding-inline: 10px; font-size: 12px; }
   .site-header .site-nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0 4px; width: 100%; }
   .site-header .site-nav a { grid-column: span 2; justify-self: center; width: max-content; max-width: 100%; display: flex; justify-content: center; align-items: center; min-height: 44px; padding: 4px 8px; font-size: 15px; }
   .site-header .site-nav a:nth-child(n+4) { grid-column: span 3; }

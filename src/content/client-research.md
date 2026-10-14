@@ -1,6 +1,6 @@
 <h2 id="start-with-a-reason-to-engage" data-index-label="Purpose">Start with a reason to engage</h2>
 
-For an agency choosing which accounts to pursue, useful research explains account fit, supports a point of view, and identifies questions for the first conversation. This proposed workflow adapts the lab's boutique-agency offering: start with ten candidate companies, select three together, and prepare three focused briefs and pitch packages.
+For an agency choosing which accounts to pursue, useful research explains account fit, supports a point of view, and identifies questions for the first conversation. This illustrative workflow helps an agency decide where to focus its business-development effort.
 
 <h2 id="pilot-inputs" data-index-label="Inputs">Frame the agency’s market thesis</h2>
 
