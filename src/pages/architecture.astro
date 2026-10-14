@@ -23,7 +23,7 @@ const indexEntries = [
     <div class="shell hero-layout">
       <div class="hero-copy">
         <h1>One assistant. Clear service boundaries.</h1>
-        <p class="hero-lede">The knowledge assistant separates conversation handling from knowledge retrieval and document preparation. A single assistant coordinates retrieval and inference while PostgreSQL retains conversation state.</p>
+        <p class="hero-lede">Architecture shows the reusable system: who owns each responsibility, how a request moves, and why document preparation stays outside the conversation. The walkthrough applies those same boundaries to concrete scenarios.</p>
         <ul class="hero-signals" aria-label="Design principles">
           <li>Single assistant</li>
           <li>Prepared knowledge</li>
@@ -46,7 +46,7 @@ const indexEntries = [
           <p class="section-label">Request workflow</p>
           <h2 id="request-path-heading">How one request reaches an answer.</h2>
         </div>
-        <p>Coordination handles inference and retrieval directly: the question enters through the Browser UI or embedded tool, retrieval finds prepared passages, and the answer is produced while the checkpoint is retained.</p>
+        <p>This reusable request path is the system contract: the question enters through the Browser UI or embedded tool, Coordination retrieves prepared passages, and the answer is produced while the checkpoint is retained. The walkthrough applies it to the fictional Atlas question.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="request-path-heading">
         <Diagram
@@ -68,7 +68,7 @@ const indexEntries = [
           <p class="section-label">Technical architecture</p>
           <h2 id="system-map-heading">Components, state, and system boundaries.</h2>
         </div>
-        <p>Browser access, MCP access, retrieval, and manual ingestion carry separate responsibilities. Browser UI connects directly to Coordination, while MCP clients separately use the gateway to embedded FastMCP.</p>
+        <p>The map makes ownership explicit. Browser UI connects directly to Coordination, while MCP clients separately use the gateway to embedded FastMCP; Retrieval and conversation state remain separate services.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="system-map-heading">
         <Diagram
@@ -90,7 +90,7 @@ const indexEntries = [
           <p class="section-label">Manual ingestion</p>
           <h2 id="manual-ingestion-heading">Preparation stays outside the conversation.</h2>
         </div>
-        <p>Conversion, preparation, embedding, and import are operator-triggered jobs. They run separately from the conversation flow to prepare documents and the retrieval index.</p>
+        <p>Conversion, preparation, embedding, and import are operator-triggered jobs, not request-time work. This separate path prepares documents and the retrieval index; the walkthrough shows it as its own operator scenario.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="manual-ingestion-heading">
         <Diagram
@@ -110,14 +110,14 @@ const indexEntries = [
       <div class="foundation-copy">
         <p class="section-label">Decisions &amp; tradeoffs</p>
         <h2>Architecture decisions and tradeoffs.</h2>
-        <p>The diagrams above cover the request path, the component map, and manual ingestion. The accepted choices and tradeoffs behind them are recorded separately, with dated checks and reproduction steps.</p>
+        <p>Architecture defines the reusable boundaries. Decisions records why they were chosen, Validation records what was checked, and Walkthroughs applies the boundaries to concrete examples.</p>
         <a class="text-link" href={href('/decisions/')}>Review decisions and tradeoffs <span aria-hidden="true">→</span></a>
       </div>
       <nav class="architecture-related" aria-label="Architecture related reading">
         <h3 id="purpose">Conversation contract</h3>
         <p>What the assistant is for and how it answers: see the <a href={href('/decisions/')}>accepted conversation contract</a> on the Decisions page.</p>
-        <h3 id="example">Follow a request</h3>
-        <p>Follow the fictional Atlas example in the <a href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>request walkthrough</a>.</p>
+        <h3 id="example">Concrete walkthrough</h3>
+        <p>See the fictional Atlas request and operator ingestion scenarios in <a href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Walkthroughs</a>.</p>
         <h3 id="approach-and-tradeoffs">Accepted decisions</h3>
         <p>Model routing, request bounds, and ingestion ownership: read the <a href={href('/decisions/')}>accepted execution decisions</a>.</p>
         <h3 id="boundaries-and-recovery">Evidence and limits</h3>

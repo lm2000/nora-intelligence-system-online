@@ -60,3 +60,48 @@ Root build and 344 link checks across 27 HTML files pass, alongside eight state 
 Fresh screenshot comparison passes for the supplied original-reference, restored desktop and mobile views. Both original stylesheet copies are byte-identical, six canonical diagram source checksums remain unchanged, and design documentation/sidecar reflect the restored original system. Review deployment follows; production publication awaits owner review.
 
 Original-layout review preview: https://nora-intelligence-system-online-c5d3fwj0e-nora-builders.vercel.app. Deployment dpl_2yAuZY77Q7Xp9WCaRvauNqy62rxa is READY. Authenticated Architecture readback confirms the original hero/grid/glows, numbered navigation, three inline interactive diagrams and removed format links. Implementation d23ccf32751a53218a4a336db9be52d4757ae6af is published on the review branch. Existing preview login protection remains enabled; production publication is pending owner review.
+
+
+## Direct diagram interaction — 2026-10-14
+
+The owner requested removing the diagram component dropdown and reset bar, and bringing interaction into the diagrams as in the public harness. The shared Diagram component now offers direct node activation, connected-edge highlighting, source-path moving markers, selected-node toggle and Escape clearing. A single pause/resume button sits inside the viewport. Motion respects reduced-motion changes and stops offscreen or when the document is hidden. Canonical imported HTML/GIF diagram assets and topology remain unchanged.
+
+Local implementation and root build, Astro checks, 344 link checks and eight existing state tests pass. Browser verification covers direct node-surface clicks, Enter/Space/Escape, moving path positions, pause, reduced-motion and mobile containment. This edit is local; the earlier Vercel review deployment does not contain it yet.
+
+
+## Diagram readability and explanations — 2026-10-14
+
+Owner accepted recommendation 1 only. Architecture diagrams now use a single figure without nested bordered framing or repeated headings. The original hero and stylesheets are preserved; an Architecture-only override narrows the docked index to 170px. Diagram sections reserve 190px for the index from 1081–1599px and use full 1180px width at 1600px and above. All five index links remain available with 44px targets. Eleven request-path node explanations are maintained in src/data/diagram-details.json, derived from the pinned public diagram responsibilities; canonical imported HTML/GIF assets stay unchanged. Mobile header and CTA-copy refinements remain separate, unselected recommendations.
+
+Root build, Astro diagnostics (zero errors/warnings), 344 link checks, and eight existing state tests pass. Browser checks cover five CSS desktop widths (1081, 1280, 1440, 1600, 1920), no index/diagram overlap or document overflow, source-grounded node details, mobile containment and horizontal pan, keyboard selection and Escape clearing. Implementation is local only; prior Vercel preview is unchanged. Ollama Cloud generated the CSS and explanations; generated selectors and unsupported wording were corrected during integration.
+
+GitHub Pages base-path build and its 344 link checks also pass. Final browser screenshot was inspected; framing is simplified and the selected Retrieval explanation adds responsibilities beyond the node subtitle.
+
+
+## Four main pages and page-owned indexes — 2026-10-14
+
+Owner accepted removing Explore and using four main pages: Home, Architecture, Walkthroughs, and Founders. Founders is now /founders/ with Michael alone, sourced profile/focus, opportunities, and approved contact; Home retains a brief teaser at the old #founders anchor. Decisions, Validation, and Reproduce remain separate supporting pages with contextual and footer links. Hero indexes use the original numbered card and dock after scrolling; supporting pages use matching numbered rails. Walkthroughs owns its active flow's step index, preserving query deep links, browser history, and previous/next/reset controls. All indexes become compact native “On this page” disclosures on mobile.
+
+Ollama Cloud produced the navigation/page/index implementation. The original walkthrough state script was preserved and enhanced only for disclosure and index focus behavior. A truncated provider response was recovered for complete files; a bounded follow-up supplied the remaining CSS/index changes. Integration corrected selectors, duplicate future-profile IDs, repeated contact copy, and mobile grid containment. Original stylesheets, diagram assets, fixtures, and source pins remain unchanged.
+
+Astro checks pass with zero errors/warnings; root and Pages builds pass. Root and Pages link checks cover 351 references across 28 HTML files including the new Founders route; eight existing state tests pass. Browser checks verify four direct header links/active Founders state, one founder, source-grounded contact, active walkthrough step/map focus, Next and browser Back, mobile closed indexes/step focus with 390px containment, and supporting-page index targets. This implementation remains local; prior Vercel review and production are unchanged.
+
+Final desktop Founders check confirms the 170px docked index, active Expertise entry, and 20px separation from content at 1600px. The old Home #founders bookmark resolves to its teaser and dedicated-page link. Final Founders screenshot was inspected.
+
+
+## Distinct lab overview on Home — 2026-10-14
+
+Owner approved and requested the Home-only lab-overview plan. Home now introduces the independent lab with the exact approved headline and intro, one current Nora project, three working principles, a brief Michael teaser, and the approved contact action. Its index is Overview, Current work, Approach, People, Contact. The old IDs overview/example/system-map/founders/contact are preserved, with example now Current work and system-map now Approach. Architecture retains the service diagrams, Walkthroughs retains the fictional Atlas fixture, and Founders retains the full profile. Header, other page implementations, source pins, fixtures, and diagram assets were not changed for this scope.
+
+Ollama Cloud generated the Home implementation and Home data. Integration corrected supporting-page links and kept explanations concise. Original stylesheets and founder/contact data are unchanged. Astro checks pass with zero errors/warnings; root and Pages builds and 352 links across 28 HTML files pass. Eight existing walkthrough tests pass. Browser verification covers exact copy, all five anchors/index labels, no Home diagrams, desktop docking and active Approach state, both hero destinations and the first walkthrough step, mobile 390px containment, 44px disclosure, People bookmark and Founders navigation. Publication is outside scope; this change is local only.
+
+Final Home screenshot was inspected: original hero/grid/glows and numbered index are preserved; the page presents the lab and current work without an embedded architecture diagram or Atlas Q&A.
+
+
+## All-page UI and content cleanup — 2026-10-14
+
+Owner approved all three audit batches. Architecture retains its three interactive diagrams and replaces its long duplicated reference with concise related reading. Decisions, Validation, and Reproduce now have distinct task-specific headings; supporting-page mobile indexes follow the title and introduction. Validation retains its dated evidence, metrics, providers, and limitations. Reproduce emphasizes pinned source, prerequisites, commands, and expected results. Founders groups profile/expertise and opportunities/contact in two tighter sections, with one closing contact group and all existing anchors. Shared navigation distinguishes Nora source from Website source, and the footer describes the lab. Project guidance records the page-ownership rules.
+
+Ollama Cloud generated the cleanup and a scoped fix for Founders index tracking when a bookmark cannot align at the maximum scroll position. Integration corrected base-path links, redundant introductions, checkpoint wording, and hash-change refresh. Root and GitHub Pages builds and 359 local links across 28 HTML files pass. Astro reports zero errors/warnings and 11 existing hints; eight walkthrough state tests pass. Browser checks cover all seven desktop/mobile routes, containment at 1600/390px, no duplicate IDs, mobile index placement and closing, anchor offsets, and Founders Expertise/Contact active states. Old Home, Founders, Architecture, and supporting-page fragments remain. Home content, Walkthroughs, diagram assets and component, fixtures, founder/contact data, source pins, and original stylesheets are unchanged. The shared OriginalIndex receives only the compact Founders tracking fix and hash-change refresh.
+
+Fresh screenshot review found no material regressions in the supplied views; Architecture closing was additionally inspected from a full-page capture after its initial viewport capture was blank. This is local verification, not full accessibility compliance or owner acceptance. No commit, push, preview deployment, or production publication was performed for this cleanup. Local review remains http://127.0.0.1:8876/.

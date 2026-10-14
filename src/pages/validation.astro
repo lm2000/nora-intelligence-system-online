@@ -16,4 +16,71 @@ import { Content } from '../content/validation.md';
 .content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
 .content-page :global(h2) { margin-top: 2.5em; }
 .content-page .page-intro { scroll-margin-top: calc(var(--header-height) + 24px); font-size: 18px; line-height: 1.7; max-width: 66ch; color: var(--ink-soft); }
+.validation-table-wrap {
+  max-width: 100%;
+  margin-top: 28px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(11, 36, 54, 0.58);
+}
+.validation-table-wrap:focus-visible {
+  outline: 3px solid rgba(55, 208, 181, 0.7);
+  outline-offset: 4px;
+}
+.validation-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.validation-table caption {
+  padding: 20px 22px 16px;
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 720;
+  text-align: left;
+}
+.validation-table th,
+.validation-table td {
+  padding: 18px 16px;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+  text-align: left;
+}
+.validation-table thead th {
+  color: var(--teal-light);
+  background: rgba(7, 24, 39, 0.62);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.validation-table tbody th {
+  width: 13%;
+  color: var(--ink);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.validation-table tbody td {
+  color: var(--ink-soft);
+}
+.validation-table tbody tr:nth-child(even) {
+  background: rgba(7, 24, 39, 0.22);
+}
+.validation-table code {
+  color: var(--ink);
+  font-size: 0.9em;
+}
+.validation-table a {
+  color: var(--color-muted-blue);
+  font-weight: 650;
+}
+@media (max-width: 680px) {
+  .validation-table-wrap {
+    margin-inline: -4px;
+    border-radius: var(--radius-sm);
+  }
+}
 </style>

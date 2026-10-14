@@ -7,7 +7,8 @@ import {
   canPrev,
   nextState,
   prevState,
-  resetState
+  resetState,
+  buildUrl
 } from '../src/lib/walkthrough-state.mjs';
 
 const mockData = {
@@ -65,4 +66,8 @@ test('resetState: returns to index 0', () => {
   const s = { stepIndex: 2, steps: mockData.request };
   const r = resetState(s);
   assert.equal(r.stepIndex, 0);
+});
+
+test('buildUrl preserves flow and step deep-link state', () => {
+  assert.equal(buildUrl('ingestion', 'activate-verify'), '?flow=ingestion&step=activate-verify');
 });

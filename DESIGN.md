@@ -150,3 +150,17 @@ Corners run large and soft: 28px on feature cards, 18px on standard cards and fi
 - **Don't** put drop shadows on cards that sit on the navy foundation; flat dark surfaces are the norm.
 - **Don't** introduce a second accent hue beyond the teal family and the single violet counterpoint (amber appears only inside established value/workflow variants).
 - **Don't** write teal body copy; prose stays ink or ink-soft.
+
+
+## Page navigation
+
+The main navigation contains Home, Architecture, Walkthroughs, and Founders as separate pages. It has no Explore dropdown. Every page provides a numbered content index using the original dark palette and active teal state. Hero-based indexes dock after scrolling on desktop; supporting-page indexes float from the reading view. The walkthrough index uses its active flow's steps and preserves deep links, history, and previous/next/reset controls. Desktop rails are 170px wide and stay separate from content. On mobile, indexes become compact native “On this page” disclosures. Decisions, Validation, and Reproduce are supporting pages linked from relevant content and the footer.
+
+
+## Home as lab overview
+
+Home uses the original hero, grid/glows, section bands, and numbered index to introduce the lab and one current project. Its five sections are Overview, Current work, Approach, People, and Contact. Architecture owns the service diagrams; Walkthroughs owns the fictional Atlas example. Home's headline and intro use the approved independent-lab copy, with Explore Nora as the primary action and Follow a walkthrough as the secondary action. Home has no embedded technical diagram or full founder biography.
+
+## Compact profile and supporting-page layout
+
+Founders uses a responsive portrait/profile row and two content sections with scoped spacing. Its original hero, docking gutter, four index targets, and mobile disclosure remain. Supporting reader pages place the index after the title and introduction on mobile; the desktop rail remains fixed. Keep original stylesheet copies unchanged.

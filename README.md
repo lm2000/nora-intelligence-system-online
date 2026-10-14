@@ -6,7 +6,7 @@ This repository contains the static Astro website for the Nora SuperIntelligence
 
 Give technical interviewers a guided view of the Nora SuperIntelligence Lab: service boundaries, request and ingestion paths, design decisions, validation, and reproduction instructions.
 
-The homepage includes one static fictional example: “What still blocks the Atlas release?” → “The load test and rollback rehearsal remain.” The walkthrough explains the request path; the example does not call a model or describe a real release.
+Home introduces the independent lab, its current Nora knowledge-assistant project, working approach, people, and contact. Architecture owns the technical diagrams. The walkthrough retains the fictional Atlas example: “What still blocks the Atlas release?” → “The load test and rollback rehearsal remain.” It does not call a model or describe a real release.
 
 ## Commands
 
@@ -39,7 +39,8 @@ pnpm build
 ## Website Content Guidelines
 
 - The website is a static build with in-page HTML diagram interactions and a guided fictional walkthrough. It has no live chat functionality.
-- Founder profile is Michael Lvov (alone). The profile array lives in `src/data/site.json`.
+- Main navigation: Home, Architecture, Walkthroughs, and Founders, each on its own page with its own index. Supporting technical pages remain accessible through contextual and footer links.
+- Founder profile on `/founders/` is Michael Lvov (alone). The profile array lives in `src/data/site.json`.
 - Public contact supplied by owner: `mailto:michael.lm00@gmail.com`.
 - GitHub: `https://github.com/lm2000`.
 - Later, Alla may be appended *only* as a confirmed object with no placeholder.
