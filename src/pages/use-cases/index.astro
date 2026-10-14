@@ -9,7 +9,8 @@ const entries = [
   { id: 'interview-preparation', label: 'Job search', description: 'Search, prepare, and keep learning' },
   { id: 'client-research', label: 'Client research', description: 'Research and pitch preparation' },
   { id: 'ai-data-readiness', label: 'AI/data readiness', description: 'Choose and scope a first pilot' },
-  { id: 'ai-harness-landscape', label: 'AI Harness Landscape', description: 'A public-source research case study' }
+  { id: 'ai-harness-landscape', label: 'AI Harness Landscape', description: 'A public-source research case study' },
+  { id: 'workflow-contact', label: 'Contact', description: 'Discuss a similar workflow' }
 ];
 ---
 <SiteLayout title="Use cases — Nora SuperIntelligence Lab" description="Explore knowledge-assistant work, interview preparation, agency workflows, AI/data readiness, and AI Harness Landscape research from Nora SuperIntelligence Lab." path="/use-cases/" customIndex={true}>
@@ -20,7 +21,7 @@ const entries = [
     <div class="shell hero-layout">
       <div class="hero-copy">
         <h1>Use cases.</h1>
-        <p class="hero-lede">Prepare a conversation, choose a client, scope an AI pilot, or examine the systems behind useful AI products.</p>
+        <p class="hero-lede">Explore practical workflows for knowledge assistants, job search, agency research and venture diligence. I can help assess the problem, design the workflow, and build a scoped pilot around your data and tools.</p>
       </div>
       <OriginalIndex tagline="Nora SuperIntelligence Lab" title="Use cases" entries={entries} ariaLabel="Use cases navigation" grouped={true} />
     </div>
@@ -59,6 +60,15 @@ const entries = [
           <a class="text-link" href={href('/case-studies/ai-harness-landscape/')}>Read the research <span aria-hidden="true">→</span></a>
         </article>
       </div>
+    </div>
+  </section>
+  <section class="section workflow-section" id="workflow-contact" data-index-label="Contact">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Have a similar workflow in mind?</h2>
+        <p>Start with the task, the people doing it, and the systems they use. An initial engagement can produce a readiness assessment, architecture review or scoped prototype with an evaluation plan.</p>
+      </div>
+      <a class="button button--primary" href="mailto:michael.lm00@gmail.com">Discuss a workflow <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </SiteLayout>
