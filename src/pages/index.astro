@@ -35,45 +35,6 @@ const indexEntries = [
     </div>
   </section>
 
-  <section class="home-process" aria-labelledby="home-process-title">
-    <div class="shell">
-      <div class="home-process__intro">
-        <div>
-          <p class="section-label">How the work moves</p>
-          <h2 id="home-process-title">A concrete question becomes an inspectable answer.</h2>
-        </div>
-        <p>The knowledge assistant keeps the path visible: a question is grounded in prepared knowledge, connected to tools, carried through conversation state, and returned as an answer someone can examine.</p>
-      </div>
-      <ol class="home-process__flow" aria-label="Knowledge-assistant request flow">
-        <li>
-          <span aria-hidden="true">01</span>
-          <strong>Question</strong>
-          <p>Start with the task that needs attention.</p>
-        </li>
-        <li>
-          <span aria-hidden="true">02</span>
-          <strong>Prepared knowledge</strong>
-          <p>Use the context that can inform the work.</p>
-        </li>
-        <li>
-          <span aria-hidden="true">03</span>
-          <strong>Tools</strong>
-          <p>Coordinate the people, agents, and systems involved.</p>
-        </li>
-        <li>
-          <span aria-hidden="true">04</span>
-          <strong>Conversation state</strong>
-          <p>Keep handoffs and supporting context connected.</p>
-        </li>
-        <li>
-          <span aria-hidden="true">05</span>
-          <strong>Inspectable answer</strong>
-          <p>Make review and the next action explicit.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
   <section class="section" id="example" data-index-label="Current work">
     <div class="shell">
       <div class="section-heading section-heading--split">
@@ -82,6 +43,12 @@ const indexEntries = [
           <h2>A knowledge assistant.</h2>
         </div>
         <p>The project explores how an assistant can work with prepared knowledge, use tools, and retain conversation state. Its public harness makes the architecture and checks available to examine.</p>
+      </div>
+      <div class="home-process" aria-labelledby="home-process-title">
+        <h3 id="home-process-title">From question to inspectable answer.</h3>
+        <ol class="home-process__flow" aria-label="Knowledge-assistant request flow">
+          <li>Question</li><li>Prepared knowledge</li><li>Tools</li><li>Conversation state</li><li>Inspectable answer</li>
+        </ol>
       </div>
       <div class="hero-actions home-actions">
         <a class="text-link" href={href('/architecture/')}>Architecture <span aria-hidden="true">→</span></a>
@@ -198,96 +165,10 @@ div.founder-entry > p { margin: 0; }
   line-height: 1.6;
 }
 
-.home-process {
-  position: relative;
-  padding: 88px 0 92px;
-  overflow: hidden;
-  border-top: 1px solid rgba(178, 205, 219, 0.1);
-  border-bottom: 1px solid rgba(178, 205, 219, 0.1);
-  background: linear-gradient(180deg, rgba(11, 36, 54, 0.72), rgba(7, 24, 39, 0.18));
-}
-.home-process::before {
-  position: absolute;
-  top: -140px;
-  right: 10%;
-  width: 500px;
-  height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(112, 103, 240, 0.18), transparent 68%);
-  content: '';
-  pointer-events: none;
-}
-.home-process__intro {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.62fr);
-  align-items: end;
-  gap: 48px;
-  margin-bottom: 42px;
-}
-.home-process__intro h2 { max-width: 650px; margin-bottom: 0; }
-.home-process__intro > p { max-width: 430px; margin: 0; color: var(--ink-soft); }
-.home-process__flow {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.home-process__flow li {
-  position: relative;
-  min-height: 182px;
-  padding: 20px 18px 18px;
-  border: 1px solid rgba(178, 205, 219, 0.16);
-  border-radius: 16px;
-  background: rgba(7, 24, 39, 0.74);
-  box-shadow: 0 18px 38px rgba(1, 11, 18, 0.12);
-}
-.home-process__flow li:not(:last-child)::after {
-  position: absolute;
-  top: 50%;
-  right: -17px;
-  width: 22px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(19, 185, 157, 0.7), rgba(112, 103, 240, 0.7));
-  content: '';
-}
-.home-process__flow li:not(:last-child)::before {
-  position: absolute;
-  top: calc(50% - 4px);
-  right: -17px;
-  width: 7px;
-  height: 7px;
-  border-top: 1px solid rgba(112, 103, 240, 0.9);
-  border-right: 1px solid rgba(112, 103, 240, 0.9);
-  content: '';
-  transform: rotate(45deg);
-}
-.home-process__flow li > span {
-  display: block;
-  margin-bottom: 26px;
-  color: #72ead8;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-}
-.home-process__flow strong { display: block; margin-bottom: 8px; color: var(--white); font-size: 0.96rem; line-height: 1.2; }
-.home-process__flow p { margin: 0; color: var(--ink-soft); font-size: 0.875rem; line-height: 1.5; }
-@media (max-width: 1080px) {
-  .home-process__intro { grid-template-columns: 1fr; gap: 18px; }
-  .home-process__intro > p { max-width: 660px; }
-  .home-process__flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .home-process__flow li:not(:last-child)::after,
-  .home-process__flow li:not(:last-child)::before { display: none; }
-}
-@media (max-width: 680px) {
-  .home-process { padding: 72px 0 76px; }
-  .home-process__flow { grid-template-columns: 1fr; }
-  .home-process__flow li { min-height: auto; }
-  .home-process__flow li > span { margin-bottom: 16px; }
-}
+.home-process { margin-block: 28px; }
+.home-process h3 { margin: 0 0 16px; font-size: 18px; }
+.home-process__flow { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0; margin: 0; list-style: none; counter-reset: request; }
+.home-process__flow li { display: flex; align-items: baseline; gap: 10px; counter-increment: request; color: var(--ink-soft); }
+.home-process__flow li::before { content: counter(request, decimal-leading-zero); color: var(--teal-light); font-size: 12px; font-weight: 700; }
+@media (max-width: 680px) { .home-process__flow { display: grid; gap: 12px; } }
 </style>

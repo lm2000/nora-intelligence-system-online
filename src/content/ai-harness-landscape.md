@@ -1,10 +1,10 @@
-## The research question
+<h2 id="the-research-question" data-index-label="Question">The research question</h2>
 
 When a company says it has an AI product, the interesting part is rarely the model alone. What turns model inference into something a compliance officer, lawyer, or care coordinator can use is the **harness**: the software and process wrapped around the model—the task framing, knowledge sources, tools, persistent state, human review, and measurement.
 
 My question: **what can we learn about building useful AI products by comparing the harness shapes visible in public descriptions of seven vertical AI products?**
 
-## Method
+<h2 id="method" data-index-label="Method">Method</h2>
 
 This brief comparison uses a repeatable method:
 
@@ -13,7 +13,7 @@ This brief comparison uses a repeatable method:
 3. Defined comparison dimensions as questions for a deeper review.
 4. Kept vendor descriptions separate from architectural interpretation. This draft includes summaries and a comparison framework; it does not fill out a complete evidence matrix for each company.
 
-## Seven public examples
+<h2 id="seven-public-examples" data-index-label="Products">Seven public examples</h2>
 
 | Product | What the vendor publicly describes | Source |
 |---|---|---|
@@ -25,7 +25,7 @@ This brief comparison uses a repeatable method:
 | Brellium | Clinical chart review pre-bill: audits documentation against payor and quality rules, surfaces compliance risks and coding gaps. | [brellium.com](https://www.brellium.com/) |
 | Arbiter | Care orchestration platform covering outreach, scheduling, and coordination, with handoff to human staff when needed. | [arbiter.ai](https://arbiter.ai/) |
 
-## Comparison dimensions
+<h2 id="comparison-dimensions" data-index-label="Dimensions">Comparison dimensions</h2>
 
 Rather than scoring products, I ask the same concrete questions of each:
 
@@ -40,7 +40,7 @@ Rather than scoring products, I ask the same concrete questions of each:
 | Integration & adoption | Which existing systems and habits must it live inside (EHR, Slack, case queues), and who is the daily user? |
 | Economics | Who pays, per what unit (seat, case, chart, visit), and what cost does it replace? Where pricing or operating costs are unavailable, leave them unknown. |
 
-## Architectural lessons
+<h2 id="architectural-lessons" data-index-label="Lessons">Architectural lessons</h2>
 
 These are my current readings of the public material:
 
@@ -49,12 +49,17 @@ These are my current readings of the public material:
 3. **Treat write access as a design boundary.** A suggested answer and a recorded action carry different consequences. When a system changes records, the comparison should examine authorization, review, retries, and recovery separately.
 4. **Human handoff is designed in.** Counsel's physician handoff and Arbiter's staff handoff encode escalation as part of the normal path, which appears central to how these products present trustworthiness.
 
-<h2 id="connection-to-nora">Connection to Nora SuperIntelligence Lab</h2>
+<h2 id="connection-to-nora" data-index-label="Lab connection">Connection to Nora SuperIntelligence Lab</h2>
 
-At Nora SuperIntelligence Lab, I am building a single-assistant knowledge project. Its current architecture is public: [architecture](https://nora-intelligence-system.com/architecture/) and [validation](https://nora-intelligence-system.com/validation/). In brief, the system coordinates one assistant through open-source Deep Agents and LangGraph, **retrieval runs as a separate MCP server** over operator-prepared documents using shared BGE embeddings and Qdrant, and conversation state persists as **PostgreSQL checkpoints**. Document preparation is **manual and operator-triggered**, kept separate from conversations so provenance stays explicit.
+The same questions apply to Nora SuperIntelligence Lab’s knowledge assistant:
 
-Mapping the dimensions table onto the lab’s knowledge assistant is a useful exercise: even a small, single-assistant project answers the same harness questions—task framing, knowledge, tools, durable state, human review, evaluation, integration—as the larger products above.
+- **Task & output:** A question becomes a plain answer, with a conversation UUID for follow-up.
+- **Knowledge:** Retrieval uses operator-prepared documents; updating those documents is a separate workflow.
+- **State & recovery:** PostgreSQL retains conversation checkpoints. Restart and restoration checks are recorded with their limits.
+- **Evaluation:** Synthetic checks and bounded real-model checks answer different questions; neither supplies a general reliability score.
 
-## Limits
+Explore the [architecture](../../architecture/) for the system boundaries and [validation](../../validation/) for evidence. This applies the framework to the project without treating the seven vendor summaries as equivalent implementations.
+
+<h2 id="limits" data-index-label="Limits">Limits</h2>
 
 Public descriptions show what vendors choose to publish and may lag the shipped product. I have not used these systems, so I can describe shapes, not confirm behavior. Seven examples spanning legal, payer, provider, and patient contexts illustrate the space without representing it. The comparison is a vocabulary for asking better questions, not a verdict on any product.

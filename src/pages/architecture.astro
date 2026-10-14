@@ -46,7 +46,7 @@ const indexEntries = [
           <p class="section-label">Request workflow</p>
           <h2 id="request-path-heading">How one request reaches an answer.</h2>
         </div>
-        <p>This reusable request path is the system contract: the question enters through the Browser UI or embedded tool, Coordination retrieves prepared passages, and the answer is produced while the checkpoint is retained. The walkthrough applies it to the fictional Atlas question.</p>
+        <p>This diagram follows a tool request through the MCP entrance to Coordination, retrieval, inference, and a retained checkpoint. The Browser UI reaches Coordination directly, as shown in the system map below.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="request-path-heading">
         <Diagram
@@ -55,7 +55,6 @@ const indexEntries = [
           title="Request path"
           htmlUrl="/diagrams/architecture-request-path.html"
           alt="Architecture request path diagram"
-          caption="The request path shows how Coordination handles inference and retrieval directly."
         />
       </div>
     </div>
@@ -77,7 +76,6 @@ const indexEntries = [
           previewSrc="/diagrams/01-system-architecture-preview.svg"
           htmlUrl="/diagrams/01-system-architecture.html"
           alt="System architecture diagram showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP."
-          caption="Browser UI connects directly to Coordination, while MCP clients separately use the gateway to embedded FastMCP."
         />
       </div>
     </div>
@@ -99,7 +97,6 @@ const indexEntries = [
           htmlUrl="/diagrams/manual-ingestion.html"
           title="Manual ingestion"
           alt="Manual ingestion pipeline diagram"
-          caption="Manual ingestion runs outside the conversation flow to prepare text for retrieval."
         />
       </div>
     </div>
@@ -110,20 +107,14 @@ const indexEntries = [
       <div class="foundation-copy">
         <p class="section-label">Decisions &amp; tradeoffs</p>
         <h2>Architecture decisions and tradeoffs.</h2>
-        <p>Architecture defines the reusable boundaries. Decisions records why they were chosen, Validation records what was checked, and Walkthroughs applies the boundaries to concrete examples.</p>
-        <a class="text-link" href={href('/decisions/')}>Review decisions and tradeoffs <span aria-hidden="true">→</span></a>
+        <p>Read the choices behind the system, examine the checks, or run the public source.</p>
+
       </div>
       <nav class="architecture-related" aria-label="Architecture related reading">
-        <h3 id="purpose">Conversation contract</h3>
-        <p>What the assistant is for and how it answers: see the <a href={href('/decisions/')}>accepted conversation contract</a> on the Decisions page.</p>
-        <h3 id="example">Concrete walkthrough</h3>
-        <p>See the fictional Atlas request and operator ingestion scenarios in <a href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Walkthroughs</a>.</p>
-        <h3 id="approach-and-tradeoffs">Accepted decisions</h3>
-        <p>Model routing, request bounds, and ingestion ownership: read the <a href={href('/decisions/')}>accepted execution decisions</a>.</p>
-        <h3 id="boundaries-and-recovery">Evidence and limits</h3>
-        <p>What was checked and what remains open: see <a href={href('/validation/')}>known limits and bounded follow-up</a>.</p>
-        <h3 id="reference">Run the source</h3>
-        <p>Run the checks yourself: <a href={href('/reproduce/')}>reproduction commands</a>. Read the <a href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/10bd370c711afabdfc7b23b516911c31ff58bcb4/architecture/Architecture%20Concept.md">pinned architecture concept</a>.</p>
+        <div id="purpose"><span id="approach-and-tradeoffs"></span><a href={href('/decisions/')}>Decisions</a><p>Accepted choices and tradeoffs.</p></div>
+        <div id="example"><a href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Walkthroughs</a><p>The fictional request and separate ingestion scenario.</p></div>
+        <div id="boundaries-and-recovery"><a href={href('/validation/')}>Validation</a><p>Recorded checks and their limits.</p></div>
+        <div id="reference"><a href={href('/reproduce/')}>Reproduce</a><p>Commands for the pinned public source.</p></div>
       </nav>
     </div>
   </section>

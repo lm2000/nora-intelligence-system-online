@@ -20,7 +20,7 @@ Present Nora SuperIntelligence Lab with a distinct lab overview on Home and a gu
 
 ## Operating Context
 
-Four main pages: Home, Architecture, Walkthroughs, and Founders. Decisions, Validation, and Reproduce remain supporting pages with contextual and footer links. Every page has its own content index; the walkthrough index follows the active flow. Walkthroughs cover a fictional Atlas request and separate manual ingestion. Published harness documentation supplies the technical foundation.
+Five main pages: Home, Architecture, Walkthroughs, Use cases, and Founders. Decisions, Validation, and Reproduce remain supporting pages with contextual and footer links. Every page has its own content index; the walkthrough index follows the active flow. Walkthroughs cover a fictional Atlas request and separate manual ingestion. Published harness documentation supplies the technical foundation.
 
 ## Capabilities and Constraints
 

@@ -193,8 +193,28 @@ The verified preview dpl_9FGZKRbk9pxjMoDqBRmLyr3iqmp3 was promoted to production
 Through Computer Use, the approved Architecture & Decisions website card was added as the second LinkedIn Featured item using the existing navy thumbnail. Reload verified title, description, destination and order. The original GitHub card remained first with identical text and repository destination. No other profile fields, posts, outreach or walkthroughs were changed. This records completed publication; the preceding historical GitHub synchronization note is superseded for the previous release by the observed remote main and review-branch tip at 0cfefd1 before this change.
 
 
+## Whole-site consistency preview — 2026-10-14
+
+Owner requested all three audit batches with native Codex and an updated hosted preview. Work is isolated on codex/whole-site-consistency-20261014 from origin/main 0cfefd1. Pending Home/Founders LinkedIn, founder background and later validation correction edits were copied from the existing review checkout and preserved there. Refinements cover mobile validation records, contained reader indexes, compact Home process, diagram summaries, Decisions rationale, Reproduce guidance, landscape comparison/return consistency, readable mobile walkthrough focus, and illustrative interview-feedback/client-shortlist artifacts adapted from local NIS material. Original stylesheets, source pins, canonical diagram assets and walkthrough state logic are preserved. Validation and preview delivery are in progress; production publication is outside this request.
+
+Local verification complete: zero Astro errors/warnings/hints, all 15 tests, root/Pages builds and 472 links across 32 files pass. Native browser inspection covers all eleven pages at actual 1600/487px and confirmation at 1280/390px, without page overflow or duplicate IDs. Landscape labels fit, mobile selection detail is visible, mobile disclosure auto-closes, request focus follows all five stages and full-map disclosure works, and all six ingestion stages remain. First-pass correction stacked the mobile full-map disclosure beneath the focus SVG. Preview deployment is next.
+
+Hosted preview READY: https://nora-intelligence-system-online-qw9ad0xzg-nora-builders.vercel.app/ (dpl_3bvujKLH3ts6kzinYad7FjuhShce), built from source commit 7943c98 on codex/whole-site-consistency-20261014. All eleven authenticated preview route reads returned HTTP200. Ten match the local build exactly; Home differs only by the standard Vercel preview-feedback script. Hosted browser readback confirms the compact Home process, client shortlist/return and mobile evidence labels. Production and GitHub main were not changed.
+
+
+## Published whole-site consistency review
+
+Michael explicitly approved publication of the reviewed preview and synchronization to GitHub main. Promotion of dpl_3bvujKLH3ts6kzinYad7FjuhShce created production dpl_5bSZdT4Y753zcN3qZjYgosgQBcru, confirmed READY and aliased to nora-intelligence-system.com. All eleven public routes returned HTTP 200 and matched the approved root build byte-for-byte. The newer main commit d3de21a was integrated without changing the reviewed site source: its profile and validation additions were already included in the preview. Both publication records are retained. Original style, five navigation tabs, source pins, diagrams, and walkthrough behavior remain intact.
+
+
 ## Published expanded Founders profile
 
 Michael approved publication of the expanded Founders copy. The page now contains the first-person Professional Summary, three selected outcomes, all six Core Areas of Expertise and all 14 Skills groups. Every named tool and architecture-evaluation/integration-testing qualifier is retained. Skills use native keyboard-operable disclosures with a new Skills index target. The three existing Nora engineering examples and their links, portrait, opportunities, email, GitHub and LinkedIn contacts remain unchanged. Nora remains an independent lab. Only public source and a generic data schema went to Ollama Cloud glm-5.2 for the Astro markup/CSS; approved CV-derived text was inserted locally, with private source notes excluded.
 
 Preview dpl_7GYEMSFLhm6zpcPJw7Zp4qU5Gv8L was promoted to production dpl_5Vfu2GAgKCMt8xKSCkMAZebwh8F7, confirmed READY at https://nora-intelligence-system.com/founders/. All eleven public pages returned 200 and matched the tested root build byte-for-byte. Browser checks confirmed all six areas, 14 Skills groups, independent wording, original contacts and examples at desktop 1280px and mobile 390px without horizontal overflow; native Skills disclosure and keyboard activation worked. Astro reported zero diagnostics, all 15 tests passed, root and Pages builds passed, and 466 links across 32 HTML files passed. Manual style-detector findings were advisory type-ramp differences including existing styles; the navy design and scoped compact heading sizes remain. LinkedIn, posts, recommendations, outreach and walkthrough content were not changed.
+
+
+
+## Founders integration status
+
+GitHub main advanced to 801056c during publication. Its already-approved site improvements are retained. The Founders expansion retains the exact three engineering-example blocks from the owner-approved expansion, as explicitly requested, and all existing contact destinations. Both publication records above are retained without selecting one over the other. Combined source is under verification.

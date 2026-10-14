@@ -1,20 +1,30 @@
-<h2 id="example">Assistant and conversation contract</h2>
+<h2 id="example" data-index-label="Contract">Assistant and conversation contract</h2>
 
-One NIS assistant handles separate topic conversations. Research, knowledge questions, and interview analysis are tasks for that assistant, not separately selectable runtimes. The accepted default client path is `client → LiteLLM MCP Gateway → embedded FastMCP → NIS runtime`; direct clients use the same FastMCP server. The tool contract remains `ask_nis(question, thread_id=None)`, returning a plain answer and its conversation UUID, and the client continues a conversation with that returned UUID.
+**Choice.** One NIS assistant handles separate topic conversations through `ask_nis(question, thread_id=None)`. The response contains a plain answer and its conversation UUID; follow-ups reuse that UUID. Research, knowledge questions, and interview analysis are tasks for the same assistant.
 
-<h2 id="approach-and-tradeoffs">Execution and request bounds</h2>
+**Why.** A shared operation keeps conversation handling consistent across clients. [Architecture](../architecture/#system-map) shows the default MCP gateway entrance, direct FastMCP access, and the Browser UI path.
 
-NIS retains OSS Deep Agents/LangGraph, automatic model selection, and PostgreSQL checkpoints. Ollama Cloud and Fireworks.ai supply answer inference; optional local Ollama remains supported. Hermes is excluded from harness application inference.
+**Tradeoff.** This is a private single-user system. Topic separation is not a multi-user collaboration or shared enterprise-memory model.
 
-The accepted request bounds are three retrieval calls including initial Grounding, four logical model calls, bounded provider retries, and one no-tool word-length repair within that model allowance. Source text remains reference material rather than executable instructions.
+<h2 id="approach-and-tradeoffs" data-index-label="Request bounds">Execution and request bounds</h2>
 
-This is a private single-user system. One Coordination process owns execution and conversation lifecycle; there is no additional custom outer coordinator.
+**Choice.** OSS Deep Agents/LangGraph, the incumbent model selector, and PostgreSQL checkpoints remain inside one Coordination process. Ollama Cloud and Fireworks.ai supply inference; optional local Ollama is supported. Hermes is excluded from harness application inference.
 
-<h2 id="boundaries-and-recovery">Knowledge updates</h2>
+A turn allows three retrieval calls including initial Grounding, four logical model calls, bounded provider retries, and one no-tool word-length repair within that model allowance. Source text is reference material rather than executable instructions.
 
-Knowledge updates are explicitly operator-triggered and independent of conversations. Four temporary jobs perform conversion, deterministic preparation, embedding, and import. Shared BGE serves both query and document encoding. No per-source LLM summaries or meaning rewrites are generated.
+**Why.** Explicit call limits bound tool and model work. One owner for execution and conversation lifecycle avoids an additional custom outer coordinator.
 
-Additions require assembly with the retained corpus before import, and a full rebuild requires the complete desired source set. The ordinary operator procedure starts with PostgreSQL and Qdrant backups plus a matching prepared-document copy, then prepares, imports, verifies, activates, and checks answers. A failed acceptance check leaves the update incomplete for investigation; no routine rollback branch is required. Prepared documents currently use the local retained-release deployment; a dedicated GCS bucket remains a future cutover.
+**Tradeoff.** A finite allowance constrains how much retrieval and correction can happen in a turn. These bounds do not establish answer quality; [Validation](../validation/) records the checks and remaining limits.
+
+<h2 id="boundaries-and-recovery" data-index-label="Knowledge updates">Knowledge updates</h2>
+
+**Choice.** Conversion, deterministic preparation, embedding, and import are four operator-triggered jobs outside conversations. Shared BGE encodes queries and documents. Preparation preserves meaning; it does not generate per-source LLM summaries or rewrites.
+
+**Why.** Keeping preparation separate makes the document set and its source identity explicit. Additions assemble new material with the retained corpus; rebuilds use the complete desired source set.
+
+**Tradeoff.** Updates need an operator and a complete release. The ordinary procedure is backup-first, then prepare, import, verify, activate, and check answers. Failed acceptance leaves the update incomplete for investigation; no routine rollback branch is required. Prepared documents currently use the local retained-release deployment, with a dedicated GCS bucket as a future cutover.
+
+See the [ingestion walkthrough](../walkthroughs/?flow=ingestion&step=backup) for the sequence and [Reproduce](../reproduce/) for source checks.
 
 <h2 id="reference">Reference</h2>
 

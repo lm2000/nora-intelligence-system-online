@@ -4,37 +4,20 @@
 
 <div class="harness-map" data-harness-map>
   <div class="harness-map__grid" role="group" aria-label="Comparison dimensions">
-    <button type="button" class="harness-map__node is-selected" data-topic="task" aria-pressed="true">
-      <span class="harness-map__name">Task</span>
-      <span class="harness-map__hint">Unit of work</span>
-    </button>
-    <button type="button" class="harness-map__node" data-topic="knowledge" aria-pressed="false">
-      <span class="harness-map__name">Knowledge</span>
-      <span class="harness-map__hint">Grounding sources</span>
-    </button>
-    <button type="button" class="harness-map__node" data-topic="model" aria-pressed="false">
-      <span class="harness-map__name">Model/workflow</span>
-      <span class="harness-map__hint">Reasoning path</span>
-    </button>
-    <button type="button" class="harness-map__node" data-topic="tools" aria-pressed="false">
-      <span class="harness-map__name">Tools</span>
-      <span class="harness-map__hint">Systems it can touch</span>
-    </button>
-    <button type="button" class="harness-map__node" data-topic="human-review" aria-pressed="false">
-      <span class="harness-map__name">Human review</span>
-      <span class="harness-map__hint">Escalation and checks</span>
-    </button>
-    <button type="button" class="harness-map__node" data-topic="work-product" aria-pressed="false">
-      <span class="harness-map__name">Work product</span>
-      <span class="harness-map__hint">Artifacts and records</span>
-    </button>
+    <button type="button" class="harness-map__node is-selected" data-topic="task" aria-pressed="true"><span class="harness-map__name">Task &amp; output</span><span class="harness-map__hint">Unit of work</span></button>
+    <button type="button" class="harness-map__node" data-topic="knowledge" aria-pressed="false"><span class="harness-map__name">Knowledge</span><span class="harness-map__hint">Grounding sources</span></button>
+    <button type="button" class="harness-map__node" data-topic="tools" aria-pressed="false"><span class="harness-map__name">Tools</span><span class="harness-map__hint">Systems it can touch</span></button>
+    <button type="button" class="harness-map__node" data-topic="state" aria-pressed="false"><span class="harness-map__name">State &amp; recovery</span><span class="harness-map__hint">Persistence and correction</span></button>
+    <button type="button" class="harness-map__node" data-topic="human-review" aria-pressed="false"><span class="harness-map__name">Human review</span><span class="harness-map__hint">Review and handoff</span></button>
+    <button type="button" class="harness-map__node" data-topic="evaluation" aria-pressed="false"><span class="harness-map__name">Evaluation</span><span class="harness-map__hint">Quality checks</span></button>
+    <button type="button" class="harness-map__node" data-topic="integration" aria-pressed="false"><span class="harness-map__name">Integration &amp; adoption</span><span class="harness-map__hint">Existing systems and users</span></button>
+    <button type="button" class="harness-map__node" data-topic="economics" aria-pressed="false"><span class="harness-map__name">Economics</span><span class="harness-map__hint">Cost and value</span></button>
   </div>
 
-  <div class="harness-map__detail" data-detail aria-live="polite">
-    <p class="harness-map__eyebrow">Conceptual lens</p>
-    <h3 class="harness-map__title" data-detail-title>Task</h3>
+  <div class="harness-map__detail" data-detail aria-live="polite" tabindex="-1">
+    <h3 class="harness-map__title" data-detail-title>Task &amp; output</h3>
     <p class="harness-map__text" data-detail-text>
-      What is the smallest useful unit of work the product is trying to complete, and what counts as done?
+      What is the unit of work, and what artifact is produced?
     </p>
   </div>
 </div>
@@ -44,32 +27,7 @@
     const root = document.querySelector<HTMLElement>('[data-harness-map]');
     if (!root) return;
 
-    const topics: Record<string, { title: string; text: string }> = {
-      task: {
-        title: 'Task',
-        text: 'What is the smallest useful unit of work the product is trying to complete, and what counts as done?'
-      },
-      knowledge: {
-        title: 'Knowledge',
-        text: 'What sources ground the system: uploaded documents, curated knowledge, customer records, or the model itself?'
-      },
-      model: {
-        title: 'Model/workflow',
-        text: 'How is the model arranged inside the larger workflow, and where does orchestration or process logic shape the result?'
-      },
-      tools: {
-        title: 'Tools',
-        text: 'Can the system only read and suggest, or can it act in connected systems, write to records, or trigger follow-up work?'
-      },
-      'human-review': {
-        title: 'Human review',
-        text: 'Where do people review, sample, approve, correct, or take over, and how is escalation built into the normal path?'
-      },
-      'work-product': {
-        title: 'Work product',
-        text: 'What durable artifact or record results: a draft, a decision, a scheduled action, an audit trail, or a corrected chart?'
-      }
-    };
+    const topics: Record<string, { title: string; text: string }> = {"task": {"title": "Task & output", "text": "What is the unit of work, and what artifact is produced?"}, "knowledge": {"title": "Knowledge", "text": "Does grounding come from uploaded documents, curated sources, customer records, or the model itself?"}, "tools": {"title": "Tools", "text": "Can the system only read and suggest, or can it write to records and trigger actions?"}, "state": {"title": "State & recovery", "text": "What persists between sessions, and how is an interrupted or mistaken run corrected?"}, "human-review": {"title": "Human review", "text": "Where do people review, approve, correct, or take over?"}, "evaluation": {"title": "Evaluation", "text": "How is quality checked before and after deployment?"}, "integration": {"title": "Integration & adoption", "text": "Which systems and habits does the product fit into, and who uses it?"}, "economics": {"title": "Economics", "text": "Who pays, for what unit of work, and what cost does it replace? Keep unavailable costs unknown."}};
 
     const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-topic]'));
     const titleEl = root.querySelector('[data-detail-title]');
@@ -92,7 +50,13 @@
     const reset = () => render('task');
 
     buttons.forEach((button) => {
-      button.addEventListener('click', () => render(button.dataset.topic));
+      button.addEventListener('click', () => {
+        render(button.dataset.topic);
+        const detail = root.querySelector<HTMLElement>('[data-detail]');
+        if (detail && window.matchMedia('(max-width: 680px)').matches) {
+          detail.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+        }
+      });
     });
 
     root.addEventListener('keydown', (event) => {
@@ -109,7 +73,7 @@
 
   .harness-map__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 14px;
   }
 
@@ -199,9 +163,15 @@
     line-height: 1.6;
   }
 
+  @media (max-width: 1000px) { .harness-map__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 680px) {
     .harness-map__grid {
-      grid-template-columns: 1fr;
+      gap: 10px;
     }
+    .harness-map__node { min-height: 76px; padding: 12px; }
+    .harness-map__hint { display: none; }
+    .harness-map__name { font-size: 15px; }
+    .harness-map__node::after { display: none; }
+    .harness-map { gap: 14px; }
   }
 </style>

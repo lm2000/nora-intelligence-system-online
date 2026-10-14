@@ -23,5 +23,8 @@ const { title, summary, path, kind, returnAnchor } = Astro.props;
   .case-study :global(p), .case-study :global(li) { max-width: 68ch; line-height: 1.7; }
   .case-study :global(li) { margin-bottom: 12px; }
   .case-study :global(blockquote) { margin: 24px 0; padding: 18px 24px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--navy-2); }
+  .case-study :global(.shortlist-example) { margin-block: 24px; }
+  .case-study :global(.shortlist-example dt) { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink); font-weight: 700; }
+  .case-study :global(.shortlist-example dd) { margin: 8px 0 0; max-width: 68ch; line-height: 1.7; color: var(--ink-soft); }
   .case-back { margin-top: 48px; }
 </style>
