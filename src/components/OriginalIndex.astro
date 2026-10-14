@@ -1,0 +1,117 @@
+---
+
+interface Entry {
+  id: string;
+  label: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  tagline?: string;
+  entries: Entry[];
+  ariaLabel?: string;
+}
+
+const { title, tagline, entries, ariaLabel = 'Page navigation' } = Astro.props;
+---
+<aside class="orchestration-card orchestration-card--nav" data-orchestration-nav aria-label={ariaLabel}>
+  {tagline && <div class="card-kicker">{tagline}</div>}
+  {title && <h2>{title}</h2>}
+  <ol class="mini-flow">
+    {entries.map((entry, i) => (
+      <li>
+        <span>{String(i + 1).padStart(2, '0')}</span>
+        <div>
+          <a href={`#${entry.id}`}>
+            <strong>{entry.label}</strong>
+            <small>{entry.description}</small>
+          </a>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <div class="loop-line"><span></span><em>Each section connects to the next</em></div>
+</aside>
+
+<script is:inline>
+(function () {
+
+  function initNav(nav) {
+    if (nav.getAttribute('data-onav-init')) return;
+    nav.setAttribute('data-onav-init', '1');
+
+    var hero = nav.closest('.hero');
+    if (!hero) return;
+
+    var links = Array.prototype.slice.call(nav.querySelectorAll("a[href^='#']"));
+    var sections = [];
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      var id = (link.getAttribute('href') || '').slice(1);
+      var section = id ? document.getElementById(id) : null;
+      if (section) sections.push({ link: link, section: section });
+    }
+    if (!sections.length) return;
+
+    function activate(id) {
+      for (var j = 0; j < sections.length; j++) {
+        if (sections[j].section.id === id) {
+          sections[j].link.setAttribute('aria-current', 'location');
+        } else {
+          sections[j].link.removeAttribute('aria-current');
+        }
+      }
+    }
+
+    var frame;
+    function update() {
+      if (frame) return;
+      frame = requestAnimationFrame(function () {
+        frame = undefined;
+        var header = document.querySelector('header');
+        var line = Math.ceil(header ? header.getBoundingClientRect().height : 86) + 26;
+        var doc = document.documentElement;
+        var nearBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 120;
+        var current = sections[0].section.id;
+        for (var k = 0; k < sections.length; k++) {
+          if (sections[k].section.getBoundingClientRect().top <= line) {
+            current = sections[k].section.id;
+          } else {
+            break;
+          }
+        }
+        activate(nearBottom ? sections[sections.length - 1].section.id : current);
+      });
+    }
+
+    var dockFrame;
+    function dock() {
+      if (dockFrame) return;
+      dockFrame = requestAnimationFrame(function () {
+        dockFrame = undefined;
+        if (hero.getBoundingClientRect().height === 0) return;
+        var shouldDock = window.matchMedia('(min-width: 1081px)').matches && window.scrollY > hero.offsetHeight - 150;
+        nav.classList.toggle('is-docked', shouldDock);
+        document.documentElement.classList.toggle('has-docked-orchestration', shouldDock);
+      });
+    }
+
+    window.addEventListener('scroll', function () { update(); dock(); }, { passive: true });
+    window.addEventListener('resize', dock, { passive: true });
+    update();
+    dock();
+  }
+
+  function initAll() {
+    var navs = document.querySelectorAll('[data-orchestration-nav]');
+    for (var i = 0; i < navs.length; i++) initNav(navs[i]);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
+  }
+})();
+</script>

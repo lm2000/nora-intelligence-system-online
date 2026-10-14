@@ -4,394 +4,280 @@
   "title": "Design System: Nora SuperIntelligence Lab",
   "extensions": {
     "colorMeta": {
-      "page-bg": {
+      "navy-deep": {
         "role": "neutral",
-        "displayName": "Page Navy",
-        "canonical": "oklch(21% 0.03 225)",
+        "displayName": "Deep Navy",
+        "canonical": "#071827",
         "tonalRamp": [
-          "oklch(14% 0.015 225)",
-          "oklch(18% 0.022 225)",
-          "oklch(23% 0.03 225)",
-          "oklch(29% 0.038 225)",
-          "oklch(36% 0.045 225)",
-          "oklch(44% 0.05 225)",
-          "oklch(53% 0.055 225)",
-          "oklch(63% 0.06 225)"
+          "#030b12",
+          "#071827",
+          "#0b2436",
+          "#113048",
+          "#295066",
+          "#4d7a93",
+          "#7fabc0",
+          "#c3dae5"
         ]
       },
-      "surface": {
+      "navy-surface": {
         "role": "neutral",
-        "displayName": "Surface Navy",
-        "canonical": "oklch(25% 0.04 222)",
+        "displayName": "Navy Surface",
+        "canonical": "#0b2436",
         "tonalRamp": [
-          "oklch(16% 0.02 222)",
-          "oklch(21% 0.03 222)",
-          "oklch(28% 0.04 222)",
-          "oklch(36% 0.05 222)",
-          "oklch(45% 0.055 222)",
-          "oklch(55% 0.06 222)",
-          "oklch(66% 0.06 222)",
-          "oklch(78% 0.05 222)"
+          "#050f16",
+          "#0b2436",
+          "#12364e",
+          "#1a4966",
+          "#2b6186",
+          "#4783ab",
+          "#79abc9",
+          "#bed7e5"
         ]
       },
-      "canvas-cool": {
+      "paper-dark": {
         "role": "neutral",
-        "displayName": "Cool Canvas",
-        "canonical": "oklch(17% 0.025 228)",
+        "displayName": "Dark Paper",
+        "canonical": "#0b1d2b",
         "tonalRamp": [
-          "oklch(11% 0.012 228)",
-          "oklch(15% 0.02 228)",
-          "oklch(20% 0.028 228)",
-          "oklch(26% 0.035 228)",
-          "oklch(33% 0.042 228)",
-          "oklch(41% 0.048 228)",
-          "oklch(50% 0.052 228)",
-          "oklch(60% 0.055 228)"
-        ]
-      },
-      "ink": {
-        "role": "neutral",
-        "displayName": "Heading Ink",
-        "canonical": "oklch(96% 0.015 210)",
-        "tonalRamp": [
-          "oklch(30% 0.04 215)",
-          "oklch(42% 0.035 212)",
-          "oklch(54% 0.03 210)",
-          "oklch(66% 0.026 210)",
-          "oklch(76% 0.022 210)",
-          "oklch(85% 0.019 210)",
-          "oklch(92% 0.017 210)",
-          "oklch(97% 0.01 210)"
-        ]
-      },
-      "body": {
-        "role": "neutral",
-        "displayName": "Body Slate",
-        "canonical": "oklch(85% 0.025 213)",
-        "tonalRamp": [
-          "oklch(32% 0.04 218)",
-          "oklch(44% 0.036 216)",
-          "oklch(56% 0.032 214)",
-          "oklch(67% 0.028 214)",
-          "oklch(76% 0.026 213)",
-          "oklch(84% 0.025 213)",
-          "oklch(90% 0.02 213)",
-          "oklch(95% 0.014 213)"
-        ]
-      },
-      "secondary": {
-        "role": "neutral",
-        "displayName": "Secondary Slate",
-        "canonical": "oklch(77% 0.03 213)",
-        "tonalRamp": [
-          "oklch(30% 0.04 218)",
-          "oklch(41% 0.037 216)",
-          "oklch(51% 0.034 215)",
-          "oklch(61% 0.032 214)",
-          "oklch(70% 0.03 214)",
-          "oklch(78% 0.028 213)",
-          "oklch(86% 0.022 213)",
-          "oklch(93% 0.016 213)"
-        ]
-      },
-      "muted-blue": {
-        "role": "secondary",
-        "displayName": "Muted Aqua-Blue",
-        "canonical": "oklch(87% 0.11 176)",
-        "tonalRamp": [
-          "oklch(28% 0.055 190)",
-          "oklch(38% 0.075 185)",
-          "oklch(48% 0.09 182)",
-          "oklch(58% 0.1 180)",
-          "oklch(68% 0.11 178)",
-          "oklch(77% 0.11 177)",
-          "oklch(85% 0.11 176)",
-          "oklch(93% 0.07 174)"
+          "#050d14",
+          "#0b1d2b",
+          "#122b3e",
+          "#1b3a52",
+          "#2c516d",
+          "#486f8f",
+          "#739ab6",
+          "#b9cfde"
         ]
       },
       "teal": {
         "role": "primary",
-        "displayName": "Signal Teal",
-        "canonical": "oklch(85% 0.13 174)",
+        "displayName": "Orchestration Teal",
+        "canonical": "#13b99d",
         "tonalRamp": [
-          "oklch(26% 0.06 190)",
-          "oklch(36% 0.08 184)",
-          "oklch(46% 0.095 180)",
-          "oklch(56% 0.11 178)",
-          "oklch(66% 0.12 176)",
-          "oklch(75% 0.13 175)",
-          "oklch(84% 0.13 174)",
-          "oklch(93% 0.08 172)"
+          "#04332a",
+          "#075c4c",
+          "#13b99d",
+          "#2dd4b6",
+          "#62efd3",
+          "#8ff4dd",
+          "#bff5e9",
+          "#e3fcf5"
         ]
       },
-      "teal-hover": {
+      "teal-glow": {
         "role": "primary",
-        "displayName": "Signal Teal Hover",
-        "canonical": "oklch(91% 0.11 172)",
+        "displayName": "Teal Glow",
+        "canonical": "#73ecd9",
         "tonalRamp": [
-          "oklch(30% 0.06 188)",
-          "oklch(40% 0.08 182)",
-          "oklch(50% 0.095 179)",
-          "oklch(60% 0.11 176)",
-          "oklch(70% 0.12 175)",
-          "oklch(80% 0.12 173)",
-          "oklch(89% 0.115 172)",
-          "oklch(96% 0.06 170)"
+          "#0a3f36",
+          "#12705f",
+          "#1fa288",
+          "#3cc7a9",
+          "#73ecd9",
+          "#9bf2e3",
+          "#c4f8ee",
+          "#eafdf8"
         ]
       },
-      "action-fill": {
-        "role": "primary",
-        "displayName": "Action Aqua",
-        "canonical": "oklch(93% 0.07 172)",
+      "violet": {
+        "role": "secondary",
+        "displayName": "Foundation Violet",
+        "canonical": "#7067f0",
         "tonalRamp": [
-          "oklch(30% 0.05 185)",
-          "oklch(40% 0.07 180)",
-          "oklch(51% 0.085 177)",
-          "oklch(62% 0.095 175)",
-          "oklch(72% 0.095 174)",
-          "oklch(81% 0.09 173)",
-          "oklch(89% 0.08 172)",
-          "oklch(96% 0.05 171)"
+          "#1a1440",
+          "#2c2470",
+          "#4138a8",
+          "#554bcb",
+          "#7067f0",
+          "#968ef6",
+          "#bdb8fa",
+          "#e3e1fd"
         ]
       },
-      "action-fill-hover": {
-        "role": "primary",
-        "displayName": "Action Aqua Hover",
-        "canonical": "oklch(97% 0.045 170)",
-        "tonalRamp": [
-          "oklch(34% 0.05 184)",
-          "oklch(44% 0.065 179)",
-          "oklch(55% 0.08 176)",
-          "oklch(66% 0.09 174)",
-          "oklch(76% 0.085 173)",
-          "oklch(84% 0.075 172)",
-          "oklch(91% 0.06 171)",
-          "oklch(98% 0.03 170)"
-        ]
-      },
-      "action-text": {
+      "ink": {
         "role": "neutral",
-        "displayName": "Action Text",
-        "canonical": "oklch(17% 0.025 228)",
+        "displayName": "Ink",
+        "canonical": "#eef7fb",
         "tonalRamp": [
-          "oklch(11% 0.012 228)",
-          "oklch(15% 0.02 228)",
-          "oklch(20% 0.028 228)",
-          "oklch(26% 0.035 228)",
-          "oklch(33% 0.042 228)",
-          "oklch(41% 0.048 228)",
-          "oklch(50% 0.052 228)",
-          "oklch(60% 0.055 228)"
+          "#233238",
+          "#456069",
+          "#6c8e9a",
+          "#99b7c3",
+          "#c2d4de",
+          "#ddeaf0",
+          "#eef7fb",
+          "#ffffff"
         ]
       },
-      "border": {
+      "ink-soft": {
         "role": "neutral",
-        "displayName": "Hairline Border",
-        "canonical": "rgba(178,205,219,0.18)",
+        "displayName": "Ink Soft",
+        "canonical": "#a7bdc9",
         "tonalRamp": [
-          "rgba(178,205,219,0.05)",
-          "rgba(178,205,219,0.08)",
-          "rgba(178,205,219,0.12)",
-          "rgba(178,205,219,0.16)",
-          "rgba(178,205,219,0.2)",
-          "rgba(178,205,219,0.24)",
-          "rgba(178,205,219,0.28)",
-          "rgba(178,205,219,0.32)"
-        ]
-      },
-      "border-strong": {
-        "role": "neutral",
-        "displayName": "Strong Border",
-        "canonical": "rgba(178,205,219,0.38)",
-        "tonalRamp": [
-          "rgba(178,205,219,0.12)",
-          "rgba(178,205,219,0.16)",
-          "rgba(178,205,219,0.2)",
-          "rgba(178,205,219,0.25)",
-          "rgba(178,205,219,0.3)",
-          "rgba(178,205,219,0.35)",
-          "rgba(178,205,219,0.4)",
-          "rgba(178,205,219,0.46)"
+          "#1d2a31",
+          "#394d57",
+          "#5a7280",
+          "#7d97a5",
+          "#a7bdc9",
+          "#c3d4dc",
+          "#dde8ed",
+          "#f6fafc"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Page heroes and H1s only."
-      },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "H2 section heads."
-      },
-      "title": {
-        "displayName": "Title",
-        "purpose": "H3s, card headings, diagram titles."
+        "purpose": "Hero headlines only; compact overrides cascade from original-navigation.css."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Default 15px reading text, measure ~67ch."
-      },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Uppercase tracked labels, markers, index entries."
+        "purpose": "All prose; Inter everywhere, 15px/1.65 in ink-soft."
       }
     },
     "shadows": [
       {
-        "name": "nav-menu",
-        "value": "0 4px 12px rgba(18, 29, 54, 0.08)",
-        "purpose": "The one structural shadow, on the open mobile Menu dropdown."
+        "name": "shadow",
+        "value": "0 24px 70px rgba(9, 30, 48, 0.13)",
+        "purpose": "Light-ground feature cards, metric card."
       },
       {
-        "name": "index-panel",
-        "value": "0 12px 30px rgba(0, 0, 0, 0.15)",
-        "purpose": "Soft lift on the floating desktop On-this-page panel; hardcoded fallback reference."
+        "name": "shadow-soft",
+        "value": "0 14px 44px rgba(9, 30, 48, 0.08)",
+        "purpose": "Light-ground standard cards and diagram figures."
+      },
+      {
+        "name": "primary-halo",
+        "value": "0 14px 34px rgba(28, 210, 177, 0.22)",
+        "purpose": "Teal glow under the primary pill; deepens on hover."
+      },
+      {
+        "name": "glass-card",
+        "value": "0 28px 80px rgba(0, 0, 0, 0.22)",
+        "purpose": "Orchestration glass card over the hero."
       }
     ],
     "motion": [
       {
-        "name": "ease-standard",
-        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
-        "purpose": "Default easing for state transitions on hover and disclosure toggles."
+        "name": "ease-state",
+        "value": "160ms ease",
+        "purpose": "Color/underline hover transitions."
       },
       {
-        "name": "color-fade",
-        "value": "color 0.2s, background-color 0.2s, border-color 0.2s",
-        "purpose": "Standard 0.2s color transitions shared by links, buttons, nav, and index entries."
+        "name": "ease-lift",
+        "value": "180ms ease",
+        "purpose": "Button transform + shadow hover."
       },
       {
-        "name": "reduced-motion",
-        "value": "prefers-reduced-motion: reduce",
-        "purpose": "Collapses transitions to near-instant; diagram pulse animations are suppressed entirely."
+        "name": "ease-dock",
+        "value": "240ms ease",
+        "purpose": "Docked index position and size morph."
       }
     ],
     "breakpoints": [
       {
         "name": "sm",
-        "value": "768px"
-      },
-      {
-        "name": "nav-collapse",
-        "value": "900px"
+        "value": "680px"
       },
       {
         "name": "md",
-        "value": "1024px"
+        "value": "860px"
       },
       {
         "name": "lg",
+        "value": "1080px"
+      },
+      {
+        "name": "xl",
         "value": "1280px"
       }
     ]
   },
   "components": [
     {
-      "name": "Primary Button",
+      "name": "Header Nav",
+      "kind": "nav",
+      "refersTo": "site-nav",
+      "description": "Sticky blurred navy header; teal-violet underline marks current page.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Home</a><a class=\"ds-current\" href=\"#\">Architecture</a><a href=\"#\">Walkthroughs</a></nav>",
+      "css": ".ds-nav { display:flex; gap:26px; background:rgba(7,24,39,.94); backdrop-filter:blur(18px); padding:0 24px; align-items:center; min-height:86px; border-bottom:1px solid rgba(255,255,255,.11); font-family:Inter,ui-sans-serif,system-ui,sans-serif; } .ds-nav a { color:#bbccd7; font-size:14px; font-weight:600; text-decoration:none; transition:color 160ms ease; } .ds-nav a:hover { color:#fff; } .ds-nav .ds-current { color:#fff; position:relative; } .ds-nav .ds-current::after { content:\"\"; position:absolute; left:0; right:0; bottom:-10px; height:2px; border-radius:2px; background:linear-gradient(90deg,#13b99d,#7067f0); }"
+    },
+    {
+      "name": "Primary Pill",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Pale aqua pill, dark text, the single filled call-to-action voice.",
-      "html": "<button class=\"ds-btn-primary\">Start Reading</button>",
-      "css": ".ds-btn-primary { background: #bff5e9; color: #071827; font: 600 15px/1 'Public Sans', sans-serif; padding: 14px 24px; min-height: 48px; border: 2px solid transparent; border-radius: 999px; cursor: pointer; transition: background-color 0.2s; } .ds-btn-primary:hover { background: #d8faf2; } .ds-btn-primary:focus-visible { outline: 3px solid #73ecd9; outline-offset: 3px; }"
+      "description": "Teal-gradient call to action with dark-green text and teal halo.",
+      "html": "<button class=\"ds-btn-primary\">Follow a request \u2192</button>",
+      "css": ".ds-btn-primary { min-height:52px; padding:0 22px; display:inline-flex; align-items:center; gap:12px; border:1px solid transparent; border-radius:999px; color:#05271f; background:linear-gradient(135deg,#62efd3,#a7f5e6); box-shadow:0 14px 34px rgba(28,210,177,.22); font-family:Inter,ui-sans-serif,system-ui,sans-serif; font-size:.94rem; font-weight:720; cursor:pointer; transition:transform 180ms ease, box-shadow 180ms ease; } .ds-btn-primary:hover { transform:translateY(-2px); box-shadow:0 18px 42px rgba(28,210,177,.31); } .ds-btn-primary:focus-visible { outline:3px solid rgba(55,208,181,.7); outline-offset:3px; }"
     },
     {
-      "name": "Outline Button",
+      "name": "Outline Pill",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Ghost pill with teal stroke for secondary actions on the dark field.",
-      "html": "<button class=\"ds-btn-outline\">View Source</button>",
-      "css": ".ds-btn-outline { background: transparent; color: #5fe8cd; font: 600 15px/1 'Public Sans', sans-serif; padding: 14px 24px; min-height: 48px; border: 2px solid #5fe8cd; border-radius: 999px; cursor: pointer; transition: background-color 0.2s; } .ds-btn-outline:hover { background: rgba(95,232,205,0.1); } .ds-btn-outline:focus-visible { outline: 3px solid #73ecd9; outline-offset: 3px; }"
+      "description": "Translucent white pill for secondary actions like the header GitHub link.",
+      "html": "<button class=\"ds-btn-outline\">View GitHub</button>",
+      "css": ".ds-btn-outline { min-height:40px; padding:0 18px; display:inline-flex; align-items:center; border:1px solid rgba(255,255,255,.25); border-radius:999px; color:#fff; background:rgba(255,255,255,.04); font-family:Inter,ui-sans-serif,system-ui,sans-serif; font-size:.82rem; font-weight:720; cursor:pointer; transition:background-color 180ms ease, border-color 180ms ease, transform 180ms ease; } .ds-btn-outline:hover { transform:translateY(-2px); border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.09); } .ds-btn-outline:focus-visible { outline:3px solid rgba(55,208,181,.7); outline-offset:3px; }"
     },
     {
-      "name": "Top Navigation",
-      "kind": "nav",
-      "description": "Compact sticky header with N-mark, wordmark, and 2px teal current underline.",
-      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-brand\">N</span><nav><a href=\"#\" class=\"ds-nav-link\" aria-current=\"page\">Architecture</a><a href=\"#\" class=\"ds-nav-link\">Models</a></nav></header>",
-      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; background: #0b2436; border-bottom: 1px solid rgba(178,205,219,0.18); padding: 12px 40px; min-height: 80px; } .ds-nav-brand { color: #eef7fb; font: 600 19px/1 'Public Sans', sans-serif; } .ds-nav-link { color: #eef7fb; font: 500 16px/1 'Public Sans', sans-serif; text-decoration: none; padding: 8px 4px; transition: color 0.2s; } .ds-nav-link:hover { color: #5fe8cd; } .ds-nav-link[aria-current] { border-bottom: 2px solid #5fe8cd; }"
-    },
-    {
-      "name": "Floating Content Index",
-      "kind": "nav",
-      "description": "Right-edge On-this-page panel (1280px+) with dot markers and current location.",
-      "html": "<aside class=\"ds-index\"><span class=\"ds-index-h\">On this page</span><a href=\"#\" class=\"ds-index-item ds-index-cur\" aria-current=\"location\"><i></i>Overview</a><a href=\"#\" class=\"ds-index-item\"><i></i>Pipeline</a></aside>",
-      "css": ".ds-index { background: #071827; border: 1px solid rgba(178,205,219,0.18); border-radius: 8px; padding: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); width: 180px; } .ds-index-h { color: #a7bdc9; font: 700 0.7rem/1 'Public Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; } .ds-index-item { display: flex; align-items: center; gap: 8px; color: #a7bdc9; font: 400 13px/1 'Public Sans', sans-serif; text-decoration: none; padding: 8px 0; transition: color 0.2s; } .ds-index-item i { width: 8px; height: 8px; border-radius: 50%; border: 1px solid rgba(178,205,219,0.38); } .ds-index-item:hover { color: #5fe8cd; } .ds-index-cur { color: #73ecd9; } .ds-index-cur i { background: #73ecd9; border-color: #73ecd9; }"
-    },
-    {
-      "name": "Founder Focus Chip",
-      "kind": "chip",
-      "description": "Cool Canvas pill tagging a founder's area of focus; informational only.",
-      "html": "<span class=\"ds-chip\">Retrieval</span>",
-      "css": ".ds-chip { display: inline-block; background: #071827; color: #a7bdc9; font: 400 14px/1.4 'Public Sans', sans-serif; padding: 4px 12px; border-radius: 100px; }"
-    },
-    {
-      "name": "Journey Card",
+      "name": "Numbered Hero Card",
       "kind": "card",
-      "refersTo": "card",
-      "description": "Cool Canvas cell on the page field guiding a reader through the docs.",
-      "html": "<article class=\"ds-card\"><h3 class=\"ds-card-t\">Read the architecture</h3><p class=\"ds-card-b\">Start with the system overview, then follow the request path.</p></article>",
-      "css": ".ds-card { background: #071827; border: 1px solid rgba(178,205,219,0.18); border-radius: 8px; padding: 24px; } .ds-card-t { color: #eef7fb; font: 700 1.2rem/1.12 'Public Sans', sans-serif; letter-spacing: -0.03em; margin: 0 0 8px; } .ds-card-b { color: #c2d4de; font: 400 15px/1.65 'Public Sans', sans-serif; margin: 0; }"
+      "refersTo": "orchestration-card",
+      "description": "Glass card with teal-violet top bar and numbered mini-flow list.",
+      "html": "<aside class=\"ds-ocard\"><ol class=\"ds-flow\"><li><span>01</span><div><strong>Overview</strong><small>Clear service boundaries</small></div></li><li><span>02</span><div><strong>Architecture</strong><small>System map</small></div></li></ol></aside>",
+      "css": ".ds-ocard { position:relative; padding:34px; border:1px solid rgba(255,255,255,.13); border-radius:28px; background:linear-gradient(150deg,rgba(255,255,255,.095),rgba(255,255,255,.035)); box-shadow:0 28px 80px rgba(0,0,0,.22); backdrop-filter:blur(18px); font-family:Inter,ui-sans-serif,system-ui,sans-serif; color:#eef7fb; } .ds-ocard::before { content:\"\"; position:absolute; top:0; right:34px; left:34px; height:2px; background:linear-gradient(90deg,transparent,#13b99d,#7067f0,transparent); } .ds-flow { margin:0; padding:0; list-style:none; display:grid; gap:14px; } .ds-flow li { display:grid; grid-template-columns:42px 1fr; gap:14px; } .ds-flow li>span { width:35px; height:35px; display:grid; place-items:center; border:1px solid rgba(116,222,202,.35); border-radius:10px; color:#8de8d7; background:rgba(55,208,181,.08); font-size:.68rem; font-weight:800; } .ds-flow strong { display:block; font-size:.92rem; } .ds-flow small { color:#8ca6b5; font-size:.75rem; }"
     },
     {
-      "name": "Component Select",
-      "kind": "input",
-      "refersTo": "field",
-      "description": "Surface Navy native select driving the interactive diagram's shared selection state.",
-      "html": "<label class=\"ds-field-l\">Component<select class=\"ds-field\"><option>Intake Gateway</option><option>Reasoning Engine</option></select></label>",
-      "css": ".ds-field-l { display: block; color: #a7bdc9; font: 700 13px/1.3 'Public Sans', sans-serif; text-transform: uppercase; letter-spacing: 0.06em; } .ds-field { background: #0b2436; color: #eef7fb; border: 1px solid rgba(178,205,219,0.18); border-radius: 6px; padding: 10px 14px; min-height: 44px; margin-top: 8px; font: 400 15px/1 'Public Sans', sans-serif; } .ds-field:focus-visible { outline: 3px solid #73ecd9; outline-offset: 3px; } .ds-field:disabled { opacity: 0.6; cursor: wait; }"
+      "name": "Docked Index",
+      "kind": "custom",
+      "refersTo": "orchestration-card-nav-docked",
+      "description": "Shrunk fixed index after hero scroll; teal marks current section.",
+      "html": "<nav class=\"ds-dock\"><ol><li><span>01</span><a href=\"#\">Overview</a></li><li><span>02</span><a class=\"ds-on\" href=\"#\">Architecture</a></li><li><span>03</span><a href=\"#\">Decisions</a></li></ol></nav>",
+      "css": ".ds-dock { width:238px; padding:17px 18px 18px; border:1px solid rgba(176,219,229,.11); border-radius:28px; background:rgba(7,24,39,.08); box-shadow:0 8px 22px rgba(1,11,18,.08); backdrop-filter:blur(4px) saturate(110%); font-family:Inter,ui-sans-serif,system-ui,sans-serif; } .ds-dock ol { margin:0; padding:0; list-style:none; display:grid; gap:9px; } .ds-dock li { display:grid; grid-template-columns:43px 1fr; align-items:center; min-height:34px; } .ds-dock li>span { width:27px; height:27px; display:grid; place-items:center; border:1px solid rgba(116,222,202,.35); border-radius:9px; color:#8de8d7; background:rgba(55,208,181,.08); font-size:.62rem; font-weight:800; } .ds-dock a { color:#edf7fb; font-size:.82rem; font-weight:600; text-decoration:none; transition:color 160ms ease; } .ds-dock a:hover, .ds-dock a.ds-on { color:#72ead8; } .ds-dock a:focus-visible { outline:3px solid rgba(114,234,216,.7); outline-offset:5px; border-radius:5px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Dark Instrument Panel",
-    "overview": "Nora SuperIntelligence Lab presents an open-source intelligence architecture as a deep-field technical surface: dark navy grounds, a single luminous teal voice, and quiet white-canvased diagrams. The system reads like a well-lit control room \u2014 calm surfaces, precise boundaries, and one bright signal color that always means you can act on this. Every screen is content-first, with long-form prose in measured columns and compact navigation that never shouts.",
+    "northStar": "The Dark Lab Blueprint",
+    "overview": "The interface reads as a working blueprint pinned up inside a lab: deep-navy canvas, a faint engineering grid, and soft teal and violet glows marking where energy concentrates. Pages open with a confident white headline, then spacious dark bands carry dense technical detail. The original stylesheets are imported byte-for-byte and hold highest precedence; Inter is the single font voice, depth comes from glow and glass blur rather than shadows on dark cards.",
     "keyCharacteristics": [
-      "Deep navy layered surfaces with thin low-contrast borders instead of shadows.",
-      "One sans voice \u2014 self-hosted Public Sans \u2014 for display, body, and labels.",
-      "A single teal accent family for links and interactive state; pale aqua fills reserved for primary actions.",
-      "Diagrams always render on a white canvas so source-extracted SVG stays readable against the dark UI.",
-      "Compact sticky navigation and unobtrusive On-this-page indexing; nothing auto-plays."
+      "Deep-navy blueprint canvas with faint grid and teal/violet radial glows",
+      "One font voice (Inter) with tight -0.035em tracking on headlines",
+      "Pill buttons; teal-gradient primary is the single loud accent",
+      "Numbered orchestration card doubles as a docked floating page index",
+      "Split section headings; 112\u2013120px bands on alternating dark tones"
     ],
     "rules": [
       {
-        "name": "The One Signal Rule",
-        "body": "The teal family is the only accent voice on the dark field, used for action and focus \u2014 never a second accent hue for decoration.",
+        "name": "The Two-Glow Rule",
+        "body": "Every hero carries exactly two radial glows \u2014 violet top-right, teal bottom-left \u2014 at low opacity over the grid.",
         "section": "colors"
       },
       {
-        "name": "The Dark Field Rule",
-        "body": "Pages are dark navy; Action Aqua and white canvases are the only light masses. Aqua fills belong to primary buttons and step numerals \u2014 never panels or page backgrounds.",
+        "name": "The Teal Means State Rule",
+        "body": "Teal marks interactivity and current state; body copy is never teal, it stays ink or ink-soft.",
         "section": "colors"
       },
       {
-        "name": "The One Voice Rule",
-        "body": "Public Sans at weights 400-700 is the entire type system; weight and tracking create hierarchy, never a second family.",
+        "name": "The One Family Rule",
+        "body": "Inter does all the work; Public Sans stays imported for legacy helpers but must not style new elements.",
         "section": "typography"
       },
       {
-        "name": "The Tight Head Rule",
-        "body": "Headings always keep letter-spacing -0.03em and line-height 1.12 in Heading Ink; body copy never inherits that tightening.",
-        "section": "typography"
-      },
-      {
-        "name": "The Flat-By-Default Rule",
-        "body": "Cards, inputs, and buttons cast no shadow; layer with the three surface colors and borders, reserving shadow for genuinely floating elements.",
+        "name": "The Flat Dark Surface Rule",
+        "body": "Cards on the navy foundation cast no shadows; elevation is glass blur, the primary halo, or light-section cards only.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do layer the three navy surfaces for depth instead of adding shadows.",
-      "Do keep Action Aqua fills on primary CTAs and step numerals only, paired with Cool Canvas text.",
-      "Do render every diagram artwork on a white canvas, with concise captions.",
-      "Do use the global focus treatment \u2014 3px Muted Aqua-Blue outline with 3px offset \u2014 on every interactive element.",
-      "Do respect reduced motion and never auto-play diagram animation.",
-      "Do keep the accent to the teal family for anything actionable, lifting hover states within the family."
+      "Do set heroes on var(--navy) with the grid layer plus exactly the teal and violet glows.",
+      "Do open every section with an uppercase teal section-label before the h2.",
+      "Do reuse legacy DOM classes (.shell, .nav-wrap, .hero-layout, .orchestration-card, .section-heading--split) instead of re-deriving layout.",
+      "Do give dark-ground interactive elements the 3px teal focus ring with 3px offset."
     ],
     "donts": [
-      "Don't introduce serif or display faces \u2014 no Libre Caslon or heritage fonts; Public Sans is the only voice.",
-      "Don't put light panels on the dark field outside Action Aqua fills and white diagram canvases.",
-      "Don't invent new token names or alias scales; radii are hardcoded per component.",
-      "Don't add second accent hues like warning oranges or brand purples.",
-      "Don't drop shadows on resting cards or buttons.",
-      "Don't make the homepage system map reader-interactive; highlight state comes from page data, not clicks."
+      "Don't apply Public Sans (or any non-Inter face) to body or headline text.",
+      "Don't put drop shadows on cards sitting on the navy foundation; flat dark surfaces are the norm.",
+      "Don't introduce a second accent hue beyond the teal family and single violet counterpoint.",
+      "Don't write teal body copy; prose stays ink or ink-soft."
     ]
   }
 }

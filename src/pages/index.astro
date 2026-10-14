@@ -1,6 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import CTAButton from '../components/CTAButton.astro';
+import OriginalIndex from '../components/OriginalIndex.astro';
 import SourceMap from '../components/SourceMap.astro';
 import { href } from '../lib/constants.mjs';
 import site from '../data/site.json';
@@ -9,340 +9,176 @@ import atlasExample from '../data/atlas-example.json';
 
 const firstRequestStep = walkthroughs.request[0].id;
 const founders = site.founders.filter(f => f && f.name);
+
+const indexEntries = [
+  { id: 'overview', label: 'Overview', description: 'One assistant with clear service boundaries' },
+  { id: 'example', label: 'Atlas example', description: 'A worked fictional fixture, question to answer' },
+  { id: 'system-map', label: 'Architecture', description: 'Interactive source-grounded system map' },
+  { id: 'founders', label: 'Founders', description: 'Who is building Nora SuperIntelligence Lab' },
+  { id: 'contact', label: 'Contact', description: 'Discuss a role or project with Michael' }
+];
 ---
-<SiteLayout title="Nora SuperIntelligence Lab — Architecture" description="One assistant. Clear service boundaries. Explore how a knowledge assistant retrieves prepared documents, produces an answer, and keeps conversation state." path="/">
-  <section id="overview" class="hero container">
-    <div class="hero-content">
-      <h1>{site.home.heading} <span class="emphasis">{site.home.headingEmphasis}</span></h1>
-      <p class="hero-intro">{site.home.intro}</p>
-      <div class="cta-group">
-        <CTAButton href={`/walkthroughs/?flow=request&step=${firstRequestStep}`} label="Follow a request" icon="arrow" />
-        <CTAButton href={'/architecture/'} label="Read the architecture" variant="outline" icon="arrow" />
+<SiteLayout title="Nora SuperIntelligence Lab — Architecture" description="One assistant. Clear service boundaries. Explore how a knowledge assistant retrieves prepared documents, produces an answer, and keeps conversation state." path="/" customIndex={true}>
+  <section class="hero hero--home" id="overview" data-index-label="Overview">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
+    <div class="shell hero-layout">
+      <div class="hero-copy">
+        <h1>{site.home.heading} {site.home.headingEmphasis}</h1>
+        <p class="hero-lede">{site.home.intro}</p>
+        <div class="hero-actions">
+          <a class="button button--primary" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow a request <span aria-hidden="true">→</span></a>
+          <a class="button button--ghost" href={href('/architecture/')}>Read the architecture</a>
+        </div>
+        <ul class="hero-signals" aria-label="Design principles">
+          <li>Single assistant</li>
+          <li>Prepared knowledge</li>
+          <li>Durable state</li>
+          <li>Provider-flexible</li>
+        </ul>
       </div>
-    </div>
-    <div class="hero-map">
-      <SourceMap initialFocus="" />
+      <OriginalIndex tagline="Nora guided portfolio" title="From overview to contact" entries={indexEntries} ariaLabel="Home navigation" />
     </div>
   </section>
 
-  <section id="explore" class="container journey-section">
-    <h2>Explore the system</h2>
-    <ol class="journey-list">
-      <li>
-        <a href={href(`/walkthroughs/?flow=request&step=current-question`)}>
-          <span class="step-number">1</span>
-          <span class="step-label">Follow a request</span>
-        </a>
-        <p class="step-subtitle">Walk through the Browser UI to Coordination flow.</p>
-      </li>
-      <li>
-        <a href={href('/architecture/#decisions-tradeoffs')}>
-          <span class="step-number">2</span>
-          <span class="step-label">Examine decisions</span>
-        </a>
-        <p class="step-subtitle">Review NIS service boundaries and tradeoffs.</p>
-      </li>
-      <li>
-        <a href={href('/validation/')}>
-          <span class="step-number">3</span>
-          <span class="step-label">Validation</span>
-        </a>
-        <p class="step-subtitle">Inspect validation and checkpoint persistence.</p>
-      </li>
-      <li>
-        <a href={href('/reproduce/')}>
-          <span class="step-number">4</span>
-          <span class="step-label">Reproduce</span>
-        </a>
-        <p class="step-subtitle">Understand reproduction steps and limitations.</p>
-      </li>
-    </ol>
-  </section>
-
-  <section id="example" class="container example-section" data-index-label="Atlas example">
-    <h2>Worked example — Fictional Atlas</h2>
-    <div class="example-strip">
-      <div class="example-cell">
-        <span class="cell-label">Question</span>
-        <p class="cell-text">{atlasExample.question}</p>
+  <section class="section workflow-section" id="example" data-index-label="Atlas example">
+    <div class="shell">
+      <div class="section-heading section-heading--split">
+        <div>
+          <p class="section-label">Worked example</p>
+          <h2>Fictional Atlas, a grounded fixture.</h2>
+        </div>
+        <p>A fictional project fixture shows the path from question to answer: coordination retrieves prepared passages, then produces a plain answer with supported points and gaps.</p>
       </div>
-      <div class="example-cell">
-        <span class="cell-label">Answer</span>
-        <p class="cell-text">{atlasExample.answer}</p>
+      <div class="principle-callout atlas-callout">
+        <div class="principle-mark" aria-hidden="true">Q</div>
+        <div>
+          <p class="section-label">Question</p>
+          <h3>{atlasExample.question}</h3>
+        </div>
       </div>
-    </div>
-    <details class="example-details">
-      <summary>View illustrative steps</summary>
-      <ol>
-        {atlasExample.steps.map(step => (
-          <li>
-            <strong>{step.label}:</strong> {step.detail}
-          </li>
-        ))}
-      </ol>
-    </details>
-    <div class="example-cta">
-      <CTAButton href={`/walkthroughs/?flow=request&step=${firstRequestStep}`} label="Explore walkthrough" icon="arrow" />
+      <div class="principle-callout atlas-callout">
+        <div class="principle-mark" aria-hidden="true">A</div>
+        <div>
+          <p class="section-label">Answer</p>
+          <h3>{atlasExample.answer}</h3>
+        </div>
+      </div>
+      <details class="atlas-details">
+        <summary>View illustrative steps</summary>
+        <ol>
+          {atlasExample.steps.map(step => (
+            <li><strong>{step.label}:</strong> {step.detail}</li>
+          ))}
+        </ol>
+      </details>
     </div>
   </section>
 
-  <section id="founders" class="container founders-section">
-    <h2>Founders</h2>
-    <div class="founders-grid">
-      {founders.map(f => (
-        <article class="founder-card">
-          {f.image && <img src={href('/' + f.image)} alt={`Portrait of ${f.name}`} width="160" height="160" class="founder-portrait" />}
-          <div class="founder-body">
-            <h3>{f.name}</h3>
-            {f.role && <p class="founder-role">{f.role}</p>}
-            {f.bio && <p class="founder-bio">{f.bio}</p>}
+  <section class="section workflow-section" id="system-map" data-index-label="Architecture">
+    <div class="shell">
+      <div class="section-heading section-heading--split">
+        <div>
+          <p class="section-label">System map</p>
+          <h2>One assistant, separate services.</h2>
+        </div>
+        <p>Browser UI, Coordination, retrieval, and conversation state have distinct responsibilities. Follow a request to see how they work together.</p>
+      </div>
+      <figure class="diagram-figure diagram-figure--architecture">
+        <SourceMap initialFocus="" />
+        <figcaption class="visually-hidden">System architecture overview</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section foundation-section" id="founders" data-index-label="Founders">
+    <div class="shell foundation-layout">
+      <div class="foundation-copy">
+        <p class="section-label">Founders</p>
+        <h2>The person behind the lab.</h2>
+        <p>Meet the founder and discuss technical leadership roles or projects.</p>
+        {site.contact && (
+          <a class="text-link" href={site.contact.links[0].url}>{site.contact.links[0].label} <span aria-hidden="true">→</span></a>
+        )}
+      </div>
+      <div class="foundation-list">
+        {founders.map(f => (
+          <div class="founder-entry">
+            <span>01</span>
+            <p>
+              {f.image && <img class="founder-portrait" src={href('/' + f.image)} alt={`Portrait of ${f.name}`} width="160" height="160" />}
+              <strong>{f.name}</strong>{f.role ? ` — ${f.role}. ` : '. '}{f.bio}
+            </p>
             {f.focus && f.focus.length > 0 && (
-              <ul class="founder-focus">
+              <ul class="hero-signals founder-focus" aria-label="Focus areas">
                 {f.focus.map(item => <li>{item}</li>)}
               </ul>
             )}
-            <div class="founder-links">
-              {f.links && f.links.map(l => (
-                <a href={l.url} target="_blank" rel="noopener noreferrer" class="founder-link">
-                  <span>{l.label}</span>
-                  <img src={href('/images/icons/external-link.svg')} alt="" width="18" height="18" />
-                </a>
-              ))}
-            </div>
+            {f.links && (
+              <p class="founder-links">
+                {f.links.map(l => <a class="text-link" href={l.url}>{l.label}</a>)}
+              </p>
+            )}
           </div>
-        </article>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 
   {site.contact && (
-    <section id="contact" class="container contact-section" data-index-label="Contact">
-      <h2>{site.contact.heading}</h2>
-      <p>{site.contact.body}</p>
-      <div class="contact-links">
-        {site.contact.links.map(l => (
-          <a href={l.url} class="contact-link">{l.label}</a>
-        ))}
+    <section class="section pilots-section" id="contact" data-index-label="Contact">
+      <div class="shell">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="section-label">Contact</p>
+            <h2>{site.contact.heading}</h2>
+          </div>
+          <p>{site.contact.body}</p>
+        </div>
+        <div class="hero-actions">
+          {site.contact.links.map(l => (
+            <a class="button button--primary" href={l.url}>{l.label} <span aria-hidden="true">→</span></a>
+          ))}
+        </div>
       </div>
     </section>
   )}
 </SiteLayout>
 <style>
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding-top: 40px;
-  padding-bottom: 20px;
-  align-items: center;
+.atlas-callout {
+  margin-top: 28px;
 }
-.hero h1 {
-  margin-bottom: 24px;
+.principle-mark {
+  flex: 0 0 auto;
 }
-.emphasis {
-  color: var(--color-muted-blue);
-}
-.hero-intro {
-  font-size: 21px;
-  max-width: 67ch;
-  margin-bottom: 32px;
-}
-.cta-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.journey-section {
-  padding-top: 40px;
-}
-.journey-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  counter-reset: journey;
-}
-.journey-list li {
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 24px;
-  background: var(--color-cool);
-}
-.journey-list a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--color-action-fill);
-  color: var(--color-action-text);
-  font-weight: 700;
-  font-size: 14px;
-}
-.step-label {
-  font-weight: 600;
-  color: var(--color-ink);
-}
-.step-subtitle {
-  margin: 0;
-  color: var(--color-secondary);
-  font-size: 15px;
-}
-.example-section {
-  padding-top: 40px;
-}
-.example-section h2 {
-  margin-bottom: 24px;
-}
-.example-strip {
-  display: flex;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  overflow: hidden;
-}
-.example-cell {
-  flex: 1;
-  padding: 24px;
-}
-.example-cell:first-child {
-  border-right: 1px solid var(--color-border);
-  background: var(--color-cool);
-}
-.cell-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-secondary);
-  margin-bottom: 8px;
-}
-.cell-text {
-  margin: 0;
-  font-size: 18px;
-  color: var(--color-ink);
-}
-.example-details {
-  margin-top: 16px;
+.atlas-details {
+  margin-top: 32px;
   padding: 16px 24px;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: var(--color-surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--navy-2);
 }
-.example-details summary {
+.atlas-details summary {
   cursor: pointer;
   font-weight: 600;
-  color: var(--color-teal);
-}
-.example-details ol {
-  padding-left: 20px;
-  margin-top: 12px;
-}
-.example-details li {
-  margin-bottom: 8px;
-}
-.example-cta {
-  margin-top: 24px;
-}
-#founders {
-  scroll-margin-top: 100px;
-}
-.founders-section {
-  padding-top: 60px;
-}
-.founders-grid {
-  display: grid;
-  gap: 32px;
-}
-.founder-card {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 32px;
-}
-.founder-portrait {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 4px;
-  border: 8px solid var(--color-cool);
-  flex-shrink: 0;
-}
-.founder-body h3 { margin-bottom: 4px; }
-.founder-role {
   color: var(--color-muted-blue);
-  font-weight: 600;
-  font-size: 16px;
-  margin: 0 0 16px;
-}
-.founder-bio { margin-bottom: 16px; }
-.founder-focus {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px;
+  min-height: 44px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.founder-focus li {
-  font-size: 14px;
-  color: var(--color-secondary);
-  background: var(--color-cool);
-  padding: 4px 12px;
-  border-radius: 100px;
-}
-.founder-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.founder-link {
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  color: var(--color-teal);
-  font-weight: 600;
-  font-size: 15px;
 }
-.founder-link:hover { text-decoration: underline; }
-.contact-section {
-  padding-top: 60px;
-  padding-bottom: 20px;
+.atlas-details ol { padding-left: 20px; margin: 12px 0; color: var(--ink-soft); }
+.atlas-details li { margin-bottom: 8px; }
+.founder-entry { position: relative; }
+.founder-portrait {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.16);
+  margin-bottom: 14px;
 }
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 16px;
-}
-.contact-link {
-  font-weight: 600;
-}
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-  .hero-map {
-    order: 0;
-  }
-  .example-strip { flex-direction: column; }
-  .example-cell:first-child { border-right: none; border-bottom: 1px solid var(--color-border); }
-  .founder-card { flex-direction: column; align-items: center; text-align: center; padding: 24px; }
-  .founder-portrait { width: 128px; height: 128px; }
-  .founder-focus { justify-content: center; }
-  .founder-links { justify-content: center; }
-}
+.founder-focus { margin: 14px 0 0; grid-column: 2; }
+.founder-links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 18px; grid-column: 2; }
+div.founder-entry > p { margin: 0; }
 </style>

@@ -24,7 +24,7 @@ Six primary routes: Home, Architecture, Walkthroughs, Decisions, Validation and 
 
 ## Capabilities and Constraints
 
-Static guided explanations and browser interactions; no public live chat, private corpus, uploads or model traffic. Website only; no downloadable slide deck or PDF. Preserve legacy route access, existing hosting and pending local direction context. The owner now requests reuse of the existing live website style: dark navy surfaces, bold sans-serif headings, teal accents, and a floating content index. This supersedes the earlier light Option 1 direction. The homepage also includes a Founders section for job and project inquiries. It lists Michael Lvov alone; profiles are data-driven so Alla can be added later.
+Static guided explanations and browser interactions; no public live chat, private corpus, uploads or model traffic. Website only; no downloadable slide deck or PDF. Preserve legacy route access, existing hosting and pending local direction context. The owner requests close reuse of the original Foundation UI/UX: its actual stylesheets, narrative hero with grid and glows, numbered hero navigation that docks after scrolling, spacious section bands, split headings, and wrapped responsive navigation. This supersedes the earlier light Option 1 direction. The homepage also includes a Founders section for job and project inquiries. It lists Michael Lvov alone; profiles are data-driven so Alla can be added later.
 
 ## Brand Commitments
 

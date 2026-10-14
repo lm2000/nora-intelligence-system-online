@@ -1,22 +1,14 @@
-# Design QA — 2026-10-14
+# Original Foundation UI/UX restoration QA — 2026-10-14
 
-Scope: owner-requested reuse of existing website style, Nora SuperIntelligence Lab branding, floating content index and in-page HTML diagrams without format/source link bars.
+Scope: restore the original Foundation/home layouts and styles using the two original stylesheets byte-for-byte, with updated technical content.
 
-Disposition: pass for supplied desktop and mobile screenshots. Root/Pages builds, 354 references across 27 HTML files, eight state tests, and targeted browser interaction checks pass.
-
-## Visual findings
-
-No material findings in the supplied views.
+Disposition: pass for supplied desktop/mobile views. The two low-priority observations require no changes. Original hero, header/dropdown, numbered docking navigation and spacious split section bands are restored. Root/Pages builds verify 344 references across 27 HTML files; eight state tests pass. Browser checks cover desktop docking/active sections/non-overlap, mobile anchor offsets/dropdown/diagram pan, one founder/contact and retained walkthrough focus.
 
 ## Limits
 
-- Founders section heading appears only at the bottom edge of desktop capture 2; founder content, single-founder listing, and approved contact details below the fold are not visible in supplied views
-- Mobile Menu button expanded state, navigation link rendering, and close behavior not captured
-- Architecture Selection detail panel and diagram geometry partially outside desktop viewport capture; lower detail text and full figure bottom not visible
-- Responsive behavior between 390px and 1440px breakpoints (tablet widths) not observed
-- Interactive states not verifiable from static captures: scroll-spy active tracking, dropdown change handling, keyboard Enter selection, Reset behavior, mobile index auto-close, and diagram pan performance
-- Walkthrough steps 1, 3-5, Manual ingestion tab content, and previous/next/reset button behavior not shown in supplied views
-- Color contrast ratios, focus indicator visibility beyond static appearance, and WCAG conformance cannot be confirmed from screenshots alone
-- Physical pixel scale differences between desktop and mobile captures noted as expected; no visual regression inferred from scaling
+- Assessment is limited to the supplied screenshots and stated browser-verification notes; I did not independently inspect computed CSS, run the routes, or operate the interactive diagram.
+- Viewport differences are acknowledged in the request: original reference was captured at 1440 CSS width while restored captures are 1600/390, so exact pixel-for-pixel position equivalence was not required or claimed.
+- WCAG/contrast, keyboard-only operability beyond the stated focus checks, screen-reader behavior, and unshown lower-page states were not assessed.
+- Text and diagram content were judged for visible consistency with the stated restored technical scope, not for backend correctness or completeness of the source-derived implementation.
 
-Mobile expanded navigation, one founder/contact, scroll tracking, component selection and keyboard/reset behavior were checked separately in the browser. Owner acceptance and production publication are pending.
+Owner acceptance and production publication remain pending.

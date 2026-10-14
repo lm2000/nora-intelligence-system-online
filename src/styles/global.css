@@ -2,96 +2,41 @@
 @import '@fontsource/public-sans/500.css';
 @import '@fontsource/public-sans/600.css';
 @import '@fontsource/public-sans/700.css';
+@import './original.css';
+@import './original-navigation.css';
 
 :root {
-  --font-sans: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --color-bg: #0b1d2b;
-  --color-surface: #0b2436;
-  --color-cool: #071827;
-  --color-ink: #eef7fb;
+  /* Aliases for existing components/pages (Diagram, gallery, code blocks, footer). */
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-bg: var(--paper);
+  --color-surface: var(--navy-2);
+  --color-cool: var(--navy);
+  --color-ink: var(--ink);
   --color-body: #c2d4de;
-  --color-secondary: #a7bdc9;
+  --color-secondary: var(--ink-soft);
   --color-muted-blue: #73ecd9;
-  --color-teal: #5fe8cd;
+  --color-teal: #73ecd9;
   --color-teal-hover: #8df0dc;
-  --color-action-fill: #bff5e9;
+  --color-action-fill: var(--teal-light);
   --color-action-fill-hover: #d8faf2;
-  --color-action-text: #071827;
-  --color-border: rgba(178, 205, 219, 0.18);
+  --color-action-text: var(--navy);
+  --color-border: var(--line);
   --color-border-strong: rgba(178, 205, 219, 0.38);
-  --max-width: 1180px;
-  --header-height: 80px;
+  --max-width: var(--shell);
+  --header-height: 86px;
   --nav-indicator: 2px;
 }
 
-* { box-sizing: border-box; }
-
-html {
-  -webkit-text-size-adjust: 100%;
-  scroll-behavior: auto;
+/* Readable links on dark foundation palette (original body links inherit color). */
+main a:not(.button):not([class*="nav"]):not(.brand) {
+  color: var(--color-muted-blue);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+main a:not(.button):hover {
+  color: var(--teal-light);
 }
 
-body {
-  margin: 0;
-  background: var(--color-bg);
-  color: var(--color-body);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-::selection {
-  background: var(--color-teal);
-  color: var(--color-cool);
-  caret-color: var(--color-teal);
-}
-
-h1, h2, h3, h4 {
-  font-family: var(--font-sans);
-  color: var(--color-ink);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  margin: 0 0 0.5em;
-}
-
-h1 { font-size: clamp(2rem, 3.5vw, 3.25rem); }
-h2 { font-size: clamp(1.7rem, 2.9vw, 2.25rem); }
-h3 { font-size: 1.2rem; }
-
-p { margin: 0 0 1.25em; max-width: 67ch; }
-
-a {
-  color: var(--color-teal);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
-
-a:hover {
-  text-decoration-thickness: 2px;
-  color: var(--color-teal-hover);
-}
-
-:focus-visible {
-  outline: 3px solid var(--color-muted-blue);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-img { max-width: 100%; height: auto; display: block; }
-
-button { font-family: inherit; font-size: inherit; cursor: pointer; }
-
+/* Generic container retained for walkthrough/decisions/validation/reproduce pages. */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -100,23 +45,6 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 
 @media (max-width: 768px) {
   .container { padding: 20px; }
-  body { font-size: 15px; }
-}
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  z-index: 1000;
-  background: var(--color-ink);
-  color: var(--color-cool);
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 0 0 6px 0;
-}
-
-.skip-link:focus {
-  left: 0;
 }
 
 .visually-hidden {
@@ -135,8 +63,20 @@ h1[id], h2[id], section[id], article[id] {
   scroll-margin-top: calc(var(--header-height) + 24px);
 }
 
+/* Generic PageIndex gutter only on pages that still use the generic index. */
 @media (min-width: 1280px) {
   body.has-page-index > main {
     padding-right: 220px;
   }
+}
+
+/* Hide the generic PageIndex entirely when the OriginalIndex docked card is active. */
+body.has-custom-index .page-index {
+  display: none !important;
+}
+
+/* Diagram component helper: original diagram-figure proportions. */
+.diagram-figure--component {
+  max-width: 1180px;
+  margin: 30px auto 0;
 }

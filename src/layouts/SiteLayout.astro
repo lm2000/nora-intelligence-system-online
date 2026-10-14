@@ -9,10 +9,11 @@ interface Props {
   title: string;
   description: string;
   path?: string;
+  customIndex?: boolean;
 }
 
 const canonicalDomain = 'https://nora-intelligence-system.com/';
-const { title, description, path = '' } = Astro.props;
+const { title, description, path = '', customIndex = false } = Astro.props;
 const cleanPath = path === '/' || path === '' ? '/' : path.replace(/^\/+/, '/');
 const u = new URL(cleanPath, 'http://e.o');
 const canonicalPath = u.pathname.replace(/\/$/, '');
@@ -21,7 +22,7 @@ const normalizedTitle = title.replace(/Nora Intelligence System/gi, SITE_NAME);
 const normalizedDescription = description.replace(/Nora Intelligence System/gi, SITE_NAME);
 const indexPaths = ['/', '/architecture', '/decisions', '/validation', '/reproduce'];
 const routePath = canonicalPath || '/';
-const showIndex = !routePath.includes('walkthroughs') && routePath !== '/404' && indexPaths.some(p => p === routePath);
+const showIndex = !customIndex && !routePath.includes('walkthroughs') && routePath !== '/404' && indexPaths.some(p => p === routePath);
 ---
 <!doctype html>
 <html lang="en">
@@ -39,11 +40,11 @@ const showIndex = !routePath.includes('walkthroughs') && routePath !== '/404' &&
   <meta property="og:url" content={canonical} />
   <meta name="twitter:card" content="summary" />
 </head>
-<body class={showIndex ? 'has-page-index' : ''}>
+<body class={customIndex ? 'has-custom-index' : (showIndex ? 'has-page-index' : '')}>
   <a class="skip-link" href="#main">Skip to content</a>
   <Header />
   {showIndex && <PageIndex />}
-  <main id="main">
+  <main id="main" {...(customIndex ? { 'data-page-index': 'custom' } : {})}>
     <slot />
   </main>
   <Footer />
