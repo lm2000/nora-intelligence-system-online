@@ -20,7 +20,7 @@ Keep page ownership clear: Architecture explains components and flows; Decisions
 
 Use cases at /use-cases/ is a top-level page with its own numbered floating index. It links existing knowledge-assistant examples and the AI Harness Landscape case study; avoid adding unsupported projects or client outcomes.
 
-Interview Preparation (/case-studies/interview-preparation/) adapts the legacy preparation method. Client Research and Pitch Preparation (/case-studies/client-research/) remains a workflow concept. Both are listed on Use cases and own a floating index. Keep public examples illustrative and preserve the client-workflow concept label.
+Interview Preparation (/case-studies/interview-preparation/) adapts the legacy preparation method. Client Research and Pitch Preparation (/case-studies/client-research/) remains a workflow concept. Both are listed on Use cases and own a floating index. Keep public examples illustrative; use the shared Illustrative workflow label for both career and agency pages.
 
 Use cases is a compact five-entry directory under the original hero, retaining existing fragment IDs. Reader-page indexes use short labels through heading data-index-label attributes; case-study return links restore their own hub entry. Mobile primary navigation keeps all five links in balanced rows with 44px minimum height. Preserve the concise purpose/workflow/example/review/related-work ownership.
 
@@ -31,3 +31,5 @@ Whole-site refinements retain the original stylesheets and five tabs. Keep Homeâ
 Use-case source reuse adds AI/data readiness as a supporting assessment-method page, expands interview context and stage formats, and connects agency acquisition to delivery artifacts. Keep legacy route IDs, public examples, and the five main tabs. Landscape product notes use official public descriptions and distinguish questions from observed vendor behavior. Consulting-team bios, pricing, private company research, and illustrative legacy performance claims do not describe the lab.
 
 The career use case covers the full job-search and continuous-learning cycle. Keep its existing /case-studies/interview-preparation/ route and hub #interview-preparation bookmark compatible. Agency detail includes source-proposed synthetic testing and integrations; simulation is distinct from buyer feedback. Landscape includes a venture-research method without investment ratings or private company claims.
+
+Offering clarity: Use cases is the canonical practical-workflow entry point; its contact identifies Michael as the engineering provider and the lab as independent work informing those services. Use readiness assessments, architecture reviews and scoped prototypes as the common entry offer. Directory statuses distinguish the implemented assistant, illustrative career/agency workflows, assessment method and public-source research. Put concrete outputs in existing summaries, not another service catalog. Preserve all Founders detail and original style.

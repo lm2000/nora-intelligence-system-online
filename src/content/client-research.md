@@ -1,6 +1,6 @@
 <h2 id="start-with-a-reason-to-engage" data-index-label="Purpose">Start with a reason to engage</h2>
 
-For an agency choosing which accounts to pursue, useful research explains account fit, supports a point of view, and identifies questions for the first conversation. This proposed workflow adapts the lab’s boutique-agency offering: start with ten candidate companies, select three together, and prepare three focused client conversations.
+For an agency choosing which accounts to pursue, useful research explains account fit, supports a point of view, and identifies questions for the first conversation. This proposed workflow adapts the lab's boutique-agency offering: start with ten candidate companies, select three together, and prepare three focused briefs and pitch packages.
 
 <h2 id="pilot-inputs" data-index-label="Inputs">Frame the agency’s market thesis</h2>
 
@@ -66,7 +66,7 @@ The account brief provides the reasoning behind the message. A real package woul
 
 A useful package holds the account brief, buyer context, value hypothesis, message options, discovery questions, and next action together. It includes links to the supporting observations and the relevant agency work. A reviewer should be able to see why the proposed conversation fits this account.
 
-<h2 id="agency-testing-and-learning" data-index-label="Test & learn">Test, revise, and retain the agency’s judgment</h2>
+<h2 id="agency-testing-and-learning" data-index-label="Pre-pitch testing">Before the pitch: test and revise</h2>
 
 The Boutique Marketing Agency source material develops the pilot through five moves: understand the account, propose relevant ideas, shape the offer and entry point, evaluate reactions and objections, and refine the pitch package.
 
@@ -74,7 +74,7 @@ Before a client conversation, a simulated buyer panel can challenge the message 
 
 > **Illustrative revision:** A draft promises “better growth.” A simulated finance reviewer asks how the agency would distinguish campaign effects from changes in customer mix. The strategist replaces the promise with a measurement-discovery proposal and adds that question to the account brief.
 
-After the real conversation, record the agency’s feedback and the buyer’s actual objections separately from the simulation. Retain approved changes to account criteria, message patterns, brand voice, and research questions. Reuse those lessons while keeping client-specific information within the appropriate account context.
+After the real conversation, record actual feedback and objections separately from the simulation.
 
 <h2 id="agency-automation" data-index-label="Automation">Connect the workflow to the agency’s tools</h2>
 
@@ -82,7 +82,7 @@ The source proposal includes CRM history, market and analytics data, documents, 
 
 Useful outputs include a structured account brief, a selection recommendation with reasons, a draft pitch, and a follow-up task. Approved conversations and delivery feedback can update the account record and reusable playbooks. Actual integrations depend on the agency’s systems and data access; this page describes the proposed operating model, not deployed CRM or campaign automation.
 
-<h2 id="after-the-pitch" data-index-label="Delivery loop">After the pitch: retain account learning</h2>
+<h2 id="after-the-pitch" data-index-label="Delivery loop">After the pitch: support delivery and retain learning</h2>
 
 The older agency materials also describe an intelligence layer behind delivery. This is a possible extension of the acquisition workflow:
 
@@ -97,7 +97,7 @@ The legacy campaign concept names six useful outputs: a **strategic brief** with
 
 A fictional journal entry might read: “Test repeat-purchase measurement before increasing spend. Reason: the acquisition report omits returning customers. Owner: account strategist. Next review: compare the joined records and revise the plan.” This preserves the reasoning that a later brief needs.
 
-The strategist owns campaign direction, client commitments, and changes to spend. A brief is useful only when its inputs and assumptions can be inspected. This extension describes a workflow to explore; the website does not connect to ad platforms or operate campaigns.
+The strategist owns campaign direction, client commitments, and changes to spend. This proposed extension covers workflow tooling; campaign execution remains with the agency.
 
 <h2 id="agency-ownership" data-index-label="Human review">Agency review</h2>
 

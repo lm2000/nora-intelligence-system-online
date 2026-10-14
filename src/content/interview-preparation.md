@@ -1,8 +1,6 @@
 <h2 id="prepare-for-the-actual-conversation" data-index-label="Purpose">One connected job-search and learning cycle</h2>
 
-For an experienced professional, the search starts before an interview and keeps producing useful learning after a hiring decision. Connect career direction, opportunity discovery, applications, relationships, preparation, feedback, and skill development so that each next action starts with the context already gathered.
-
-This use case expands the lab’s interview-preparation method into a career operating cycle. The example below is fictional; the website explains the method rather than running a job-search service.
+For experienced professionals managing several opportunities, disconnected notes make preparation and follow-through harder. This illustrative workflow shows systems I can help design and automate; candidates retain control of applications, outreach, and career decisions.
 
 <h2 id="preparation-inputs" data-index-label="Context">A profile, a pipeline, and a learning record</h2>
 
@@ -95,9 +93,7 @@ A fictional rehearsal exposes one gap in the same system-design example:
 
 The next cycle can go further: build a small consumer-replay lab, record the failure sequence, practice the explanation, and add the artifact to the learning record. The next system-design brief then starts with both a stronger explanation and a worked example.
 
-### Carry learning across opportunities
-
-In this fictional search, the candidate qualifies a platform role, prepares an application from the experience bank, and records a recruiter follow-up. A rehearsal exposes the replay gap. The lab and practice task address it before the interview; the debrief captures what still needs work. When that opportunity closes, the candidate retains the useful exercise and updates targeting and preparation for the next role.
+Retain the replay exercise and learning record when the opportunity closes, so the next brief starts with the worked example.
 
 <h2 id="candidate-ownership" data-index-label="Human review">Candidate review</h2>
 

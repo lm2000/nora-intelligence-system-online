@@ -67,7 +67,7 @@ The summaries above identify the task. These notes examine a surrounding capabil
 
 <h2 id="comparison-dimensions" data-index-label="Dimensions">Comparison dimensions</h2>
 
-Rather than scoring products, I ask the same concrete questions of each:
+Use these questions for a deeper review; they are not product scores.
 
 | Dimension | Concrete question |
 |---|---|
@@ -84,16 +84,16 @@ Rather than scoring products, I ask the same concrete questions of each:
 
 These are my current readings of the public material:
 
-1. **Define the complete unit of work.** These examples highlight intake, drafting or decisions, checks, actions, and records. The model contributes to that workflow. A useful comparison asks where the product starts and what counts as completion.
-2. **Knowledge plumbing is a first-class design choice.** Products differ most in whether grounding comes from customer documents (Harvey Vault, Brellium charts), curated sources, or connected records. The retrieval path shapes what a system can safely say.
-3. **Treat write access as a design boundary.** A suggested answer and a recorded action carry different consequences. When a system changes records, the comparison should examine authorization, review, retries, and recovery separately.
-4. **Human handoff is designed in.** Counsel's physician handoff and Arbiter's staff handoff encode escalation as part of the normal path, which appears central to how these products present trustworthiness.
+1. **Define the complete unit of work.** These examples highlight intake, drafting or decisions, checks, actions, and records. A useful comparison asks where the product starts and what counts as completion.
+2. **Knowledge plumbing is a first-class design choice.** Products differ most in whether grounding comes from customer documents (Harvey Vault, Brellium charts), curated sources, or connected records.
+3. **Treat write access as a design boundary.** When a system changes records, examine authorization, review, retries, and recovery separately.
+4. **Human handoff is designed in.** Counsel's physician handoff and Arbiter's staff handoff encode escalation as part of the normal path.
 
 <h2 id="deployment-and-value" data-index-label="Adoption & value">Deployment, adoption, and value</h2>
 
 The broader landscape material separates **technical capability** from **market scope**. A model provider, orchestration framework, runtime, and vertical application occupy different roles. A product can span several capabilities; its market category does not tell us its internal topology.
 
-This set concentrates on legal and healthcare applications, with Iridius framed as a regulated-workflow execution platform. It adds concrete questions about integration, domain context, review responsibilities, and the work needed to make a system useful inside an organization.
+This set concentrates on legal and healthcare applications, with Iridius framed as a regulated-workflow execution platform.
 
 ### Deployment is part of the product
 
@@ -105,7 +105,7 @@ Reduced preparation effort may become more capacity, a better service, or a lowe
 
 ### Retained context needs maintenance
 
-Stored documents, records, and conversations make context available. A deeper review asks how knowledge is captured, corrected, refreshed, shared, and restricted between people. Retaining a conversation does not by itself establish organizational learning.
+Retaining a conversation does not by itself establish organizational learning. Ask how knowledge is corrected, refreshed, shared, and restricted between people.
 
 For a practical way to turn these questions into a first pilot, see [AI and data readiness](../ai-data-readiness/).
 
