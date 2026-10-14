@@ -350,7 +350,14 @@ const indexEntries = [
 .founder-contact-group {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 18px;
+}
+.founder-contact-group a[href^="mailto:"] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-block: 6px;
 }
 @media (max-width: 720px) {
   .founder-layout {
