@@ -85,6 +85,17 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
       }
     }
 
+    function keepActiveVisible() {
+      if (!nav.classList.contains('is-docked')) return;
+      var list = nav.querySelector('.mini-flow');
+      var active = nav.querySelector('a[aria-current="location"]');
+      if (!list || !active) return;
+      var row = active.closest('li').getBoundingClientRect();
+      var bounds = list.getBoundingClientRect();
+      if (row.top < bounds.top) list.scrollTop += row.top - bounds.top;
+      else if (row.bottom > bounds.bottom) list.scrollTop += row.bottom - bounds.bottom;
+    }
+
     function activate(id) {
       for (var j = 0; j < sections.length; j++) {
         if (sections[j].section.id === id) {
@@ -93,6 +104,7 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
           sections[j].link.removeAttribute('aria-current');
         }
       }
+      keepActiveVisible();
     }
 
     var frame;
@@ -153,11 +165,12 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
         var shouldDock = window.matchMedia('(min-width: 1081px)').matches && window.scrollY > hero.offsetHeight - 150;
         nav.classList.toggle('is-docked', shouldDock);
         document.documentElement.classList.toggle('has-docked-orchestration', shouldDock);
+        keepActiveVisible();
       });
     }
 
     window.addEventListener('scroll', function () { update(); dock(); }, { passive: true });
-    window.addEventListener('resize', dock, { passive: true });
+    window.addEventListener('resize', function () { update(); dock(); }, { passive: true });
     window.addEventListener('hashchange', update);
     update();
     dock();

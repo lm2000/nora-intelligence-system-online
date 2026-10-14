@@ -120,7 +120,7 @@ body.has-custom-index .page-index {
 body:has(#request-path){--dock-w:210px;--dock-r:20px;--dock-pad:14px;--rail-gap:240px;}
 body:has(#request-path) .orchestration-card--nav.is-docked{position:fixed;top:104px;right:var(--dock-r);z-index:45;width:var(--dock-w);padding:var(--dock-pad);box-sizing:border-box;}
 body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow{padding:0;}
-body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow li{padding-left:34px;list-style:none;}
+body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow li{padding-left:0;list-style:none;}
 body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow li>span{left:0;width:24px;height:24px;line-height:24px;}
 body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow a{display:flex;align-items:center;min-height:44px;box-sizing:border-box;}
 body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow a strong{font-size:14px;line-height:1.25;}
@@ -322,4 +322,84 @@ body.has-page-index .page-index .page-index-item a:focus-visible {
 @media (max-width: 1080px) {
   body.has-page-index .page-index .page-index-list { gap: 0; }
   body.has-page-index .page-index .page-index-item a { padding-inline: 16px; border-radius: 0; }
+}
+
+/* Compact indexes share selection cues while keeping the original numbered badges. */
+.orchestration-card--nav.is-docked .mini-flow li:has(a[aria-current="location"]) {
+  background: rgba(115, 236, 217, 0.09);
+  border-radius: 6px;
+}
+.orchestration-card--nav.is-docked .mini-flow a:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: -2px;
+  border-radius: 6px;
+}
+body.has-page-index .page-index .page-index-item { margin: 0; }
+@media (min-width: 1081px) {
+  .orchestration-card--nav.is-docked {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100dvh - var(--header-height) - 36px);
+    overflow: hidden;
+  }
+  .orchestration-card--nav.is-docked .card-kicker { flex-shrink: 0; }
+  .orchestration-card--nav.is-docked .mini-flow {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ink-soft) var(--navy-2);
+  }
+  .orchestration-card--nav.is-docked .mini-flow li { min-height: 44px; padding-left: 0; }
+  .orchestration-card--nav.is-docked .mini-flow li > span { width: 24px; height: 24px; }
+}
+@media (max-width: 1080px) {
+  body.has-page-index .page-index:not([hidden]) {
+    width: 100%;
+    margin: 16px 0;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .page-index summary,
+  .contents-disclosure > summary {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .page-index summary:focus-visible,
+  .contents-disclosure > summary:focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: -2px;
+  }
+  .contents-disclosure > .orchestration-card--nav { padding: 8px; }
+  .contents-disclosure .card-kicker,
+  .contents-disclosure .orchestration-card--nav > h2,
+  .contents-disclosure .mini-flow small,
+  .contents-disclosure .loop-line { display: none; }
+  .contents-disclosure .mini-flow { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 0; }
+  .contents-disclosure .mini-flow li {
+    min-height: 44px;
+    padding: 0 8px;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 8px;
+    align-items: center;
+    border-radius: 6px;
+  }
+  .contents-disclosure .mini-flow li::after { content: none; }
+  .contents-disclosure .mini-flow li > span { width: 24px; height: 24px; }
+  .contents-disclosure .mini-flow li > div { min-width: 0; }
+  .contents-disclosure .mini-flow a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .contents-disclosure .mini-flow strong { margin: 0; font-size: 14px; line-height: 1.35; }
+  .contents-disclosure .mini-flow li:has(a[aria-current="location"]) { background: rgba(115, 236, 217, 0.09); }
+  .contents-disclosure .mini-flow a:focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: -2px;
+    border-radius: 6px;
+  }
 }
