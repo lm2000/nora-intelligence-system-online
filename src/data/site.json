@@ -8,7 +8,7 @@
     {
       "name": "Michael Lvov",
       "role": "Founder",
-      "bio": "Principal architect: 20+ years in distributed systems & data platforms. AI/LLM agents, RAG. Building Nora SuperIntelligence Lab.",
+      "bio": "I’m a Principal Software Engineer with 20+ years building distributed systems and real-time data platforms across financial services, healthcare and e-commerce at Capital One, Amazon, Aetion and Flatiron Health. My work covers fault-tolerant streaming infrastructure, petabyte-scale data engineering and ML/NLP pipelines, including automated ingestion, data cleansing, normalization and ongoing pipeline maintenance.",
       "focus": [
         "Distributed systems",
         "Data platforms",
@@ -29,7 +29,98 @@
           "url": "https://www.linkedin.com/in/michael-lvov-05a8125/"
         }
       ],
-      "background": "My background includes real-time streaming at Capital One and petabyte-scale healthcare ingestion at Aetion. At Nora SuperIntelligence Lab, I apply that experience to stateful agents and retrieval systems."
+      "background": "At Nora SuperIntelligence Lab, I independently built a self-hosted knowledge assistant with stateful agent workflows, document retrieval, persistent conversation state and failure recovery. I combine LangChain, LangGraph, Deep Agents and MCP with RAG, vector and hybrid retrieval, and context engineering. My work includes multi-provider model routing, bounded fallback, checkpoint recovery and evaluation of retrieval quality and failure behavior.",
+      "profileRole": "Founder · Principal Software Engineer",
+      "outcomes": [
+        "At Capital One, modernized real-time streaming through partition optimization, backpressure tuning and autoscaling, increasing throughput from 1,000+ to 3,000+ TPS while reducing infrastructure costs by 30%.",
+        "At Aetion, built petabyte-scale healthcare ingestion and analytics platforms with a runtime customization engine that let client teams tailor pipelines through DSL/SQL and Airflow while reusing shared infrastructure.",
+        "In a previous engineering role, my AI-assisted workflows reduced diagnosis time and manual effort by 90%."
+      ],
+      "expertise": [
+        {
+          "title": "Distributed Systems & Real-Time Streaming",
+          "body": "Fault-tolerant, horizontally scalable pipelines on Kafka, Spark Streaming and IBM MQ; partition optimization, backpressure management, automated recovery and performance tuning for financial and healthcare workloads."
+        },
+        {
+          "title": "Data Platforms & Knowledge Engineering",
+          "body": "Petabyte-scale ingestion and analytics on Spark, Databricks and Redshift; multi-tenant isolation, domain-specific APIs, deterministic document preparation, chunking, embeddings and versioned retrieval indexes."
+        },
+        {
+          "title": "LLM Systems & Agent Orchestration",
+          "body": "Stateful workflows, context engineering, persistent conversation state, provider routing and checkpoint recovery across application and service boundaries."
+        },
+        {
+          "title": "Retrieval & Evaluation",
+          "body": "RAG, dense and lexical hybrid retrieval, vector search and BGE embeddings; reproducible embedding benchmarks, retrieval relevance metrics, regression tests and failure analysis that distinguish search quality from generated-answer quality."
+        },
+        {
+          "title": "Reliability, Observability & Release Engineering",
+          "body": "Data-freshness and consumer-lag SLOs, distributed tracing, diagnostic automation and incident recovery; model-routing telemetry, containerized services, validated knowledge releases, atomic activation and rollback."
+        },
+        {
+          "title": "Regulated Data & Engineering Productivity",
+          "body": "Financial and healthcare data pipelines with access controls, audit trails and data lineage; reusable AI-assisted workflows integrated into CI/CD, ticketing, monitoring and infrastructure troubleshooting."
+        }
+      ],
+      "skillsIntro": "These tools reflect my experience across employed roles and independent work. Architecture evaluation and integration/testing labels retain their specific scope.",
+      "skillGroups": [
+        {
+          "title": "Languages",
+          "body": "Python, Java/Scala, Go, C#, C/C++, SQL"
+        },
+        {
+          "title": "Distributed Compute & Streaming",
+          "body": "Spark, Spark Streaming, Databricks, Hadoop, YARN, Kafka, IBM MQ"
+        },
+        {
+          "title": "Cloud & Delivery",
+          "body": "AWS (EMR, S3, Glue, Redshift), Google Cloud, Docker, Docker Compose, Kubernetes, CI/CD"
+        },
+        {
+          "title": "Orchestration",
+          "body": "Airflow, Celery; data-pipeline scheduling and distributed task execution"
+        },
+        {
+          "title": "Databases, Warehouses & Data Lakes",
+          "body": "PostgreSQL, MongoDB, Redis, MS SQL Server, Oracle, Vertica, Amazon Redshift; data lakes on Amazon S3 and Databricks"
+        },
+        {
+          "title": "AI Agents & Orchestration",
+          "body": "LangChain/LangGraph/Deep Agents; Hermes Agent/Gateway, Hermes Cloud and Desktop, OpenClaw Gateway, Vellum; context engineering, tool coordination, persistent conversation state and checkpoints; CrewAI (architecture evaluation)"
+        },
+        {
+          "title": "AI Models, Routing & Gateways",
+          "body": "Ollama (local model serving and Ollama Cloud), Fireworks AI (Fireworks.ai), LiteLLM MCP Gateway, MCP/FastMCP; provider abstraction, model selection and fallback; FireConnect/FireRouter (integration and routing tests); RouteLLM (architecture evaluation)"
+        },
+        {
+          "title": "AI Knowledge & Retrieval",
+          "body": "Docling, BGE embeddings, Qdrant, RAG, vector and hybrid search; document preparation, chunking, indexing, source metadata and versioned knowledge releases"
+        },
+        {
+          "title": "AI Evaluation & Benchmarking",
+          "body": "Harbor Hub, Harbor CLI, Terminus-2; artifact-review tasks, structured feedback, verifier checks and retrieval regression testing"
+        },
+        {
+          "title": "AI Service & Voice Integration",
+          "body": "Composio service connectors, ElevenLabs speech output"
+        },
+        {
+          "title": "AI-Assisted Software Engineering",
+          "body": "Codex, GitHub Copilot, Claude, Windsurf, Warp; coding, diagnostics, troubleshooting and configuration optimization"
+        },
+        {
+          "title": "Observability & Performance",
+          "body": "SLOs, distributed tracing, New Relic, Splunk, JVM/Spark tuning, routing latency and failure telemetry"
+        },
+        {
+          "title": "ML & Analytics",
+          "body": "scikit-learn, Spark MLlib, PySpark, NumPy, SciPy, pandas, Jupyter"
+        },
+        {
+          "title": "Application & API Integration",
+          "body": "FastAPI, Node.js, React, Next.js, CopilotKit, AG-UI, REST, JSON/Protobuf/Avro, Socket.IO"
+        }
+      ]
     }
   ],
   "contact": {
