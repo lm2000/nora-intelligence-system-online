@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2023-10-27T10:00:00Z",
+  "title": "Design System: Nora Intelligence System",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Surface White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(20% 0.01 250)",
+          "oklch(30% 0.01 250)",
+          "oklch(40% 0.01 250)",
+          "oklch(50% 0.01 250)",
+          "oklch(60% 0.01 250)",
+          "oklch(75% 0.01 250)",
+          "oklch(90% 0.01 250)",
+          "oklch(100% 0 0)"
+        ]
+      },
+      "cool-bg": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#f5f8fa",
+        "tonalRamp": [
+          "oklch(20% 0.01 250)",
+          "oklch(30% 0.01 250)",
+          "oklch(40% 0.01 250)",
+          "oklch(50% 0.01 250)",
+          "oklch(60% 0.01 250)",
+          "oklch(75% 0.01 250)",
+          "oklch(90% 0.01 250)",
+          "oklch(95% 0.01 250)"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Deep Navy",
+        "canonical": "#121d36",
+        "tonalRamp": [
+          "oklch(15% 0.03 260)",
+          "oklch(25% 0.03 260)",
+          "oklch(35% 0.03 260)",
+          "oklch(45% 0.03 260)",
+          "oklch(55% 0.03 260)",
+          "oklch(70% 0.03 260)",
+          "oklch(85% 0.03 260)",
+          "oklch(95% 0.03 260)"
+        ]
+      },
+      "body": {
+        "role": "neutral",
+        "displayName": "Body Slate",
+        "canonical": "#43516b",
+        "tonalRamp": [
+          "oklch(20% 0.02 250)",
+          "oklch(30% 0.02 250)",
+          "oklch(40% 0.02 250)",
+          "oklch(50% 0.02 250)",
+          "oklch(60% 0.02 250)",
+          "oklch(75% 0.02 250)",
+          "oklch(90% 0.02 250)",
+          "oklch(95% 0.02 250)"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Slate Secondary",
+        "canonical": "#5b6b80",
+        "tonalRamp": [
+          "oklch(20% 0.02 250)",
+          "oklch(30% 0.02 250)",
+          "oklch(40% 0.02 250)",
+          "oklch(50% 0.02 250)",
+          "oklch(60% 0.02 250)",
+          "oklch(75% 0.02 250)",
+          "oklch(90% 0.02 250)",
+          "oklch(95% 0.02 250)"
+        ]
+      },
+      "muted-blue": {
+        "role": "secondary",
+        "displayName": "Muted Blue",
+        "canonical": "#234b82",
+        "tonalRamp": [
+          "oklch(15% 0.05 250)",
+          "oklch(25% 0.05 250)",
+          "oklch(35% 0.05 250)",
+          "oklch(45% 0.05 250)",
+          "oklch(55% 0.05 250)",
+          "oklch(70% 0.05 250)",
+          "oklch(85% 0.05 250)",
+          "oklch(95% 0.05 250)"
+        ]
+      },
+      "teal": {
+        "role": "primary",
+        "displayName": "Teal",
+        "canonical": "#075973",
+        "tonalRamp": [
+          "oklch(15% 0.04 220)",
+          "oklch(25% 0.04 220)",
+          "oklch(35% 0.04 220)",
+          "oklch(45% 0.04 220)",
+          "oklch(55% 0.04 220)",
+          "oklch(70% 0.04 220)",
+          "oklch(85% 0.04 220)",
+          "oklch(95% 0.04 220)"
+        ]
+      },
+      "teal-hover": {
+        "role": "primary",
+        "displayName": "Teal Hover",
+        "canonical": "#054258",
+        "tonalRamp": [
+          "oklch(15% 0.04 220)",
+          "oklch(25% 0.04 220)",
+          "oklch(35% 0.04 220)",
+          "oklch(45% 0.04 220)",
+          "oklch(55% 0.04 220)",
+          "oklch(70% 0.04 220)",
+          "oklch(85% 0.04 220)",
+          "oklch(95% 0.04 220)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Light Border",
+        "canonical": "#d5dfe7",
+        "tonalRamp": [
+          "oklch(20% 0.01 250)",
+          "oklch(30% 0.01 250)",
+          "oklch(40% 0.01 250)",
+          "oklch(50% 0.01 250)",
+          "oklch(60% 0.01 250)",
+          "oklch(75% 0.01 250)",
+          "oklch(90% 0.01 250)",
+          "oklch(95% 0.01 250)"
+        ]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Strong Border",
+        "canonical": "#b0c0d0",
+        "tonalRamp": [
+          "oklch(20% 0.01 250)",
+          "oklch(30% 0.01 250)",
+          "oklch(40% 0.01 250)",
+          "oklch(50% 0.01 250)",
+          "oklch(60% 0.01 250)",
+          "oklch(75% 0.01 250)",
+          "oklch(90% 0.01 250)",
+          "oklch(95% 0.01 250)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Primary page hero headings."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sub-section and card titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default paragraph text. Max width 67ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Example cell labels and metadata markers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "mobile-nav-dropdown",
+        "value": "0 4px 12px rgba(18, 29, 54, 0.08)",
+        "purpose": "Used exclusively for the mobile navigation dropdown to lift it above page content."
+      }
+    ],
+    "motion": [
+      {
+        "name": "cta-transition",
+        "value": "background 0.15s ease, border-color 0.15s ease",
+        "purpose": "Default easing for button state transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "768px"
+      },
+      {
+        "name": "diagram-scroll",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pill-shaped primary call-to-action with a teal background.",
+      "html": "<a class=\"ds-cta ds-cta-primary\" href=\"#\"><span>Follow a request</span></a>",
+      "css": ".ds-cta { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; min-height: 48px; border-radius: 999px; font-weight: 600; font-size: 16px; text-decoration: none; border: 2px solid transparent; font-family: 'Public Sans', sans-serif; transition: background 0.15s ease; } .ds-cta-primary { background: #075973; color: #ffffff; } .ds-cta-primary:hover { background: #054258; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Pill-shaped secondary call-to-action with a teal border and transparent background.",
+      "html": "<a class=\"ds-cta ds-cta-outline\" href=\"#\"><span>Read the architecture</span></a>",
+      "css": ".ds-cta { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; min-height: 48px; border-radius: 999px; font-weight: 600; font-size: 16px; text-decoration: none; border: 2px solid transparent; font-family: 'Public Sans', sans-serif; transition: background 0.15s ease, border-color 0.15s ease; } .ds-cta-outline { background: transparent; color: #075973; border-color: #075973; } .ds-cta-outline:hover { background: #f5f8fa; }"
+    },
+    {
+      "name": "Founder Focus Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "A tonal pill-shaped tag used for founder focus areas.",
+      "html": "<ul class=\"ds-focus-list\"><li class=\"ds-chip\">Distributed Systems</li><li class=\"ds-chip\">Architecture</li></ul>",
+      "css": ".ds-focus-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; } .ds-chip { font-size: 14px; color: #5b6b80; background: #f5f8fa; padding: 4px 12px; border-radius: 100px; font-family: 'Public Sans', sans-serif; }"
+    },
+    {
+      "name": "Founder Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "A framed container with a cool paper border and 8px radius, used for displaying founder profiles.",
+      "html": "<article class=\"ds-card\"><div style=\"width: 100px; height: 100px; background: #f5f8fa; border-radius: 4px; margin-bottom: 16px;\"></div><h3 class=\"ds-card-title\">Michael Lvov</h3><p class=\"ds-card-role\">Principal Engineer</p><p class=\"ds-card-body\">Leads architecture and system design.</p></article>",
+      "css": ".ds-card { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; border: 1px solid #d5dfe7; border-radius: 8px; padding: 32px; background: #ffffff; } .ds-card-title { font-family: 'Libre Caslon Display', Georgia, serif; font-size: 26px; color: #121d36; margin: 0; font-weight: 400; } .ds-card-role { color: #234b82; font-weight: 600; font-size: 16px; margin: 0; font-family: 'Public Sans', sans-serif; } .ds-card-body { color: #43516b; font-size: 18px; margin: 0; font-family: 'Public Sans', sans-serif; line-height: 1.65; }"
+    },
+    {
+      "name": "Diagram Frame",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A clean framed container for architecture diagrams with a header, image area, and caption.",
+      "html": "<figure class=\"ds-diagram\"><div class=\"ds-diagram-frame\"><div class=\"ds-diagram-header\"><h3 class=\"ds-diagram-title\">System architecture</h3><p class=\"ds-diagram-purpose\">A complete view of the Nora Intelligence System boundaries.</p></div><div style=\"width: 100%; height: 150px; background: #f5f8fa; border-radius: 4px;\"></div></div></figure>",
+      "css": ".ds-diagram { margin: 0; } .ds-diagram-frame { border: 1px solid #d5dfe7; border-radius: 8px; padding: 24px; background: #ffffff; } .ds-diagram-header { margin-bottom: 20px; } .ds-diagram-title { font-family: 'Libre Caslon Display', Georgia, serif; font-size: 24px; color: #121d36; margin: 0 0 8px; font-weight: 400; } .ds-diagram-purpose { margin: 0; max-width: 70ch; font-size: 15px; color: #5b6b80; font-family: 'Public Sans', sans-serif; }"
+    },
+    {
+      "name": "Desktop Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Inline text navigation with a 2px teal bottom border for active state.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link ds-active\">Architecture</a><a href=\"#\" class=\"ds-nav-link\">Walkthroughs</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 28px; align-items: center; } .ds-nav-link { text-decoration: none; color: #121d36; font-size: 16px; font-weight: 500; padding: 4px 0; border-bottom: 2px solid transparent; font-family: 'Public Sans', sans-serif; } .ds-nav-link:hover { color: #075973; } .ds-active { border-bottom-color: #075973; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Clean Architecture Atlas",
+    "overview": "The visual identity is a cool white architecture atlas, prioritizing clarity, legibility, and engineering rigor. The system uses a navy serif headline with blue emphasis to anchor technical content, complemented by teal pill actions that guide the user through walkthroughs and architecture decisions.\n\nDensity is deliberate. Ample whitespace and strict container boundaries prevent technical diagrams and code-heavy text from becoming overwhelming. The Founders section inherits this design; it currently lists Michael Lvov alone, with Alla to be added later. Profiles are data-driven.",
+    "keyCharacteristics": [
+      "Cool white and navy palette with teal emphasis",
+      "Serif headlines paired with highly legible sans-serif body text",
+      "Clean framed canonical diagrams",
+      "Pill-shaped primary and outline actions",
+      "Flat aesthetic with tonal layering for depth"
+    ],
+    "rules": [
+      {
+        "name": "The Atlas Rule",
+        "body": "The UI maintains a cool, calm atlas aesthetic. Avoid warm colors or high-saturation accents outside the established Teal and Muted Blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. Shadows are only used for floating elements (like mobile dropdowns) and never for cards or primary buttons.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use pill shapes (999px radius) for all primary and secondary call-to-action buttons.",
+      "Do frame diagrams and architecture figures with a 1px Light Border and 8px radius.",
+      "Do use the `mailto:` contact convention for founder inquiries."
+    ],
+    "donts": [
+      "Don't apply drop shadows to cards or buttons; use tonal layering (`Cool Paper`) for depth.",
+      "Don't include credentials or private model routes in project documentation.",
+      "Don't invent primary navigation links outside the established Architecture, Walkthroughs, Decisions, and Founders routes."
+    ]
+  }
+}

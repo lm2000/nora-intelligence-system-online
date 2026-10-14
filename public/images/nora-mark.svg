@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Nora Intelligence System</title>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#21d4b4"/>
+      <stop offset="1" stop-color="#7b74ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#071827"/>
+  <path d="M17 45V19l30 26V19" fill="none" stroke="url(#bg)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="17" cy="19" r="3.5" fill="#f7fbff"/>
+  <circle cx="47" cy="45" r="3.5" fill="#f7fbff"/>
+</svg>

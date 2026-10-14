@@ -1,0 +1,64 @@
+---
+import { href } from '../lib/constants.mjs';
+
+const pages = [
+  { label: 'Home', path: '/' },
+  { label: 'Architecture', path: '/architecture/' },
+  { label: 'Walkthroughs', path: '/walkthroughs/' },
+  { label: 'Decisions', path: '/decisions/' },
+  { label: 'Validation', path: '/validation/' },
+  { label: 'Reproduce', path: '/reproduce/' }
+];
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href={href('/')} class="footer-word">Nora Intelligence System</a>
+      <p>An open-source intelligence system architecture.</p>
+    </div>
+    <nav aria-label="Footer" class="footer-nav">
+      {pages.map(p => <a href={href(p.path)}>{p.label}</a>)}
+      <a href="https://github.com/lm2000/nora-intelligence-system-online">Source</a>
+      <a href="https://github.com/lm2000/nora-intelligence-system-online/blob/main/LICENSE">License</a>
+    </nav>
+  </div>
+</footer>
+<style>
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-cool);
+  margin-top: 80px;
+}
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.footer-word {
+  font-family: 'Libre Caslon Display', serif;
+  font-size: 24px;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.footer-brand p { color: var(--color-secondary); font-size: 15px; margin: 8px 0 0; }
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.footer-nav a {
+  color: var(--color-ink);
+  text-decoration: none;
+  font-size: 15px;
+}
+.footer-nav a:hover { color: var(--color-teal); }
+@media (max-width: 768px) {
+  .footer-inner { padding: 20px; flex-direction: column; }
+  .footer-nav { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+</style>

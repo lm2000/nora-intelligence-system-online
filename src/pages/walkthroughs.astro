@@ -1,0 +1,299 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Diagram from '../components/Diagram.astro';
+import { href } from '../lib/constants.mjs';
+import walkthroughs from '../data/walkthroughs.json';
+---
+<SiteLayout title="Walkthroughs — Nora Intelligence System" description="Illustrative walkthroughs for request handling and manual ingestion in the Nora intelligence system." path="/walkthroughs/">
+  <div class="container walkthroughs-page" data-walkthroughs>
+    <h1>Illustrative walkthrough</h1>
+    <p class="page-intro">These walkthroughs show how the system processes a request and performs manual ingestion. They are illustrative — not a live execution.</p>
+
+    <div class="tabs" role="tablist" aria-label="Walkthrough flow">
+      <button role="tab" id="tab-request" aria-controls="panel-request" tabindex="0" data-flow-tab="request">Request</button>
+      <button role="tab" id="tab-ingestion" aria-controls="panel-ingestion" tabindex="-1" data-flow-tab="ingestion">Manual ingestion</button>
+    </div>
+
+    <div class="layout">
+      <nav class="step-list-nav" aria-label="Steps">
+        <ol class="step-list" data-step-list></ol>
+      </nav>
+      <section class="step-panel" data-step-panel>
+        <div class="step-header">
+          <span class="step-counter" data-step-counter></span>
+        </div>
+        <h2 class="step-title" data-step-title></h2>
+        <p class="step-description" data-step-description></p>
+        <div class="step-detail" data-step-detail></div>
+        <a class="step-source" data-step-source target="_blank" rel="noopener noreferrer">View source</a>
+        <div class="step-controls">
+          <button class="ctrl-btn" data-action="prev" disabled>Previous</button>
+          <button class="ctrl-btn" data-action="next">Next</button>
+          <button class="ctrl-btn ctrl-reset" data-action="reset">Reset</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="walkthrough-figure" data-figure-container>
+      <div data-flow-figure="request" hidden>
+        <Diagram
+          previewSrc="/diagrams/architecture-request-path-preview.svg"
+          htmlUrl="/diagrams/architecture-request-path.html"
+          gifUrl="/diagrams/architecture-request-path.gif"
+          sourcePath="diagrams/architecture-request-path.html"
+          title="Request path"
+          alt="Request path architecture diagram"
+          caption="The path a browser request takes through AG-UI and Coordination to inference and retrieval."
+        />
+      </div>
+      <div data-flow-figure="ingestion" hidden>
+        <Diagram
+          previewSrc="/diagrams/manual-ingestion-preview.svg"
+          htmlUrl="/diagrams/manual-ingestion.html"
+          gifUrl="/diagrams/manual-ingestion.gif"
+          sourcePath="diagrams/manual-ingestion.html"
+          title="Manual ingestion"
+          alt="Manual ingestion architecture diagram"
+          caption="The manual ingestion path for prepared text into the retrieval service."
+        />
+      </div>
+    </div>
+  </div>
+</SiteLayout>
+<style>
+.walkthroughs-page { padding-top: 40px; padding-bottom: 40px; }
+.page-intro { max-width: 66ch; margin-bottom: 32px; }
+.tabs { display: flex; gap: 0; border-bottom: 2px solid var(--color-border); margin-bottom: 32px; }
+.tabs [role="tab"] {
+  padding: 14px 24px;
+  min-height: 44px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+.tabs [role="tab"][aria-selected="true"] {
+  color: var(--color-teal);
+  border-bottom-color: var(--color-teal);
+}
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.step-list-nav { border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; background: var(--color-cool); }
+.step-list { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+.step-list li { counter-increment: step; }
+.step-list button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 12px 12px 36px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  color: var(--color-body);
+  min-height: 44px;
+  position: relative;
+  line-height: 1.4;
+}
+.step-list button::before {
+  content: counter(step) ".";
+  position: absolute;
+  left: 8px;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+.step-list button[aria-current="step"] {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(18,29,54,0.06);
+}
+.step-panel { border: 1px solid var(--color-border); border-radius: 8px; padding: 32px; background: var(--color-surface); }
+.step-counter { font-size: 14px; font-weight: 700; color: var(--color-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+.step-title { margin: 8px 0 16px; }
+.step-description { font-size: 18px; margin-bottom: 16px; }
+.step-detail { color: var(--color-body); margin-bottom: 16px; max-width: none; }
+.step-detail :global(p) { max-width: 66ch; }
+.step-source { font-weight: 600; display: inline-block; margin-bottom: 24px; }
+.step-controls { display: flex; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--color-border); padding-top: 24px; }
+.ctrl-btn {
+  padding: 12px 24px;
+  min-height: 44px;
+  border: 2px solid var(--color-teal);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-teal);
+  font-weight: 600;
+  font-size: 15px;
+}
+.ctrl-btn:hover:not(:disabled) { background: var(--color-cool); }
+.ctrl-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.ctrl-reset { border-color: var(--color-border); color: var(--color-secondary); }
+.walkthrough-figure { margin-top: 48px; }
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+  .step-list-nav { order: 2; }
+  .step-panel { order: 1; padding: 20px; }
+}
+</style>
+<script type="module">
+  import walkthroughs from '../data/walkthroughs.json';
+  import { parseFlowParam, findStepIndexById, canNext, canPrev, nextState, prevState, resetState, buildUrl } from '../lib/walkthrough-state.mjs';
+  import { sourceUrl } from '../lib/constants.mjs';
+
+  const container = document.querySelector('[data-walkthroughs]');
+  if (container) {
+    const tabButtons = Array.from(container.querySelectorAll('[data-flow-tab]'));
+    const stepList = container.querySelector('[data-step-list]');
+    const counter = container.querySelector('[data-step-counter]');
+    const titleEl = container.querySelector('[data-step-title]');
+    const descEl = container.querySelector('[data-step-description]');
+    const detailEl = container.querySelector('[data-step-detail]');
+    const sourceEl = container.querySelector('[data-step-source]');
+    const prevBtn = container.querySelector('[data-action="prev"]');
+    const nextBtn = container.querySelector('[data-action="next"]');
+    const resetBtn = container.querySelector('[data-action="reset"]');
+    const figures = container.querySelectorAll('[data-flow-figure]');
+
+    let flow = parseFlowParam(new URLSearchParams(window.location.search).get('flow'));
+    let steps = walkthroughs[flow] || walkthroughs.request;
+    let stepIndex = findStepIndexById(flow, new URLSearchParams(window.location.search).get('step'), walkthroughs);
+
+    function renderTabs() {
+      tabButtons.forEach(btn => {
+        const isActive = btn.dataset.flowTab === flow;
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        btn.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+    }
+
+    function renderFigures() {
+      figures.forEach(fig => {
+        fig.hidden = fig.dataset.flowFigure !== flow;
+      });
+    }
+
+    function renderStepList() {
+      stepList.innerHTML = '';
+      steps.forEach((step, i) => {
+        const li = document.createElement('li');
+        const btn = document.createElement('button');
+        btn.textContent = step.title;
+        if (i === stepIndex) btn.setAttribute('aria-current', 'step');
+        btn.addEventListener('click', () => { stepIndex = i; update('push'); });
+        li.appendChild(btn);
+        stepList.appendChild(li);
+      });
+    }
+
+    function update(mode) {
+      const step = steps[stepIndex];
+      renderTabs();
+      renderFigures();
+      renderStepList();
+      counter.textContent = `Step ${stepIndex + 1} of ${steps.length}`;
+      titleEl.textContent = step.title;
+      descEl.textContent = step.description;
+      detailEl.innerHTML = '';
+      const detailP = document.createElement('p');
+      detailP.textContent = step.detail;
+      detailEl.appendChild(detailP);
+      const src = step.source;
+      if (src && src.path) {
+        sourceEl.href = sourceUrl(src.path, src.heading || '');
+        sourceEl.textContent = `View source: ${src.heading || src.path}`;
+        sourceEl.style.display = '';
+      } else {
+        sourceEl.style.display = 'none';
+      }
+      prevBtn.disabled = !canPrev({ stepIndex, steps });
+      nextBtn.disabled = !canNext({ stepIndex, steps });
+      resetBtn.disabled = stepIndex === 0;
+
+      if (mode && mode !== 'none') {
+        const newUrl = buildUrl(flow, step.id);
+        if (mode === 'replace') {
+          window.history.replaceState({ flow, stepId: step.id }, '', newUrl);
+        } else if (mode === 'push') {
+          const currentUrl = window.location.pathname + window.location.search;
+          if (currentUrl !== newUrl) {
+            window.history.pushState({ flow, stepId: step.id }, '', newUrl);
+          } else {
+            window.history.replaceState({ flow, stepId: step.id }, '', newUrl);
+          }
+        }
+      }
+    }
+
+    function setFlow(newFlow) {
+      flow = parseFlowParam(newFlow);
+      steps = walkthroughs[flow];
+      stepIndex = 0;
+      update('replace');
+    }
+
+    tabButtons.forEach((btn, i) => {
+      btn.addEventListener('click', () => setFlow(btn.dataset.flowTab));
+      btn.addEventListener('keydown', (e) => {
+        let index = tabButtons.findIndex(t => t.getAttribute('tabindex') === '0');
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          index = (index + 1) % tabButtons.length;
+          tabButtons[index].click();
+          tabButtons[index].focus();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          index = (index - 1 + tabButtons.length) % tabButtons.length;
+          tabButtons[index].click();
+          tabButtons[index].focus();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          tabButtons[0].click();
+          tabButtons[0].focus();
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          tabButtons[tabButtons.length - 1].click();
+          tabButtons[tabButtons.length - 1].focus();
+        }
+      });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      const s = prevState({ stepIndex, steps });
+      stepIndex = s.stepIndex; update('push');
+    });
+    nextBtn.addEventListener('click', () => {
+      const s = nextState({ stepIndex, steps });
+      stepIndex = s.stepIndex; update('push');
+    });
+    resetBtn.addEventListener('click', () => {
+      const s = resetState({ stepIndex, steps });
+      stepIndex = s.stepIndex; update('push');
+    });
+
+    window.addEventListener('popstate', (e) => {
+      const params = new URLSearchParams(window.location.search);
+      flow = parseFlowParam(params.get('flow'));
+      steps = walkthroughs[flow];
+      stepIndex = findStepIndexById(flow, params.get('step'), walkthroughs);
+      update('none');
+    });
+
+    const canonicalParams = new URLSearchParams();
+    canonicalParams.set('flow', flow);
+    canonicalParams.set('step', steps[stepIndex].id);
+    const canonicalUrl = buildUrl(flow, steps[stepIndex].id);
+    if (window.location.search !== canonicalUrl) {
+      window.history.replaceState({ flow, stepId: steps[stepIndex].id }, '', canonicalUrl);
+    }
+
+    update('none');
+  }
+</script>

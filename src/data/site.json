@@ -1,0 +1,42 @@
+{
+  "home": {
+    "heading": "One assistant.",
+    "headingEmphasis": "Clear service boundaries.",
+    "intro": "Explore how a knowledge assistant retrieves prepared documents, produces an answer, and keeps conversation state.",
+    "exampleQuestion": "What still blocks the Atlas release?",
+    "exampleAnswer": "The load test and rollback rehearsal remain."
+  },
+  "founders": [
+    {
+      "name": "Michael Lvov",
+      "role": "Founder",
+      "bio": "Principal architect: 20+ years in distributed systems & data platforms. AI/LLM agents, RAG. Building Nora Intelligence System.",
+      "focus": [
+        "Distributed systems",
+        "Data platforms",
+        "AI/LLM agents"
+      ],
+      "image": "images/michael-lvov.png",
+      "links": [
+        {
+          "label": "michael.lm00@gmail.com",
+          "url": "mailto:michael.lm00@gmail.com"
+        },
+        {
+          "label": "GitHub profile",
+          "url": "https://github.com/lm2000"
+        }
+      ]
+    }
+  ],
+  "contact": {
+    "heading": "Have a role or project in mind?",
+    "body": "For technical leadership roles and AI or data-platform projects, get in touch with Michael.",
+    "links": [
+      {
+        "label": "Discuss a role or project",
+        "url": "mailto:michael.lm00@gmail.com"
+      }
+    ]
+  }
+}

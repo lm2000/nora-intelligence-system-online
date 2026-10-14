@@ -1,0 +1,113 @@
+@import '@fontsource/libre-caslon-display/400.css';
+@import '@fontsource/public-sans/400.css';
+@import '@fontsource/public-sans/500.css';
+@import '@fontsource/public-sans/600.css';
+@import '@fontsource/public-sans/700.css';
+
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-cool: #f5f8fa;
+  --color-ink: #121d36;
+  --color-body: #43516b;
+  --color-secondary: #5b6b80;
+  --color-muted-blue: #234b82;
+  --color-teal: #075973;
+  --color-teal-hover: #054258;
+  --color-border: #d5dfe7;
+  --color-border-strong: #b0c0d0;
+  --max-width: 1320px;
+  --header-height: 80px;
+  --nav-indicator: 2px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-body);
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-teal);
+  color: #fff;
+  caret-color: var(--color-teal);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Libre Caslon Display', Georgia, 'Times New Roman', serif;
+  color: var(--color-ink);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(44px, 6vw, 64px); }
+h2 { font-size: clamp(28px, 3.5vw, 36px); }
+h3 { font-size: clamp(22px, 2.5vw, 26px); }
+
+p { margin: 0 0 1.25em; max-width: 67ch; }
+
+a {
+  color: var(--color-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+button { font-family: inherit; font-size: inherit; cursor: pointer; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 20px; }
+  body { font-size: 17px; }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  background: var(--color-ink);
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 0 0 6px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}

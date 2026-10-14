@@ -1,0 +1,97 @@
+---
+import { href, sourceUrl } from '../lib/constants.mjs';
+
+interface Props {
+  previewSrc: string;
+  htmlUrl?: string;
+  gifUrl?: string;
+  sourcePath: string;
+  alt: string;
+  caption?: string;
+  title?: string;
+  purpose?: string;
+}
+
+const { previewSrc, htmlUrl, gifUrl, sourcePath, alt, caption, title, purpose } = Astro.props;
+
+const base = (previewSrc.split('/').pop() || '').replace('-preview.svg', '').replace(/\-/g, ' ').replace(/^\w/, c => c.toUpperCase());
+const derivedTitle = title || base;
+const resolvedSourcePath = sourcePath.startsWith('diagrams/') ? `architecture/${sourcePath}` : sourcePath;
+---
+<figure class="diagram">
+  <div class="diagram-frame">
+    <div class="diagram-header">
+      <h3 class="diagram-title">{derivedTitle}</h3>
+      {purpose && <p class="diagram-purpose">{purpose}</p>}
+    </div>
+    <img src={href(previewSrc)} alt={alt} loading="lazy" />
+  </div>
+  <figcaption>
+    {caption && <p class="caption-text">{caption}</p>}
+    <div class="diagram-links">
+      <a href={href(previewSrc)}>Open full figure</a>
+      {htmlUrl && <a href={href(htmlUrl)}>View HTML source</a>}
+      {gifUrl && <a href={href(gifUrl)}>View GIF</a>}
+      <a href={sourceUrl(resolvedSourcePath)}>View on GitHub</a>
+    </div>
+  </figcaption>
+</figure>
+<style>
+.diagram {
+  margin: 0;
+}
+.diagram-frame {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--color-surface);
+}
+.diagram-header {
+  margin-bottom: 20px;
+}
+.diagram-title {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-size: 24px;
+  color: var(--color-ink);
+  margin: 0 0 8px;
+}
+.diagram-purpose {
+  margin: 0;
+  max-width: 70ch;
+  font-size: 15px;
+  color: var(--color-secondary);
+}
+.diagram-frame img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+figcaption {
+  margin-top: 16px;
+}
+.caption-text {
+  color: var(--color-secondary);
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+.diagram-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.diagram-links a {
+  font-size: 15px;
+  font-weight: 500;
+}
+@media (max-width: 760px) {
+  .diagram-frame {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diagram-frame img {
+    min-width: 1000px;
+    max-width: none;
+  }
+}
+</style>

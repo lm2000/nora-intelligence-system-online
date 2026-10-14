@@ -1,0 +1,15 @@
+{
+  "portrait": "https://avatars.githubusercontent.com/u/213106?v=4",
+  "icons": [
+    {
+      "file": "images/icons/arrow-right.svg",
+      "url": "https://raw.githubusercontent.com/tabler/tabler-icons/main/icons/outline/arrow-right.svg",
+      "sha256": "7e602a26d53e78ceb788f38cb89ec1d1091130c56d7829ca294b7ed0642277c6"
+    },
+    {
+      "file": "images/icons/external-link.svg",
+      "url": "https://raw.githubusercontent.com/tabler/tabler-icons/main/icons/outline/external-link.svg",
+      "sha256": "95de8d4e3e77d34b39a94e157ff26b5a860015c6ce3056794f63dd3a55805bbc"
+    }
+  ]
+}

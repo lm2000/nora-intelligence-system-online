@@ -1,0 +1,41 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Diagram from '../components/Diagram.astro';
+import { Content } from '../content/architecture.md';
+---
+<SiteLayout title="Architecture — Nora Intelligence System" description="System architecture for the Nora intelligence system: Browser UI, Coordination, and MCP gateway with clear service boundaries." path="/architecture/">
+  <article class="container content-page">
+    <h1>Architecture</h1>
+    <Content />
+    <Diagram
+      previewSrc="/diagrams/01-system-architecture-preview.svg"
+      htmlUrl="/diagrams/01-system-architecture.html"
+      gifUrl="/diagrams/01-system-architecture.gif"
+      sourcePath="architecture/diagrams/01-system-architecture.html"
+      alt="System architecture diagram showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP."
+      caption="The system architecture: Browser UI (AG-UI) connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway → embedded FastMCP or direct FastMCP. Coordination does NOT call gateway for external tools; owns DeepAgents LangGraph, selector and checkpoints; inference Ollama Cloud Fireworks. Retrieval MCP BGE Qdrant prepared text; manual jobs outside conversation."
+    />
+    <Diagram
+      previewSrc="/diagrams/architecture-request-path-preview.svg"
+      htmlUrl="/diagrams/architecture-request-path.html"
+      gifUrl="/diagrams/architecture-request-path.gif"
+      sourcePath="architecture/diagrams/architecture-request-path.html"
+      alt="Architecture request path diagram"
+      caption="The request path shows how Coordination handles inference and retrieval directly."
+    />
+    <Diagram
+      previewSrc="/diagrams/manual-ingestion-preview.svg"
+      htmlUrl="/diagrams/manual-ingestion.html"
+      gifUrl="/diagrams/manual-ingestion.gif"
+      sourcePath="architecture/diagrams/manual-ingestion.html"
+      alt="Manual ingestion pipeline diagram"
+      caption="Manual ingestion runs outside the conversation flow to prepare text for retrieval."
+    />
+  </article>
+</SiteLayout>
+<style>
+.content-page { padding-top: 40px; padding-bottom: 40px; }
+.content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
+.content-page :global(h2) { margin-top: 2.5em; }
+.content-page :global(ul), .content-page :global(ol) { max-width: 66ch; }
+</style>

@@ -1,0 +1,98 @@
+{
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist",
+  "framework": "astro",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "redirects": [
+    {
+      "source": "/foundation",
+      "destination": "/architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/foundation/",
+      "destination": "/architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/foundation/index.html",
+      "destination": "/architecture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/foundation/operating-principles",
+      "destination": "/decisions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/foundation/operating-principles/",
+      "destination": "/decisions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/foundation/operating-principles/index.html",
+      "destination": "/decisions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/business-value",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/business-value/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/business-value/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/offerings/boutique-marketing-agency",
+      "destination": "/archive/offerings/boutique-marketing-agency/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/offerings/boutique-marketing-agency/",
+      "destination": "/archive/offerings/boutique-marketing-agency/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/offerings/boutique-marketing-agency/index.html",
+      "destination": "/archive/offerings/boutique-marketing-agency/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/offerings/career-interview-system",
+      "destination": "/archive/offerings/career-interview-system/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/offerings/career-interview-system/",
+      "destination": "/archive/offerings/career-interview-system/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/offerings/career-interview-system/index.html",
+      "destination": "/archive/offerings/career-interview-system/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/offerings/boutique-marketing-agency/presentation.html",
+      "destination": "/archive/offerings/boutique-marketing-agency/presentation.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/offerings/boutique-marketing-agency/walkthrough.html",
+      "destination": "/archive/offerings/boutique-marketing-agency/walkthrough.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/use-cases/boutique-marketing-agency.html",
+      "destination": "/archive/use-cases/boutique-marketing-agency.html",
+      "statusCode": 301
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+---
+import { href } from '../lib/constants.mjs';
+
+const navLinks = [
+  { label: 'Architecture', path: '/architecture/' },
+  { label: 'Walkthroughs', path: '/walkthroughs/' },
+  { label: 'Decisions', path: '/decisions/' },
+  { label: 'Founders', path: '/#founders' },
+  { label: 'Source', path: 'https://github.com/lm2000/nora-intelligence-system-online' }
+];
+
+const path = Astro.url.pathname.replace(/\/$/, '') + '/';
+---
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href={href('/')} aria-label="Nora Intelligence System home">
+      <img src={href('/images/nora-mark.svg')} alt="" width="32" height="32" class="brand-mark" />
+      <span class="brand-word">Nora Intelligence System</span>
+    </a>
+    <details class="mobile-nav">
+      <summary aria-label="Open navigation">Menu</summary>
+      <nav aria-label="Primary">
+        {navLinks.map(l => (
+          <a href={l.path.startsWith('http') ? l.path : href(l.path)}>{l.label}</a>
+        ))}
+      </nav>
+    </details>
+    <nav class="desktop-nav" aria-label="Primary">
+      {navLinks.map(l => {
+        const isCurrent = !l.path.startsWith('http') && !l.path.includes('#') && path === l.path;
+        return (
+          <a href={l.path.startsWith('http') ? l.path : href(l.path)} aria-current={isCurrent ? 'page' : undefined}>{l.label}</a>
+        );
+      })}
+    </nav>
+  </div>
+</header>
+<style>
+.site-header {
+  height: var(--header-height);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.brand-mark { display: block; }
+.brand-word {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 20px;
+  color: var(--color-ink);
+  font-weight: 600;
+}
+.desktop-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.desktop-nav a {
+  text-decoration: none;
+  color: var(--color-ink);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+.desktop-nav a:hover { color: var(--color-teal); }
+.desktop-nav a[aria-current="page"] {
+  border-bottom-color: var(--color-teal);
+}
+.mobile-nav { display: none; }
+@media (max-width: 768px) {
+  .header-inner { padding: 0 20px; }
+  .desktop-nav { display: none; }
+  .mobile-nav { display: block; position: relative; }
+  .mobile-nav summary {
+    cursor: pointer;
+    padding: 10px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-size: 16px;
+    font-weight: 500;
+    list-style: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .mobile-nav summary::-webkit-details-marker { display: none; }
+  .mobile-nav[open] summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .mobile-nav nav {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0 0 6px 6px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(18, 29, 54, 0.08);
+  }
+  .mobile-nav nav a {
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-border);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .mobile-nav nav a:last-child { border-bottom: none; }
+  .mobile-nav nav a:hover { background: var(--color-cool); }
+}
+</style>

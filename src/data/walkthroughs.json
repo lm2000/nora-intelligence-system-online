@@ -1,0 +1,116 @@
+{
+  "request": [
+    {
+      "id": "current-question",
+      "title": "Current Question",
+      "description": "User submits a question through the browser UI.",
+      "detail": "The CopilotKit browser interface sends the question and thread ID via AG-UI to Coordination. A missing UUID starts a new topic chat, while an existing UUID continues the conversation.",
+      "source": {
+        "path": "architecture/Architecture Concept.md",
+        "heading": "One request"
+      }
+    },
+    {
+      "id": "grounding",
+      "title": "Grounding",
+      "description": "Coordination initiates an automatic knowledge search.",
+      "detail": "The assistant performs an initial retrieval call through the shared Retrieval MCP. This uses BGE query encoding and Qdrant dense search to find relevant prepared documents for the turn.",
+      "source": {
+        "path": "agents/README.md",
+        "heading": "Answer behavior"
+      }
+    },
+    {
+      "id": "bounded-reasoning",
+      "title": "Bounded Reasoning",
+      "description": "Agent reads documents and generates an answer.",
+      "detail": "Within bounded retrieval and logical model call budgets, the Deep Agent may request additional document reads. It analyzes the retrieved reference text to formulate a plain answer or state missing evidence.",
+      "source": {
+        "path": "agents/README.md",
+        "heading": "Answer behavior"
+      }
+    },
+    {
+      "id": "plain-answer",
+      "title": "Plain Answer",
+      "description": "Assistant returns a concise answer without internal IDs.",
+      "detail": "The generated answer omits citation cards and internal IDs, providing a direct response. If a requested word cap is missed, a no-tool repair may be used within the model allowance.",
+      "source": {
+        "path": "architecture/Architecture Concept.md",
+        "heading": "Retrieval and answer behavior"
+      }
+    },
+    {
+      "id": "checkpoint-continuation",
+      "title": "Checkpoint Continuation",
+      "description": "Conversation state is saved to PostgreSQL.",
+      "detail": "The official LangGraph PostgreSQL checkpointer stores the turn state using stable thread identifiers. Browser history and checkpoints remain separate stores; persistence does not prove exactly-once effects.",
+      "source": {
+        "path": "architecture/Architecture Concept.md",
+        "heading": "Conversation state and recovery"
+      }
+    }
+  ],
+  "ingestion": [
+    {
+      "id": "backup",
+      "title": "Backup",
+      "description": "Save state before changing the active release.",
+      "detail": "The operator takes Qdrant and PostgreSQL backups and saves the matching prepared-document bundle and configuration. Backups do not change the activation mechanism.",
+      "source": {
+        "path": "workflows/ingestion/README.md",
+        "heading": "Backups and activation"
+      }
+    },
+    {
+      "id": "assemble",
+      "title": "Assemble",
+      "description": "Combine retained knowledge with new delta documents.",
+      "detail": "To add documents without losing retained knowledge, prepare and embed a delta first. Assembly merges the immutable complete base with the delta into a new self-contained bundle.",
+      "source": {
+        "path": "workflows/ingestion/README.md",
+        "heading": "Add documents while retaining an existing bundle"
+      }
+    },
+    {
+      "id": "convert-prepare",
+      "title": "Convert and Prepare",
+      "description": "Extract text and create deterministic chunks.",
+      "detail": "Docling extracts supported binary documents while direct readers handle text. Deterministic preparation preserves original bytes and headings, creating chunks with stable identities and hashes without LLM summaries.",
+      "source": {
+        "path": "workflows/ingestion/README.md",
+        "heading": "Processing contract"
+      }
+    },
+    {
+      "id": "embed",
+      "title": "Embed",
+      "description": "Generate vectors using the shared BGE service.",
+      "detail": "Prepared chunks are encoded by the shared BGE service with pinned model metadata. Batch load is bounded to preserve interactive capacity, producing vectors and job-embed.json.",
+      "source": {
+        "path": "workflows/ingestion/README.md",
+        "heading": "Processing contract"
+      }
+    },
+    {
+      "id": "import",
+      "title": "Import",
+      "description": "Verify and load the embedded bundle into Qdrant.",
+      "detail": "Import independently verifies point identity and counts against the matching document manifest. It creates a fresh Qdrant collection and job-import.json; interrupted-run recovery remains unverified.",
+      "source": {
+        "path": "workflows/ingestion/README.md",
+        "heading": "Selected target workflow"
+      }
+    },
+    {
+      "id": "activate-verify",
+      "title": "Activate and Verify",
+      "description": "Switch the active release and check answers.",
+      "detail": "The operator explicitly activates the verified Retrieval release selection. Finally, check answers and conversation reload before accepting the update. A failed check leaves the update incomplete.",
+      "source": {
+        "path": "workflows/ingestion/knowledge-base-update-checklist.md",
+        "heading": ""
+      }
+    }
+  ]
+}

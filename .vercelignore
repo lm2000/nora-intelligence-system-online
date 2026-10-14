@@ -1,0 +1,7 @@
+.impeccable/
+.private/
+design-qa.md
+node_modules/
+dist/
+.astro/
+.DS_Store

@@ -1,0 +1,15 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { Content } from '../content/validation.md';
+---
+<SiteLayout title="Validation — Nora Intelligence System" description="Validation steps and verification for the Nora intelligence system architecture." path="/validation/">
+  <article class="container content-page">
+    <h1>Validation</h1>
+    <Content />
+  </article>
+</SiteLayout>
+<style>
+.content-page { padding-top: 40px; padding-bottom: 40px; }
+.content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
+.content-page :global(h2) { margin-top: 2.5em; }
+</style>

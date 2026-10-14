@@ -1,0 +1,22 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { href } from '../lib/constants.mjs';
+---
+<SiteLayout title="Page not found — Nora Intelligence System" description="The page you are looking for does not exist." path="/404">
+  <div class="container not-found">
+    <h1>404</h1>
+    <p>This page could not be found. It may have been moved or removed.</p>
+    <div class="nav-group">
+      <CTAButton href="/" label="Go home" icon="arrow" />
+      <CTAButton href="/architecture/" label="Architecture" variant="outline" />
+      <CTAButton href="/walkthroughs/" label="Walkthroughs" variant="outline" />
+    </div>
+  </div>
+</SiteLayout>
+<style>
+.not-found { padding: 80px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.not-found h1 { font-size: clamp(48px, 8vw, 72px); margin-bottom: 16px; }
+.not-found p { color: var(--color-secondary); font-size: 20px; margin-bottom: 32px; }
+.nav-group { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+</style>

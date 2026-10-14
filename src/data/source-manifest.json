@@ -1,0 +1,30 @@
+{
+  "repository": "lm2000/nora-ai-knowledge-agent-harness-public",
+  "commit": "10bd370c711afabdfc7b23b516911c31ff58bcb4",
+  "files": [
+    {
+      "source": "architecture/diagrams/01-system-architecture.html",
+      "sha256": "bf73ccae982dd6bd46502e5a4fb6d7d5da6e0e2507b97b88dce556a47546658d"
+    },
+    {
+      "source": "architecture/diagrams/01-system-architecture.gif",
+      "sha256": "236e2079a7867967c00f028b66d54aef3ea1ff5be33e8ab9f82879921dbdfc9d"
+    },
+    {
+      "source": "architecture/diagrams/architecture-request-path.html",
+      "sha256": "7dfd30d29640d5fd9e0b576cc55e80ce06d8face52f27cd1084a3050ff3205c4"
+    },
+    {
+      "source": "architecture/diagrams/architecture-request-path.gif",
+      "sha256": "3abc120523fbb93192b13af78c29282834d85406b91c86eca40aa6fe549a1f39"
+    },
+    {
+      "source": "architecture/diagrams/manual-ingestion.html",
+      "sha256": "fa1206d1753edee2e7731227d644617d8f127734e6583de26bd5ddf55329361f"
+    },
+    {
+      "source": "architecture/diagrams/manual-ingestion.gif",
+      "sha256": "dd957c365f223ab147afd51a44a02ecbf652666dab54b7f150b3f56c81580ac8"
+    }
+  ]
+}

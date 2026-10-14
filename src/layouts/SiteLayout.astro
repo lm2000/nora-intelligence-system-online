@@ -1,0 +1,43 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { href, BASE } from '../lib/constants.mjs';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+}
+
+const canonicalDomain = 'https://nora-intelligence-system.com/';
+const { title, description, path = '' } = Astro.props;
+const cleanPath = path === '/' || path === '' ? '/' : path.replace(/^\/+/, '/');
+const u = new URL(cleanPath, 'http://e.o');
+const canonicalPath = u.pathname.replace(/\/$/, '');
+const canonical = new URL(canonicalPath, canonicalDomain).href;
+const siteBasePath = BASE !== '/' ? BASE : '';
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <Header />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

@@ -1,22 +1,35 @@
-# OS metadata
+# Standard OS metadata
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# Local environment and secrets
+# Env
 .env
-.env.local
-.env.*.local
 !.env.example
 
-# Node.js dependencies
-node_modules/
+# Dependencies
+node_modules
 
-# Build caches and outputs
-.cache/
-dist/
-build/
-.next/
+# Build outputs
+dist
+build
+.cache
+.next
+.vercel
+.astro
+.private
 
-# Vercel
-.vercel/
+# QA / Review
+.impeccable/review
+.impeccable/build
+.impeccable/mocks
+
+# Generated legacy archive and exact redirect paths
+public/archive/
+public/foundation/index.html
+public/foundation/operating-principles/index.html
+public/business-value/index.html
+public/offerings/boutique-marketing-agency/index.html
+public/offerings/boutique-marketing-agency/presentation.html
+public/offerings/boutique-marketing-agency/walkthrough.html
+public/offerings/career-interview-system/index.html
+public/use-cases/boutique-marketing-agency.html
