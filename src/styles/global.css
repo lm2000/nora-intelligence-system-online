@@ -266,6 +266,11 @@ h2[data-step-title] {
   .site-header .site-nav a { grid-column: span 2; justify-self: center; width: max-content; max-width: 100%; display: flex; justify-content: center; align-items: center; min-height: 44px; padding: 4px 8px; font-size: 15px; }
   .site-header .site-nav a:nth-child(n+4) { grid-column: span 3; }
 }
+/* Give longer labels their natural width on the narrowest screens. */
+@media (max-width: 359px) {
+  .site-header .site-nav { display: flex; flex-wrap: wrap; justify-content: space-evenly; gap: 0 8px; }
+  .site-header .site-nav a { flex: 0 0 auto; padding-inline: 6px; }
+}
 /* Reader indexes retain the original rail, with readable labels and one active cue. */
 .page-index-title { display: none; }
 body.has-page-index .page-index .page-index-list { gap: 2px; }

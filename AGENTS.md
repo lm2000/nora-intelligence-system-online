@@ -43,3 +43,5 @@ Main-page indexes retain full desktop hero cards. In docked desktop state, const
 Keep a shared footer Contact link to /use-cases/#workflow-contact, resolved through href() for root and GitHub Pages bases, with a 44px target. Home and Use cases display the approved selectable email through EmailAddress beside their existing mailto actions. Keep Home’s personal introduction in the hero; the founder teaser summarizes leadership and links to the full Founders page without repeating the introduction. Do not shorten the Founders profile to deduplicate Home.
 
 Keep the Founders standalone mailto text link at least 44px tall without changing its visible font, color or wording. Center the contact row so the larger hit area does not shift the visual baseline of neighboring links. Mobile flow checks must distinguish responsive browser task completion from physical-device or human-participant usability testing.
+
+Below 360px, keep header links at their natural content widths with two wrapped rows and 44px targets. Preserve the existing grid at wider mobile sizes; do not shrink the font, hide tabs or add a header row to resolve narrow label spacing.
