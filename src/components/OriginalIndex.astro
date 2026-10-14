@@ -15,24 +15,27 @@ interface Props {
 
 const { title, tagline, entries, ariaLabel = 'Page navigation' } = Astro.props;
 ---
-<aside class="orchestration-card orchestration-card--nav" data-orchestration-nav aria-label={ariaLabel}>
-  {tagline && <div class="card-kicker">{tagline}</div>}
-  {title && <h2>{title}</h2>}
-  <ol class="mini-flow">
-    {entries.map((entry, i) => (
-      <li>
-        <span>{String(i + 1).padStart(2, '0')}</span>
-        <div>
-          <a href={`#${entry.id}`}>
-            <strong>{entry.label}</strong>
-            <small>{entry.description}</small>
-          </a>
-        </div>
-      </li>
-    ))}
-  </ol>
-  <div class="loop-line"><span></span><em>Each section connects to the next</em></div>
-</aside>
+<details class="contents-disclosure" open>
+  <summary>On this page</summary>
+  <aside class="orchestration-card orchestration-card--nav" data-orchestration-nav aria-label={ariaLabel}>
+    {tagline && <div class="card-kicker">{tagline}</div>}
+    {title && <h2>{title}</h2>}
+    <ol class="mini-flow">
+      {entries.map((entry, i) => (
+        <li>
+          <span>{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <a href={`#${entry.id}`}>
+              <strong>{entry.label}</strong>
+              <small>{entry.description}</small>
+            </a>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <div class="loop-line"><span></span><em>Each section connects to the next</em></div>
+  </aside>
+</details>
 
 <script is:inline>
 (function () {
@@ -41,6 +44,7 @@ const { title, tagline, entries, ariaLabel = 'Page navigation' } = Astro.props;
     if (nav.getAttribute('data-onav-init')) return;
     nav.setAttribute('data-onav-init', '1');
 
+    var disclosure = nav.closest('.contents-disclosure');
     var hero = nav.closest('.hero');
     if (!hero) return;
 
@@ -53,6 +57,28 @@ const { title, tagline, entries, ariaLabel = 'Page navigation' } = Astro.props;
       if (section) sections.push({ link: link, section: section });
     }
     if (!sections.length) return;
+
+    if (disclosure) {
+      var desktop = window.matchMedia('(min-width: 1081px)');
+      var applyDisclosure = function () {
+        if (desktop.matches) {
+          disclosure.setAttribute('open', '');
+        } else {
+          disclosure.removeAttribute('open');
+        }
+      };
+      applyDisclosure();
+      if (typeof desktop.addEventListener === 'function') {
+        desktop.addEventListener('change', applyDisclosure);
+      }
+      for (var c = 0; c < links.length; c++) {
+        (function (lnk) {
+          lnk.addEventListener('click', function () {
+            if (!desktop.matches && disclosure) disclosure.removeAttribute('open');
+          });
+        })(links[c]);
+      }
+    }
 
     function activate(id) {
       for (var j = 0; j < sections.length; j++) {
@@ -81,6 +107,21 @@ const { title, tagline, entries, ariaLabel = 'Page navigation' } = Astro.props;
             break;
           }
         }
+        if (nearBottom && document.querySelector('.founder-profile')) {
+          var hashId = (window.location.hash || '').slice(1);
+          if (hashId) {
+            for (var h = 0; h < sections.length; h++) {
+              if (sections[h].section.id === hashId) {
+                var rect = sections[h].section.getBoundingClientRect();
+                if (rect.top >= line && rect.top < window.innerHeight) {
+                  activate(hashId);
+                  return;
+                }
+                break;
+              }
+            }
+          }
+        }
         activate(nearBottom ? sections[sections.length - 1].section.id : current);
       });
     }
@@ -99,6 +140,7 @@ const { title, tagline, entries, ariaLabel = 'Page navigation' } = Astro.props;
 
     window.addEventListener('scroll', function () { update(); dock(); }, { passive: true });
     window.addEventListener('resize', dock, { passive: true });
+    window.addEventListener('hashchange', update);
     update();
     dock();
   }

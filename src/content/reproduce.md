@@ -1,10 +1,18 @@
-## Purpose
+<h2 id="example">Prerequisites</h2>
 
-Reproduce the Nora SuperIntelligence Lab knowledge-agent harness checks using pinned public source and a working setup interface.
+To run the harness source, use Python 3.12, Node.js 22.22 or newer, and pnpm 12.8.1. The separate website build uses Node 24.
 
-## Example
+<h2 id="approach-and-tradeoffs">Run the source checks</h2>
 
-To run the source, use Python 3.12, Node.js 22.22 or newer, and pnpm 12.8.1. From the repository root, create a Conda environment, install the locked Python dependencies, trust the mise configuration, install the frozen UI lockfile, and run validation. These checks use synthetic documents and model doubles. They do not establish current production quality or live GCS cutover.
+Clone the public harness repository and check out the pinned commit, then run the commands below from the repository root:
+
+```bash
+git clone https://github.com/lm2000/nora-ai-knowledge-agent-harness-public.git
+cd nora-ai-knowledge-agent-harness-public
+git checkout 10bd370c711afabdfc7b23b516911c31ff58bcb4
+```
+
+From the repository root, create a Conda environment, install the locked Python dependencies, trust the mise configuration, install the frozen UI lockfile, and run validation:
 
 ```bash
 conda create -n nora-ai python=3.12 pip
@@ -14,14 +22,16 @@ pnpm --dir ui install --frozen-lockfile
 make validate
 ```
 
-## Approach and Tradeoffs
+These checks use synthetic documents and model doubles. They do not establish current production quality or live GCS cutover.
 
-The public tests and synthetic smoke script are the reproduction entrypoints. Python contract tests cover deterministic preparation, document hashes, Qdrant round trips, and routing failures. The real Deep Agents/LangGraph and AG-UI adapters run with a deterministic model double and an in-memory checkpointer. The real MCP server handles initialization, tool discovery, search/read, and authentication. The separate real-BGE smoke test downloads the pinned public model and verifies loopback HTTP encoding. The UI has server-boundary tests, a TypeScript check, and a production build without a credential file. Documentation links, anchors, diagram inventory, HTML/GIF pairs, and source-release paths are checked.
+<h2 id="boundaries-and-recovery">Expected results and limits</h2>
 
-## Boundaries and Recovery
+The expected result is that `make validate` completes without errors.
 
-These development checks do not exercise real GCS bucket creation, credentials, or upload; local verification uses a `FakeGCSClient` double. Optional Docling conversion and additional client identities remain unverified. Follow the setup guide for the application and real retrieval smoke test. The site itself runs on Node 24. There is no portable host installer fiction.
+These development checks do not exercise real GCS bucket creation, credentials, or upload; local verification uses a `FakeGCSClient` double. Optional Docling conversion and additional client identities remain unverified. Follow the setup guide for the application and real retrieval smoke test.
 
-## Reference
+For the dated evidence behind these checks, see [Validation](../validation/).
+
+<h2 id="reference">Reference</h2>
 
 [Run the source](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/10bd370c711afabdfc7b23b516911c31ff58bcb4/README.md#run-the-source)

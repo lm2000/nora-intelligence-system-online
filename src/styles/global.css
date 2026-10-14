@@ -75,8 +75,181 @@ body.has-custom-index .page-index {
   display: none !important;
 }
 
+/* Keep the supporting-page index below the sticky header after legacy styles load. */
+@media (min-width: 1081px) {
+  .page-index:not([hidden]) {
+    display: block;
+    position: fixed;
+    top: calc(var(--header-height, 86px) + 16px);
+    right: max(20px, env(safe-area-inset-right));
+    z-index: 30;
+    width: 170px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100dvh - var(--header-height, 86px) - 32px);
+    overflow-y: auto;
+    transform: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .page-index:not([hidden]) {
+    display: block;
+    position: static;
+    width: min(calc(100% - 30px), var(--shell));
+    max-width: none;
+    max-height: none;
+    margin: 16px auto;
+    transform: none;
+  }
+}
+
+/* Keep the floating content index contained at every desktop width. */
+.orchestration-card--nav {
+  min-width: 0;
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
+}
+
 /* Diagram component helper: original diagram-figure proportions. */
 .diagram-figure--component {
   max-width: 1180px;
   margin: 30px auto 0;
+}
+
+/* Nora Option-1 readability pass, Architecture page only */
+body:has(#request-path){--dock-w:210px;--dock-r:20px;--dock-pad:14px;--rail-gap:240px;}
+body:has(#request-path) .orchestration-card--nav.is-docked{position:fixed;top:104px;right:var(--dock-r);z-index:45;width:var(--dock-w);padding:var(--dock-pad);box-sizing:border-box;}
+body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow{padding:0;}
+body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow li{padding-left:34px;list-style:none;}
+body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow li>span{left:0;width:24px;height:24px;line-height:24px;}
+body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow a{display:flex;align-items:center;min-height:44px;box-sizing:border-box;}
+body:has(#request-path) .orchestration-card--nav.is-docked .mini-flow a strong{font-size:14px;line-height:1.25;}
+@media (min-width:1081px) and (max-width:1599px){html.has-docked-orchestration body:has(#request-path) .workflow-section>.shell{padding-right:var(--rail-gap);}}
+@media (min-width:1600px){html.has-docked-orchestration body:has(#request-path) .workflow-section>.shell{padding-right:0;}}
+body:has(#request-path) .diagram-figure--component{width:100%;min-width:0;margin:30px 0 0;padding:0;border:0;background:transparent;box-shadow:none;}
+
+/* Global docking (non-Architecture flows). Architecture keeps its higher-specificity overrides. */
+@media (min-width: 1081px) {
+  html.has-docked-orchestration .section > .shell,
+  html.has-docked-orchestration .home-process > .shell,
+  body.has-page-index main {
+    padding-right: 190px;
+  }
+}
+@media (min-width: 1600px) {
+  html.has-docked-orchestration .section > .shell,
+  html.has-docked-orchestration .home-process > .shell,
+  body.has-page-index main {
+    padding-right: 0;
+  }
+}
+
+/* OriginalIndex wrapper contents-disclosure. Desktop expanded, mobile compact. */
+.contents-disclosure {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 1081px) {
+  .contents-disclosure {
+    width: 100%;
+  }
+  .contents-disclosure > summary {
+    display: none;
+  }
+}
+@media (max-width: 1080px) {
+  .contents-disclosure {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--navy-2);
+    overflow: hidden;
+  }
+  .contents-disclosure > summary {
+    min-height: 44px;
+    padding: 10px 16px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+  }
+  .contents-disclosure > summary::-webkit-details-marker { display: none; }
+  .contents-disclosure > summary:focus-visible {
+    outline: 2px solid var(--teal-light);
+    outline-offset: -2px;
+  }
+  .contents-disclosure[open] > summary {
+    border-bottom: 1px solid var(--line);
+  }
+  .contents-disclosure > aside {
+    padding: 16px;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+}
+
+/* Docked OriginalIndex nav card at >=1081 (Home/Founders etc). Architecture's own 210px rule overrides at 1081–1599 and 0 at >=1600. */
+@media (min-width: 1081px) {
+  .orchestration-card--nav.is-docked {
+    position: fixed;
+    right: max(20px, env(safe-area-inset-right));
+    top: calc(var(--header-height) + 16px);
+    width: min(210px, calc(100vw - 40px));
+    max-width: calc(100vw - 40px);
+    padding: 12px;
+    overflow-x: hidden;
+  }
+  .orchestration-card--nav.is-docked ol li {
+    padding-left: 0;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .orchestration-card--nav.is-docked li > span {
+    position: static;
+    width: 24px;
+    height: 24px;
+    align-self: start;
+  }
+  .orchestration-card--nav.is-docked ol li > div { min-width: 0; }
+  .orchestration-card--nav.is-docked .mini-flow a {
+    font-size: 14px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .orchestration-card--nav.is-docked .mini-flow strong {
+    margin: 0;
+    line-height: 1.25;
+    overflow-wrap: normal;
+  }
+  .orchestration-card--nav.is-docked .mini-flow small {
+    display: none;
+    max-height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+  .orchestration-card--nav.is-docked .loop-line { display: none; }
+}
+
+/* Keep fixed indexes visually separate from long reading content. */
+@media (min-width: 1081px) and (max-width: 1599px) {
+  html.has-docked-orchestration body:has(.founder-profile) .founders-section > .shell {
+    padding-right: 240px;
+  }
+}
+
+/* Walkthrough step h2 scroll offset under fixed header. */
+h2[data-step-title] {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+@media (min-width:1081px) { .orchestration-card--nav.is-docked .mini-flow strong { font-size:14px; } }
+
+@media (max-width:1080px) {
+  .contents-disclosure > summary::after { content: ''; margin-left: auto; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); }
+  .contents-disclosure[open] > summary::after { transform: rotate(-135deg); }
 }

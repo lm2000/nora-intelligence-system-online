@@ -6,7 +6,7 @@ const SITE_BASE = (process.env.SITE_BASE || '/').replace(/^\/+|\/+$/g, '');
 const BASE_PREFIX = SITE_BASE ? '/' + SITE_BASE : '';
 const PAGES_PREFIX = '/nora-intelligence-system-online/';
 
-const primary = ['/', '/architecture/', '/walkthroughs/', '/decisions/', '/validation/', '/reproduce/'];
+const primary = ['/', '/architecture/', '/walkthroughs/', '/founders/', '/decisions/', '/validation/', '/reproduce/'];
 const legacy = ['/foundation/', '/foundation/operating-principles/', '/business-value/', '/offerings/boutique-marketing-agency/', '/offerings/boutique-marketing-agency/presentation.html', '/offerings/boutique-marketing-agency/walkthrough.html', '/offerings/career-interview-system/', '/use-cases/boutique-marketing-agency.html'];
 
 function walk(dir, arr = []) {

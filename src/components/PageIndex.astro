@@ -17,118 +17,111 @@
   display: none !important;
 }
 
-@media (min-width: 1280px) {
-  :global(.page-index:not([hidden])) {
-    display: block;
-    position: fixed;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 30;
-    width: 180px;
-    max-height: 65vh;
-    overflow-y: auto;
-    background: var(--color-cool);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md, 14px);
-    padding: 16px;
-    box-shadow: var(--shadow-soft, 0 12px 30px rgba(0, 0, 0, 0.15));
-  }
-}
-
 :global(.page-index summary) {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+:global(.page-index summary)::after {
+  content: '';
+  display: inline-block;
+  margin-left: auto;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+:global(.page-index[open] summary)::after {
+  transform: rotate(-135deg);
+}
+:global(.page-index summary)::-webkit-details-marker {
   display: none;
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 1080px) {
   :global(.page-index:not([hidden])) {
     display: block;
     position: static;
-    margin: 16px 20px;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background: var(--color-cool);
-  }
-  :global(.page-index summary) {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 12px 16px;
-    font-weight: 600;
-    color: var(--color-ink);
-    cursor: pointer;
-    list-style: none;
-  }
-  :global(.page-index summary)::after {
-    content: '';
-    display: inline-block;
-    margin-left: auto;
-    border: solid currentColor;
-    border-width: 0 2px 2px 0;
-    padding: 3px;
-    transform: rotate(45deg);
-  }
-  :global(.page-index[open] summary)::after {
-    transform: rotate(-135deg);
-  }
-  :global(.page-index summary)::-webkit-details-marker {
-    display: none;
+    margin: 16px auto;
+    width: min(calc(100% - 30px), var(--shell));
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--navy-2);
   }
 }
 
-:global(.page-index-nav) {
-  max-height: inherit;
+@media (min-width: 1081px) {
+  :global(.page-index:not([hidden])) {
+    display: block;
+    position: fixed;
+    top: calc(var(--header-height, 80px) + 16px);
+    right: 20px;
+    z-index: 30;
+    width: 170px;
+    max-height: calc(100dvh - var(--header-height, 80px) - 32px);
+    overflow-y: auto;
+    background: var(--navy-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    box-shadow: var(--shadow-soft, 0 12px 30px rgba(0, 0, 0, 0.15));
+  }
+  :global(.page-index summary) {
+    display: none;
+  }
 }
 
 :global(.page-index-list) {
   list-style: none;
   margin: 0;
   padding: 0;
+  counter-reset: pageindex;
+}
+
+:global(.page-index-item) {
+  counter-increment: pageindex;
 }
 
 :global(.page-index-item a) {
   display: flex;
   align-items: center;
+  gap: 10px;
   min-height: 44px;
-  padding: 8px 0;
-  color: var(--color-secondary);
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  padding: 8px 4px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
   line-height: 1.3;
 }
 
-@media (min-width: 1280px) {
-  :global(.page-index-item a) {
-    justify-content: flex-end;
-    text-align: right;
-    gap: 8px;
-  }
-  :global(.page-index-item a)::after {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 8px;
-    flex-shrink: 0;
-    border: 1px solid var(--color-border-strong);
-    border-radius: 50%;
-    transition: all 160ms ease;
-  }
-  :global(.page-index-item a[aria-current="location"]) {
-    color: var(--color-muted-blue);
-  }
-  :global(.page-index-item a[aria-current="location"])::after {
-    border-color: var(--color-muted-blue);
-    background: var(--color-muted-blue);
-    transform: scale(1.3);
-  }
+:global(.page-index-item a)::before {
+  content: counter(pageindex, decimal-leading-zero);
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 0.05em;
 }
 
-@media (max-width: 1279px) {
+:global(.page-index-item a:hover),
+:global(.page-index-item a:focus-visible) {
+  color: var(--ink);
+}
+
+:global(.page-index-item a[aria-current="location"]) {
+  color: var(--teal);
+}
+
+@media (max-width: 1080px) {
   :global(.page-index-item a) {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 16px;
   }
   :global(.page-index-item:last-child a) {
     border-bottom: none;
@@ -138,19 +131,21 @@
 
 <script>
 function initPageIndex(): void {
-  const container = document.querySelector('.page-index');
+  const container = document.querySelector<HTMLElement>('.page-index');
   if (!container || container.classList.contains('initialized')) return;
   container.classList.add('initialized');
 
-  const desktop = window.matchMedia('(min-width: 1280px)');
+  const desktop = window.matchMedia('(min-width: 1081px)');
   const nav = container.querySelector('.page-index-list');
   if (!nav) return;
 
   const toggle = (): void => {
-    if (desktop.matches && !container.hasAttribute('hidden')) {
-      container.setAttribute('open', '');
-    } else {
-      container.removeAttribute('open');
+    if (!container.hasAttribute('hidden')) {
+      if (desktop.matches) {
+        container.setAttribute('open', '');
+      } else {
+        container.removeAttribute('open');
+      }
     }
   };
   desktop.addEventListener('change', toggle);
@@ -210,7 +205,7 @@ function initPageIndex(): void {
     sections.push({ id, el: h });
   });
 
-  if (sections.length < 3) return;
+  if (sections.length === 0) return;
   container.removeAttribute('hidden');
   toggle();
 
@@ -220,10 +215,13 @@ function initPageIndex(): void {
     frame = requestAnimationFrame(() => {
       frame = undefined;
       const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
-      const current = sections.reduce((acc, { id, el }) => {
-        if (el.getBoundingClientRect().top <= (document.querySelector('header')?.getBoundingClientRect().height || 80) + 26 && !acc.done) acc.id = id;
-        return acc;
-      }, { id: sections[0].id, done: false }).id;
+      const header = document.querySelector('header');
+      const line = Math.ceil(header ? header.getBoundingClientRect().height : 80) + 26;
+      let current = sections[0].id;
+      for (const { id, el } of sections) {
+        if (el.getBoundingClientRect().top <= line) current = id;
+        else break;
+      }
       const target = nearBottom ? sections[sections.length - 1].id : current;
       nav.querySelectorAll('a').forEach((a) => {
         const href = a.getAttribute('href') ?? '';

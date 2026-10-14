@@ -398,8 +398,8 @@ a:focus-visible {
   position: fixed;
   z-index: 40;
   top: 104px;
-  right: 24px;
-  width: 238px;
+  right: clamp(12px, 2vw, 24px);
+  width: min(238px, calc(100vw - 24px));
   padding: 17px 18px 18px;
   border-color: rgba(176, 219, 229, 0.11);
   background: rgba(7, 24, 39, 0.08);

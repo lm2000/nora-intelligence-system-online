@@ -2,30 +2,30 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Diagram from '../components/Diagram.astro';
 import SourceMap from '../components/SourceMap.astro';
-import { href } from '../lib/constants.mjs';
-import walkthroughs from '../data/walkthroughs.json';
-
-
 ---
-<SiteLayout title="Walkthroughs — Nora SuperIntelligence Lab" description="A fictional Atlas example walkthrough for request handling and manual ingestion in Nora SuperIntelligence Lab's knowledge assistant." path="/walkthroughs/">
+<SiteLayout title="Walkthroughs — Nora SuperIntelligence Lab" description="A fictional Atlas example walkthrough for request handling and manual ingestion in Nora SuperIntelligence Lab's knowledge assistant." path="/walkthroughs/" customIndex={true}>
   <div class="container walkthroughs-page" data-walkthroughs>
     <h1>Walkthroughs</h1>
     <p class="page-intro">Follow a fictional Atlas release question through the assistant, or explore how documents are prepared.</p>
 
-    <div class="tabs" role="tablist" aria-label="Walkthrough flow">
+    <div class="tabs" id="walkthrough-flows" role="tablist" aria-label="Walkthrough flow">
       <button role="tab" id="tab-request" aria-controls="panel-request" aria-selected="true" tabindex="0" data-flow-tab="request">Follow a request</button>
       <button role="tab" id="tab-ingestion" aria-controls="panel-ingestion" aria-selected="false" tabindex="-1" data-flow-tab="ingestion">Manual ingestion</button>
     </div>
 
     <div class="layout" id="panel-request" role="tabpanel" aria-labelledby="tab-request" data-flow-panel="request">
-      <nav class="step-list-nav" aria-label="Steps">
-        <ol class="step-list" data-step-list></ol>
-      </nav>
+      <details class="walkthrough-index" open>
+        <summary>On this page</summary>
+        <nav class="step-list-nav" aria-label="Steps">
+          <a href="#walkthrough-flows" class="walkthrough-index-top">Choose a flow</a>
+          <ol class="step-list" data-step-list></ol>
+        </nav>
+      </details>
       <section class="step-panel" data-step-panel>
         <div class="step-header">
           <span class="step-counter" data-step-counter></span>
         </div>
-        <h2 class="step-title" data-step-title></h2>
+        <h2 class="step-title" data-step-title tabindex="-1"></h2>
         <p class="step-scenario" data-step-scenario></p>
         <div class="step-detail" data-step-detail></div>
         <a class="step-source" data-step-source target="_blank" rel="noopener noreferrer">View source</a>
@@ -46,14 +46,18 @@ import walkthroughs from '../data/walkthroughs.json';
     </div>
 
     <div class="layout" id="panel-ingestion" role="tabpanel" aria-labelledby="tab-ingestion" data-flow-panel="ingestion" hidden>
-      <nav class="step-list-nav" aria-label="Steps">
-        <ol class="step-list" data-step-list></ol>
-      </nav>
+      <details class="walkthrough-index">
+        <summary>On this page</summary>
+        <nav class="step-list-nav" aria-label="Steps">
+          <a href="#walkthrough-flows" class="walkthrough-index-top">Choose a flow</a>
+          <ol class="step-list" data-step-list></ol>
+        </nav>
+      </details>
       <section class="step-panel" data-step-panel>
         <div class="step-header">
           <span class="step-counter" data-step-counter></span>
         </div>
-        <h2 class="step-title" data-step-title></h2>
+        <h2 class="step-title" data-step-title tabindex="-1"></h2>
         <p class="step-scenario" data-step-scenario></p>
         <div class="step-detail" data-step-detail></div>
         <a class="step-source" data-step-source target="_blank" rel="noopener noreferrer">View source</a>
@@ -84,7 +88,7 @@ import walkthroughs from '../data/walkthroughs.json';
     </div>
 
     <details class="source-figure-details">
-      <summary>Open full request figure</summary>
+      <summary>Open the shared request-path figure</summary>
       <div class="walkthrough-figure">
         <Diagram
           previewSrc="/diagrams/architecture-request-path-preview.svg"
@@ -118,12 +122,60 @@ import walkthroughs from '../data/walkthroughs.json';
 }
 .layout[hidden] { display: none; }
 .layout {
+  min-width: 0;
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 1fr;
   gap: 32px;
   align-items: start;
 }
+.walkthrough-index summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-cool);
+}
+.walkthrough-index summary::after {
+  content: '';
+  display: inline-block;
+  margin-left: auto;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+.walkthrough-index[open] summary::after {
+  transform: rotate(-135deg);
+}
+.walkthrough-index summary::-webkit-details-marker {
+  display: none;
+}
+.walkthrough-index[open] summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.walkthrough-index-top {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
 .step-list-nav { border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; background: var(--color-cool); }
+.walkthrough-index[open] .step-list-nav {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
 .step-list { list-style: none; padding: 0; margin: 0; counter-reset: step; }
 .step-list :global(li) { counter-increment: step; }
 .step-list :global(button) {
@@ -136,7 +188,7 @@ import walkthroughs from '../data/walkthroughs.json';
   background: none;
   border: 1px solid transparent;
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--color-body);
   min-height: 44px;
   position: relative;
@@ -144,9 +196,18 @@ import walkthroughs from '../data/walkthroughs.json';
   cursor: pointer;
 }
 .step-list :global(button::before) {
-  content: counter(step) ".";
+  content: counter(step, decimal-leading-zero);
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(148, 209, 219, .25);
+  border-radius: 8px;
+  top: 50%;
+  transform: translateY(-50%);
   position: absolute;
   left: 8px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--color-secondary);
 }
@@ -163,7 +224,7 @@ import walkthroughs from '../data/walkthroughs.json';
   box-shadow: 0 1px 3px rgba(18,29,54,0.06);
   border: 1px solid var(--color-border-strong);
 }
-.step-panel { border: 1px solid var(--color-border); border-radius: 8px; padding: 32px; background: var(--color-surface); }
+.step-panel { min-width: 0; width: 100%; border: 1px solid var(--color-border); border-radius: 8px; padding: 32px; background: var(--color-surface); }
 .step-counter { font-size: 14px; font-weight: 700; color: var(--color-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
 .step-title { margin: 8px 0 16px; }
 .step-description { font-size: 18px; margin-bottom: 16px; }
@@ -194,12 +255,40 @@ import walkthroughs from '../data/walkthroughs.json';
 .source-figure-details { margin-top: 24px; padding: 16px; border: 1px solid var(--color-border); border-radius: 8px; }
 .source-figure-details summary { cursor: pointer; font-weight: 600; color: var(--color-teal); }
 .walkthrough-figure { margin-top: 16px; }
+@media (min-width: 1081px) {
+  .walkthroughs-page {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 190px;
+  }
+}
+@media (min-width: 1600px) {
+  .walkthroughs-page { padding-right: 0; }
+}
+@media (min-width: 1081px) {
+  .walkthrough-index {
+    position: fixed;
+    top: calc(var(--header-height, 80px) + 16px);
+    right: 20px;
+    z-index: 30;
+    width: 170px;
+    margin: 0;
+  }
+  .walkthrough-index summary { display: none; border: none; border-radius: 0; padding: 0 12px; background: transparent; }
+  .walkthrough-index .step-list-nav {
+    max-height: calc(100dvh - var(--header-height, 80px) - 32px);
+    overflow-y: auto;
+  }
+}
+@media (min-width: 1081px) {
+  .step-panel { max-width: 100%; }
+}
 @media (max-width: 768px) {
-  .layout { grid-template-columns: 1fr; }
-  .step-list-nav { order: 1; }
-  .step-panel { order: 2; padding: 20px; }
+  .step-panel { padding: 20px; }
 }
 </style>
+
 <script>
   import walkthroughs from '../data/walkthroughs.json';
 const focusMap: Record<string, string> = {
@@ -218,6 +307,24 @@ const focusMap: Record<string, string> = {
     const tabButtons = Array.from(container.querySelectorAll('[data-flow-tab]')) as HTMLElement[];
     const panels = container.querySelectorAll<HTMLElement>('[data-flow-panel]');
     const sourceMap = container.querySelector('source-map');
+    const desktopMq = window.matchMedia('(min-width: 1081px)');
+    const disclosures = Array.from(container.querySelectorAll('details.walkthrough-index')) as HTMLDetailsElement[];
+    function syncDisclosures() {
+      disclosures.forEach(d => {
+        d.open = desktopMq.matches;
+      });
+    }
+    syncDisclosures();
+    desktopMq.addEventListener('change', syncDisclosures);
+    container.querySelectorAll('a[href="#walkthrough-flows"]').forEach(flowAnchor => {
+      flowAnchor.addEventListener('click', () => {
+        if (!desktopMq.matches) {
+          const d = flowAnchor.closest('details');
+          if (d instanceof HTMLDetailsElement) d.open = false;
+        }
+      });
+    });
+
 
     const state: any = {
       flow: 'request',
@@ -278,7 +385,24 @@ const focusMap: Record<string, string> = {
         const btn = document.createElement('button');
         btn.textContent = step.title;
         if (i === state.stepIndex) btn.setAttribute('aria-current', 'step');
-        btn.addEventListener('click', () => { state.stepIndex = i; update('push'); });
+        btn.addEventListener('click', () => {
+          state.stepIndex = i;
+          update('push');
+          const desktop = window.matchMedia('(min-width: 1081px)');
+          if (desktop.matches) {
+            const current = state.stepList.querySelectorAll('button')[state.stepIndex];
+            if (current) current.focus();
+          } else {
+            const disclosure = state.stepList.closest('details');
+            if (disclosure) disclosure.open = false;
+            if (state.titleEl) {
+              state.titleEl.id = 'step-' + state.flow + '-' + state.steps[state.stepIndex].id;
+              state.titleEl.setAttribute('tabindex', '-1');
+              state.titleEl.focus({ preventScroll: true });
+              state.titleEl.scrollIntoView({ block: 'start' });
+            }
+          }
+        });
         li.appendChild(btn);
         state.stepList.appendChild(li);
       });
@@ -292,6 +416,7 @@ const focusMap: Record<string, string> = {
 
       state.counter.textContent = `Step ${state.stepIndex + 1} of ${state.steps.length}`;
       state.titleEl.textContent = step.title;
+      state.titleEl.id = 'step-' + state.flow + '-' + step.id;
       state.scenarioEl.textContent = step.description;
       state.detailContentEl.innerHTML = '';
       const detailP = document.createElement('p');
@@ -350,6 +475,13 @@ const focusMap: Record<string, string> = {
       }
     }
 
+    function focusCurrentStep() {
+      if (!state.titleEl) return;
+      state.titleEl.id = 'step-' + state.flow + '-' + state.steps[state.stepIndex].id;
+      state.titleEl.setAttribute('tabindex', '-1');
+      state.titleEl.focus({ preventScroll: true });
+    }
+
     function setFlow(newFlow: string) {
       state.flow = parseFlowParam(newFlow);
       state.steps = walkthroughs[state.flow as keyof typeof walkthroughs];
@@ -357,7 +489,7 @@ const focusMap: Record<string, string> = {
       update('replace');
     }
 
-    tabButtons.forEach((btn, i) => {
+    tabButtons.forEach((btn) => {
       btn.addEventListener('click', () => setFlow(btn.dataset.flowTab!));
       btn.addEventListener('keydown', (e) => {
         let index = tabButtons.findIndex(t => t.getAttribute('tabindex') === '0');
@@ -388,17 +520,17 @@ const focusMap: Record<string, string> = {
       if (!action) return;
       if (action === 'prev') {
         const s = prevState(state);
-        state.stepIndex = s.stepIndex; update('push');
+        state.stepIndex = s.stepIndex; update('push'); focusCurrentStep();
       } else if (action === 'next') {
         const s = nextState(state);
-        state.stepIndex = s.stepIndex; update('push');
+        state.stepIndex = s.stepIndex; update('push'); focusCurrentStep();
       } else if (action === 'reset') {
         const s = resetState(state);
-        state.stepIndex = s.stepIndex; update('push');
+        state.stepIndex = s.stepIndex; update('push'); focusCurrentStep();
       }
     });
 
-    window.addEventListener('popstate', (e) => {
+    window.addEventListener('popstate', () => {
       const params = new URLSearchParams(window.location.search);
       state.flow = parseFlowParam(params.get('flow'));
       state.steps = walkthroughs[state.flow as keyof typeof walkthroughs];

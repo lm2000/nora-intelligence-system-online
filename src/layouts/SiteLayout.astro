@@ -1,7 +1,6 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import PageIndex from '../components/PageIndex.astro';
 import { href, SITE_NAME } from '../lib/constants.mjs';
 import '../styles/global.css';
 
@@ -20,7 +19,7 @@ const canonicalPath = u.pathname.replace(/\/$/, '');
 const canonical = new URL(canonicalPath, canonicalDomain).href;
 const normalizedTitle = title.replace(/Nora Intelligence System/gi, SITE_NAME);
 const normalizedDescription = description.replace(/Nora Intelligence System/gi, SITE_NAME);
-const indexPaths = ['/', '/architecture', '/decisions', '/validation', '/reproduce'];
+const indexPaths = ['/decisions', '/validation', '/reproduce'];
 const routePath = canonicalPath || '/';
 const showIndex = !customIndex && !routePath.includes('walkthroughs') && routePath !== '/404' && indexPaths.some(p => p === routePath);
 ---
@@ -43,7 +42,6 @@ const showIndex = !customIndex && !routePath.includes('walkthroughs') && routePa
 <body class={customIndex ? 'has-custom-index' : (showIndex ? 'has-page-index' : '')}>
   <a class="skip-link" href="#main">Skip to content</a>
   <Header />
-  {showIndex && <PageIndex />}
   <main id="main" {...(customIndex ? { 'data-page-index': 'custom' } : {})}>
     <slot />
   </main>

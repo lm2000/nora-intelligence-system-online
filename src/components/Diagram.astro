@@ -1,5 +1,6 @@
 ---
 import { href } from '../lib/constants.mjs';
+import detailOverrides from '../data/diagram-details.json';
 interface Props {
   previewSrc: string;
   htmlUrl?: string;
@@ -9,9 +10,10 @@ interface Props {
   caption?: string;
   title?: string;
   purpose?: string;
+  showTitle?: boolean;
 }
 
-const { previewSrc, htmlUrl, alt, caption, title, purpose } = Astro.props;
+const { previewSrc, htmlUrl, alt, caption, title, purpose, showTitle = true } = Astro.props;
 
 const base = (previewSrc.split('/').pop() || '')
   .replace('-preview.svg', '')
@@ -37,7 +39,6 @@ if (htmlUrl) {
     const detailsMatch = rawHtml.match(/const details\s*=\s*(\{[\s\S]*?\});\s*let playing/);
     if (detailsMatch) {
       try {
-        // Parsed directly: the canonical details block is a valid JSON literal.
         details = JSON.parse(detailsMatch[1]) as Record<string, { label: string; detail: string }>;
       } catch (e) {
         details = {};
@@ -52,41 +53,35 @@ svgString = svgString
   .replace(/\saria-pressed="[^"]*"/g, '');
 
 const keys = Object.keys(details);
+const overrides = (detailOverrides as Record<string, Record<string, string>>)[htmlUrl?.split('/').pop() || ''] || {};
+for (const key of keys) {
+  if (overrides[key]) details[key].detail = overrides[key];
+}
 const isInteractive = keys.length > 0 && svgString.length > 0;
 const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
 ---
 
-<figure class="diagram">
-  <div class="diagram-header">
-    <h3 class="diagram-title">{derivedTitle}</h3>
+<figure class="diagram" aria-label={derivedTitle}>
+  {(showTitle || purpose) && <div class="diagram-header">
+    {showTitle && <h3 class="diagram-title">{derivedTitle}</h3>}
     {purpose && <p class="diagram-purpose">{purpose}</p>}
-  </div>
+  </div>}
 
   {isInteractive ? (
     <interactive-diagram>
       <div class="diagram-interactive" data-diagram-interactive>
-        <div class="diagram-controls">
-          <label class="diagram-select-label">
-            <span class="visually-hidden">Select a component</span>
-            <select class="diagram-select" aria-label="Select a component for details" disabled>
-              <option value="" selected>Select a component for details</option>
-              {keys.map((k) => (
-                <option value={k}>{details[k].label}</option>
-              ))}
-            </select>
-          </label>
-          <button type="button" class="diagram-reset" disabled>Reset selection</button>
-        </div>
-
         <div class="diagram-viewport" data-diagram-viewport>
           <div class="diagram-scroll-area" data-diagram-scroll-area>
             <div class="diagram-svg-host" data-diagram-svg-host set:html={svgString}></div>
           </div>
           <p class="diagram-swipe-hint" aria-hidden="true">Swipe to explore</p>
+          <button type="button" class="diagram-motion" data-diagram-motion aria-pressed="true" hidden>
+            Pause motion
+          </button>
         </div>
 
         <div class="diagram-detail-area">
-          <p class="diagram-hint">Hint: Select a component for details.</p>
+          <p class="diagram-hint">Select a node to explore its connections.</p>
           <div class="diagram-selection-detail" aria-live="polite">
             <p class="diagram-detail-label" data-diagram-detail-label></p>
             <p class="diagram-detail-text" data-diagram-detail-text></p>
@@ -133,40 +128,10 @@ const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
 
 interactive-diagram { display: block; }
 .diagram-interactive { display: flex; flex-direction: column; gap: 16px; }
-.diagram-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.diagram-select {
-  padding: 10px 14px;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  font-size: 15px;
-  min-height: 44px;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-}
-.diagram-select:disabled { opacity: 0.6; cursor: wait; }
-.diagram-reset {
-  padding: 10px 18px;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  background: transparent;
-  color: var(--color-secondary);
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  min-height: 44px;
-}
-.diagram-reset:hover:not(:disabled) { background: var(--color-cool); }
-.diagram-reset:disabled { opacity: 0.6; cursor: wait; }
 
 .diagram-viewport {
   position: relative;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: var(--color-surface);
-  padding: 16px;
+  padding: 0 0 64px;
 }
 .diagram-scroll-area {
   overflow-x: auto;
@@ -179,10 +144,32 @@ interactive-diagram { display: block; }
 .diagram-static-wrapper { width: 100%; }
 .diagram-static-wrapper img { width: 100%; max-width: 100%; height: auto; display: block; }
 
+.diagram-motion {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 10;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+  opacity: 0.8;
+}
+.diagram-motion:hover { background: var(--color-cool); opacity: 1; }
+.diagram-motion:focus-visible {
+  outline: 2px solid var(--color-accent, #075973);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
 .diagram-detail-area {
-  background: var(--color-cool);
-  border-radius: 8px;
-  padding: 16px 20px;
+  border-top: 1px solid var(--color-border);
+  padding: 16px 0;
   min-height: 80px;
 }
 .diagram-hint { margin: 0; font-size: 15px; color: var(--color-secondary); font-style: italic; }
@@ -210,45 +197,95 @@ figcaption { margin-top: 16px; }
 
 <script>
 class InteractiveDiagram extends HTMLElement {
-  private initialized = false;
+  private observers: IntersectionObserver[] = [];
+  private rafId: number | null = null;
+  private mediaQuery: MediaQueryList | null = null;
+  private motionEnabled = true;
+  private selectedId: string | null = null;
+  private inViewport = false;
+
+  private svg: SVGSVGElement | null = null;
+  private detailArea: HTMLElement | null = null;
+  private detailLabel: HTMLElement | null = null;
+  private detailText: HTMLElement | null = null;
+  private motionBtn: HTMLButtonElement | null = null;
+  private scrollArea: HTMLElement | null = null;
+  private viewport: HTMLElement | null = null;
+  private fallback: HTMLDetailsElement | null = null;
+  private nodes: SVGGElement[] = [];
+  private edges: SVGGElement[] = [];
+  private pulses: SVGCircleElement[] = [];
+  private details: Record<string, { label: string; detail: string }> = {};
+
+  private boundKeydownHandler: (e: KeyboardEvent) => void;
+  private boundVisibilityHandler: () => void;
+  private boundMotionChangeHandler: (e: MediaQueryListEvent) => void;
+
+  constructor() {
+    super();
+    this.boundKeydownHandler = this.handleKeydown.bind(this);
+    this.boundVisibilityHandler = this.handleVisibilityChange.bind(this);
+    this.boundMotionChangeHandler = this.handleMotionPreferenceChange.bind(this);
+  }
 
   connectedCallback(): void {
-    if (this.initialized) return;
-    this.initialized = true;
+    if (this.svg) {
+      this.mediaQuery?.addEventListener('change', this.boundMotionChangeHandler);
+      this.motionEnabled = !this.mediaQuery?.matches;
+      this.updateMotionButton();
+      this.startLifecycle();
+    }
+    else this.initialize();
+  }
 
+  disconnectedCallback(): void {
+    this.stopLifecycle();
+  }
+
+  private initialize(): void {
     const container = this.querySelector<HTMLElement>('[data-diagram-interactive]');
     const host = this.querySelector<HTMLElement>('[data-diagram-svg-host]');
-    const select = this.querySelector<HTMLSelectElement>('.diagram-select');
-    const resetBtn = this.querySelector<HTMLButtonElement>('.diagram-reset');
-    const detailArea = this.querySelector<HTMLElement>('.diagram-detail-area');
-    const detailLabel = this.querySelector<HTMLElement>('[data-diagram-detail-label]');
-    const detailText = this.querySelector<HTMLElement>('[data-diagram-detail-text]');
-    const fallback = this.querySelector<HTMLDetailsElement>('.diagram-fallback');
-    const scrollArea = this.querySelector<HTMLElement>('[data-diagram-scroll-area]');
-    const viewport = this.querySelector<HTMLElement>('[data-diagram-viewport]');
     const detailsScript = this.querySelector<HTMLScriptElement>('script[data-diagram-details]');
 
-    const svg = host ? host.querySelector<SVGSVGElement>('svg') : null;
-    if (!container || !host || !select || !svg || !detailsScript) return;
+    if (!container || !host || !detailsScript) return;
 
-    let details: Record<string, { label: string; detail: string }> = {};
     try {
-      details = JSON.parse(detailsScript.textContent || '{}') as Record<
-        string,
-        { label: string; detail: string }
-      >;
+      this.details = JSON.parse(detailsScript.textContent || '{}');
     } catch (e) {
       return;
     }
 
+    const svg = host.querySelector<SVGSVGElement>('svg');
+    if (!svg) return;
+    this.svg = svg;
+
+    this.detailArea = this.querySelector<HTMLElement>('.diagram-detail-area');
+    this.detailLabel = this.querySelector<HTMLElement>('[data-diagram-detail-label]');
+    this.detailText = this.querySelector<HTMLElement>('[data-diagram-detail-text]');
+    this.motionBtn = this.querySelector<HTMLButtonElement>('[data-diagram-motion]');
+    this.scrollArea = this.querySelector<HTMLElement>('[data-diagram-scroll-area]');
+    this.viewport = this.querySelector<HTMLElement>('[data-diagram-viewport]');
+    this.fallback = this.querySelector<HTMLDetailsElement>('.diagram-fallback');
+
+    this.setupShadowDOM(host, svg);
+    this.setupAccessibility();
+    this.setupEventListeners(svg);
+    this.setupMediaQuery();
+    this.startLifecycle();
+
+    if (this.fallback) this.fallback.hidden = true;
+    if (this.motionBtn) this.motionBtn.hidden = false;
+  }
+
+  private setupShadowDOM(host: HTMLElement, svg: SVGSVGElement): void {
     const styleEl = svg.querySelector('style');
     let cssText = styleEl && styleEl.textContent ? styleEl.textContent : '';
     if (styleEl) styleEl.remove();
 
-    // Isolate IDs and marker URL references to the shadow they will live in.
     cssText = cssText
       .replace(/"fonts"/g, '"diagram-fonts"')
       .replace(/"ink"/g, '"diagram-ink"');
+
     const serializeId = (id: string) => 'diagram-' + id;
     svg.querySelectorAll('[id]').forEach((el) => {
       const id = el.getAttribute('id');
@@ -270,21 +307,9 @@ class InteractiveDiagram extends HTMLElement {
     svg.removeAttribute('role');
     svg.removeAttribute('aria-labelledby');
     svg.setAttribute('role', 'group');
-    svg.setAttribute(
-      'aria-label',
-      'Interactive architecture diagram. Select components in the dropdown or activate nodes to read details.'
-    );
+    svg.setAttribute('aria-label', 'Interactive architecture diagram. Activate nodes to explore connections.');
 
-    svg.querySelectorAll<SVGElement>('.pulse').forEach((n) => {
-      n.style.display = 'none';
-    });
-
-    const nodes = Array.from(svg.querySelectorAll<SVGGElement>('.node'));
-    const edges = Array.from(svg.querySelectorAll<SVGGElement>('.edge'));
-
-    // Shadow ONLY on the SVG host so the light-DOM controls stay visible.
     const root = host.attachShadow({ mode: 'open' });
-
     const style = document.createElement('style');
     style.textContent = `
       :host { display: block; }
@@ -303,105 +328,247 @@ class InteractiveDiagram extends HTMLElement {
       .edge.active path { stroke: #075973; stroke-width: 3; }
     `;
     root.appendChild(style);
-    // Moves the live SVG (with listeners intact) from light DOM into the shadow.
     root.appendChild(svg);
 
-    nodes.forEach((n) => {
+    this.nodes = Array.from(svg.querySelectorAll<SVGGElement>('.node'));
+    this.edges = Array.from(svg.querySelectorAll<SVGGElement>('.edge'));
+    this.pulses = Array.from(svg.querySelectorAll<SVGCircleElement>('.pulse'));
+  }
+
+  private setupAccessibility(): void {
+    this.nodes.forEach((n) => {
       n.setAttribute('tabindex', '0');
       n.setAttribute('role', 'button');
       n.setAttribute('aria-pressed', 'false');
-      const labelEl = n.querySelectorAll('text')[1];
+      const texts = n.querySelectorAll('text');
+      const labelEl = texts[1];
       const labelText = labelEl && labelEl.textContent ? labelEl.textContent : n.id;
       n.setAttribute('aria-label', 'Select component: ' + labelText);
     });
+  }
 
-    let focusId: string | null = null;
-
-    const selectNode = (rawId: string, restoreFocus = false): void => {
-      svg.querySelectorAll<SVGGElement>('.node.active').forEach((n) => {
-        n.classList.remove('active');
-        n.setAttribute('aria-pressed', 'false');
-      });
-      edges.forEach((e) => e.classList.remove('active'));
-
-      if (!rawId || !details[rawId]) {
-        select.value = '';
-        if (detailArea) detailArea.classList.remove('has-selection');
-        if (detailLabel) detailLabel.textContent = '';
-        if (detailText) detailText.textContent = '';
-        // Keep the fallback (hidden at enhancement) out of the live flow.
-        if (fallback) fallback.hidden = true;
-        return;
-      }
-
-      const node = svg.querySelector<SVGGElement>('#' + CSS.escape(serializeId(rawId)));
-      if (!node) return;
-
-      node.classList.add('active');
-      node.setAttribute('aria-pressed', 'true');
-      edges.forEach((e) => {
-        if (e.getAttribute('data-from') === rawId || e.getAttribute('data-to') === rawId) {
-          e.classList.add('active');
-        }
-      });
-
-      select.value = rawId;
-      if (fallback) fallback.hidden = true;
-
-      if (detailLabel) detailLabel.textContent = details[rawId].label;
-      if (detailText) detailText.textContent = details[rawId].detail;
-      if (detailArea) detailArea.classList.add('has-selection');
-
-      // Pan only the diagram's own scroll area — never scroll the page.
-      if (scrollArea && viewport && window.matchMedia('(max-width: 768px)').matches) {
-        try {
-          const bbox = node.getBBox();
-          const vtm = node.getScreenCTM();
-          const viewportRect = viewport.getBoundingClientRect();
-          const nodeRect = node.getBoundingClientRect();
-          if (vtm && bbox.width > 0) {
-            const nodeCenter = nodeRect.left + nodeRect.width / 2;
-            const currentFocal = viewportRect.left + scrollArea.clientWidth / 2;
-            const delta = nodeCenter - currentFocal;
-            scrollArea.scrollLeft = scrollArea.scrollLeft + delta;
-          }
-        } catch (e) {
-          /* geometry unavailable — leave scroll position unchanged */
-        }
-      }
-
-      if (restoreFocus && focusId !== null) {
-        const target = svg.querySelector<SVGGElement>('#' + CSS.escape(serializeId(focusId)));
-        if (target) target.focus();
-      }
-    };
-
-    select.addEventListener('change', () => selectNode(select.value));
-    resetBtn &&
-      resetBtn.addEventListener('click', () => {
-        selectNode('');
-        select.focus();
-      });
-
-    nodes.forEach((node) => {
+  private setupEventListeners(svg: SVGSVGElement): void {
+    this.nodes.forEach((node) => {
       const originalId = node.id.replace(/^diagram-/, '');
-      node.addEventListener('click', () => {
-        focusId = originalId;
-        selectNode(originalId, true);
-      });
+      node.addEventListener('click', () => this.handleNodeSelect(originalId));
       node.addEventListener('keydown', (e: KeyboardEvent) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          focusId = originalId;
-          selectNode(originalId, true);
+          this.handleNodeSelect(originalId);
         }
       });
     });
 
-    // Ready: enable controls and hide the no-JS fallback.
-    select.disabled = false;
-    if (resetBtn) resetBtn.disabled = false;
-    if (fallback) fallback.hidden = true;
+    if (this.motionBtn) {
+      this.motionBtn.addEventListener('click', () => this.toggleMotion());
+    }
+
+    svg.addEventListener('keydown', this.boundKeydownHandler);
+  }
+
+  private handleKeydown(e: KeyboardEvent): void {
+    if (e.key === 'Escape' && this.selectedId !== null) {
+      e.preventDefault();
+      this.clearSelection();
+    }
+  }
+
+  private setupMediaQuery(): void {
+    this.mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.motionEnabled = !this.mediaQuery.matches;
+    this.updateMotionButton();
+    this.mediaQuery.addEventListener('change', this.boundMotionChangeHandler);
+  }
+
+  private handleMotionPreferenceChange(e: MediaQueryListEvent): void {
+    this.motionEnabled = !e.matches;
+    this.updateMotionButton();
+    if (!this.motionEnabled) this.stopAnimation();
+    else if (this.shouldAnimate()) this.startAnimation();
+  }
+
+  private toggleMotion(): void {
+    this.motionEnabled = !this.motionEnabled;
+    this.updateMotionButton();
+    if (!this.motionEnabled) {
+      this.pulses.forEach((p) => p.setAttribute('opacity', '0'));
+      this.stopAnimation();
+    } else {
+      this.startAnimation();
+    }
+  }
+
+  private updateMotionButton(): void {
+    if (!this.motionBtn) return;
+    this.motionBtn.textContent = this.motionEnabled ? 'Pause motion' : 'Resume motion';
+    this.motionBtn.setAttribute('aria-pressed', String(this.motionEnabled));
+  }
+
+  private startLifecycle(): void {
+    document.addEventListener('visibilitychange', this.boundVisibilityHandler);
+    this.setupIntersectionObserver();
+    this.handleVisibilityChange();
+  }
+
+  private stopLifecycle(): void {
+    document.removeEventListener('visibilitychange', this.boundVisibilityHandler);
+    this.observers.forEach((o) => o.disconnect());
+    this.observers = [];
+    this.stopAnimation();
+    if (this.mediaQuery) {
+      this.mediaQuery.removeEventListener('change', this.boundMotionChangeHandler);
+    }
+  }
+
+  private setupIntersectionObserver(): void {
+    if (!this.viewport) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        this.inViewport = entry.isIntersecting;
+        if (this.shouldAnimate()) {
+          this.startAnimation();
+        } else {
+          this.stopAnimation();
+        }
+      });
+    });
+    observer.observe(this.viewport);
+    this.observers.push(observer);
+  }
+
+  private handleVisibilityChange(): void {
+    if (document.hidden) {
+      this.stopAnimation();
+    } else if (this.shouldAnimate()) {
+      this.startAnimation();
+    }
+  }
+
+  private shouldAnimate(): boolean {
+    return this.motionEnabled && this.inViewport && this.isConnected && !document.hidden;
+  }
+
+  private startAnimation(): void {
+    if (this.rafId !== null || !this.shouldAnimate()) return;
+    const tick = (t: number) => {
+      if (!this.shouldAnimate()) {
+        this.rafId = null;
+        return;
+      }
+      this.animatePulses(t / 1000);
+      this.rafId = requestAnimationFrame(tick);
+    };
+    this.rafId = requestAnimationFrame(tick);
+  }
+
+  private stopAnimation(): void {
+    this.pulses.forEach((p) => p.setAttribute('opacity', '0'));
+    if (this.rafId !== null) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
+  }
+
+  private animatePulses(time: number): void {
+    if (!this.svg) return;
+    this.pulses.forEach((p, i) => {
+      const pathId = p.getAttribute('data-path');
+      if (!pathId) return;
+      const path = this.svg!.querySelector<SVGPathElement>('#diagram-' + pathId);
+      if (!path) return;
+
+      const edge = p.closest('.edge');
+      if (!edge) return;
+      const edgeFrom = edge.getAttribute('data-from');
+      const edgeTo = edge.getAttribute('data-to');
+      const isSelected = this.selectedId !== null && (this.selectedId === edgeFrom || this.selectedId === edgeTo);
+
+      if (this.selectedId !== null && !isSelected) {
+        p.setAttribute('opacity', '0');
+        return;
+      }
+
+      const progress = ((time / 5 + i / this.pulses.length) % 1 + 1) % 1;
+      const point = path.getPointAtLength(path.getTotalLength() * progress);
+      p.setAttribute('cx', String(point.x));
+      p.setAttribute('cy', String(point.y));
+      p.setAttribute('opacity', '0.9');
+    });
+  }
+
+  private handleNodeSelect(id: string): void {
+    if (this.selectedId === id) {
+      this.clearSelection();
+
+    } else {
+      this.selectNode(id);
+
+    }
+  }
+
+  private selectNode(id: string): void {
+    this.selectedId = id;
+
+    this.svg!.querySelectorAll<SVGGElement>('.node.active').forEach((n) => {
+      n.classList.remove('active');
+      n.setAttribute('aria-pressed', 'false');
+    });
+    this.edges.forEach((e) => e.classList.remove('active'));
+
+    const node = this.svg!.querySelector<SVGGElement>('#diagram-' + CSS.escape(id));
+    if (!node || !this.details[id]) return;
+
+    node.classList.add('active');
+    node.setAttribute('aria-pressed', 'true');
+    this.edges.forEach((e) => {
+      if (e.getAttribute('data-from') === id || e.getAttribute('data-to') === id) {
+        e.classList.add('active');
+      }
+    });
+
+    if (this.detailLabel) this.detailLabel.textContent = this.details[id].label;
+    if (this.detailText) this.detailText.textContent = this.details[id].detail;
+    if (this.detailArea) this.detailArea.classList.add('has-selection');
+
+    this.panToNode(node);
+
+    if (this.shouldAnimate() && this.rafId === null) {
+      this.startAnimation();
+    }
+  }
+
+  private clearSelection(): void {
+    this.selectedId = null;
+    this.svg!.querySelectorAll<SVGGElement>('.node.active').forEach((n) => {
+      n.classList.remove('active');
+      n.setAttribute('aria-pressed', 'false');
+    });
+    this.edges.forEach((e) => e.classList.remove('active'));
+
+    if (this.detailArea) this.detailArea.classList.remove('has-selection');
+    if (this.detailLabel) this.detailLabel.textContent = '';
+    if (this.detailText) this.detailText.textContent = '';
+
+    if (this.shouldAnimate() && this.rafId === null) {
+      this.startAnimation();
+    }
+  }
+
+  private panToNode(node: SVGGElement): void {
+    if (!this.scrollArea || !this.viewport || !window.matchMedia('(max-width: 768px)').matches) return;
+    try {
+      const bbox = node.getBBox();
+      const viewportRect = this.viewport.getBoundingClientRect();
+      const nodeRect = node.getBoundingClientRect();
+      if (bbox.width > 0) {
+        const nodeCenter = nodeRect.left + nodeRect.width / 2;
+        const currentFocal = viewportRect.left + this.scrollArea.clientWidth / 2;
+        const delta = nodeCenter - currentFocal;
+        this.scrollArea.scrollLeft = this.scrollArea.scrollLeft + delta;
+      }
+    } catch (e) {
+      /* geometry unavailable */
+    }
   }
 }
 

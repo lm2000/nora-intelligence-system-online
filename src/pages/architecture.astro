@@ -2,7 +2,6 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import OriginalIndex from '../components/OriginalIndex.astro';
 import Diagram from '../components/Diagram.astro';
-import { Content } from '../content/architecture.md';
 import { href } from '../lib/constants.mjs';
 import walkthroughs from '../data/walkthroughs.json';
 
@@ -33,7 +32,7 @@ const indexEntries = [
         </ul>
         <div class="hero-actions hero-actions--foundation">
           <a class="button button--primary" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow the request path <span aria-hidden="true">→</span></a>
-          <a class="button button--ghost" href="https://github.com/lm2000/nora-intelligence-system-online/blob/main/README.md" target="_blank" rel="noreferrer">Project overview on GitHub</a>
+          <a class="button button--ghost" href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/10bd370c711afabdfc7b23b516911c31ff58bcb4/README.md" target="_blank" rel="noreferrer">Nora source on GitHub</a>
         </div>
       </div>
       <OriginalIndex tagline="Architecture" entries={indexEntries} ariaLabel="Architecture navigation" />
@@ -49,15 +48,16 @@ const indexEntries = [
         </div>
         <p>Coordination handles inference and retrieval directly: the question enters through the Browser UI or embedded tool, retrieval finds prepared passages, and the answer is produced while the checkpoint is retained.</p>
       </div>
-      <figure class="diagram-figure diagram-figure--architecture diagram-figure--component" aria-labelledby="request-path-heading">
+      <div class="diagram-figure--component" aria-labelledby="request-path-heading">
         <Diagram
+          showTitle={false}
           previewSrc="/diagrams/architecture-request-path-preview.svg"
           title="Request path"
           htmlUrl="/diagrams/architecture-request-path.html"
           alt="Architecture request path diagram"
           caption="The request path shows how Coordination handles inference and retrieval directly."
         />
-      </figure>
+      </div>
     </div>
   </section>
 
@@ -70,15 +70,16 @@ const indexEntries = [
         </div>
         <p>Browser access, MCP access, retrieval, and manual ingestion carry separate responsibilities. Browser UI connects directly to Coordination, while MCP clients separately use the gateway to embedded FastMCP.</p>
       </div>
-      <figure class="diagram-figure diagram-figure--architecture diagram-figure--component" aria-labelledby="system-map-heading">
+      <div class="diagram-figure--component" aria-labelledby="system-map-heading">
         <Diagram
+          showTitle={false}
           title="System architecture"
           previewSrc="/diagrams/01-system-architecture-preview.svg"
           htmlUrl="/diagrams/01-system-architecture.html"
           alt="System architecture diagram showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP."
           caption="Browser UI connects directly to Coordination, while MCP clients separately use the gateway to embedded FastMCP."
         />
-      </figure>
+      </div>
     </div>
   </section>
 
@@ -91,15 +92,16 @@ const indexEntries = [
         </div>
         <p>Conversion, preparation, embedding, and import are operator-triggered jobs. They run separately from the conversation flow to prepare documents and the retrieval index.</p>
       </div>
-      <figure class="diagram-figure diagram-figure--architecture diagram-figure--component" aria-labelledby="manual-ingestion-heading">
+      <div class="diagram-figure--component" aria-labelledby="manual-ingestion-heading">
         <Diagram
+          showTitle={false}
           previewSrc="/diagrams/manual-ingestion-preview.svg"
           htmlUrl="/diagrams/manual-ingestion.html"
           title="Manual ingestion"
           alt="Manual ingestion pipeline diagram"
           caption="Manual ingestion runs outside the conversation flow to prepare text for retrieval."
         />
-      </figure>
+      </div>
     </div>
   </section>
 
@@ -108,28 +110,48 @@ const indexEntries = [
       <div class="foundation-copy">
         <p class="section-label">Decisions &amp; tradeoffs</p>
         <h2>Architecture decisions and tradeoffs.</h2>
-        <p>For full details on architectural decisions and tradeoffs, see the Decisions route.</p>
+        <p>The diagrams above cover the request path, the component map, and manual ingestion. The accepted choices and tradeoffs behind them are recorded separately, with dated checks and reproduction steps.</p>
         <a class="text-link" href={href('/decisions/')}>Review decisions and tradeoffs <span aria-hidden="true">→</span></a>
       </div>
-      <div class="architecture-reference">
-        <h3 class="visually-hidden">Architecture reference</h3>
-        <Content />
-      </div>
+      <nav class="architecture-related" aria-label="Architecture related reading">
+        <h3 id="purpose">Conversation contract</h3>
+        <p>What the assistant is for and how it answers: see the <a href={href('/decisions/')}>accepted conversation contract</a> on the Decisions page.</p>
+        <h3 id="example">Follow a request</h3>
+        <p>Follow the fictional Atlas example in the <a href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>request walkthrough</a>.</p>
+        <h3 id="approach-and-tradeoffs">Accepted decisions</h3>
+        <p>Model routing, request bounds, and ingestion ownership: read the <a href={href('/decisions/')}>accepted execution decisions</a>.</p>
+        <h3 id="boundaries-and-recovery">Evidence and limits</h3>
+        <p>What was checked and what remains open: see <a href={href('/validation/')}>known limits and bounded follow-up</a>.</p>
+        <h3 id="reference">Run the source</h3>
+        <p>Run the checks yourself: <a href={href('/reproduce/')}>reproduction commands</a>. Read the <a href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/10bd370c711afabdfc7b23b516911c31ff58bcb4/architecture/Architecture%20Concept.md">pinned architecture concept</a>.</p>
+      </nav>
     </div>
   </section>
 </SiteLayout>
 <style>
-.architecture-reference :global(p) {
+.architecture-related {
+  max-width: 38ch;
+}
+.architecture-related h3 {
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  margin: 1.4em 0 0.35em;
+  color: var(--ink);
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+.architecture-related h3:first-child {
+  margin-top: 0;
+}
+.architecture-related p {
   color: #a6bac6;
   font-size: 1rem;
   line-height: 1.7;
-  max-width: 66ch;
+  margin: 0;
 }
-.architecture-reference :global(h2) {
-  font-size: 1.25rem;
-  margin-top: 1.8em;
+.architecture-related a {
+  color: var(--color-muted-blue);
 }
-.architecture-reference :global(ul),
-.architecture-reference :global(ol) { max-width: 66ch; }
-.architecture-reference :global(a) { color: var(--color-muted-blue); }
+.architecture-related a:hover {
+  color: var(--teal-light);
+}
 </style>

@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 // legacy/source is archival input, not active pages. No external fetch/build-time Git dependency.
-const baseline = JSON.parse(fs.readFileSync('legacy/source-revision.json', 'utf-8')).revision || 'ea6c161';
 const legacySourceDir = path.resolve('legacy/source');
 const SITE_BASE = (process.env.SITE_BASE || '/').replace(/^\/+|\/+$/g, '');
 const BASE_PREFIX = SITE_BASE ? '/' + SITE_BASE : '';
@@ -129,7 +128,7 @@ for (const file of files) {
         return m;
       });
 
-      html = html.replace(/(href|src)\s*=\s*(["'])([^"']*)\2/gi, (m, attr, q, p) => transformAttr(attr, q, p));
+      html = html.replace(/(href|src)\s*=\s*(["'])([^"']*)\2/gi, (_match, attr, q, p) => transformAttr(attr, q, p));
 
       const notice = '<div style="padding:1rem;background:#eee;border-bottom:1px solid #ccc;font-size:0.9rem;">Archived historical content. <a href="' + BASE_PREFIX + '/">View current homepage</a>.</div>';
       html = html.replace(/<body([^>]*)>/i, `<body$1>${notice}`);

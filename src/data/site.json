@@ -1,10 +1,8 @@
 {
   "home": {
-    "heading": "One assistant.",
-    "headingEmphasis": "Clear service boundaries.",
-    "intro": "Explore how a knowledge assistant retrieves prepared documents, produces an answer, and keeps conversation state.",
-    "exampleQuestion": "What still blocks the Atlas release?",
-    "exampleAnswer": "The load test and rollback rehearsal remain."
+    "heading": "Building knowledge assistants and",
+    "headingEmphasis": "practical AI systems.",
+    "intro": "I lead an independent lab building knowledge assistants and practical AI systems. Nora is my current knowledge-assistant project, built around retrieval, tool use, and durable conversation state."
   },
   "founders": [
     {
@@ -31,7 +29,7 @@
   ],
   "contact": {
     "heading": "Have a role or project in mind?",
-    "body": "For technical leadership roles and AI or data-platform projects, get in touch with Michael.",
+    "body": "If you have a technical leadership role or AI or data-platform project in mind, I’d be glad to hear about it.",
     "links": [
       {
         "label": "Discuss a role or project",
