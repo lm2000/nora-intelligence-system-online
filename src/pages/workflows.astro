@@ -46,13 +46,13 @@ import { href } from '../lib/constants.mjs';
     </ol>
     <p class="diagram-hint" id="review-hint">Scroll sideways to explore the diagram.</p>
     <div class="diagram-scroll" tabindex="0" role="region" aria-label="Review cycle diagram" aria-describedby="review-hint">
-      <iframe src={href('/diagrams/artifact-review-flow.html?embed=1&theme=dark')} title="Artifact review and revision cycle" loading="lazy"></iframe>
+      <iframe src={href('/diagrams/artifact-review-flow.html?embed=1&theme=light')} title="Artifact review and revision cycle" loading="lazy"></iframe>
     </div>
 
     <h2 id="harness">Where it fits</h2>
     <p class="diagram-hint" id="harness-hint">Scroll sideways to explore the diagram.</p>
     <div class="diagram-scroll" tabindex="0" role="region" aria-label="Harness workflow map" aria-describedby="harness-hint">
-      <iframe class="harness-map" src={href('/diagrams/harness-workflows.html?embed=1&theme=dark')} title="Knowledge update, question answering and artifact review within the harness" loading="lazy"></iframe>
+      <iframe class="harness-map" src={href('/diagrams/harness-workflows.html?embed=1&theme=light')} title="Knowledge update, question answering and artifact review within the harness" loading="lazy"></iframe>
     </div>
     <p><strong>Retrieval quality</strong> asks whether the right evidence was found. <strong>Artifact quality</strong> asks whether the generated work uses that evidence accurately and serves the task. Keep the two evaluations separate.</p>
     <p>Fireworks reviews supplied feedback in a separate document-preparation project. Custom Harbor Hub tasks and a Hugging Face Inference Providers adapter were also explored; their pilots did not produce substantive reviews. These are execution options, not mandatory harness dependencies or evidence of measured quality improvement.</p>
@@ -72,8 +72,7 @@ import { href } from '../lib/constants.mjs';
   dd { margin: .35rem 0 0; }
   .diagram-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; margin: 28px 0; }
   .diagram-scroll:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
-  iframe { display: block; width: 100%; min-width: 1100px; height: 480px; border: 0; background: var(--navy); }
-  .harness-map { height: 660px; }
-  .diagram-hint { display: none; }
-  @media (max-width: 1200px) { .diagram-hint { display: block; font-size: 14px; margin-bottom: -14px; } }
+  iframe { display: block; width: 100%; min-width: 1400px; height: 590px; border: 0; background: #fff; }
+  .harness-map { height: 800px; }
+  .diagram-hint { display: block; font-size: 14px; margin-bottom: -14px; }
 </style>
