@@ -1,0 +1,39 @@
+{
+  "kind": "local-editorial-draft",
+  "date": "2026-10-16",
+  "guide": "architecture/case-study/README.md",
+  "historical_tested_candidate": "sha256:e0df7be8477f9fd10a3b40eff9532996ea330d391c1a9f0036bc7d5beda01aad",
+  "state": "Unpublished source candidate; existing public reference pin unchanged; no deployment claim",
+  "files": [
+    {
+      "source": "architecture/diagrams/case-system.html",
+      "website": "public/diagrams/case-system.html",
+      "sha256": "4b8d81db557f5718baee1c2c3ba194d37e876661f9e0b9dbe94e0f75fa5e9596"
+    },
+    {
+      "source": "architecture/diagrams/case-system.gif",
+      "website": "public/diagrams/case-system.gif",
+      "sha256": "2af67f25c6efaf20810a98114922eb3318344a0630ab200ea1e8fbda1f3a12aa"
+    },
+    {
+      "source": "architecture/diagrams/case-evolution.html",
+      "website": "public/diagrams/case-evolution.html",
+      "sha256": "578eed7c8a9dd09f03076ffa875635a2035a0e4a8f8e6d8d12f99307b0eec538"
+    },
+    {
+      "source": "architecture/diagrams/case-evolution.gif",
+      "website": "public/diagrams/case-evolution.gif",
+      "sha256": "7b77f8299bbac13e3547b04200e35723ee594600a9c41ec7040b42d867225916"
+    },
+    {
+      "source": "architecture/diagrams/case-request.html",
+      "website": "public/diagrams/case-request.html",
+      "sha256": "52863fc5b49ba3f4d66fbf0feacf88a5f03a517e1bc93c9f0b392f8c42150922"
+    },
+    {
+      "source": "architecture/diagrams/case-request.gif",
+      "website": "public/diagrams/case-request.gif",
+      "sha256": "d0d79a517bbb8d087e3fb878868910980f0d27469b2e1983e78d5200c5066b56"
+    }
+  ]
+}

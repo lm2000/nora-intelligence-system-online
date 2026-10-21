@@ -32,7 +32,7 @@ const indexEntries = [
         </ul>
         <div class="hero-actions hero-actions--foundation">
           <a class="button button--primary" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow the request path <span aria-hidden="true">→</span></a>
-          <a class="button button--ghost" href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/10bd370c711afabdfc7b23b516911c31ff58bcb4/README.md" target="_blank" rel="noreferrer">Nora source on GitHub</a>
+          <a class="button button--ghost" href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/main/README.md" target="_blank" rel="noreferrer">Nora source on GitHub</a>
         </div>
       </div>
       <OriginalIndex tagline="Architecture" entries={indexEntries} ariaLabel="Architecture navigation" />
@@ -122,6 +122,10 @@ const indexEntries = [
         <p>Model routing, request bounds, and ingestion ownership: read the <a href={href('/decisions/')}>accepted execution decisions</a>.</p>
         <h3 id="boundaries-and-recovery">Evidence and limits</h3>
         <p>What was checked and what remains open: see <a href={href('/validation/')}>known limits and bounded follow-up</a>.</p>
+        <h3>Workflows</h3>
+        <p>See how <a href={href('/workflows/')}>artifact evaluation and revision</a> adds task-specific LLM feedback and human decisions alongside knowledge workflows.</p>
+        <h3>How NIS was built</h3>
+        <p>Read the <a href={href('/case-study/')}>engineering build story</a>: the problem, architectural alternatives, AI-assisted implementation and evidence.</p>
         <h3 id="reference">Run the source</h3>
         <p>Run the checks yourself: <a href={href('/reproduce/')}>reproduction commands</a>. Read the <a href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/10bd370c711afabdfc7b23b516911c31ff58bcb4/architecture/Architecture%20Concept.md">pinned architecture concept</a>.</p>
       </nav>

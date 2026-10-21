@@ -11,11 +11,11 @@ import { Content } from '../content/validation.md';
     <Content />
   </article>
 </SiteLayout>
-<style>
-.content-page { padding-top: 40px; padding-bottom: 40px; }
-.content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
-.content-page :global(h2) { margin-top: 2.5em; }
-.content-page .page-intro { scroll-margin-top: calc(var(--header-height) + 24px); font-size: 18px; line-height: 1.7; max-width: 66ch; color: var(--ink-soft); }
+<style is:global>
+.content-page[data-supporting-page="validation"] { padding-top: 40px; padding-bottom: 40px; }
+.content-page[data-supporting-page="validation"] p { font-size: 18px; line-height: 1.7; max-width: 66ch; }
+.content-page[data-supporting-page="validation"] h2 { margin-top: 2.5em; }
+.content-page[data-supporting-page="validation"] .page-intro { scroll-margin-top: calc(var(--header-height) + 24px); font-size: 18px; line-height: 1.7; max-width: 66ch; color: var(--ink-soft); }
 .validation-table-wrap {
   max-width: 100%;
   margin-top: 28px;

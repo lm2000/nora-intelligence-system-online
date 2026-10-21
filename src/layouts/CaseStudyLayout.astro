@@ -1,0 +1,73 @@
+---
+import SiteLayout from './SiteLayout.astro';
+import PageIndex from '../components/PageIndex.astro';
+import Diagram from '../components/Diagram.astro';
+import { href } from '../lib/constants.mjs';
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  diagram?: string;
+  diagramAlt?: string;
+}
+const { title, description, slug, diagram, diagramAlt } = Astro.props;
+const chapters = [
+  ['', 'The build story'],
+  ['evolution', 'Architecture evolution'],
+  ['choices', 'Tools and routing'],
+  ['learning', 'AI and evidence'],
+  ['career', 'Research into a resume'],
+];
+const position = chapters.findIndex(([key]) => key === slug);
+const next = chapters[position + 1];
+const previous = chapters[position - 1];
+const chapterPath = (key: string) => href(`/case-study/${key ? key + '/' : ''}`);
+---
+<SiteLayout title={`${title} — Nora SuperIntelligence Lab`} description={description} path={`/case-study/${slug ? slug + '/' : ''}`}>
+  <article class="shell build-story">
+    <a class="back-link" href={href('/architecture/')}>NIS architecture</a>
+    <header class="story-heading">
+      <h1>{title}</h1>
+      <p class="story-intro">{description}</p>
+      <p class="draft-note">Design record · 16 October 2026. The direct-provider route is a source candidate, not a deployed cutover.</p>
+    </header>
+    <PageIndex />
+    <nav class="chapter-nav" aria-label="Build story chapters">
+      <ol>{chapters.map(([key, label]) => <li><a href={chapterPath(key)} aria-current={key === slug ? 'page' : undefined}>{label}</a></li>)}</ol>
+    </nav>
+    {diagram && <div class="story-diagram">
+      <Diagram previewSrc={`/diagrams/${diagram}.gif`} htmlUrl={`/diagrams/${diagram}.html`} alt={diagramAlt || title} title={diagramAlt || title} purpose="Select a component for its responsibility and trade-off. This diagram explains the design, not measured performance." />
+    </div>}
+    <div class="story-prose"><slot /></div>
+    <nav class="chapter-pager" aria-label="Continue the story">
+      {previous && <a href={chapterPath(previous[0])}>Previous: {previous[1]}</a>}
+      {next && <a href={chapterPath(next[0])}>Next: {next[1]}</a>}
+    </nav>
+  </article>
+</SiteLayout>
+<style>
+.build-story { padding-block: 44px 80px; }
+.back-link { display: inline-flex; align-items: center; min-height: 44px; }
+.story-heading { max-width: 820px; margin-block: 22px 32px; }
+h1 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.12; letter-spacing: -.035em; text-wrap: balance; }
+.story-intro { font-size: 1.2rem; line-height: 1.6; color: var(--ink-soft); max-width: 65ch; }
+.draft-note { font-size: .9rem; line-height: 1.6; color: var(--ink-soft); }
+.chapter-nav { border-block: 1px solid var(--line); margin-block: 28px 40px; }
+.chapter-nav ol { display: flex; flex-wrap: wrap; list-style: none; padding: 8px 0; margin: 0; gap: 0 24px; }
+.chapter-nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+.chapter-nav a[aria-current] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--teal-light); text-underline-offset: 8px; }
+.story-diagram { margin-block: 32px 48px; }
+.story-prose { max-width: 74ch; font-size: 1.08rem; line-height: 1.75; overflow-wrap: anywhere; }
+.story-prose :global(p), .story-prose :global(ul), .story-prose :global(ol) { max-width: 70ch; }
+.story-prose :global(h2) { margin: 2.5em 0 .8em; font-size: 1.7rem; line-height: 1.25; text-wrap: balance; }
+.story-prose :global(h3) { margin: 1.8em 0 .65em; font-size: 1.25rem; }
+.story-prose :global(table) { display: block; max-width: 100%; overflow-x: auto; font-size: .93rem; line-height: 1.55; }
+.story-prose :global(th), .story-prose :global(td) { padding: 12px; min-width: 140px; vertical-align: top; }
+.story-prose :global(blockquote) { margin-inline: 0; padding: 18px 22px; border: 1px solid var(--line); color: var(--ink-soft); }
+.chapter-pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; border-top: 1px solid var(--line); padding-top: 24px; margin-top: 54px; }
+.chapter-pager a { display: inline-flex; align-items: center; min-height: 44px; }
+@media(min-width:1081px) and (max-width:1599px) { .build-story { padding-right: 190px; } }
+@media(min-width:1600px) { .build-story { max-width: calc(100% - 400px); } }
+@media(max-width:700px) { .build-story { padding-top: 24px; } .chapter-nav ol { display: block; } .chapter-nav a { width: 100%; } .story-prose { font-size: 1rem; } }
+</style>

@@ -1,0 +1,13 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import type { MarkdownInstance } from 'astro';
+
+type StoryMeta = { title: string; description: string; slug: string; diagram?: string; diagramAlt?: string };
+export function getStaticPaths() {
+  const pages = import.meta.glob<MarkdownInstance<StoryMeta>>('../../content/case-study/*.md', { eager: true });
+  return Object.values(pages).map(page => ({ params: { chapter: page.frontmatter.slug || undefined }, props: { page } }));
+}
+const { page } = Astro.props;
+const { Content, frontmatter } = page;
+---
+<CaseStudyLayout {...frontmatter}><Content /></CaseStudyLayout>

@@ -1,0 +1,60 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageIndex from '../components/PageIndex.astro';
+import { href } from '../lib/constants.mjs';
+---
+<SiteLayout title="Workflows — Nora SuperIntelligence Lab" description="Artifact evaluation and revision: task-specific LLM feedback, human decisions and better drafts." path="/workflows/">
+  <article class="container content-page" data-supporting-page="workflows">
+    <h1>Workflows</h1>
+    <p class="page-intro">One harness can support different tasks. Knowledge ingestion prepares sources; question answering uses them; artifact review helps improve work before delivery.</p>
+    <PageIndex />
+
+    <h2 id="example">Atlas: one review decision</h2>
+    <p>The fictional Atlas plan requires a passing load test and a completed rollback rehearsal. A draft briefing mentions only the load test.</p>
+    <dl>
+      <dt>“Add the rollback rehearsal.”</dt>
+      <dd>Accept: it is an explicit source requirement. Add it to the next version.</dd>
+      <dt>“Promise release will take five minutes.”</dt>
+      <dd>Reject: the source provides no duration. Keep the timing unknown.</dd>
+      <dt>“Add an open-questions section.”</dt>
+      <dd>If the current version already has one, mark the suggestion already resolved.</dd>
+    </dl>
+    <p>Preparation-material review is another use case. Missing personal evidence stays a question, not an invented fact. Several perspectives from one model are correlated opinions, not independent experts.</p>
+
+    <h2 id="artifact-review">Artifact evaluation and revision</h2>
+    <p>A draft briefing, guide or analysis can receive task-specific LLM feedback before its owner decides what to change. The review informs a decision; it does not automatically rewrite the artifact.</p>
+    <ol>
+      <li><strong>Prepare:</strong> freeze the draft, task, evidence and criteria.</li>
+      <li><strong>Review:</strong> ask for findings from selected perspectives.</li>
+      <li><strong>Decide:</strong> compare the feedback with the sources and current artifact.</li>
+      <li><strong>Revise or retain:</strong> apply useful corrections, or keep the artifact unchanged.</li>
+      <li><strong>Deliver:</strong> reassess when useful; the owner accepts the result.</li>
+    </ol>
+    <p class="diagram-hint" id="review-hint">Scroll sideways to explore the diagram.</p>
+    <div class="diagram-scroll" tabindex="0" role="region" aria-label="Review cycle diagram" aria-describedby="review-hint">
+      <iframe src={href('/diagrams/artifact-review-flow.html?embed=1&theme=dark')} title="Artifact review and revision cycle" loading="lazy"></iframe>
+    </div>
+
+    <h2 id="harness">Where it fits</h2>
+    <p class="diagram-hint" id="harness-hint">Scroll sideways to explore the diagram.</p>
+    <div class="diagram-scroll" tabindex="0" role="region" aria-label="Harness workflow map" aria-describedby="harness-hint">
+      <iframe class="harness-map" src={href('/diagrams/harness-workflows.html?embed=1&theme=dark')} title="Knowledge update, question answering and artifact review within the harness" loading="lazy"></iframe>
+    </div>
+    <p><strong>Retrieval quality</strong> asks whether the right evidence was found. <strong>Artifact quality</strong> asks whether the generated work uses that evidence accurately and serves the task. Keep the two evaluations separate.</p>
+    <p>Fireworks reviews supplied feedback in a separate document-preparation project. Custom Harbor Hub tasks and a Hugging Face Inference Providers adapter were also explored; their pilots did not produce substantive reviews. These are execution options, not mandatory harness dependencies or evidence of measured quality improvement.</p>
+    <p>Explore the <a href={href('/architecture/')}>architecture</a>, follow a <a href={href('/walkthroughs/')}>knowledge walkthrough</a>, or read the <a href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/main/workflows/artifact-review/README.md">artifact-review guide in the public Harness</a>.</p>
+  </article>
+</SiteLayout>
+<style>
+  .content-page { padding-top: 40px; padding-bottom: 64px; min-width: 0; }
+  p, li, dd { font-size: 18px; line-height: 1.7; max-width: 66ch; color: var(--ink-soft); }
+  h2 { margin-top: 2.5em; scroll-margin-top: calc(var(--header-height) + 24px); }
+  dt { margin-top: 1.2rem; font-weight: 700; }
+  dd { margin: .35rem 0 0; }
+  .diagram-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; margin: 28px 0; }
+  .diagram-scroll:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+  iframe { display: block; width: 100%; min-width: 1100px; height: 480px; border: 0; background: var(--navy); }
+  .harness-map { height: 660px; }
+  .diagram-hint { display: none; }
+  @media (max-width: 1200px) { .diagram-hint { display: block; font-size: 14px; margin-bottom: -14px; } }
+</style>

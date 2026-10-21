@@ -1,0 +1,21 @@
+{
+  "scope": "Local artifact-review workflow presentation; copied from the owning harness checkout. Does not change the established source pin.",
+  "files": {
+    "public/diagrams/artifact-review-flow.html": {
+      "source": "architecture/diagrams/artifact-review-flow.html",
+      "sha256": "b05edbea82e30317bc8c7557ff608893d49aa06a0a3085ade25b1a9d818b248e"
+    },
+    "public/diagrams/artifact-review-flow.gif": {
+      "source": "architecture/diagrams/artifact-review-flow.gif",
+      "sha256": "3125235f24059d68d332b9fdd58cbe1aba9770cd4fae3c542721eb8537a55f3d"
+    },
+    "public/diagrams/harness-workflows.html": {
+      "source": "architecture/diagrams/harness-workflows.html",
+      "sha256": "81525c4e2b04b22c6eb5928332c680a6afc7e654e7a71a4c894563a4e604b78d"
+    },
+    "public/diagrams/harness-workflows.gif": {
+      "source": "architecture/diagrams/harness-workflows.gif",
+      "sha256": "2cbe0e5a2b3f8fe1135bc027ffa5abfcfc82191f1e3fbd497b37eb61b4a73733"
+    }
+  }
+}
