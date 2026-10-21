@@ -159,7 +159,9 @@ The main navigation contains Home, Architecture, Walkthroughs, Workflows, Use ca
 
 ## Home as lab overview
 
-Home uses the original hero, grid/glows, section bands, and numbered index to introduce the lab and one current project. Its five sections are Overview, Current work, Approach, People, and Contact. Architecture owns the service diagrams; Walkthroughs owns the fictional Atlas example. Home's headline and intro use the approved independent-lab copy, with Explore Nora as the primary action and Follow a walkthrough as the secondary action. Home has no embedded technical diagram or full founder biography.
+The Current work section uses a compact dark inline architecture map adapted from the detailed system diagram. It shows separate browser and MCP entrances, the assistant, its retrieval/inference/checkpoint services, and manual knowledge preparation. Keep the complete map on Architecture; the Home version links to it.
+
+Home uses the original hero, grid/glows, section bands, and numbered index to introduce the lab and one current project. Its five sections are Overview, Current work, Approach, People, and Contact. Architecture owns the detailed service diagrams; Walkthroughs owns the fictional Atlas example. Home's headline and intro use the approved independent-lab copy, with Explore the architecture as the primary action and Follow a walkthrough as the secondary action. Home keeps the compact map and a brief founder introduction.
 
 ## Compact profile and supporting-page layout
 

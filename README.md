@@ -6,7 +6,7 @@ This repository contains the static Astro website for the Nora SuperIntelligence
 
 Give technical interviewers a guided view of the Nora SuperIntelligence Lab: service boundaries, request and ingestion paths, design decisions, validation, and reproduction instructions.
 
-Home introduces the independent lab, its current Nora knowledge-assistant project, working approach, people, and contact. Architecture owns the technical diagrams. The walkthrough retains the fictional Atlas example: “What still blocks the Atlas release?” → “The load test and rollback rehearsal remain.” It does not call a model or describe a real release.
+Home introduces the independent lab, its current Nora knowledge-assistant project, a simplified map of the published Harness architecture, working approach, people, and contact. Architecture owns the detailed technical diagrams. The walkthrough retains the fictional Atlas example: “What still blocks the Atlas release?” → “The load test and rollback rehearsal remain.” It does not call a model or describe a real release.
 
 ## Commands
 

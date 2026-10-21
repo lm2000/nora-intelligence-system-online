@@ -12,7 +12,7 @@ Omit calendar dates from visible public page copy, bylines, and evidence tables.
 
 Main navigation is Home, Architecture, Walkthroughs, Workflows, Use cases, and Founders, each on a separate page with its own numbered content index. Keep supporting Decisions, Validation, and Reproduce pages reachable through relevant content and the footer; do not restore Explore. Use compact mobile “On this page” disclosures. The walkthrough index owns its active flow's step selection and must preserve query deep links, browser history, and previous/next/reset behavior.
 
-Home introduces the independent lab, current Nora project, working approach, people, and contact. Keep detailed service architecture and diagrams on Architecture and fictional Atlas examples on Walkthroughs. Preserve Home anchors overview, example (Current work), system-map (Approach), founders (People), and contact.
+Home introduces the independent lab, current Nora project, working approach, people, and contact. Its Current work section includes a compact inline map adapted from the pinned system architecture; keep detailed service architecture and diagrams on Architecture and fictional Atlas examples on Walkthroughs. Preserve Home anchors overview, example (Current work), system-map (Approach), founders (People), and contact.
 
 AI Harness Landscape is a supporting research case study at /case-studies/ai-harness-landscape/, linked by a card under Home's Current work. Keep its own floating index and a selected Use cases parent tab. Attribute vendor capabilities to public sources and distinguish comparison questions from measured results.
 

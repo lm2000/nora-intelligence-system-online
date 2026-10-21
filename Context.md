@@ -1,5 +1,18 @@
 # Project Context
 
+## Home architecture summary — 2026-10-21
+
+Replaced Home's text-only request list with a compact inline SVG derived from
+the pinned system architecture. It keeps browser and MCP entrance paths,
+assistant output, retrieval, inference, checkpoints, and manual ingestion
+visible while linking to the full Architecture map. The original source
+diagram and its manifest remain unchanged. Local checks passed: 15 tests,
+zero Astro diagnostics, root and GitHub Pages builds, and 766 links across 44
+files on each build. Headless Chromium found no page overflow or errors at
+1280, 1440, 1600, 1920, 390, and 320px; desktop screenshots confirmed that
+the map stays clear of the floating index. This change is local; publication
+is separate.
+
 ## Workflows in primary navigation — 2026-10-21
 
 Workflows is now a main tab between Walkthroughs and Use cases. The six links

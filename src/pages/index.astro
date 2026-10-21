@@ -2,6 +2,7 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import OriginalIndex from '../components/OriginalIndex.astro';
 import EmailAddress from '../components/EmailAddress.astro';
+import HomeArchitectureMap from '../components/HomeArchitectureMap.astro';
 import { href } from '../lib/constants.mjs';
 import site from '../data/site.json';
 import walkthroughs from '../data/walkthroughs.json';
@@ -45,12 +46,7 @@ const indexEntries = [
         </div>
         <p>The project explores how an assistant can work with prepared knowledge, use tools, and retain conversation state. Its public harness makes the architecture and checks available to examine.</p>
       </div>
-      <div class="home-process" aria-labelledby="home-process-title">
-        <h3 id="home-process-title">From question to inspectable answer.</h3>
-        <ol class="home-process__flow" aria-label="Knowledge-assistant request flow">
-          <li>Question</li><li>Prepared knowledge</li><li>Tools</li><li>Conversation state</li><li>Inspectable answer</li>
-        </ol>
-      </div>
+      <HomeArchitectureMap />
       <div class="hero-actions home-actions">
         <a class="text-link" href={href('/architecture/')}>Architecture <span aria-hidden="true">→</span></a>
         <a class="text-link" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Walkthroughs <span aria-hidden="true">→</span></a>
@@ -168,10 +164,4 @@ div.founder-entry > p { margin: 0; }
   line-height: 1.6;
 }
 
-.home-process { margin-block: 28px; }
-.home-process h3 { margin: 0 0 16px; font-size: 18px; }
-.home-process__flow { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0; margin: 0; list-style: none; counter-reset: request; }
-.home-process__flow li { display: flex; align-items: baseline; gap: 10px; counter-increment: request; color: var(--ink-soft); }
-.home-process__flow li::before { content: counter(request, decimal-leading-zero); color: var(--teal-light); font-size: 12px; font-weight: 700; }
-@media (max-width: 680px) { .home-process__flow { display: grid; gap: 12px; } }
 </style>
