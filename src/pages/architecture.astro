@@ -70,6 +70,7 @@ const indexEntries = [
         </div>
         <p>The map makes ownership explicit. Browser UI connects directly to Coordination, while MCP clients separately use the gateway to embedded FastMCP; Retrieval and conversation state remain separate services.</p>
       </div>
+      <p class="architecture-version">This diagram shows the pinned public Harness snapshot, where MCP clients use the LiteLLM gateway. <a href={href('/case-study/evolution/')}>Compare the later direct-API design</a>.</p>
       <div class="diagram-figure--component" aria-labelledby="system-map-heading">
         <Diagram
           showTitle={false}
@@ -133,6 +134,11 @@ const indexEntries = [
   </section>
 </SiteLayout>
 <style>
+.architecture-version {
+  max-width: 70ch;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
 .architecture-related {
   max-width: 38ch;
 }
