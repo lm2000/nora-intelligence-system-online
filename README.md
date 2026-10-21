@@ -36,20 +36,20 @@ To build for the root primary domain:
 pnpm build
 ```
 
-## Website Content Guidelines
+## Pages and sources
 
 - The website is a static build with in-page HTML diagram interactions and a guided fictional walkthrough. It has no live chat functionality.
-- Main navigation: Home, Architecture, Walkthroughs, Use cases, and Founders, each on its own page with its own index. Supporting technical pages remain accessible through contextual and footer links.
+- Main navigation: Home, Architecture, Walkthroughs, Use cases, and Founders, each on its own page with its own index. Supporting pages include Decisions, Validation, Reproduce, [Workflows](src/pages/workflows.astro), and the [engineering build story](src/content/case-study/readme.md).
 - Founder profile on `/founders/` is Michael Lvov (alone). The profile array lives in `src/data/site.json`.
 - Public contact supplied by owner: `mailto:michael.lm00@gmail.com`.
 - GitHub: `https://github.com/lm2000`.
 - Later, Alla may be appended *only* as a confirmed object with no placeholder.
 
-## Testing Harness
+## Harness source and diagrams
 
-The source harness is pinned to commit `10bd370c711afabdfc7b23b516911c31ff58bcb4`.
+The original Architecture, Validation, and Reproduce material uses public Harness snapshot `10bd370c711afabdfc7b23b516911c31ff58bcb4`; the header and Architecture hero link to the current public repository. Keep the historical pin for reproducible examples until those pages are deliberately refreshed.
 
-The `public/diagrams` directory contains 3 HTML/GIF pairs and derived preview SVGs. Their provenance and checksums are recorded in `src/data/source-manifest.json`.
+`public/diagrams` contains three pinned architecture HTML/GIF pairs and their derived preview SVGs, two workflow pairs, and three build-story pairs. Provenance is recorded in `src/data/source-manifest.json`, `src/data/workflow-sources.json`, and `src/data/case-study-sources.json`. The build story draws on a dated local source candidate; its status is stated on the pages.
 
 The historical website source at commit `ea6c16137977431b9535316c938b9473393fd2da` is preserved in `legacy/source/`. `pnpm build` generates its archive and legacy redirect files; it does not need Git history. Old presentation/video files already absent at that baseline are not restored.
 

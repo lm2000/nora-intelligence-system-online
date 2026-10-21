@@ -1,5 +1,31 @@
 # Project Context
 
+## Site reader route update — 2026-10-21
+
+Integrated the prepared Workflows and five-page build story into the local site. Home now links to both; Workflows names three scenarios before the Atlas review and cycle diagram. Architecture links to the pinned public Harness snapshot; the build story presents its direct-provider route as a design candidate. The current Validation card layout is retained.
+
+Local verification: 15 tests pass, Astro reports zero diagnostics, and root and GitHub Pages builds pass with 559 local links checked across 39 HTML files. The required-route check now includes Workflows and all five build-story routes. Headless browser readback covered all 13 current routes at 1600px and 390px with no page-level overflow or page errors; the mobile Workflows diagram pans by keyboard, and the chapter pager reaches the next story page. The original architecture diagrams were retained. This is local validation; production has not been changed by this update.
+
+Vercel review preview: https://nora-intelligence-system-online-4x73453is-nora-builders.vercel.app (deployment `dpl_F2dDwB1sebYzcfRqo5USVhzifVoG`, READY). Authenticated readback confirmed Home, Workflows, all five build-story routes, and the artifact-review diagram. This is a preview deployment; production was not promoted or changed.
+
+## Artifact evaluation workflow — 2026-10-21
+
+Added a local `/workflows/` presentation with the review/revision cycle, a harness
+workflow map and a fictional Atlas example. The existing page styles, main
+navigation, founder content and unrelated engineering-story draft are preserved.
+Architecture and the footer link to the page. Diagram source hashes are recorded
+in `src/data/workflow-sources.json`. Root build, 15 tests, zero Astro diagnostics
+and 563 local link checks pass. Browser checks at 1600px and 390px confirm the
+page/index, Architecture entry link, diagram interaction and contained horizontal
+panning on mobile. Screenshots were visually inspected after one mobile/index
+correction. No publication, deployment or paid review occurred.
+
+## Local engineering-story draft — 2026-10-16
+
+Added `/case-study/` with architecture evolution, tools/routing, AI-assisted work/evidence, and a sanitized market-research/resume chapter. The canonical guide is `architecture/case-study/` in the harness source candidate. Three matching HTML/GIF pairs use the existing inline Diagram component; original stylesheets, main navigation, founder data and existing source pin are retained. Architecture and the footer link to the story. The text distinguishes the used gateway from the accepted three-provider direct target, completed Hermes provider cleanup, historical synthetic checks and planned latency work. Private source evidence is excluded from the site.
+
+Local verification: root build and links, 15 existing tests and zero Astro diagnostics pass. Five story routes were checked at 1600px and 390px for containment, indexes, navigation and diagram keyboard details. This is local source/visual verification, not publication, deployment or owner acceptance. No live model/client benchmark or Career edit was performed by this content task. The pre-existing design sidecar is older than DESIGN.md; refreshing it is a separate optional documentation task.
+
 ## Confirmed website goal — 2026-09-19
 
 Help Michael succeed in technical interviews by giving interviewers following the link from his resume a clear, technically substantial architecture portfolio. The site should make his engineering reasoning easy to examine and give him concrete designs and tradeoffs to explain and discuss. Interview success is the desired outcome, not a guaranteed result.

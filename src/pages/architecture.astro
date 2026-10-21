@@ -24,6 +24,7 @@ const indexEntries = [
       <div class="hero-copy">
         <h1>One assistant. Clear service boundaries.</h1>
         <p class="hero-lede">Architecture shows the reusable system: who owns each responsibility, how a request moves, and why document preparation stays outside the conversation. The walkthrough applies those same boundaries to concrete scenarios.</p>
+        <p class="hero-snapshot"><strong>Published Harness snapshot:</strong> MCP clients use the LiteLLM gateway. <a href={href('/case-study/evolution/')}>See the later direct-API design</a>.</p>
         <ul class="hero-signals" aria-label="Design principles">
           <li>Single assistant</li>
           <li>Prepared knowledge</li>
@@ -69,6 +70,7 @@ const indexEntries = [
         </div>
         <p>The map makes ownership explicit. Browser UI connects directly to Coordination, while MCP clients separately use the gateway to embedded FastMCP; Retrieval and conversation state remain separate services.</p>
       </div>
+      <p class="architecture-version">This diagram shows the pinned public Harness snapshot, where MCP clients use the LiteLLM gateway. <a href={href('/case-study/evolution/')}>Compare the later direct-API design</a>.</p>
       <div class="diagram-figure--component" aria-labelledby="system-map-heading">
         <Diagram
           showTitle={false}
@@ -115,24 +117,30 @@ const indexEntries = [
         <div id="example"><a href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Walkthroughs</a><p>The fictional request and separate ingestion scenario.</p></div>
         <div id="boundaries-and-recovery"><a href={href('/validation/')}>Validation</a><p>Recorded checks and their limits.</p></div>
         <div id="reference"><a href={href('/reproduce/')}>Reproduce</a><p>Commands for the pinned public source.</p></div>
+        <div><a href={href('/workflows/')}>Workflows</a><p>Question answering, knowledge ingestion, and artifact review.</p></div>
+        <div><a href={href('/case-study/')}>Build story</a><p>Architecture choices, AI-assisted work, and evidence.</p></div>
       </nav>
     </div>
   </section>
 </SiteLayout>
 <style>
+.hero-snapshot {
+  max-width: 65ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.hero-snapshot strong { color: var(--ink); }
+.architecture-version {
+  max-width: 70ch;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
 .architecture-related {
   max-width: 38ch;
 }
-.architecture-related h3 {
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-  margin: 1.4em 0 0.35em;
-  color: var(--ink);
-  scroll-margin-top: calc(var(--header-height) + 24px);
-}
-.architecture-related h3:first-child {
-  margin-top: 0;
-}
+.architecture-related > div + div { margin-top: 1.25rem; }
 .architecture-related p {
   color: #a6bac6;
   font-size: 1rem;

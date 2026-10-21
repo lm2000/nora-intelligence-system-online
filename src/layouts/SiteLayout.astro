@@ -22,7 +22,7 @@ const canonicalPath = u.pathname.replace(/\/$/, '');
 const canonical = new URL(canonicalPath, canonicalDomain).href;
 const normalizedTitle = title.replace(/Nora Intelligence System/gi, SITE_NAME);
 const normalizedDescription = description.replace(/Nora Intelligence System/gi, SITE_NAME);
-const indexPaths = ['/decisions', '/validation', '/reproduce', '/case-studies/ai-harness-landscape'];
+const indexPaths = ['/decisions', '/validation', '/reproduce', '/workflows', '/case-studies/ai-harness-landscape'];
 const routePath = canonicalPath || '/';
 const showIndex = !customIndex && !routePath.includes('walkthroughs') && routePath !== '/404' && (routePath.startsWith('/case-studies/') || indexPaths.some(p => p === routePath));
 ---
