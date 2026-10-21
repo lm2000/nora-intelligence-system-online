@@ -28,11 +28,11 @@
 }
 
 /* Readable links on dark foundation palette (original body links inherit color). */
-main a:not(.button):not([class*="nav"]):not(.brand) {
+main a:not(.button):not(.cta):not([class*="nav"]):not(.brand) {
   color: var(--color-muted-blue);
 }
 
-main a:not(.button):hover {
+main a:not(.button):not(.cta):hover {
   color: var(--teal-light);
 }
 
