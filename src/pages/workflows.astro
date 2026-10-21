@@ -8,6 +8,20 @@ import { href } from '../lib/constants.mjs';
     <h1>Workflows</h1>
     <p class="page-intro">One harness can support different tasks. Knowledge ingestion prepares sources; question answering uses them; artifact review helps improve work before delivery.</p>
     <PageIndex />
+    <nav class="workflow-map" aria-label="Choose a workflow">
+      <a href={href('/walkthroughs/?flow=request')}>
+        <strong>Question answering</strong>
+        <span>Find evidence, give a supported answer, and retain the conversation.</span>
+      </a>
+      <a href={href('/walkthroughs/?flow=ingestion')}>
+        <strong>Knowledge ingestion</strong>
+        <span>Prepare and verify a knowledge release for later retrieval.</span>
+      </a>
+      <a href={href('#artifact-review')}>
+        <strong>Artifact review</strong>
+        <span>Get feedback, then let the owner decide what to revise.</span>
+      </a>
+    </nav>
 
     <h2 id="example">Atlas: one review decision</h2>
     <p>The fictional Atlas plan requires a passing load test and a completed rollback rehearsal. A draft briefing mentions only the load test.</p>
@@ -48,6 +62,11 @@ import { href } from '../lib/constants.mjs';
 <style>
   .content-page { padding-top: 40px; padding-bottom: 64px; min-width: 0; }
   p, li, dd { font-size: 18px; line-height: 1.7; max-width: 66ch; color: var(--ink-soft); }
+  .workflow-map { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 32px 0 40px; }
+  .workflow-map a { display: grid; align-content: start; gap: 8px; min-height: 128px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; text-decoration: none; }
+  .workflow-map a:hover { border-color: var(--teal-light); }
+  .workflow-map strong { color: var(--ink); font-size: 1.05rem; }
+  .workflow-map span { color: var(--ink-soft); font-size: 1rem; line-height: 1.5; }
   h2 { margin-top: 2.5em; scroll-margin-top: calc(var(--header-height) + 24px); }
   dt { margin-top: 1.2rem; font-weight: 700; }
   dd { margin: .35rem 0 0; }
