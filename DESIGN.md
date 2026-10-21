@@ -154,7 +154,7 @@ Corners run large and soft: 28px on feature cards, 18px on standard cards and fi
 
 ## Page navigation
 
-The main navigation contains Home, Architecture, Walkthroughs, and Founders as separate pages. It has no Explore dropdown. Every page provides a numbered content index using the original dark palette and active teal state. Hero-based indexes dock after scrolling on desktop; supporting-page indexes float from the reading view. The walkthrough index uses its active flow's steps and preserves deep links, history, and previous/next/reset controls. Desktop rails are 170px wide and stay separate from content. On mobile, indexes become compact native “On this page” disclosures. Decisions, Validation, and Reproduce are supporting pages linked from relevant content and the footer.
+The main navigation contains Home, Architecture, Walkthroughs, Workflows, Use cases, and Founders as separate pages. It has no Explore dropdown. Every page provides a numbered content index using the original dark palette and active teal state. Hero-based indexes dock after scrolling on desktop; supporting-page indexes float from the reading view. The walkthrough index uses its active flow's steps and preserves deep links, history, and previous/next/reset controls. Desktop rails are 170px wide and stay separate from content. On mobile, indexes become compact native “On this page” disclosures. Decisions, Validation, and Reproduce are supporting pages linked from relevant content and the footer.
 
 
 ## Home as lab overview

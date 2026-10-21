@@ -39,7 +39,7 @@ pnpm build
 ## Pages and sources
 
 - The website is a static build with in-page HTML diagram interactions and a guided fictional walkthrough. It has no live chat functionality.
-- Main navigation: Home, Architecture, Walkthroughs, Use cases, and Founders, each on its own page with its own index. Supporting pages include Decisions, Validation, Reproduce, [Workflows](src/pages/workflows.astro), and the [engineering build story](src/content/case-study/readme.md).
+- Main navigation: Home, Architecture, Walkthroughs, [Workflows](src/pages/workflows.astro), Use cases, and Founders, each on its own page with its own index. Supporting pages include Decisions, Validation, Reproduce, and the [engineering build story](src/content/case-study/readme.md).
 - Founder profile on `/founders/` is Michael Lvov (alone). The profile array lives in `src/data/site.json`.
 - Public contact supplied by owner: `mailto:michael.lm00@gmail.com`.
 - GitHub: `https://github.com/lm2000`.

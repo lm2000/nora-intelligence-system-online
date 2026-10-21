@@ -1,5 +1,15 @@
 # Project Context
 
+## Workflows in primary navigation — 2026-10-21
+
+Workflows is now a main tab between Walkthroughs and Use cases. The six links
+remain visible in two rows at narrow widths; the Workflows tab selects on its
+own page. README, DESIGN.md, and AGENTS.md reflect this navigation decision.
+Local checks passed: 15 tests, zero Astro diagnostics, root and GitHub Pages
+builds, and 765 links across 44 files on each build. Headless Chromium confirmed
+the tab, active state, and no header overflow at 1600px, 390px, and 320px.
+This change is local; it has not been published.
+
 ## Site reader route update — 2026-10-21
 
 Integrated the prepared Workflows and five-page build story into the local site. Home now links to both; Workflows names three scenarios before the Atlas review and cycle diagram. Architecture links to the pinned public Harness snapshot; the build story presents its direct-provider route as a design candidate. The current Validation card layout is retained.
