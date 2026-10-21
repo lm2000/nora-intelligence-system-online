@@ -4,11 +4,11 @@ description: "Human direction, bounded AI work, independent critique and the lim
 slug: "learning"
 ---
 
-Michael used AI for research, implementation and critique while retaining the decisions about purpose, scope and what counted as evidence. The useful unit of work was a bounded change that could be inspected and checked.
+Michael set the goals, scope, and architecture decisions for NIS. AI assisted with research, bounded source changes, and critique; Michael reviewed the results and decided what counted as evidence. The public Harness source and dated validation show what a reader can inspect. The October 16 direct NIS API candidate remains an undeployed design record.
 
 ## Ownership
 
-Michael owns the goals, scope, architecture decisions, and approval. AI assisted with research, source edits, reviews, and checks. There is no claim that he handwrote every line; the claim is narrower: he directed the architecture and accepted scope, while AI contributed substantial implementation and review work.
+This account describes Michael's direction and acceptance of the work, not a claim that he handwrote every line. AI contributed substantial implementation and review work.
 
 ## Sequence
 
