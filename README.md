@@ -49,7 +49,7 @@ pnpm build
 
 The original Architecture, Validation, and Reproduce material uses public Harness snapshot `10bd370c711afabdfc7b23b516911c31ff58bcb4`; the header and Architecture hero link to the current public repository. Keep the historical pin for reproducible examples until those pages are deliberately refreshed.
 
-`public/diagrams` contains three pinned architecture HTML/GIF pairs and their derived preview SVGs, two workflow pairs, and three build-story pairs. Provenance is recorded in `src/data/source-manifest.json`, `src/data/workflow-sources.json`, and `src/data/case-study-sources.json`. The build story draws on a dated local source candidate; its status is stated on the pages.
+`public/diagrams` contains three pinned architecture HTML/GIF pairs and their derived preview SVGs, two workflow pairs, and three build-story pairs. Provenance is recorded in `src/data/source-manifest.json`, `src/data/workflow-sources.json`, and `src/data/case-study-sources.json`; the last records separate source and website hashes for adapted diagrams. The build story draws on a dated local source candidate; its status is stated on the pages.
 
 The historical website source at commit `ea6c16137977431b9535316c938b9473393fd2da` is preserved in `legacy/source/`. `pnpm build` generates its archive and legacy redirect files; it does not need Git history. Old presentation/video files already absent at that baseline are not restored.
 

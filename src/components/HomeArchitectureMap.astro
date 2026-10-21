@@ -5,9 +5,9 @@ import { href } from '../lib/constants.mjs';
 <figure class="home-architecture" aria-labelledby="home-map-heading">
   <h3 id="home-map-heading">How the knowledge assistant fits together.</h3>
   <div class="home-map-scroll" role="region" aria-label="Simplified knowledge assistant architecture" tabindex="0">
-    <svg class="home-map" viewBox="0 0 780 590" role="img" aria-labelledby="home-map-title home-map-description" xmlns="http://www.w3.org/2000/svg">
+    <svg class="home-map" viewBox="0 0 780 620" role="img" aria-labelledby="home-map-title home-map-description" xmlns="http://www.w3.org/2000/svg">
       <title id="home-map-title">Knowledge assistant system map</title>
-      <desc id="home-map-description">CopilotKit and AG-UI reach the Deep Agents and LangGraph assistant directly. Codex and OpenClaw enter through LiteLLM and FastMCP. The assistant uses Retrieval MCP with shared BGE, Qdrant and prepared documents, calls Ollama Cloud or Fireworks.ai, and keeps checkpoints in PostgreSQL. Manual ingestion prepares knowledge outside the conversation.</desc>
+      <desc id="home-map-description">CopilotKit and AG-UI reach the Deep Agents and LangGraph assistant directly. Codex and OpenClaw enter through LiteLLM and FastMCP. Retrieval MCP uses shared BGE for query encoding and reads Qdrant and prepared documents directly. Manual ingestion uses BGE for document encoding and publishes knowledge outside conversations. The assistant calls Ollama Cloud or Fireworks.ai and keeps checkpoints in PostgreSQL.</desc>
       <defs>
         <marker id="home-map-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#879ab1" />
@@ -25,9 +25,11 @@ import { href } from '../lib/constants.mjs';
         <path d="M 453 227 V 320 H 111 V 360" />
         <path d="M 500 227 V 330 H 305 V 360" />
         <path d="M 547 227 V 340 H 499 V 360" />
-        <path d="M 111 458 V 478 H 315 V 500" />
+        <path d="M 111 458 V 486 H 315 V 500" />
+        <path d="M 170 458 V 472 H 542 V 500" />
         <path d="M 198 536 H 218" />
         <path d="M 412 536 H 432" />
+        <path d="M 111 572 V 598 H 542 V 572" />
       </g>
 
       <g class="map-node map-node--client">

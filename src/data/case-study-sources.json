@@ -8,33 +8,39 @@
     {
       "source": "architecture/diagrams/case-system.html",
       "website": "public/diagrams/case-system.html",
-      "sha256": "9d55f7da29f963c6bf5f4fb592fa6a1d10205b171daab23a832ad47b2c4cac8d"
+      "source_sha256": "4b8d81db557f5718baee1c2c3ba194d37e876661f9e0b9dbe94e0f75fa5e9596",
+      "website_sha256": "9d55f7da29f963c6bf5f4fb592fa6a1d10205b171daab23a832ad47b2c4cac8d"
     },
     {
       "source": "architecture/diagrams/case-system.gif",
       "website": "public/diagrams/case-system.gif",
-      "sha256": "43c8e0d5d54b4fdad6f7527c931edea7023ec1f80f0fded4c9ffb98cce01a250"
+      "source_sha256": "2af67f25c6efaf20810a98114922eb3318344a0630ab200ea1e8fbda1f3a12aa",
+      "website_sha256": "43c8e0d5d54b4fdad6f7527c931edea7023ec1f80f0fded4c9ffb98cce01a250"
     },
     {
       "source": "architecture/diagrams/case-evolution.html",
       "website": "public/diagrams/case-evolution.html",
-      "sha256": "4919226a52b212087445d3fb2b9aa8eea6145f68bec737eff947439a7fcc14f5"
+      "source_sha256": "578eed7c8a9dd09f03076ffa875635a2035a0e4a8f8e6d8d12f99307b0eec538",
+      "website_sha256": "4919226a52b212087445d3fb2b9aa8eea6145f68bec737eff947439a7fcc14f5"
     },
     {
       "source": "architecture/diagrams/case-evolution.gif",
       "website": "public/diagrams/case-evolution.gif",
-      "sha256": "57a6801146d50141897e5ecede8a1d36f2d042f7bb0b7bc25616cb13696b4a09"
+      "source_sha256": "7b77f8299bbac13e3547b04200e35723ee594600a9c41ec7040b42d867225916",
+      "website_sha256": "57a6801146d50141897e5ecede8a1d36f2d042f7bb0b7bc25616cb13696b4a09"
     },
     {
       "source": "architecture/diagrams/case-request.html",
       "website": "public/diagrams/case-request.html",
-      "sha256": "29484c001849279970634f685c3a7263d3aeeb343e93557755e57f37d2a5d4bb"
+      "source_sha256": "52863fc5b49ba3f4d66fbf0feacf88a5f03a517e1bc93c9f0b392f8c42150922",
+      "website_sha256": "29484c001849279970634f685c3a7263d3aeeb343e93557755e57f37d2a5d4bb"
     },
     {
       "source": "architecture/diagrams/case-request.gif",
       "website": "public/diagrams/case-request.gif",
-      "sha256": "5633a57b6251d1a3d89a94995bc50e44d1cb9a3f7690c733d75277bb6ead823c"
+      "source_sha256": "d0d79a517bbb8d087e3fb878868910980f0d27469b2e1983e78d5200c5066b56",
+      "website_sha256": "5633a57b6251d1a3d89a94995bc50e44d1cb9a3f7690c733d75277bb6ead823c"
     }
   ],
-  "site_adaptation": "Website diagrams retain the source candidate content and paths; node colors match the established Architecture palette."
+  "site_adaptation": "Website HTML adapts the source candidate presentation and adds role colors; matching GIFs are regenerated from the adapted HTML."
 }
