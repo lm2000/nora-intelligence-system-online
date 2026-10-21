@@ -6,6 +6,8 @@ Integrated the prepared Workflows and five-page build story into the local site.
 
 Local verification: 15 tests pass, Astro reports zero diagnostics, and root and GitHub Pages builds pass with 559 local links checked across 39 HTML files. The required-route check now includes Workflows and all five build-story routes. Headless browser readback covered all 13 current routes at 1600px and 390px with no page-level overflow or page errors; the mobile Workflows diagram pans by keyboard, and the chapter pager reaches the next story page. The original architecture diagrams were retained. This is local validation; production has not been changed by this update.
 
+Vercel review preview: https://nora-intelligence-system-online-4x73453is-nora-builders.vercel.app (deployment `dpl_F2dDwB1sebYzcfRqo5USVhzifVoG`, READY). Authenticated readback confirmed Home, Workflows, all five build-story routes, and the artifact-review diagram. This is a preview deployment; production was not promoted or changed.
+
 ## Artifact evaluation workflow — 2026-10-21
 
 Added a local `/workflows/` presentation with the review/revision cycle, a harness
