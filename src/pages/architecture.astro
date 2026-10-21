@@ -24,6 +24,7 @@ const indexEntries = [
       <div class="hero-copy">
         <h1>One assistant. Clear service boundaries.</h1>
         <p class="hero-lede">Architecture shows the reusable system: who owns each responsibility, how a request moves, and why document preparation stays outside the conversation. The walkthrough applies those same boundaries to concrete scenarios.</p>
+        <p class="hero-snapshot"><strong>Published Harness snapshot:</strong> MCP clients use the LiteLLM gateway. <a href={href('/case-study/evolution/')}>See the later direct-API design</a>.</p>
         <ul class="hero-signals" aria-label="Design principles">
           <li>Single assistant</li>
           <li>Prepared knowledge</li>
@@ -134,6 +135,14 @@ const indexEntries = [
   </section>
 </SiteLayout>
 <style>
+.hero-snapshot {
+  max-width: 65ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.hero-snapshot strong { color: var(--ink); }
 .architecture-version {
   max-width: 70ch;
   color: var(--ink-soft);
