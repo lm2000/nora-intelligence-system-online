@@ -8,7 +8,7 @@
     {
       "name": "Michael Lvov",
       "role": "Founder",
-      "bio": "I’m a Principal Software Engineer with 20+ years building distributed systems and real-time data platforms across financial services, healthcare and e-commerce at Capital One, Amazon, Aetion and Flatiron Health. My work covers fault-tolerant streaming infrastructure, petabyte-scale data engineering and ML/NLP pipelines, including automated ingestion, data cleansing, normalization and ongoing pipeline maintenance.",
+      "bio": "I’m a Principal Software Engineer with 20+ years building distributed systems and real-time data platforms in financial services, healthcare and e-commerce at Capital One, Amazon, Aetion and Flatiron Health. My work spans fault-tolerant streaming, petabyte-scale ingestion and clinical ML/NLP integration. I work across architecture, implementation and production reliability.",
       "focus": [
         "Distributed systems",
         "Data platforms",
@@ -29,12 +29,13 @@
           "url": "https://www.linkedin.com/in/michael-lvov-05a8125/"
         }
       ],
-      "background": "At Nora SuperIntelligence Lab, I independently built a self-hosted knowledge assistant with stateful agent workflows, document retrieval, persistent conversation state and failure recovery. I combine LangChain, LangGraph, Deep Agents and MCP with RAG, vector and hybrid retrieval, and context engineering. My work includes multi-provider model routing, bounded fallback, checkpoint recovery and evaluation of retrieval quality and failure behavior.",
+      "background": "At Nora SuperIntelligence Lab, I built a self-hosted knowledge assistant around one Coordination runtime, an OSS Deep Agent, Retrieval MCP tools and LangGraph/PostgreSQL conversation state. Docling, shared BGE and Qdrant support document preparation and dense/lexical retrieval; browser and MCP clients reach the same assistant. I added bounded context and tool calls, capability-aware provider selection, and an owner-directed LLM-as-a-judge cycle for reviewing versioned artifacts against evidence.",
       "profileRole": "Founder · Principal Software Engineer",
       "outcomes": [
-        "At Capital One, modernized real-time streaming through partition optimization, backpressure tuning and autoscaling, increasing throughput from 1,000+ to 3,000+ TPS while reducing infrastructure costs by 30%.",
-        "At Aetion, built petabyte-scale healthcare ingestion and analytics platforms with a runtime customization engine that let client teams tailor pipelines through DSL/SQL and Airflow while reusing shared infrastructure.",
-        "In a previous engineering role, my AI-assisted workflows reduced diagnosis time and manual effort by 90%."
+        "At Capital One, I led performance and reliability work within a broader streaming modernization that increased throughput from 1,000+ to 3,000+ TPS and reduced infrastructure cost by 30%.",
+        "At Capital One, I built AI-assisted diagnostic and configuration workflows connected to monitoring, CI/CD and ticketing. They reduced diagnostic time and manual effort by 90% and shortened tuning cycles from days to hours, with engineers verifying changes.",
+        "At Aetion, I built a petabyte-scale healthcare data lake and a DSL/SQL customization engine so client teams could tailor pipelines while reusing shared ingestion, scheduling, lineage and access controls.",
+        "At Flatiron Health, I built pluggable ingestion and analytical interfaces and integrated clinical ML/NLP into oncology data workflows."
       ],
       "expertise": [
         {
@@ -43,70 +44,70 @@
         },
         {
           "title": "Data Platforms & Knowledge Engineering",
-          "body": "Petabyte-scale ingestion and analytics on Spark, Databricks and Redshift; multi-tenant isolation, domain-specific APIs, deterministic document preparation, chunking, embeddings and versioned retrieval indexes."
+          "body": "Petabyte-scale ingestion on Amazon S3, Spark and Databricks; multi-tenant analytics, DSL/SQL customization, deterministic document preparation, embeddings and versioned retrieval indexes."
         },
         {
           "title": "LLM Systems & Agent Orchestration",
-          "body": "Stateful workflows, context engineering, persistent conversation state, provider routing and checkpoint recovery across application and service boundaries."
+          "body": "Application-level Coordination with an OSS Deep Agent, Retrieval MCP tools and LangGraph state; bounded context and calls, capability-aware provider routing and explicit failure handling."
         },
         {
-          "title": "Retrieval & Evaluation",
-          "body": "RAG, dense and lexical hybrid retrieval, vector search and BGE embeddings; reproducible embedding benchmarks, retrieval relevance metrics, regression tests and failure analysis that distinguish search quality from generated-answer quality."
+          "title": "Retrieval & RAG",
+          "body": "BGE query encoding, Qdrant dense/lexical ranking and bounded MCP search and source reads, with source identity pinned to a validated knowledge release."
+        },
+        {
+          "title": "AI/LLM Evaluation",
+          "body": "Separate checks for application behavior, retrieval relevance, generated-answer quality and artifact review; versioned drafts, evidence, task-specific criteria and owner decisions guide revisions."
         },
         {
           "title": "Reliability, Observability & Release Engineering",
-          "body": "Data-freshness and consumer-lag SLOs, distributed tracing, diagnostic automation and incident recovery; model-routing telemetry, containerized services, validated knowledge releases, atomic activation and rollback."
+          "body": "Data-freshness and consumer-lag SLOs, distributed tracing, diagnostic automation and incident recovery; containerized services, validated knowledge releases, conditional activation and rollback."
         },
         {
           "title": "Regulated Data & Engineering Productivity",
-          "body": "Financial and healthcare data pipelines with access controls, audit trails and data lineage; reusable AI-assisted workflows integrated into CI/CD, ticketing, monitoring and infrastructure troubleshooting."
+          "body": "Financial and healthcare pipelines with access controls, audit trails and data lineage; reusable AI-assisted diagnostic workflows connected to monitoring, CI/CD and ticketing."
         }
       ],
-      "skillsIntro": "These tools reflect my experience across employed roles and independent work. Architecture evaluation and integration/testing labels retain their specific scope.",
+      "skillsIntro": "These tools reflect employed and independent work. Items marked architecture evaluation or configuration/testing have that narrower scope.",
       "skillGroups": [
         {
           "title": "Languages",
           "body": "Python, Java/Scala, Go, C#, C/C++, SQL"
         },
         {
-          "title": "Distributed Compute & Streaming",
-          "body": "Spark, Spark Streaming, Databricks, Hadoop, YARN, Kafka, IBM MQ"
+          "title": "Data & Streaming",
+          "body": "Spark, Spark Streaming, Databricks, Hadoop, YARN, Kafka and IBM MQ; Airflow and Celery for pipeline scheduling and distributed task execution"
         },
         {
           "title": "Cloud & Delivery",
           "body": "AWS (EMR, S3, Glue, Redshift), Google Cloud, Docker, Docker Compose, Kubernetes, CI/CD"
         },
         {
-          "title": "Orchestration",
-          "body": "Airflow, Celery; data-pipeline scheduling and distributed task execution"
-        },
-        {
           "title": "Databases, Warehouses & Data Lakes",
-          "body": "PostgreSQL, MongoDB, Redis, MS SQL Server, Oracle, Vertica, Amazon Redshift; data lakes on Amazon S3 and Databricks"
+          "body": "PostgreSQL, MongoDB, Redis, SQL Server, Oracle, Vertica and Amazon Redshift; data lakes on Amazon S3 and Databricks"
         },
         {
-          "title": "AI Agents & Orchestration",
-          "body": "LangChain/LangGraph/Deep Agents; Hermes Agent/Gateway, Hermes Cloud and Desktop, OpenClaw Gateway, Vellum; context engineering, tool coordination, persistent conversation state and checkpoints; CrewAI (architecture evaluation)"
+          "title": "LLM Applications & Agents",
+          "body": "LangChain, LangGraph and Deep Agents; context engineering, model and tool coordination, persistent conversation state and checkpoint recovery; CrewAI (architecture evaluation)"
         },
         {
-          "title": "AI Models, Routing & Gateways",
-          "body": "Ollama (local model serving and Ollama Cloud), Fireworks AI (Fireworks.ai), LiteLLM MCP Gateway, MCP/FastMCP; provider abstraction, model selection and fallback; FireConnect/FireRouter (integration and routing tests); RouteLLM (architecture evaluation)"
+          "title": "Model Providers & Routing",
+          "body": "Ollama local serving and Ollama Cloud, Fireworks AI and LiteLLM MCP Gateway; provider abstraction, model selection and bounded fallback; RouteLLM (architecture evaluation)"
         },
         {
-          "title": "AI Knowledge & Retrieval",
-          "body": "Docling, BGE embeddings, Qdrant, RAG, vector and hybrid search; document preparation, chunking, indexing, source metadata and versioned knowledge releases"
+          "title": "Knowledge & Retrieval",
+          "body": "RAG, Docling, BGE embeddings and Qdrant; vector and dense/lexical hybrid search, deterministic document preparation, chunking, source metadata and versioned indexes"
         },
         {
-          "title": "AI Evaluation & Benchmarking",
-          "body": "Harbor Hub, Harbor CLI, Terminus-2; artifact-review tasks, structured feedback, verifier checks and retrieval regression testing"
+          "title": "AI Evaluation & Review Tools",
+          "body": "LLM-as-a-judge; Fireworks AI (completed artifact reviews), Harbor Hub (custom evaluation tasks) and Hugging Face Inference Providers (implemented adapter)"
         },
         {
-          "title": "AI Service & Voice Integration",
-          "body": "Composio service connectors, ElevenLabs speech output"
+          "title": "Agent & Service Integrations",
+          "body": "MCP/FastMCP; Hermes and OpenClaw (configuration/testing); Composio service access and ElevenLabs speech output"
         },
         {
-          "title": "AI-Assisted Software Engineering",
-          "body": "Codex, GitHub Copilot, Claude, Windsurf, Warp; coding, diagnostics, troubleshooting and configuration optimization"
+          "title": "AI-Assisted Development",
+          "body": "Codex, GitHub Copilot, Claude, Windsurf and Warp; implementation, code review, debugging and configuration tuning"
         },
         {
           "title": "Observability & Performance",
@@ -117,8 +118,8 @@
           "body": "scikit-learn, Spark MLlib, PySpark, NumPy, SciPy, pandas, Jupyter"
         },
         {
-          "title": "Application & API Integration",
-          "body": "FastAPI, Node.js, React, Next.js, CopilotKit, AG-UI, REST, JSON/Protobuf/Avro, Socket.IO"
+          "title": "API Services & Data Formats",
+          "body": "FastAPI, REST, Node.js and WebSockets (Socket.IO); JSON, Protobuf, Avro, Parquet and Delta Lake"
         }
       ]
     }
