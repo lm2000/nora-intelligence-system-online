@@ -2,7 +2,7 @@
   "home": {
     "heading": "Building an AI agent harness and",
     "headingEmphasis": "practical AI systems.",
-    "intro": "I’m Michael Lvov. My current project is a self-hosted AI agent harness: one AI Coordinator plans and delegates work, retrieves retained knowledge, selects model routes and combines results."
+    "intro": "I’m Michael Lvov. At Nora SuperIntelligence Lab, I’m building a self-hosted AI agent harness that connects retained knowledge and coordinated work with human review."
   },
   "founders": [
     {

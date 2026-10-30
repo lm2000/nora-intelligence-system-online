@@ -1,0 +1,38 @@
+---
+import ArchitectureOverview from './ArchitectureOverview.astro';
+---
+
+<responsive-system-diagram>
+  <ArchitectureOverview />
+  <details class="full-system-diagram" open>
+    <summary>Explore the full system diagram</summary>
+    <div class="full-system-content"><slot /></div>
+  </details>
+</responsive-system-diagram>
+
+<style>
+  responsive-system-diagram { display: block; min-width: 0; }
+  .full-system-diagram > summary { display: none; }
+  .full-system-content { min-width: 0; }
+  @media (max-width: 768px) {
+    .full-system-diagram { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .full-system-diagram > summary { display: list-item; padding: 16px 4px; min-height: 52px; box-sizing: border-box; cursor: pointer; color: var(--teal-light); font-weight: 650; font-size: 1rem; line-height: 1.5; }
+    .full-system-diagram > summary:focus-visible { outline: 3px solid var(--teal-light); outline-offset: 4px; border-radius: 4px; }
+    .full-system-content { padding: 12px 0 20px; }
+  }
+</style>
+
+<script>
+  import { bindDiagramDisclosure } from '../lib/responsive-diagram.mjs';
+  class ResponsiveSystemDiagram extends HTMLElement {
+    private disconnectViewport?: () => void;
+    connectedCallback() {
+      const details = this.querySelector<HTMLDetailsElement>('.full-system-diagram');
+      if (details) this.disconnectViewport = bindDiagramDisclosure(details, matchMedia('(max-width: 768px)'));
+    }
+    disconnectedCallback() { this.disconnectViewport?.(); }
+  }
+  if (!customElements.get('responsive-system-diagram')) {
+    customElements.define('responsive-system-diagram', ResponsiveSystemDiagram);
+  }
+</script>

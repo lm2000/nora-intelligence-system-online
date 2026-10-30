@@ -56,6 +56,8 @@ Architecture, Workflows, Walkthroughs, Decisions and Reproduce use published Har
 
 `public/diagrams` contains all 16 canonical Harness HTML/GIF pairs, with derived SVG previews, alongside the historical build-story assets. The HTML/GIF files remain byte-identical to the published snapshot. `src/lib/diagram-source.mjs` adapts source SVG styles and component metadata to the existing accessible, in-page viewer. Provenance and hashes are recorded in `src/data/source-manifest.json`, `src/data/workflow-sources.json`, and the separate historical `src/data/case-study-sources.json`.
 
+On Architecture, screens up to 768px show a vertical responsibility overview before the full system diagram. A native disclosure opens the original interactive map; desktop keeps it visible. This website adaptation does not modify the canonical diagram assets. Without JavaScript, the full map remains expanded and the disclosure still works.
+
 The historical website source at commit `ea6c16137977431b9535316c938b9473393fd2da` is preserved in `legacy/source/`. `pnpm build` generates its archive and legacy redirect files; it does not need Git history. Old presentation/video files already absent at that baseline are not restored.
 
 See `PRODUCT.md` for the audience and content structure, `DESIGN.md` for the visual system, and `Context.md` for the current project state.

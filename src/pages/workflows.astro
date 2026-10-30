@@ -7,7 +7,7 @@ import { href, sourceUrl } from '../lib/constants.mjs';
 <SiteLayout title="Workflows — Nora SuperIntelligence Lab" description="How the AI Coordinator connects knowledge, role-based evaluation and two owner-review loops." path="/workflows/">
   <article class="container content-page" data-supporting-page="workflows">
     <h1>Workflows</h1>
-    <p class="page-intro">The AI Coordinator plans work, chooses tools and model routes, delegates focused tasks and combines the results. Three workflows share that coordination: question answering, ingestion, and artifact evaluation and revision.</p>
+    <p class="page-intro">Question answering uses retained knowledge. Ingestion prepares it. Artifact evaluation and revision turns judge feedback into work the owner can approve.</p>
     <PageIndex />
     <nav class="workflow-map" aria-label="Choose a workflow">
       <a href={href('/walkthroughs/?flow=request')}><strong>Question answering</strong><span>Retrieve relevant evidence, synthesize an answer and retain the conversation.</span></a>
@@ -16,7 +16,7 @@ import { href, sourceUrl } from '../lib/constants.mjs';
     </nav>
 
     <h2 id="harness" data-index-label="Shared coordination">One coordinator, three workflows</h2>
-    <p>Task orchestration determines what work to do and how to combine it. Model routing chooses a backend for a particular model call. Ingestion runs outside conversations, so document processing does not become part of every user request.</p>
+    <p>The AI Coordinator connects question answering and artifact review to shared knowledge and model services. Ingestion runs outside conversations. Follow the <a href={href('/walkthroughs/?flow=request')}>request walkthrough</a> or <a href={href('/walkthroughs/?flow=ingestion')}>ingestion walkthrough</a> for execution steps; this page focuses on preparing judges and using their feedback.</p>
     <div class="workflow-diagram"><Diagram showTitle={false} title="Harness workflows" previewSrc="/diagrams/harness-workflows-preview.svg" htmlUrl="/diagrams/harness-workflows.html" alt="Question answering, ingestion and artifact evaluation share the harness and its knowledge services." /></div>
 
     <h2 id="judge-registry" data-index-label="Judge registry">Prepare judges before running a review</h2>

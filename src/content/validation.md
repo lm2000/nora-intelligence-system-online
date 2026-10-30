@@ -50,6 +50,8 @@ The source checks do not establish representative retrieval or answer quality, c
 
 Earlier preparation-answer experiments exposed missing facts, failed repairs and HTTP 503 responses even when local fixture checks passed. The [historical investigation](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/f9cea261f0b33217028fe31e39ff88b5a10c3d4a/docs/evaluation/VALIDATION.md) retains those failures alongside later bounded checks; they do not estimate production accuracy.
 
+The published source snapshot also has a [successful GitHub Actions run](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/actions/runs/40984820359). This confirms repository checks for the pinned commit; it does not extend the runtime or answer-quality evidence above.
+
 <h2 id="reference">Reference</h2>
 
 [Current source and container validation](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/f9cea261f0b33217028fe31e39ff88b5a10c3d4a/docs/evaluation/VALIDATION.md) · [Reproduce the source checks](../reproduce/)

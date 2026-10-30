@@ -1,0 +1,73 @@
+---
+import { href } from '../lib/constants.mjs';
+---
+
+<figure class="architecture-overview" aria-labelledby="architecture-overview-title">
+  <figcaption id="architecture-overview-title">Two entry paths. One AI Coordinator.</figcaption>
+  <ul class="entry-paths" aria-label="Client entry paths">
+    <li>
+      <strong>Browser access</strong>
+      <p>Browser UI <span class="technology">CopilotKit</span></p>
+      <p class="path-target">HTTP / AG-UI to the coordinator</p>
+    </li>
+    <li>
+      <strong>MCP tool access</strong>
+      <p>MCP client → MCP Gateway <span class="technology">LiteLLM Proxy</span></p>
+      <p class="path-target">MCP Server <span class="technology">FastMCP · <code>ask_nis</code></span> exposes the coordinator</p>
+    </li>
+  </ul>
+  <div class="convergence" aria-hidden="true"><svg viewBox="0 0 20 28"><path d="M10 0v24m-5-5 5 5 5-5" /></svg></div>
+  <div class="coordinator">
+    <h3>AI Coordinator</h3>
+    <p>Plans and delegates work, selects model routes, then combines results into an answer or artifact.</p>
+    <span class="technology">Deep Agents / LangGraph</span>
+  </div>
+  <p class="service-intro">Uses these services as the task requires:</p>
+  <dl class="service-branches">
+    <div>
+      <dt><a href={href('#knowledge-backbone')}>Knowledge Backbone</a></dt>
+      <dd>Retrieval MCP searches and reads prepared sources using BGE and Qdrant. Ingestion prepares them outside conversations.</dd>
+    </div>
+    <div>
+      <dt><a href={href('#model-routing')}>Model backends</a></dt>
+      <dd>Ollama and Fireworks execute selected model calls.</dd>
+    </div>
+    <div>
+      <dt><a href={href('/workflows/#artifact-review')}>Evaluation</a></dt>
+      <dd>Separate routes to Harbor Hub and Hugging Face return feedback for Synthetic Owner scoring and Real Owner approval.</dd>
+    </div>
+    <div>
+      <dt>Conversation state</dt>
+      <dd>PostgreSQL retains checkpoints so the conversation can continue.</dd>
+    </div>
+  </dl>
+</figure>
+
+<style>
+  .architecture-overview { display: none; }
+  @media (max-width: 768px) {
+    .architecture-overview { display: block; margin: 0 0 24px; color: var(--ink); }
+    figcaption { margin-bottom: 20px; font-size: 1.125rem; font-weight: 700; line-height: 1.4; }
+    .entry-paths { list-style: none; display: grid; gap: 16px; margin: 0; padding: 0; }
+    .entry-paths li { padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: #0b2436; }
+    strong { font-size: 1rem; }
+    p { margin: 8px 0 0; font-size: 1rem; line-height: 1.55; color: var(--ink-soft); }
+    .technology { display: block; font-size: .875rem; line-height: 1.6; color: var(--ink-soft); }
+    .path-target { padding-top: 10px; margin-top: 10px; border-top: 1px solid var(--line); }
+    code { color: inherit; font-size: inherit; }
+    .convergence { height: 36px; display: grid; place-items: center; }
+    .convergence svg { width: 20px; height: 28px; fill: none; stroke: var(--teal-light); stroke-width: 1.5; }
+    .coordinator { border: 1px solid var(--teal-light); border-radius: 12px; padding: 20px 18px; background: #103139; }
+    h3 { margin: 0; font-size: 1.2rem; line-height: 1.4; color: var(--ink); }
+    .coordinator p { color: var(--ink); margin-bottom: 10px; }
+    .service-intro { margin: 24px 0 12px; }
+    .service-branches { margin: 0 0 0 10px; padding: 0 0 0 20px; border-left: 1px solid var(--line); }
+    .service-branches > div { position: relative; padding: 0 0 18px; }
+    .service-branches > div:last-child { padding-bottom: 0; }
+    .service-branches > div::before { content: ''; position: absolute; left: -20px; top: 22px; width: 12px; border-top: 1px solid var(--line); }
+    dt { display: flex; align-items: center; min-height: 44px; font-size: 1rem; font-weight: 700; }
+    dt a { display: flex; align-items: center; min-height: 44px; color: var(--teal-light); text-underline-offset: 4px; }
+    dt a:focus-visible { outline: 3px solid var(--teal-light); outline-offset: 3px; border-radius: 3px; }
+    dd { margin: 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.55; }
+  }
+</style>

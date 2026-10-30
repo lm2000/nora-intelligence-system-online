@@ -2,6 +2,7 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import OriginalIndex from '../components/OriginalIndex.astro';
 import Diagram from '../components/Diagram.astro';
+import ResponsiveSystemDiagram from '../components/ResponsiveSystemDiagram.astro';
 import { href, sourceUrl } from '../lib/constants.mjs';
 import walkthroughs from '../data/walkthroughs.json';
 
@@ -26,7 +27,6 @@ const indexEntries = [
       <div class="hero-copy">
         <h1>One AI coordinator. Clear service boundaries.</h1>
         <p class="hero-lede">Architecture shows the reusable system: who owns each responsibility, how a request moves, and why document preparation stays outside the conversation. The walkthrough applies those same boundaries to concrete scenarios.</p>
-        <p class="hero-snapshot">The Knowledge Backbone retains source material beyond a conversation. The AI Coordinator plans work, delegates to specialists, selects inference and synthesizes results for owner review.</p>
         <ul class="hero-signals" aria-label="Design principles">
           <li>Single coordinator</li>
           <li>Prepared knowledge</li>
@@ -91,18 +91,20 @@ const indexEntries = [
           <p class="section-label">Technical architecture</p>
           <h2 id="system-map-heading">Components, state, and system boundaries.</h2>
         </div>
-        <p>The Coordination Layer groups the AI Coordinator and its interfaces. The Coordination service hosts Deep Agents/LangGraph and FastMCP. Retrieval owns search and source access; model backends execute inference; PostgreSQL retains checkpoints. Harbor Hub and Hugging Face are separate evaluation routes selected by the coordinator.</p>
+        <p>The Coordination Layer groups the AI Coordinator and its interfaces. The Coordination service hosts Deep Agents/LangGraph and FastMCP; retrieval, inference, evaluation and conversation state have separate responsibilities.</p>
       </div>
-      <p class="architecture-version">The shared coordinator plans, delegates specialist work and combines results across browser and MCP clients. <a href={sourceUrl('docs/architecture/architecture-concept.md')}>Read the published architecture</a>.</p>
-      <div class="diagram-figure--component" aria-labelledby="system-map-heading">
-        <Diagram
-          showTitle={false}
-          title="System architecture"
-          previewSrc="/diagrams/01-system-architecture-preview.svg"
-          htmlUrl="/diagrams/01-system-architecture.html"
-          alt="System architecture connecting browser and MCP clients to one AI Coordinator, specialist work, model routes, retained knowledge, evaluation and conversation state."
-        />
-      </div>
+      <ResponsiveSystemDiagram>
+        <div class="diagram-figure--component" aria-labelledby="system-map-heading">
+          <Diagram
+            showTitle={false}
+            title="System architecture"
+            previewSrc="/diagrams/01-system-architecture-preview.svg"
+            htmlUrl="/diagrams/01-system-architecture.html"
+            alt="System architecture connecting browser and MCP clients to one AI Coordinator, specialist work, model routes, retained knowledge, evaluation and conversation state."
+          />
+        </div>
+      </ResponsiveSystemDiagram>
+      <p class="architecture-version"><a href={sourceUrl('docs/architecture/architecture-concept.md')}>Read the published architecture</a> for component contracts and boundaries.</p>
     </div>
   </section>
 
@@ -168,14 +170,6 @@ const indexEntries = [
   </section>
 </SiteLayout>
 <style>
-.hero-snapshot {
-  max-width: 65ch;
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-  line-height: 1.55;
-}
-.hero-snapshot strong { color: var(--ink); }
 .architecture-version {
   max-width: 70ch;
   color: var(--ink-soft);
@@ -196,5 +190,8 @@ const indexEntries = [
 }
 .architecture-related a:hover {
   color: var(--teal-light);
+}
+@media (max-width: 768px) {
+  #system-map .section-heading { gap: 20px; margin-bottom: 28px; }
 }
 </style>

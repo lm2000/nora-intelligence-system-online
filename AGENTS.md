@@ -1,5 +1,7 @@
 # Website direction
 
+Use cases separates three application workflows from assessment and research methods while preserving existing card fragment IDs. Career and client-research pages use the shared responsive CaseWorkflowDiagram: context, AI Coordinator, draft, role judges, Synthetic Owner and Real Owner, with both revision returns. Each page owns its task-specific evidence, state/recovery decisions and illustrative scoring rubric; shared judge mechanics remain on Workflows. Use native disclosures for stage details and secondary extensions. Keep example scores clearly illustrative and retain all older case-study bookmarks.
+
 Read Context.md and README.md before editing this website.
 
 The confirmed goal is a technical architecture portfolio linked from Michael's resume, intended to support technical interviews. Prioritize engineering depth, diagrams, data flows, decisions, and tradeoffs. Use Context.md as the audience and scope reference; it supersedes the earlier sales-oriented positioning for future edits. Present architecture without implemented/not-implemented labels. Do not invent personal contributions or measured results. Keep durable site content in English unless Michael requests otherwise.

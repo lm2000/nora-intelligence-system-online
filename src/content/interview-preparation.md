@@ -1,104 +1,86 @@
-<h2 id="prepare-for-the-actual-conversation" data-index-label="Purpose">One connected job-search and learning cycle</h2>
+<h2 id="prepare-for-the-actual-conversation" data-index-label="Purpose">Prepare for the next conversation, retain what you learn</h2>
 
-For experienced professionals managing several opportunities, disconnected notes make preparation and follow-through harder. This illustrative workflow shows systems I can help design and automate; candidates retain control of applications, outreach, and career decisions.
+A candidate has several opportunities, changing role descriptions and feedback scattered across messages and notes. The useful output is a stage brief: what this conversation tests, which experience supports the candidate’s position, what to practice and what remains unknown.
 
-<h2 id="preparation-inputs" data-index-label="Context">A profile, a pipeline, and a learning record</h2>
+The example below follows a fictional platform-engineering opportunity. It illustrates a system design, not a claimed hiring outcome or a deployed integration.
 
-Keep three connected records: a profile and experience bank, an opportunity pipeline with next actions, and a learning record. Each opportunity links to its documents and conversations rather than becoming a separate pile of notes. Capture:
+<h2 id="preparation-inputs" data-index-label="Inputs and state">Keep sources, opportunity state and drafts separate</h2>
 
-- **Opportunity:** Role description, company context, interview stage, people involved, and questions still unanswered.
-- **Experience:** Relevant projects, the candidate’s own contribution, supporting evidence, and the limits of each example.
-- **Previous conversations:** What was discussed, what the interviewer emphasized, and commitments or follow-up questions.
-- **Practice record:** The latest rehearsal, feedback, and one improvement to carry into the next attempt.
+- **Knowledge:** Versioned role descriptions, company research, the experience bank and prior interview feedback. Retrieval brings relevant passages into a bounded model request; source links stay attached to the draft.
+- **Opportunity record:** One stable ID with company, role, stage, contacts, next action and links to messages. Match source message IDs first; ask for review when company or role information conflicts rather than silently merging opportunities.
+- **Artifact record:** The stage brief, source versions, rubric version, judge findings and owner decision. Preserve earlier drafts so a revision is inspectable.
 
-<h2 id="workflow" data-index-label="Workflow">Workflow</h2>
+The opportunity tracker owns business status. Conversation checkpoints support continuity; they do not replace the tracker or prove that an application was submitted.
 
-1. **Assess and position.** Clarify the roles, work, constraints, and strengths to pursue. Connect each positioning claim to actual experience and identify gaps worth addressing.
-2. **Discover and qualify.** Gather opportunities from saved searches, recruiters, professional networks, and targeted company research. Deduplicate entries and compare role fit, company context, and questions to resolve.
-3. **Prepare and apply.** Match requirements to the experience bank, tailor the resume and cover letter, and retain the submitted version. Record the application, contact, status, and next action in the pipeline.
-4. **Build relationships and follow through.** Prepare relevant outreach and follow-ups, retain conversation context, and track commitments. Update the opportunity when new information arrives.
-5. **Prepare and interview.** Build a stage brief and practice the actual format: recruiter conversation, coding, system design, or leadership. Use relevant stories, worked exercises, and questions for the interviewer.
-6. **Debrief and decide.** Record the questions, feedback, gaps, and follow-ups. Compare the role and offer with the candidate’s goals, including unanswered questions. Close or continue the opportunity with an explicit next action.
-7. **Learn and improve.** Convert recurring gaps into targeted study and practice. Retain stronger explanations, update the experience bank and preparation templates, and use the learning to refine targeting and the next search cycle.
+<h2 id="workflow" data-index-label="Execution">One opportunity through the system</h2>
 
-<h2 id="career-automation" data-index-label="Automation">Automate the coordination work</h2>
+1. **Capture the change.** A new interview invitation updates the matched opportunity. Preserve the original message and flag uncertain stage or scheduling information.
+2. **Assemble evidence.** The AI Coordinator retrieves the role requirements, relevant experience and unresolved feedback. Missing evidence becomes a question, not an invented project or qualification.
+3. **Draft the brief.** Produce the stage goal, two relevant experience prompts, a technical exercise, interviewer questions and a next action. Tailored application material follows the same source-and-review pattern.
+4. **Evaluate and revise.** Role judges return specific findings. The Synthetic Owner scores the frozen version; qualifying work goes to the candidate for final review.
+5. **Use and debrief.** The candidate conducts the conversation. Record actual feedback separately from synthetic feedback and update the next brief or practice task.
 
-Automation is most useful where it keeps these records connected:
+<h2 id="career-automation" data-index-label="Integration and recovery">Automate the connections, keep actions explicit</h2>
 
-<dl class="shortlist-example">
-  <dt>Opportunity intake and pipeline updates</dt>
-  <dd>Extract the company, role, contact, stage, and action from career communications or saved opportunities. Match an existing record before creating a new one, and surface conflicts for review.</dd>
-  <dt>Research and application preparation</dt>
-  <dd>Assemble company and role context, map requirements to experience, draft tailored material, and retain the submitted version. The candidate reviews the positioning and chooses where to apply.</dd>
-  <dt>Follow-up and scheduling</dt>
-  <dd>Surface unanswered messages, upcoming conversations, and due actions. Prepare a follow-up draft or meeting brief from the retained context, with the candidate choosing the message and timing.</dd>
-  <dt>Preparation and learning updates</dt>
-  <dd>Turn interview or practice notes into a concise debrief, connect repeated gaps, propose the next drill, and refresh the preparation brief and learning view.</dd>
-</dl>
+Email and calendar adapters read invitations and commitments; a tracker stores opportunity state; the document store retains sources and artifacts. Tool results return to the coordinator before it proposes a state change. A source change invalidates dependent draft assumptions and sends the affected brief back through review.
 
-A tracker, email/calendar integration, document store, and practice tools can support the cycle. The method does not depend on a particular vendor. Useful automation records what changed and leaves a clear way to correct a mistaken match, status, or draft.
+**Failure handling:** retry reads safely; deduplicate repeated intake events by source ID. If a write times out, reconcile the destination before retrying. Record whether an action is proposed, approved, confirmed or unresolved. A drafted message is not a sent message, and an unconfirmed calendar write is not a scheduled interview.
 
-<h2 id="continuous-learning" data-index-label="Learning">Turn a gap into demonstrated improvement</h2>
+**Trade-off:** separate records and versioning add bookkeeping, but make stale evidence, mistaken matches and interrupted actions recoverable. Use a small relevant evidence set rather than copying the entire history into every prompt.
 
-Self-learning needs a concrete task and a return to practice:
+<h2 id="example-preparation-pack" data-index-label="Worked example">A brief that improves after review</h2>
 
-1. **Notice a repeated gap.** Separate an unclear explanation from a missing technical skill, weak evidence, or uncertainty about the interview format.
-2. **Choose one learning objective.** For example, explain consumer replay after a failure with a precise event timeline.
-3. **Study and build.** Use documentation, a worked example, or a small lab. Produce an artifact: runnable code, a design sketch, or a clearer experience story.
-4. **Rehearse and review.** Attempt the task again, compare it with the previous attempt, and capture feedback against the same criteria.
-5. **Carry the result forward.** Update the next stage brief, drills, story bank, and learning record. Revisit weak areas rather than treating one successful attempt as permanent mastery.
+**Fictional task:** prepare for a system-design round about order-event processing.
 
-A useful review tracks open actions, recurring skill gaps, practice attempts, and completed learning artifacts. Interview outcomes inform the picture, but an offer or rejection alone does not identify what improved or what caused the decision.
-
-<h2 id="stage-formats" data-index-label="Stage formats">Prepare for the format</h2>
-
-<dl class="shortlist-example">
-  <dt>Recruiter or hiring-manager conversation</dt>
-  <dd>Prepare a short introduction, a clear reason for the role, two relevant examples, and questions about expectations. The output is a conversation brief.</dd>
-  <dt>Coding or system design</dt>
-  <dd>Practice requirements, reasoning, implementation or architecture, tests, failures, and tradeoffs. The output is a worked exercise plus a targeted drill for the weakest explanation.</dd>
-  <dt>Behavioral or leadership round</dt>
-  <dd>Choose a small set of actual situations covering decisions, conflict, delivery, and learning. The output is an evidence-backed story bank with prompts rather than a memorized script.</dd>
-</dl>
-
-<h2 id="example-preparation-pack" data-index-label="Example">Example preparation pack</h2>
-
-**Illustrative stage brief: a platform-engineering system-design round.** The role and scenario are fictional.
-
-> **Stage goal:** Design an order-event processing service and explain its tradeoffs.
+> **First draft:** “Use an idempotent consumer and commit the offset after processing.”
 >
-> **Experience prompt:** Choose a real example of diagnosing or recovering a distributed service. Identify your contribution and the evidence you can discuss.
+> **Senior Engineer finding:** This names a pattern but leaves the failure behavior unexplained. What happens if the process stops after committing the result but before committing the offset?
 >
-> **Design outline:** Producer → durable event log → idempotent consumer → state store. State the ordering and delivery assumptions.
+> **Revised brief:** Persist the event’s idempotency key and result atomically in the same transaction, then commit the offset. If the event is replayed, the stored key prevents a second application of the change. External side effects require their own idempotency or outbox design.
 >
-> **Practice questions:** What happens after processing an event but before committing its offset? How would you detect backpressure and recover from duplicate delivery?
->
-> **Rehearsal plan:** Spend five minutes framing requirements, ten on the design, and ten on failures and tradeoffs.
->
-> **Questions for the interviewer:** Which consistency guarantees matter? Who operates the service? What volume and latency assumptions should guide the design?
->
-> **Debrief prompt:** Record the weakest explanation, the feedback received, and the next practice task.
+> **Next drill:** Explain that sequence in two minutes, including the transaction boundary and what changes when the side effect is external.
 
-### Carry feedback into the next brief
+The candidate must still choose an actual experience example and explain their own contribution. The fictional exercise supplies a practice problem, not personal achievement evidence.
 
-A fictional rehearsal exposes one gap in the same system-design example:
+<h2 id="career-evaluation" data-index-label="Evaluation">Evaluate the brief against the task</h2>
 
-> **Before:** The brief names an idempotent consumer but does not explain the failure sequence.
->
-> **Feedback:** What happens if processing succeeds and the service stops before committing its offset?
->
-> **Next brief:** Add a timeline: process the event, persist the result, then commit the offset. Explain how replay is handled and where an idempotency key is checked.
->
-> **Next practice task:** Rehearse the failure and recovery in two minutes, stating the assumptions that make the design safe.
+Use prepared role perspectives: **Hiring Manager** for role fit, **Senior Engineer** for technical reasoning and **Domain Expert** for source use. The Synthetic Owner applies the candidate’s preferences and aggregates findings. Shared model blind spots remain possible; disagreement should stay visible.
 
-The next cycle can go further: build a small consumer-replay lab, record the failure sequence, practice the explanation, and add the artifact to the learning record. The next system-design brief then starts with both a stronger explanation and a worked example.
+<table class="evaluation-table">
+  <caption>Illustrative review of the brief above: 0 = missing or wrong, 1 = partial, 2 = adequate.</caption>
+  <thead><tr><th scope="col">Criterion</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Source support and explicit assumptions</th><td>2</td><td>2</td></tr>
+    <tr><th scope="row">Fit to the interview stage</th><td>2</td><td>2</td></tr>
+    <tr><th scope="row">Failure sequence and trade-offs</th><td>0</td><td>2</td></tr>
+    <tr><th scope="row">Clear explanation and actionable practice</th><td>1</td><td>2</td></tr>
+  </tbody>
+</table>
 
-Retain the replay exercise and learning record when the opportunity closes, so the next brief starts with the worked example.
+**Pilot acceptance rule:** recommend owner review at 7/8 or higher, with no zero criterion and no unresolved blocker. Unsupported experience claims, a wrong technical explanation or missing mandatory stage requirements block acceptance regardless of total score. These example scores illustrate the rubric; they are not measured model results or calibrated hiring predictions.
 
-<h2 id="candidate-ownership" data-index-label="Human review">Candidate review</h2>
+**Bound the loop:** allow at most three automatic revisions. Stop after two consecutive revisions without score improvement, or sooner if a blocker requires information from the candidate. Escalate with the draft and unresolved findings; do not call it accepted. Owner-requested changes return through evaluation as a new version.
 
-The candidate checks the experience story, decides what to emphasize, and answers in their own voice. Research supports preparation; only their actual work supports personal achievement claims. The preparation system organizes context and suggests drills. The candidate chooses the roles, approves application and outreach material, revises the brief, leads employer conversations, and makes career decisions. Automation keeps context and follow-through organized; it does not supply personal experience or decide which job to accept.
+Compare initial and revised briefs on the same frozen tasks and source versions. Record required-point coverage, unsupported claims, remaining technical errors, owner correction time and revision count. Reserve unseen opportunities for a held-out check; an offer or rejection alone is not an evaluation of the preparation system.
+
+<h2 id="continuous-learning" data-index-label="Learning">Carry a demonstrated improvement forward</h2>
+
+Turn a recurring weakness into a concrete exercise, retain the attempt and feedback, then retry against the same criteria. For the example, build a small replay lab and keep the failure timeline with the next brief. Closing an opportunity should not discard its reusable practice artifacts. Lessons update briefs, role definitions and retrieval material; they do not automatically train model weights.
+
+<h2 id="stage-formats" data-index-label="Other stages">Apply the same design across the career cycle</h2>
+
+<details class="case-extension">
+  <summary>Applications, outreach and other interview formats</summary>
+  <p><strong>Applications:</strong> map role requirements to the experience bank, review the resume and cover letter, then retain the approved and submitted versions separately.</p>
+  <p><strong>Outreach:</strong> prepare a relevant message and next action from the opportunity history; the candidate approves the recipient and content before sending.</p>
+  <p><strong>Recruiter conversations:</strong> a short introduction, reasons for the role and questions about expectations. <strong>Coding:</strong> a worked exercise with tests. <strong>Leadership:</strong> actual situations, decisions, contribution and outcomes, in the candidate’s own voice.</p>
+  <p><strong>Decisions and learning:</strong> compare opportunities with the candidate’s goals, retain unanswered questions, and turn repeated gaps into study and practice.</p>
+</details>
+
+<h2 id="candidate-ownership" data-index-label="Human review">The candidate owns the decision</h2>
+
+The candidate approves the brief, corrects its emphasis and decides how to use it. Approval of a document does not authorize an application, message or calendar action. The general [judge registry and two review loops](../../workflows/#judge-registry) define the shared mechanism; this page owns the career-specific rubric.
 
 <h2 id="connection-to-the-lab" data-index-label="Related work">Related work</h2>
 
-For the same brief-to-feedback pattern in a business setting, see [client research and agency workflow](../client-research/). Explore the [AI agent harness architecture](../../architecture/) or its [technical validation](../../validation/).
+See [client research and reviewed pitches](../client-research/) for the same architecture applied to an account brief, the [Harness architecture](../../architecture/) for component responsibilities, and [Validation](../../validation/) for the project’s actual evidence.

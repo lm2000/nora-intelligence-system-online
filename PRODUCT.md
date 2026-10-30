@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Confirmed: Astro static site, Node 24 and pnpm. Vercel remains the primary hosting target with the existing custom domain. GitHub Pages uses the same source with its own base path.
+Confirmed: Astro static site, Node 24 and pnpm. Vercel is the only hosting target, with the existing custom domain and automatic deployments from main. GitHub Pages is disabled. GitHub Actions and Vercel run the shared website validation command.
 
 ## Users
 
@@ -20,7 +20,7 @@ Present Nora SuperIntelligence Lab with a distinct lab overview on Home and a gu
 
 ## Operating Context
 
-Five main pages: Home, Architecture, Walkthroughs, Use cases, and Founders. Decisions, Validation, and Reproduce remain supporting pages with contextual and footer links. Every page has its own content index; the walkthrough index follows the active flow. Walkthroughs cover a fictional Atlas request and separate manual ingestion. Published harness documentation supplies the technical foundation.
+Six main pages: Home, Architecture, Walkthroughs, Workflows, Use cases, and Founders. Decisions, Validation, and Reproduce remain supporting pages with contextual and footer links. Every page has its own content index; the walkthrough index follows the active flow. Walkthroughs cover a fictional Atlas request and separate operator ingestion. Workflows owns judge preparation and the two owner-review loops. Published harness documentation supplies the technical foundation.
 
 ## Capabilities and Constraints
 
@@ -32,7 +32,7 @@ Use Nora SuperIntelligence Lab for website branding. Preserve NIS and exact inte
 
 ## Evidence on Hand
 
-Public harness architecture snapshot 10bd370c711afabdfc7b23b516911c31ff58bcb4 supplies diagrams and fictional fixtures. Canonical HTML/SVG and matching GIF files retain source provenance. Show in-page HTML interactions only where component exploration or step focus helps; omit diagram-format link bars. The website retains Apache licensing; imported MIT material carries its original notice.
+Public harness architecture snapshot f9cea261f0b33217028fe31e39ff88b5a10c3d4a supplies the current diagrams and fictional fixtures. Historical evidence retains its original source pins. Canonical HTML and matching GIF files retain source provenance; SVG previews are derived exports. Show in-page HTML interactions only where component exploration or step focus helps; omit diagram-format link bars. The website retains Apache licensing; imported MIT material carries its original notice.
 
 ## Product Principles
 

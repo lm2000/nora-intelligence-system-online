@@ -1,5 +1,31 @@
 # Project Context
 
+## Website release — 2026-10-29
+
+Owner accepted the local website revision and authorized committing, pushing and deploying it to Vercel. This release includes both the website clarity/mobile architecture changes and the Use cases/career/client-research improvements described below. The normal release path is a push to `main`, followed by the Vercel Git integration's production build and live-site verification. The local-only notes below record the state at each earlier review; deployment completion must be confirmed from the matching remote commit and production readback.
+
+## Use cases: architecture and evaluation — 2026-10-29
+
+Revised the directory, career case study and client-research case study locally. The directory separates application workflows from assessment/research and names the first use case Knowledge-grounded question answering. Existing card fragment IDs and all previous career/agency content anchors are preserved.
+
+Both case studies now use a responsive, explorable HTML/SVG flow with six stages and explicit Synthetic Owner and Real Owner revision returns. One AI Coordinator remains responsible across the flow. Source retrieval and durable records are shown separately; text explains matching, source versions, stale evidence, write reconciliation and approval boundaries. The career example follows an opportunity into a reviewed stage brief; the agency example follows a shortlist into reviewed account packages. Secondary career formats and campaign-delivery extensions use native disclosures.
+
+Each page includes an illustrative four-criterion before/after rubric, a proposed 7/8 threshold with blocking checks, a three-revision limit and escalation after two non-improving revisions. These are case-study design examples, not measured judge runs or changes to Harness runtime policy. Generic registry and review mechanics link to Workflows. Canonical Harness diagrams and source pins are unchanged.
+
+Validation: 23 tests, zero Astro diagnostics, 19 built pages and 811 checked links. Chromium checks covered all three affected routes at 1440px, 390px and 320px, with no page overflow, broken images or script errors. Six-stage diagrams, native keyboard expansion, no-JavaScript operation, rubric tables, secondary disclosures and case-study return anchors passed. Visual review caught a shared CSS class collision dimming stage numbers; the new component now uses its own class. Evidence is in `.private/use-cases-improvements/`. Changes remain local and uncommitted; no deployment or live evaluation was run.
+
+## Website clarity and mobile architecture — 2026-10-29
+
+Implemented the approved website-first assessment plan locally. Home now introduces the lab and its three workflows without repeating the coordinator's full responsibility list. Architecture owns component boundaries; Workflows links execution steps to Walkthroughs and focuses on judge preparation and owner feedback. Existing routes, anchors, founder details, contact links and canonical diagram assets remain intact.
+
+The Architecture system-map section now has a vertical mobile overview with distinct browser and MCP entry paths, one AI Coordinator, and knowledge, model, evaluation and state branches. Up to 768px, a native disclosure opens the existing full diagram; desktop keeps it expanded. The no-JavaScript fallback keeps the full map visible. The overview is a website presentation of the pinned architecture, not a new canonical Harness diagram.
+
+Updated current product guidance to the six-page navigation, Vercel-only delivery and existing source pin. Verified nine public Harness source URLs and the successful CI run for `f9cea261f0b33217028fe31e39ff88b5a10c3d4a`; Validation links that run without extending the runtime-quality claims. Historical records and source pins remain unchanged.
+
+Validation: `pnpm validate` passed with 23 tests (including five disclosure regressions), zero Astro errors or warnings, 19 built pages and 805 checked links across 55 files. Production-preview Chromium checks covered Home, Architecture, Workflows and Walkthroughs at 1440px, 390px and 320px, with no page-level overflow or script errors. Keyboard disclosure, component selection/Escape, reduced motion, breakpoint transitions, walkthrough deep links/history/Previous/Next/Reset/tab navigation and the no-JavaScript fallback passed. Desktop/mobile screenshots were visually inspected; physical-phone and screen-reader testing were not performed.
+
+Local evidence is in `.private/website-improvements/`. The production-build preview is available at `http://127.0.0.1:4330/`. These changes are not committed, pushed or deployed. Harness runtime work remains queued separately.
+
 ## Home architecture summary — 2026-10-21
 
 Replaced Home's text-only request list with a compact inline SVG derived from

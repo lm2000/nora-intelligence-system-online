@@ -2,8 +2,9 @@
 import SiteLayout from './SiteLayout.astro';
 import PageIndex from '../components/PageIndex.astro';
 import CaseStudyLinks from '../components/CaseStudyLinks.astro';
-interface Props { title: string; summary: string; path: string; kind: string; returnAnchor: 'interview-preparation' | 'client-research' | 'ai-data-readiness'; }
-const { title, summary, path, kind, returnAnchor } = Astro.props;
+import CaseWorkflowDiagram from '../components/CaseWorkflowDiagram.astro';
+interface Props { title: string; summary: string; path: string; kind: string; returnAnchor: 'interview-preparation' | 'client-research' | 'ai-data-readiness'; workflow?: 'career' | 'agency'; }
+const { title, summary, path, kind, returnAnchor, workflow } = Astro.props;
 ---
 <SiteLayout title={`${title} — Nora SuperIntelligence Lab`} description={summary} path={path}>
   <article class="container content-page case-study">
@@ -11,6 +12,7 @@ const { title, summary, path, kind, returnAnchor } = Astro.props;
     <h1 id="overview">{title}</h1>
     <p class="page-intro">{summary}</p>
     <PageIndex />
+    {workflow && <CaseWorkflowDiagram variant={workflow} />}
     <slot />
     <CaseStudyLinks returnAnchor={returnAnchor} />
   </article>
@@ -27,4 +29,12 @@ const { title, summary, path, kind, returnAnchor } = Astro.props;
   .case-study :global(.shortlist-example dt) { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink); font-weight: 700; }
   .case-study :global(.shortlist-example dd) { margin: 8px 0 0; max-width: 68ch; line-height: 1.7; color: var(--ink-soft); }
   .case-study :global(h3) { margin-top: 32px; }
+  .case-study :global(.case-extension) { margin-block: 24px; padding: 16px 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--navy-2); }
+  .case-study :global(.case-extension summary) { cursor: pointer; min-height: 44px; padding-block: 10px; color: var(--teal-light); font-weight: 650; }
+  .case-study :global(.case-extension summary:focus-visible) { outline: 3px solid var(--teal-light); outline-offset: 4px; }
+  .case-study :global(.evaluation-table) { width: 100%; border-collapse: collapse; margin-block: 24px; font-size: 1rem; }
+  .case-study :global(.evaluation-table caption) { text-align: left; color: var(--ink-soft); margin-bottom: 12px; }
+  .case-study :global(.evaluation-table th), .case-study :global(.evaluation-table td) { padding: 12px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .case-study :global(.evaluation-table th:first-child) { width: 64%; }
+  .case-study :global(.evaluation-table td) { font-variant-numeric: tabular-nums; }
 </style>

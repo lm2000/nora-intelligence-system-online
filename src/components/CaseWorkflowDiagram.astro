@@ -1,0 +1,79 @@
+---
+interface Props { variant: 'career' | 'agency'; }
+const { variant } = Astro.props;
+const career = variant === 'career';
+const stages = [
+  { title: 'Gather context', output: career ? 'Role, experience, stage' : 'Account signals and agency proof', detail: career ? 'Match the opportunity before attaching messages. Retrieve the current role description, relevant experience and previous feedback; preserve source references.' : 'Match the account before attaching research. Retrieve public observations and approved agency experience; retain sources and separate hypotheses from facts.' },
+  { title: 'AI Coordinator', output: 'Plan and route the work', detail: 'Choose the task and relevant sources, delegate focused research or drafting, then collect the results. Model selection is separate from task orchestration.' },
+  { title: career ? 'Stage brief' : 'Account package', output: career ? 'Brief, practice task, source links' : 'Shortlist decision, brief, draft pitch', detail: 'Freeze the draft, source versions and task requirements for review. Keep the previous version so changes can be compared and reversed.' },
+  { title: 'Role judges', output: 'Findings tied to the draft', detail: career ? 'Hiring Manager reviews role fit; Senior Engineer checks technical reasoning; Domain Expert checks the use of evidence. Each returns a finding, its location and a proposed correction.' : 'Domain Expert checks account fit and evidence. Synthetic marketing, finance and operations perspectives challenge relevance, claims and objections. Simulated reactions remain separate from buyer feedback.' },
+  { title: 'Synthetic Owner', output: 'Score and recommend', detail: 'Aggregate findings against the task rubric. Recommend accept only when the score threshold and all blocking checks pass; otherwise return the draft for revision.' },
+  { title: 'Real Owner', output: career ? 'Candidate approval' : 'Strategist approval', detail: career ? 'The candidate checks the brief, requests changes or approves it for use. Applications, outreach and scheduling still require approval of the specific action.' : 'The strategist verifies the account recommendation, requests changes or approves the package. Sending outreach or changing a CRM record requires approval of that specific action.' }
+];
+---
+
+<section class="case-flow-section" aria-labelledby="system-design">
+  <h2 id="system-design" data-index-label="Architecture">From context to an approved {career ? 'brief' : 'package'}</h2>
+  <p class="flow-intro">The AI Coordinator plans the work, dispatches reviews and collects results throughout this illustrative flow. Expand a stage to see its responsibility.</p>
+  <figure class="case-flow" aria-label={career ? 'Career preparation architecture and review loops' : 'Client research architecture and review loops'}>
+    <ol class="flow-stages">
+      {stages.map((stage, index) => (
+        <li>
+          <details class:list={['flow-stage', { 'flow-stage--coordinator': index === 1, 'flow-stage--owner': index >= 4 }]}>
+            <summary><span class="case-stage-number">{index + 1}</span><strong>{stage.title}</strong><span class="stage-output">{stage.output}</span></summary>
+            <p>{stage.detail}</p>
+          </details>
+          {index < stages.length - 1 && <svg class="flow-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-6-6 6 6-6 6" /></svg>}
+        </li>
+      ))}
+    </ol>
+    <div class="review-returns">
+      <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4v8H4m6-6-6 6 6 6" /></svg><span><strong>Synthetic revision:</strong> below threshold or a blocking issue → revise the draft → evaluate again.</span></p>
+      <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4v8H4m6-6-6 6 6 6" /></svg><span><strong>Owner revision:</strong> requested changes → revise the brief and draft → evaluate again before owner review.</span></p>
+    </div>
+    <figcaption>
+      <dl>
+        <div><dt>Knowledge</dt><dd>{career ? 'Experience bank, role sources and prior feedback retrieved for the task.' : 'Public research, approved agency proof and account history retrieved for the task.'}</dd></div>
+        <div><dt>Durable records</dt><dd>{career ? 'Opportunity ID, stage, artifact versions, findings and next action.' : 'Account ID, source versions, selection decision, findings and next action.'}</dd></div>
+      </dl>
+      <p>Coordinator-selected evaluation routes: Harbor Hub for prepared tasks and results; Hugging Face for judge-model access. Neither approves an external action.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<style>
+  .case-flow-section { margin-top: 40px; container-type: inline-size; }
+  .case-flow-section h2 { margin: 0 0 12px; }
+  .flow-intro { color: var(--ink-soft); margin-bottom: 24px; }
+  .case-flow { margin: 0; }
+  .flow-stages { display: grid; grid-template-columns: 1fr; gap: 32px 24px; list-style: none; padding: 0; margin: 0; }
+  .flow-stages > li { min-width: 0; position: relative; margin: 0; }
+  .flow-stage { height: 100%; background: var(--navy-2); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+  .flow-stage--coordinator { border-color: var(--teal); }
+  .flow-stage--owner { border-color: var(--violet); }
+  summary { cursor: pointer; padding: 16px; min-height: 44px; }
+  summary::marker { color: var(--teal-light); }
+  summary:focus-visible { outline: 3px solid var(--teal-light); outline-offset: 4px; border-radius: var(--radius-sm); }
+  .case-stage-number { color: var(--ink-soft); font-size: .875rem; margin-right: 8px; }
+  summary strong { font-size: 1rem; color: var(--ink); }
+  .stage-output { display: block; margin-top: 12px; font-size: 1rem; line-height: 1.5; color: var(--ink-soft); }
+  .flow-stage p { padding: 0 16px 16px; margin: 0; font-size: 1rem; color: var(--ink-soft); }
+  .flow-arrow { position: absolute; width: 24px; height: 24px; bottom: -28px; right: calc(50% - 12px); transform: rotate(90deg); fill: none; stroke: var(--teal-light); stroke-width: 1.5; }
+  .review-returns { margin-top: 24px; border-block: 1px solid var(--line); padding: 16px 0; }
+  .review-returns p { display: flex; align-items: flex-start; gap: 12px; margin: 0; color: var(--ink-soft); font-size: 1rem; }
+  .review-returns p + p { margin-top: 12px; }
+  .review-returns strong { color: var(--ink); }
+  .review-returns svg { width: 24px; height: 24px; flex-shrink: 0; fill: none; stroke: var(--teal-light); stroke-width: 1.5; }
+  figcaption dl { display: grid; grid-template-columns: 1fr; gap: 24px; margin: 20px 0; }
+  dt { color: var(--ink); font-weight: 700; margin-bottom: 8px; }
+  dd { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink-soft); }
+  figcaption > p { color: var(--ink-soft); font-size: .9375rem; }
+  @container (min-width: 960px) {
+    .flow-stages { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    summary { min-height: 170px; }
+    .flow-arrow { top: 60px; bottom: auto; right: -24px; transform: none; }
+  }
+  @container (min-width: 600px) {
+    figcaption dl { grid-template-columns: 1fr 1fr; }
+  }
+</style>
