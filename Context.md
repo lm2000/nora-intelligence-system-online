@@ -1,5 +1,25 @@
 # Project Context
 
+## Harness source reference refresh — 2026-10-30
+
+Updated current Harness links, reproduction instructions, the shared source URL
+constant and both provenance manifests to public commit
+`7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053`. The public checksum receipt confirms
+all 32 imported diagram assets and six workflow references are unchanged;
+diagram files and historical runtime pins remain intact.
+
+Validation now cites successful GitHub Actions run `41003452322`, reports its
+332 passing Python tests, eight skips and eleven subtests, and describes the
+ingestion regression coverage and synthetic-service limits. The private
+maintainer record's 333-test result is identified separately.
+
+Local verification: `pnpm validate` passed all 23 tests, zero Astro diagnostics,
+19 built pages and 811 links. Seven rendered current-source targets returned
+HTTP 200. Browser checks of Validation at 1440px, 390px and 320px confirmed the
+new result and CI links with no horizontal overflow. These results were recorded
+before publication. The owner subsequently authorized committing and pushing
+the reference refresh and deploying it through the existing Vercel Git integration.
+
 ## Website release — 2026-10-29
 
 Owner accepted the local website revision and authorized committing, pushing and deploying it to Vercel. This release includes both the website clarity/mobile architecture changes and the Use cases/career/client-research improvements described below. The normal release path is a push to `main`, followed by the Vercel Git integration's production build and live-site verification. The local-only notes below record the state at each earlier review; deployment completion must be confirmed from the matching remote commit and production readback.

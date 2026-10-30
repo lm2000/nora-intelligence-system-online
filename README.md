@@ -52,7 +52,7 @@ The site builds at the domain root. Historical Pages-era URLs in the preserved a
 
 ## Harness source and diagrams
 
-Architecture, Workflows, Walkthroughs, Decisions and Reproduce use published Harness snapshot `f9cea261f0b33217028fe31e39ff88b5a10c3d4a`. Validation separates current checks from older container/fixture evidence, which retains its original source pin. The build story remains a historical account.
+Architecture, Workflows, Walkthroughs, Decisions and Reproduce use published Harness snapshot `7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053`. Validation separates current checks from older container/fixture evidence, which retains its original source pin. The build story remains a historical account.
 
 `public/diagrams` contains all 16 canonical Harness HTML/GIF pairs, with derived SVG previews, alongside the historical build-story assets. The HTML/GIF files remain byte-identical to the published snapshot. `src/lib/diagram-source.mjs` adapts source SVG styles and component metadata to the existing accessible, in-page viewer. Provenance and hashes are recorded in `src/data/source-manifest.json`, `src/data/workflow-sources.json`, and the separate historical `src/data/case-study-sources.json`.
 

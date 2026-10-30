@@ -32,7 +32,7 @@ Use Nora SuperIntelligence Lab for website branding. Preserve NIS and exact inte
 
 ## Evidence on Hand
 
-Public harness architecture snapshot f9cea261f0b33217028fe31e39ff88b5a10c3d4a supplies the current diagrams and fictional fixtures. Historical evidence retains its original source pins. Canonical HTML and matching GIF files retain source provenance; SVG previews are derived exports. Show in-page HTML interactions only where component exploration or step focus helps; omit diagram-format link bars. The website retains Apache licensing; imported MIT material carries its original notice.
+Public harness architecture snapshot 7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053 supplies the current diagrams and fictional fixtures. Historical evidence retains its original source pins. Canonical HTML and matching GIF files retain source provenance; SVG previews are derived exports. Show in-page HTML interactions only where component exploration or step focus helps; omit diagram-format link bars. The website retains Apache licensing; imported MIT material carries its original notice.
 
 ## Product Principles
 

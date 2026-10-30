@@ -47,7 +47,7 @@ A simple future sanity exercise runs Nora first and OpenClaw second; Codex is ex
 
 ## Source availability
 
-The current Architecture, Decisions and Reproduce pages use the [updated public Harness snapshot](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/tree/f9cea261f0b33217028fe31e39ff88b5a10c3d4a); Validation retains separate pins for historical checks. This historical design story draws on an earlier local source candidate and private evidence register. Candidate module names are code references, not links to a published implementation. The private register is not reproduced here.
+The current Architecture, Decisions and Reproduce pages use the [updated public Harness snapshot](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/tree/7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053); Validation retains separate pins for historical checks. This historical design story draws on an earlier local source candidate and private evidence register. Candidate module names are code references, not links to a published implementation. The private register is not reproduced here.
 
 ## Further reading
 

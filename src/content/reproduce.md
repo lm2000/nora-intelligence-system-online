@@ -9,7 +9,7 @@ Clone the public harness repository and check out the pinned commit. Run these c
 ```bash
 git clone https://github.com/lm2000/nora-ai-knowledge-agent-harness-public.git
 cd nora-ai-knowledge-agent-harness-public
-git checkout f9cea261f0b33217028fe31e39ff88b5a10c3d4a
+git checkout 7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053
 ```
 
 From the repository root, create and activate the Conda environment, install the locked dependencies, and run validation:
@@ -39,8 +39,8 @@ python scripts/synthetic_smoke.py --model-path .runtime/models/bge
 
 The model directory must be new. Downloading the pinned public model requires internet access; the smoke test then uses the local cache. It checks three fictional documents through a temporary Qdrant index and loopback MCP server, cleans up temporary state, and does not call an answer model or start PostgreSQL or Docker.
 
-These checks do not deploy the application or establish representative answer quality. For application startup, optional conversion and browser acceptance, follow the [setup guide](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/f9cea261f0b33217028fe31e39ff88b5a10c3d4a/docs/setup/README.md).
+These checks do not deploy the application or establish representative answer quality. For application startup, optional conversion and browser acceptance, follow the [setup guide](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053/docs/setup/README.md).
 
 <h2 id="reference">Reference</h2>
 
-[Development setup](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/f9cea261f0b33217028fe31e39ff88b5a10c3d4a/docs/setup/README.md#install-for-development) · [Validation record](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/f9cea261f0b33217028fe31e39ff88b5a10c3d4a/docs/evaluation/VALIDATION.md)
+[Development setup](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053/docs/setup/README.md#install-for-development) · [Validation record](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053/docs/evaluation/VALIDATION.md)
