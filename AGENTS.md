@@ -6,7 +6,7 @@ The confirmed goal is a technical architecture portfolio linked from Michael's r
 
 Use Nora SuperIntelligence Lab consistently for website branding. Reuse the current live website dark navy, sans-serif, teal visual system and its floating content-index pattern. Use in-page HTML diagrams where interaction explains components or steps; omit separate format/source/download link bars. Preserve exact technical identifiers and source provenance.
 
-Use the full lab name in headings and lab references. Refer to its current project as the knowledge assistant; avoid alternate public names such as Nora AI Lab, Nora Lab, or Nora Intelligence System in website branding.
+Use the full lab name in headings and lab references. Describe the current engineering project as an AI agent harness centered on an AI coordinator. Keep `Coordination` as the exact runtime name, and preserve `assistant` only in existing technical identifiers, historical snapshots, or generic user-facing examples; avoid alternate public names such as Nora AI Lab, Nora Lab, or Nora Intelligence System in website branding.
 
 Omit calendar dates from visible public page copy, bylines, and evidence tables. Keep technical versions, source pins, and maintainer records intact.
 
@@ -18,7 +18,7 @@ AI Harness Landscape is a supporting research case study at /case-studies/ai-har
 
 Keep page ownership clear: Architecture explains components and flows; Decisions records accepted choices and tradeoffs; Validation owns dated evidence, scope, and limits; Reproduce owns prerequisites, commands, and expected results. Link between these pages instead of repeating full explanations. Keep supporting-page mobile indexes after the title and introduction. Distinguish Nora source (public harness) from Website source in shared navigation. Founders groups the profile with expertise and opportunities with contact while retaining its existing anchors.
 
-Use cases at /use-cases/ is a top-level page with its own numbered floating index. It links existing knowledge-assistant examples and the AI Harness Landscape case study; avoid adding unsupported projects or client outcomes.
+Use cases at /use-cases/ is a top-level page with its own numbered floating index. It links existing AI agent harness examples and the AI Harness Landscape case study; avoid adding unsupported projects or client outcomes.
 
 Interview Preparation (/case-studies/interview-preparation/) adapts the legacy preparation method. Client Research and Pitch Preparation (/case-studies/client-research/) remains a workflow concept. Both are listed on Use cases and own a floating index. Keep public examples illustrative; use the shared Illustrative workflow label for both career and agency pages.
 
@@ -32,7 +32,7 @@ Use-case source reuse adds AI/data readiness as a supporting assessment-method p
 
 The career use case covers the full job-search and continuous-learning cycle. Keep its existing /case-studies/interview-preparation/ route and hub #interview-preparation bookmark compatible. Agency detail includes source-proposed synthetic testing and integrations; simulation is distinct from buyer feedback. Landscape includes a venture-research method without investment ratings or private company claims.
 
-Offering clarity: Use cases is the canonical practical-workflow entry point; its contact identifies Michael as the engineering provider and the lab as independent work informing those services. Use readiness assessments, architecture reviews and scoped prototypes as the common entry offer. Directory statuses distinguish the implemented assistant, illustrative career/agency workflows, assessment method and public-source research. Put concrete outputs in existing summaries, not another service catalog. Preserve all Founders detail and original style.
+Offering clarity: Use cases is the canonical practical-workflow entry point; its contact identifies Michael as the engineering provider and the lab as independent work informing those services. Use readiness assessments, architecture reviews and scoped prototypes as the common entry offer. Directory statuses distinguish the implemented harness, illustrative career/agency workflows, assessment method and public-source research. Put concrete outputs in existing summaries, not another service catalog. Preserve all Founders detail and original style.
 
 Case-study exits use the shared CaseStudyLinks component: one contextual Discuss action to the existing Use cases workflow-contact bookmark and the original All use cases return fragment. Keep small text links and 44px targets. Use cases alone opts into the maintained social card; its editable HTML and export procedure live under design/social. Social metadata does not change visible page styling.
 

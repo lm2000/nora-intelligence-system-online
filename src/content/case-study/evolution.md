@@ -1,18 +1,18 @@
 ---
 title: "From role runtimes to one direct service"
-description: "Why one assistant remained, how the gateway route differs from the direct target, and what each store owns."
+description: "Why one AI coordinator remained, how the gateway route differs from the direct target, and what each store owns."
 slug: "evolution"
 diagram: "case-evolution"
 diagramAlt: "The used gateway path and the accepted direct target"
 ---
 
-The route changed shape twice. This chapter follows those decisions; [Decisions](../../decisions/) explains the accepted assistant boundaries.
+The route changed shape twice. This chapter follows those decisions; [Decisions](../../decisions/) explains the accepted coordinator boundaries.
 
-## One assistant accepted
-A decision converged the work on one assistant instead of parallel role runtimes, cutting duplicated wiring before any cleanup started.
+## One AI coordinator accepted
+A decision converged the work on one AI coordinator instead of parallel role runtimes, cutting duplicated wiring before any cleanup started.
 
 ## Role interfaces removed, history retained
-Obsolete role, runtime, and interface layers came out of the code path. Legacy role conversations stayed in storage as-is: no migration, and no exposure of their contents. Existing assistant conversations continue in place — the PostgreSQL checkpoints never had to move.
+Obsolete role, runtime, and interface layers came out of the code path. Legacy role conversations stayed in storage as-is: no migration, and no exposure of their contents. Existing conversations continue in place — the PostgreSQL checkpoints never had to move.
 
 ## Two real designs, both on record
 **USED baseline:** client → LiteLLM MCP → embedded FastMCP Coordination → selected provider.

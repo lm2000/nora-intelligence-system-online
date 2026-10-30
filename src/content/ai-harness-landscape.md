@@ -133,7 +133,7 @@ This is a research workflow, not an investment rating. The seven public examples
 
 <h2 id="connection-to-nora" data-index-label="Lab connection">Connection to Nora SuperIntelligence Lab</h2>
 
-The same questions apply to Nora SuperIntelligence Lab’s knowledge assistant:
+The same questions apply to Nora SuperIntelligence Lab’s AI agent harness:
 
 - **Task & output:** A question becomes a plain answer, with a conversation UUID for follow-up.
 - **Knowledge:** Retrieval uses operator-prepared documents; updating those documents is a separate workflow.

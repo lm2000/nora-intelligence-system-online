@@ -1,6 +1,7 @@
 ---
 import { href } from '../lib/constants.mjs';
 import detailOverrides from '../data/diagram-details.json';
+import { parseDiagramSource } from '../lib/diagram-source.mjs';
 interface Props {
   previewSrc: string;
   htmlUrl?: string;
@@ -34,16 +35,9 @@ if (htmlUrl) {
   const basename = htmlUrl.split('/').pop();
   if (basename && files[`../../public/diagrams/${basename}`]) {
     const rawHtml = files[`../../public/diagrams/${basename}`] as string;
-    const svgMatch = rawHtml.match(/<svg[\s\S]*?<\/svg>/i);
-    if (svgMatch) svgString = svgMatch[0];
-    const detailsMatch = rawHtml.match(/const details\s*=\s*(\{[\s\S]*?\});\s*let playing/);
-    if (detailsMatch) {
-      try {
-        details = JSON.parse(detailsMatch[1]) as Record<string, { label: string; detail: string }>;
-      } catch (e) {
-        details = {};
-      }
-    }
+    const parsed = parseDiagramSource(rawHtml);
+    svgString = parsed.svg;
+    details = parsed.details;
   }
 }
 
@@ -81,7 +75,7 @@ const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
         </div>
 
         <div class="diagram-detail-area">
-          <p class="diagram-hint">Select a node to explore its connections.</p>
+          <p class="diagram-hint">Select a component to explore its role.</p>
           <div class="diagram-selection-detail" aria-live="polite">
             <p class="diagram-detail-label" data-diagram-detail-label></p>
             <p class="diagram-detail-text" data-diagram-detail-text></p>
@@ -284,7 +278,8 @@ class InteractiveDiagram extends HTMLElement {
 
     cssText = cssText
       .replace(/"fonts"/g, '"diagram-fonts"')
-      .replace(/"ink"/g, '"diagram-ink"');
+      .replace(/"ink"/g, '"diagram-ink"')
+      .replace(/url\(#([^)]+)\)/g, 'url(#diagram-$1)');
 
     const serializeId = (id: string) => 'diagram-' + id;
     svg.querySelectorAll('[id]').forEach((el) => {
@@ -307,7 +302,7 @@ class InteractiveDiagram extends HTMLElement {
     svg.removeAttribute('role');
     svg.removeAttribute('aria-labelledby');
     svg.setAttribute('role', 'group');
-    svg.setAttribute('aria-label', 'Interactive architecture diagram. Activate nodes to explore connections.');
+    svg.setAttribute('aria-label', 'Interactive architecture diagram. Activate components to explore their roles.');
 
     const root = host.attachShadow({ mode: 'open' });
     const style = document.createElement('style');
@@ -315,7 +310,8 @@ class InteractiveDiagram extends HTMLElement {
       :host { display: block; }
       svg { width: 100%; height: auto; max-width: 100%; display: block; }
       ${cssText}
-      text { font-family: inherit; fill: #1a2733; }
+      svg { min-width: 0 !important; width: 100%; height: auto; max-width: 100%; }
+      text { font-family: inherit; }
       .node { cursor: pointer; outline: none; }
       .node:hover rect { stroke: #075973; }
       .node:focus-visible rect { stroke: #075973; stroke-width: 2.5; }
@@ -340,9 +336,8 @@ class InteractiveDiagram extends HTMLElement {
       n.setAttribute('tabindex', '0');
       n.setAttribute('role', 'button');
       n.setAttribute('aria-pressed', 'false');
-      const texts = n.querySelectorAll('text');
-      const labelEl = texts[1];
-      const labelText = labelEl && labelEl.textContent ? labelEl.textContent : n.id;
+      const id = n.id.replace(/^diagram-/, '');
+      const labelText = this.details[id]?.label || n.querySelector('text')?.textContent || id;
       n.setAttribute('aria-label', 'Select component: ' + labelText);
     });
   }
@@ -483,7 +478,7 @@ class InteractiveDiagram extends HTMLElement {
       const edgeTo = edge.getAttribute('data-to');
       const isSelected = this.selectedId !== null && (this.selectedId === edgeFrom || this.selectedId === edgeTo);
 
-      if (this.selectedId !== null && !isSelected) {
+      if (this.selectedId !== null && edgeFrom && edgeTo && !isSelected) {
         p.setAttribute('opacity', '0');
         return;
       }

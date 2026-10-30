@@ -11,15 +11,15 @@ const firstRequestStep = walkthroughs.request[0].id;
 const founder = site.founders.filter(f => f && f.name)[0];
 
 const indexEntries = [
-  { id: 'overview', label: 'Overview', description: 'The lab and its current knowledge-assistant work' },
-  { id: 'example', label: 'Current work', description: 'The lab’s knowledge-assistant project' },
+  { id: 'overview', label: 'Overview', description: 'The lab and its current AI agent harness' },
+  { id: 'example', label: 'Current work', description: 'The lab’s AI agent harness' },
   { id: 'system-map', label: 'Approach', description: 'A practical way to build useful systems' },
   { id: 'founders', label: 'Founders', description: 'Michael and the work behind the lab' },
   { id: 'contact', label: 'Contact', description: 'Get in touch about roles or projects' }
 ];
 ---
 
-<SiteLayout title="Home — Nora SuperIntelligence Lab" description="I lead Nora SuperIntelligence Lab, an independent lab building knowledge assistants and practical AI systems. The current project is a knowledge assistant." path="/" customIndex={true}>
+<SiteLayout title="Home — Nora SuperIntelligence Lab" description="I lead Nora SuperIntelligence Lab, an independent lab building an AI agent harness centered on an AI coordinator." path="/" customIndex={true}>
   <section class="hero hero--home" id="overview" data-index-label="Overview">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
@@ -42,16 +42,16 @@ const indexEntries = [
       <div class="section-heading section-heading--split">
         <div>
           <p class="section-label">Current work</p>
-          <h2>A knowledge assistant.</h2>
+          <h2>An AI agent harness.</h2>
         </div>
-        <p>The project explores how an assistant can work with prepared knowledge, use tools, and retain conversation state. Its public harness makes the architecture and checks available to examine.</p>
+        <p>The AI Coordinator plans work, delegates focused tasks, selects model routes and synthesizes results. A Knowledge Backbone retains sources beyond each conversation; role-based review and owner approval guide artifact revision. The public harness makes its architecture and checks available to examine.</p>
       </div>
       <HomeArchitectureMap />
       <div class="hero-actions home-actions">
         <a class="text-link" href={href('/architecture/')}>Architecture <span aria-hidden="true">→</span></a>
         <a class="text-link" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Walkthroughs <span aria-hidden="true">→</span></a>
         <a class="text-link" href={href('/workflows/')}>Workflows <span aria-hidden="true">→</span></a>
-        <a class="text-link" href={href('/case-study/')}>How the assistant was built <span aria-hidden="true">→</span></a>
+        <a class="text-link" href={href('/case-study/')}>How the harness was built <span aria-hidden="true">→</span></a>
       </div>
       <div class="case-card">
         <p class="case-card__label">Research case study</p>
@@ -96,7 +96,7 @@ const indexEntries = [
         <div class="foundation-list">
           <div class="founder-entry">
             <span>01</span>
-            <p>I lead the knowledge-assistant project at Nora SuperIntelligence Lab, exploring how people, knowledge, agents, and tools can work together without losing human judgment.</p>
+            <p>I lead the AI agent harness project at Nora SuperIntelligence Lab, connecting knowledge, agents and tools with human judgment.</p>
             <p class="founder-links"><a class="text-link" href={href('/founders/')}>More about me <span aria-hidden="true">→</span></a></p>
           </div>
         </div>
@@ -118,7 +118,7 @@ const indexEntries = [
           {site.contact.links.map(l => (
             <a class="button button--primary" href={l.url}>{l.label} <span aria-hidden="true">→</span></a>
           ))}
-          <a class="button button--ghost" href="https://www.linkedin.com/in/michael-lvov-05a8125/">View my LinkedIn profile</a>
+          <a class="button button--ghost" href="https://www.linkedin.com/in/michael-lvov-lm">View my LinkedIn profile</a>
         </div>
         <EmailAddress />
       </div>

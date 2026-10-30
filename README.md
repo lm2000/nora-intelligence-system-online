@@ -6,7 +6,7 @@ This repository contains the static Astro website for the Nora SuperIntelligence
 
 Give technical interviewers a guided view of the Nora SuperIntelligence Lab: service boundaries, request and ingestion paths, design decisions, validation, and reproduction instructions.
 
-Home introduces the independent lab, its current Nora knowledge-assistant project, a simplified map of the published Harness architecture, working approach, people, and contact. Architecture owns the detailed technical diagrams. The walkthrough retains the fictional Atlas example: “What still blocks the Atlas release?” → “The load test and rollback rehearsal remain.” It does not call a model or describe a real release.
+Home introduces the independent lab, its current Nora AI agent harness, a simplified map of the published Harness architecture, working approach, people, and contact. Architecture owns the detailed technical diagrams. The walkthrough retains the fictional Atlas example: “What still blocks the Atlas release?” → “The load test and rollback rehearsal remain.” It does not call a model or describe a real release.
 
 ## Commands
 
@@ -47,9 +47,9 @@ pnpm build
 
 ## Harness source and diagrams
 
-The original Architecture, Validation, and Reproduce material uses public Harness snapshot `10bd370c711afabdfc7b23b516911c31ff58bcb4`; the header and Architecture hero link to the current public repository. Keep the historical pin for reproducible examples until those pages are deliberately refreshed.
+Architecture, Workflows, Walkthroughs, Decisions and Reproduce use published Harness snapshot `f9cea261f0b33217028fe31e39ff88b5a10c3d4a`. Validation separates current checks from older container/fixture evidence, which retains its original source pin. The build story remains a historical account.
 
-`public/diagrams` contains three pinned architecture HTML/GIF pairs and their derived preview SVGs, two workflow pairs, and three build-story pairs. Provenance is recorded in `src/data/source-manifest.json`, `src/data/workflow-sources.json`, and `src/data/case-study-sources.json`; the last records separate source and website hashes for adapted diagrams. The build story draws on a dated local source candidate; its status is stated on the pages.
+`public/diagrams` contains all 16 canonical Harness HTML/GIF pairs, with derived SVG previews, alongside the historical build-story assets. The HTML/GIF files remain byte-identical to the published snapshot. `src/lib/diagram-source.mjs` adapts source SVG styles and component metadata to the existing accessible, in-page viewer. Provenance and hashes are recorded in `src/data/source-manifest.json`, `src/data/workflow-sources.json`, and the separate historical `src/data/case-study-sources.json`.
 
 The historical website source at commit `ea6c16137977431b9535316c938b9473393fd2da` is preserved in `legacy/source/`. `pnpm build` generates its archive and legacy redirect files; it does not need Git history. Old presentation/video files already absent at that baseline are not restored.
 
@@ -59,7 +59,7 @@ See `PRODUCT.md` for the audience and content structure, `DESIGN.md` for the vis
 
 The original website content retains its Apache LICENSE. The testing harness source is MIT licensed. See `NOTICE.md` for details.
 
-Use cases is a top-level page linking the lab’s knowledge-assistant example and AI Harness Landscape research case study. It uses the original floating-index pattern; detailed case studies keep their own index.
+Use cases is a top-level page linking the lab’s AI coordinator example and AI Harness Landscape research case study. It uses the original floating-index pattern; detailed case studies keep their own index.
 
 Additional use cases: Interview Preparation describes a stage-specific preparation method; Client Research and Pitch Preparation is a proposed agency workflow. Both include illustrative examples and a page-owned content index.
 

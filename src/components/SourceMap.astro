@@ -113,6 +113,7 @@ class SourceMap extends HTMLElement {
           :host { display: block; width: 100%; }
           svg { max-width: 100%; height: auto; display: block; }
           ${cssText}
+          svg { min-width: 0 !important; width: 100%; }
           .node { cursor: default; }
           .node.active rect {
             stroke-width: 3.5;
@@ -206,17 +207,21 @@ class SourceMap extends HTMLElement {
     }
     if (focused) {
       focused.replaceChildren();
-      activeIds.forEach((id, index) => {
+      let focusY = 12;
+      let focusWidth = 260;
+      activeIds.forEach((id) => {
         const node = svg.querySelector<SVGGElement>(`#${CSS.escape(id)}`);
         const rect = node?.querySelector('rect');
         if (!node || !rect) return;
         const clone = node.cloneNode(true) as SVGGElement;
-        clone.setAttribute('transform', `translate(${15 - Number(rect.getAttribute('x'))}, ${12 + index * 108 - Number(rect.getAttribute('y'))})`);
+        clone.setAttribute('transform', `translate(${15 - Number(rect.getAttribute('x'))}, ${focusY - Number(rect.getAttribute('y'))})`);
         clone.removeAttribute('id');
         clone.classList.remove('active');
         focused.appendChild(clone);
+        focusY += Number(rect.getAttribute('height')) + 20;
+        focusWidth = Math.max(focusWidth, Number(rect.getAttribute('width')) + 30);
       });
-      focused.setAttribute('viewBox', `0 0 260 ${Math.max(1, activeIds.length) * 108 + 12}`);
+      focused.setAttribute('viewBox', `0 0 ${focusWidth} ${focusY}`);
     }
 
     if (captionEl) {
@@ -225,7 +230,7 @@ class SourceMap extends HTMLElement {
           const node = svg.querySelector(`#${CSS.escape(id)}`);
           if (!node) return id;
           const textEls = node.querySelectorAll('text');
-          return textEls[1] ? textEls[1].textContent : id;
+          return node.getAttribute('data-title') || textEls[0]?.textContent || id;
         });
         captionEl.innerHTML = `Focused services: <strong>${labels.join(', ')}</strong>`;
       } else {

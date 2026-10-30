@@ -53,4 +53,4 @@ Business and domain owners decide which problem matters. Engineering establishes
 
 <h2 id="related-work" data-index-label="Related work">Related work</h2>
 
-See the [knowledge-assistant walkthrough](../../walkthroughs/?flow=request&step=current-question) for a bounded question-answering example, [AI Harness Landscape](../ai-harness-landscape/) for product-comparison questions, or [client research and agency workflow](../client-research/) for a shortlist-to-decision method.
+See the [AI coordinator walkthrough](../../walkthroughs/?flow=request&step=current-question) for a bounded question-answering example, [AI Harness Landscape](../ai-harness-landscape/) for product-comparison questions, or [client research and agency workflow](../client-research/) for a shortlist-to-decision method.

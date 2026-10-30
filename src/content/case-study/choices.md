@@ -6,14 +6,14 @@ diagram: "case-request"
 diagramAlt: "Requirements, eligible models, configured scoring and a supported answer"
 ---
 
-The [Decisions](../../decisions/) page explains the accepted assistant boundaries. This chapter records additional design options considered for the direct API candidate.
+The [Decisions](../../decisions/) page explains the accepted AI coordinator boundaries. This chapter records additional design options considered for the direct API candidate.
 
 ## Components
 
 | Component | Responsibility and tradeoff | Evidence | Status |
 | --- | --- | --- | --- |
 | Deep Agents / LangGraph / LangChain | Agent harness, durable execution and model/tool abstractions inside one Coordination service. Retained instead of adding another orchestrator; protocol compatibility becomes NIS work. | `src/nora/agent.py`, `src/nora/execution.py` | Retained; direct APIs are a candidate |
-| MCP / FastMCP | Shared tool interfaces; embedded FastMCP exposes the assistant operation while Retrieval has search/read. Protocol support still needs client checks. | `src/nora/coordination.py`, `src/nora/mcp_client.py` | Retained |
+| MCP / FastMCP | Shared tool interfaces; embedded FastMCP exposes the Coordination operation while Retrieval has search/read. Protocol support still needs client checks. | `src/nora/coordination.py`, `src/nora/mcp_client.py` | Retained |
 | Composio | App access through explicit connected accounts; NIS owns schemas, allowlists and write approvals. This is integration, not model inference. | `src/nora/integrations.py` | Candidate; Gmail synthetic read passed |
 | BGE / Qdrant / prepared text | Shared query/document encoder, rebuildable vector index and source reads. Keeping index and text aligned requires release management. | `src/nora/retrieval.py`, [ingestion](../../walkthroughs/?flow=ingestion) | Retained |
 | PostgreSQL | Checkpoints and separately confirmed memories/platform records; continuity needs explicit thread ownership. | `src/nora/coordination.py`, `src/nora/platform_state.py` | Checkpoints retained; explicit memory is a candidate addition |

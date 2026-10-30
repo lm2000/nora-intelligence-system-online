@@ -3,19 +3,19 @@ import { href } from '../lib/constants.mjs';
 ---
 
 <figure class="home-architecture" aria-labelledby="home-map-heading">
-  <h3 id="home-map-heading">How the knowledge assistant fits together.</h3>
-  <div class="home-map-scroll" role="region" aria-label="Simplified knowledge assistant architecture" tabindex="0">
-    <svg class="home-map" viewBox="0 0 780 620" role="img" aria-labelledby="home-map-title home-map-description" xmlns="http://www.w3.org/2000/svg">
-      <title id="home-map-title">Knowledge assistant system map</title>
-      <desc id="home-map-description">CopilotKit and AG-UI reach the Deep Agents and LangGraph assistant directly. Codex and OpenClaw enter through LiteLLM and FastMCP. Retrieval MCP uses shared BGE for query encoding and reads Qdrant and prepared documents directly. Manual ingestion uses BGE for document encoding and publishes knowledge outside conversations. The assistant calls Ollama Cloud or Fireworks.ai and keeps checkpoints in PostgreSQL.</desc>
+  <h3 id="home-map-heading">How the AI agent harness fits together.</h3>
+  <div class="home-map-scroll" role="region" aria-label="Simplified AI agent harness architecture" tabindex="0">
+    <svg class="home-map" viewBox="0 0 780 620" role="img" aria-labelledby="home-map-title" aria-describedby="home-map-description" xmlns="http://www.w3.org/2000/svg">
+      <title id="home-map-title">AI agent harness system map</title>
+      <desc id="home-map-description">Browser HTTP/AG-UI and MCP clients reach one AI Coordinator. The MCP Gateway supplies tool access and FastMCP exposes ask_nis. The coordinator plans, delegates, selects model routes and synthesizes results. Retrieval MCP uses shared BGE, Qdrant and prepared text as the Knowledge Backbone. Ingestion prepares knowledge outside conversations. Separate Harbor Hub and Hugging Face routes support review before Real Owner approval; PostgreSQL keeps checkpoints.</desc>
       <defs>
         <marker id="home-map-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#879ab1" />
         </marker>
       </defs>
 
-      <text class="map-kicker" x="24" y="43">REQUEST ENTRANCES</text>
-      <text class="map-kicker" x="420" y="43">SHARED ASSISTANT</text>
+      <text class="map-kicker" x="24" y="43">CLIENT PATHS</text>
+      <text class="map-kicker" x="420" y="43">AI COORDINATOR</text>
 
       <g class="map-edges" fill="none" stroke="#879ab1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#home-map-arrow)">
         <path d="M 184 109 H 400 V 158 H 420" />
@@ -25,6 +25,7 @@ import { href } from '../lib/constants.mjs';
         <path d="M 453 227 V 320 H 111 V 360" />
         <path d="M 500 227 V 330 H 305 V 360" />
         <path d="M 547 227 V 340 H 499 V 360" />
+        <path d="M 570 227 V 285 H 683 V 360" />
         <path d="M 111 458 V 486 H 315 V 500" />
         <path d="M 170 458 V 472 H 542 V 500" />
         <path d="M 198 536 H 218" />
@@ -46,15 +47,16 @@ import { href } from '../lib/constants.mjs';
       </g>
       <g class="map-node map-node--entrance">
         <rect x="210" y="184" width="172" height="78" rx="16" />
-        <text class="map-node-tag" x="228" y="206">ENTRANCE</text>
-        <text class="map-node-title" x="228" y="230">MCP entrance</text>
+        <text class="map-node-tag" x="228" y="206">MCP GATEWAY / SERVER</text>
+        <text class="map-node-title" x="228" y="230">MCP tool access</text>
         <text class="map-node-detail" x="228" y="252">LiteLLM → FastMCP</text>
       </g>
       <g class="map-node map-node--assistant">
         <rect x="420" y="122" width="174" height="105" rx="18" />
         <text class="map-node-tag" x="438" y="147">SERVICE</text>
-        <text class="map-node-title" x="438" y="176">Assistant</text>
-        <text class="map-node-detail" x="438" y="203">Deep Agents / LangGraph</text>
+        <text class="map-node-title" x="438" y="176">AI Coordinator</text>
+        <text class="map-node-detail" x="438" y="200">Plan · delegate · select</text>
+        <text class="map-node-detail" x="438" y="218">Synthesize results</text>
       </g>
       <g class="map-node map-node--result">
         <rect x="620" y="133" width="135" height="82" rx="16" />
@@ -70,8 +72,8 @@ import { href } from '../lib/constants.mjs';
       </g>
       <g class="map-node map-node--provider">
         <rect x="218" y="360" width="174" height="98" rx="16" />
-        <text class="map-node-tag" x="236" y="384">PROVIDER</text>
-        <text class="map-node-title" x="236" y="411">Model providers</text>
+        <text class="map-node-tag" x="236" y="384">INFERENCE</text>
+        <text class="map-node-title" x="236" y="411">Model backends</text>
         <text class="map-node-detail" x="236" y="430">Ollama Cloud /</text>
         <text class="map-node-detail" x="236" y="447">Fireworks.ai</text>
       </g>
@@ -82,9 +84,16 @@ import { href } from '../lib/constants.mjs';
         <text class="map-node-detail" x="430" y="437">LangGraph checkpoints</text>
       </g>
       <g class="map-node map-node--manual">
+        <rect x="606" y="360" width="150" height="98" rx="16" />
+        <text class="map-node-tag" x="624" y="384">REVIEW ROUTES</text>
+        <text class="map-node-title" x="624" y="411">Evaluation</text>
+        <text class="map-node-detail" x="624" y="430">Harbor Hub /</text>
+        <text class="map-node-detail" x="624" y="447">Hugging Face</text>
+      </g>
+      <g class="map-node map-node--manual">
         <rect x="24" y="500" width="174" height="72" rx="16" />
-        <text class="map-node-tag" x="42" y="520">MANUAL JOB</text>
-        <text class="map-node-title" x="42" y="543">Manual ingestion</text>
+        <text class="map-node-tag" x="42" y="520">INGESTION JOBS</text>
+        <text class="map-node-title" x="42" y="543">Ingestion</text>
         <text class="map-node-detail" x="42" y="562">Four operator jobs</text>
       </g>
       <g class="map-node map-node--service">
@@ -102,7 +111,7 @@ import { href } from '../lib/constants.mjs';
     </svg>
   </div>
   <figcaption>
-    <p>A compact view of the published Harness architecture. Browser requests enter directly; MCP clients use the gateway. Manual ingestion prepares knowledge outside the conversation.</p>
+    <p>The Knowledge Backbone pairs prepared text with its search index. Ingestion updates it outside conversations. Separate evaluation routes provide feedback; the Synthetic Owner recommends, and the Real Owner gives final approval.</p>
     <a href={href('/architecture/#system-map')}>Explore the full architecture <span aria-hidden="true">→</span></a>
   </figcaption>
 </figure>

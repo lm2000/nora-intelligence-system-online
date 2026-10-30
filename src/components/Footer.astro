@@ -11,7 +11,7 @@ const pages = [
   { label: 'Validation', path: '/validation/' },
   { label: 'Reproduce', path: '/reproduce/' },
   { label: 'Workflows', path: '/workflows/' },
-  { label: 'How the assistant was built', path: '/case-study/' }
+  { label: 'How the harness was built', path: '/case-study/' }
 ];
 ---
 <footer class="site-footer">
@@ -20,7 +20,7 @@ const pages = [
       <img src={href('/images/nora-mark.svg')} width="32" height="32" alt="" />
       <span>Nora <strong>SuperIntelligence Lab</strong></span>
     </a>
-    <p>An independent lab building knowledge assistants and practical AI systems.</p>
+    <p>An independent lab building an AI agent harness and practical AI systems.</p>
     <div class="footer-links">
       {pages.map(p => <a href={href(p.path)}>{p.label}</a>)}
       <a class="footer-contact" href={href('/use-cases/#workflow-contact')}>Contact</a>

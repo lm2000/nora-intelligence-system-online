@@ -1,6 +1,6 @@
 ---
-title: "How the knowledge assistant was designed"
-description: "The problem, service boundaries and tradeoffs behind a reusable knowledge assistant."
+title: "How the AI agent harness was designed"
+description: "The problem, service boundaries and tradeoffs behind a reusable AI agent harness."
 slug: ""
 diagram: "case-system"
 diagramAlt: "Clients, execution, knowledge and tools in the accepted direct NIS target"

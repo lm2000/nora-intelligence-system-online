@@ -2,41 +2,64 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import OriginalIndex from '../components/OriginalIndex.astro';
 import Diagram from '../components/Diagram.astro';
-import { href } from '../lib/constants.mjs';
+import { href, sourceUrl } from '../lib/constants.mjs';
 import walkthroughs from '../data/walkthroughs.json';
 
 const firstRequestStep = walkthroughs.request[0].id;
 
 const indexEntries = [
-  { id: 'overview', label: 'Overview', description: 'One assistant, clear service boundaries' },
+  { id: 'overview', label: 'Overview', description: 'One AI coordinator, clear service boundaries' },
+  { id: 'knowledge-backbone', label: 'Knowledge Backbone', description: 'Retained sources, bounded model context' },
   { id: 'request-path', label: 'Request workflow', description: 'Coordination handles inference and retrieval' },
   { id: 'system-map', label: 'Architecture', description: 'Browser UI, gateway, retrieval, and state' },
-  { id: 'manual-ingestion', label: 'Manual ingestion', description: 'Preparation runs outside the conversation' },
+  { id: 'model-routing', label: 'Models and orchestration', description: 'Delegate tasks, select inference, combine results' },
+  { id: 'manual-ingestion', label: 'Ingestion', description: 'Preparation runs outside the conversation' },
   { id: 'decisions-tradeoffs', label: 'Decisions', description: 'Tradeoffs and the decisions route' }
 ];
 ---
-<SiteLayout title="Architecture — Nora SuperIntelligence Lab" description="System architecture for Nora SuperIntelligence Lab’s knowledge assistant: Browser UI, Coordination, and MCP gateway with clear service boundaries." path="/architecture/" customIndex={true}>
+<SiteLayout title="Architecture — Nora SuperIntelligence Lab" description="System architecture for Nora SuperIntelligence Lab’s AI agent harness: Browser UI, Coordination, and MCP gateway with clear service boundaries." path="/architecture/" customIndex={true}>
   <section class="hero" id="overview" data-index-label="Overview">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
     <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
     <div class="shell hero-layout">
       <div class="hero-copy">
-        <h1>One assistant. Clear service boundaries.</h1>
+        <h1>One AI coordinator. Clear service boundaries.</h1>
         <p class="hero-lede">Architecture shows the reusable system: who owns each responsibility, how a request moves, and why document preparation stays outside the conversation. The walkthrough applies those same boundaries to concrete scenarios.</p>
-        <p class="hero-snapshot"><strong>Published Harness snapshot:</strong> MCP clients use the LiteLLM gateway. <a href={href('/case-study/evolution/')}>See the later direct-API design</a>.</p>
+        <p class="hero-snapshot">The Knowledge Backbone retains source material beyond a conversation. The AI Coordinator plans work, delegates to specialists, selects inference and synthesizes results for owner review.</p>
         <ul class="hero-signals" aria-label="Design principles">
-          <li>Single assistant</li>
+          <li>Single coordinator</li>
           <li>Prepared knowledge</li>
           <li>Durable state</li>
           <li>Provider-flexible</li>
         </ul>
         <div class="hero-actions hero-actions--foundation">
           <a class="button button--primary" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow the request path <span aria-hidden="true">→</span></a>
-          <a class="button button--ghost" href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/10bd370c711afabdfc7b23b516911c31ff58bcb4/README.md" target="_blank" rel="noreferrer">Public harness on GitHub</a>
+          <a class="button button--ghost" href={sourceUrl('README.md')} target="_blank" rel="noreferrer">Public harness on GitHub</a>
         </div>
       </div>
       <OriginalIndex tagline="Architecture" entries={indexEntries} ariaLabel="Architecture navigation" />
+    </div>
+  </section>
+
+  <section class="section workflow-section" id="knowledge-backbone" data-index-label="Knowledge Backbone" aria-labelledby="knowledge-backbone-heading">
+    <div class="shell">
+      <div class="section-heading section-heading--split">
+        <div>
+          <p class="section-label">Knowledge Backbone</p>
+          <h2 id="knowledge-backbone-heading">Retained knowledge, bounded context.</h2>
+        </div>
+        <p>A model request has a finite context window. Prepared source text and its searchable index persist outside that window; Retrieval MCP selects the relevant passages for each task. The corpus can grow independently of a conversation, while retrieval quality determines what reaches the model.</p>
+      </div>
+      <div class="diagram-figure--component" aria-labelledby="knowledge-backbone-heading">
+        <Diagram
+          showTitle={false}
+          previewSrc="/diagrams/02-question-to-answer-preview.svg"
+          title="Knowledge Backbone"
+          htmlUrl="/diagrams/02-question-to-answer.html"
+          alt="Ingestion prepares matching text and index releases; Retrieval MCP uses shared BGE to find and read evidence for a bounded model request."
+        />
+      </div>
     </div>
   </section>
 
@@ -47,7 +70,7 @@ const indexEntries = [
           <p class="section-label">Request workflow</p>
           <h2 id="request-path-heading">How one request reaches an answer.</h2>
         </div>
-        <p>This diagram follows a tool request through the MCP entrance to Coordination, retrieval, inference, and a retained checkpoint. The Browser UI reaches Coordination directly, as shown in the system map below.</p>
+        <p>The MCP Gateway provides tool access; the MCP Server exposes ask_nis; the AI Coordinator performs the work. It retrieves evidence, selects inference, checks the answer and retains a checkpoint. The Browser UI reaches the same Coordination operation directly through HTTP/AG-UI.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="request-path-heading">
         <Diagram
@@ -68,16 +91,37 @@ const indexEntries = [
           <p class="section-label">Technical architecture</p>
           <h2 id="system-map-heading">Components, state, and system boundaries.</h2>
         </div>
-        <p>The map makes ownership explicit. Browser UI connects directly to Coordination, while MCP clients separately use the gateway to embedded FastMCP; Retrieval and conversation state remain separate services.</p>
+        <p>The Coordination Layer groups the AI Coordinator and its interfaces. The Coordination service hosts Deep Agents/LangGraph and FastMCP. Retrieval owns search and source access; model backends execute inference; PostgreSQL retains checkpoints. Harbor Hub and Hugging Face are separate evaluation routes selected by the coordinator.</p>
       </div>
-      <p class="architecture-version">This diagram shows the pinned public Harness snapshot, where MCP clients use the LiteLLM gateway. <a href={href('/case-study/evolution/')}>Compare the later direct-API design</a>.</p>
+      <p class="architecture-version">The shared coordinator plans, delegates specialist work and combines results across browser and MCP clients. <a href={sourceUrl('docs/architecture/architecture-concept.md')}>Read the published architecture</a>.</p>
       <div class="diagram-figure--component" aria-labelledby="system-map-heading">
         <Diagram
           showTitle={false}
           title="System architecture"
           previewSrc="/diagrams/01-system-architecture-preview.svg"
           htmlUrl="/diagrams/01-system-architecture.html"
-          alt="System architecture diagram showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP."
+          alt="System architecture connecting browser and MCP clients to one AI Coordinator, specialist work, model routes, retained knowledge, evaluation and conversation state."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section workflow-section" id="model-routing" data-index-label="Models and orchestration" aria-labelledby="model-routing-heading">
+    <div class="shell">
+      <div class="section-heading section-heading--split">
+        <div>
+          <p class="section-label">Models and orchestration</p>
+          <h2 id="model-routing-heading">Assign the work. Select the inference.</h2>
+        </div>
+        <p>Orchestration chooses the workflow, delegates bounded tasks and synthesizes their results. Model routing chooses suitable inference for each step: simple, general, reasoning or specialized. Ollama and Fireworks are backends; DeepSeek is a model family. Required capability and quality come before cost and latency assumptions.</p>
+      </div>
+      <div class="diagram-figure--component" aria-labelledby="model-routing-heading">
+        <Diagram
+          showTitle={false}
+          previewSrc="/diagrams/model-routing-preview.svg"
+          title="Model routing and orchestration"
+          htmlUrl="/diagrams/model-routing.html"
+          alt="The same AI Coordinator plans calls, selects simple, general, reasoning or specialized model routes, and combines their results."
         />
       </div>
     </div>
@@ -87,18 +131,18 @@ const indexEntries = [
     <div class="shell">
       <div class="section-heading section-heading--split">
         <div>
-          <p class="section-label">Manual ingestion</p>
+          <p class="section-label">Ingestion</p>
           <h2 id="manual-ingestion-heading">Preparation stays outside the conversation.</h2>
         </div>
-        <p>Conversion, preparation, embedding, and import are operator-triggered jobs, not request-time work. This separate path prepares documents and the retrieval index; the walkthrough shows it as its own operator scenario.</p>
+        <p>Conversion, preparation, embedding, and import/verification are four operator-triggered jobs. They preserve originals and prepare matching text and index releases. Backups precede preparation; verification precedes activation and answer checks. Additions include retained knowledge, and rebuilds use the complete desired set.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="manual-ingestion-heading">
         <Diagram
           showTitle={false}
           previewSrc="/diagrams/manual-ingestion-preview.svg"
           htmlUrl="/diagrams/manual-ingestion.html"
-          title="Manual ingestion"
-          alt="Manual ingestion pipeline diagram"
+          title="Ingestion"
+          alt="Ingestion pipeline diagram"
         />
       </div>
     </div>
@@ -118,7 +162,7 @@ const indexEntries = [
         <div id="boundaries-and-recovery"><a href={href('/validation/')}>Validation</a><p>Recorded checks and their limits.</p></div>
         <div id="reference"><a href={href('/reproduce/')}>Reproduce</a><p>Commands for the pinned public source.</p></div>
         <div><a href={href('/workflows/')}>Workflows</a><p>Question answering, knowledge ingestion, and artifact review.</p></div>
-        <div><a href={href('/case-study/')}>Build story</a><p>Architecture choices, AI-assisted work, and evidence.</p></div>
+        <div><a href={href('/case-study/')}>Build story</a><p>Historical architecture choices, AI-assisted work, and evidence.</p></div>
       </nav>
     </div>
   </section>

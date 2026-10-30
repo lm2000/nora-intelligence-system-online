@@ -14,7 +14,8 @@
     "check": "astro check",
     "test": "node --test tests/*.test.mjs",
     "prebuild": "node scripts/prepare-legacy.mjs",
-    "linkcheck": "node scripts/check-site.mjs"
+    "linkcheck": "node scripts/check-site.mjs",
+    "preinstall": "node -e \"if(!(process.env.npm_config_user_agent||'').startsWith('pnpm/')){console.error('Use pnpm for this project.');process.exit(1)}\""
   },
   "dependencies": {
     "@fontsource/libre-caslon-display": "5.3.0",

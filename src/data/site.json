@@ -1,8 +1,8 @@
 {
   "home": {
-    "heading": "Building knowledge assistants and",
+    "heading": "Building an AI agent harness and",
     "headingEmphasis": "practical AI systems.",
-    "intro": "I’m Michael Lvov. My current project is a knowledge assistant built around retrieval, tool use, and durable conversation state."
+    "intro": "I’m Michael Lvov. My current project is a self-hosted AI agent harness: one AI Coordinator plans and delegates work, retrieves retained knowledge, selects model routes and combines results."
   },
   "founders": [
     {
@@ -26,10 +26,10 @@
         },
         {
           "label": "View my LinkedIn profile",
-          "url": "https://www.linkedin.com/in/michael-lvov-05a8125/"
+          "url": "https://www.linkedin.com/in/michael-lvov-lm"
         }
       ],
-      "background": "At Nora SuperIntelligence Lab, I built a self-hosted knowledge assistant around one Coordination runtime, an OSS Deep Agent, Retrieval MCP tools and LangGraph/PostgreSQL conversation state. Docling, shared BGE and Qdrant support document preparation and dense/lexical retrieval; browser and MCP clients reach the same assistant. I added bounded context and tool calls, capability-aware provider selection, and an owner-directed LLM-as-a-judge cycle for reviewing versioned artifacts against evidence.",
+      "background": "At Nora SuperIntelligence Lab, I built a self-hosted AI agent harness centered on an AI coordinator. Its Coordination runtime connects an OSS Deep Agent, Retrieval MCP tools and LangGraph/PostgreSQL conversation state. Docling, shared BGE and Qdrant support document preparation and dense/lexical retrieval; browser and MCP clients use the same operation. I added bounded context and tool calls, model route selection, and versioned artifact review against source evidence. The architecture separates prepared role judges, Synthetic Owner scoring and Real Owner approval.",
       "profileRole": "Founder · Principal Software Engineer",
       "outcomes": [
         "At Capital One, I led performance and reliability work within a broader streaming modernization that increased throughput from 1,000+ to 3,000+ TPS and reduced infrastructure cost by 30%.",
@@ -48,7 +48,7 @@
         },
         {
           "title": "LLM Systems & Agent Orchestration",
-          "body": "Application-level Coordination with an OSS Deep Agent, Retrieval MCP tools and LangGraph state; bounded context and calls, capability-aware provider routing and explicit failure handling."
+          "body": "Application-level Coordination with an OSS Deep Agent, Retrieval MCP tools and LangGraph state; bounded context and calls, model route selection and explicit failure handling."
         },
         {
           "title": "Retrieval & RAG",

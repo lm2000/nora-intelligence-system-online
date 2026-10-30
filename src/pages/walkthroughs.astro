@@ -3,7 +3,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import Diagram from '../components/Diagram.astro';
 import SourceMap from '../components/SourceMap.astro';
 ---
-<SiteLayout title="Walkthroughs — Nora SuperIntelligence Lab" description="A fictional Atlas example walkthrough for request handling and manual ingestion in Nora SuperIntelligence Lab's knowledge assistant." path="/walkthroughs/" customIndex={true}>
+<SiteLayout title="Walkthroughs — Nora SuperIntelligence Lab" description="A fictional Atlas example walkthrough for request handling and ingestion in Nora SuperIntelligence Lab's AI agent harness." path="/walkthroughs/" customIndex={true}>
   <div class="container walkthroughs-page" data-walkthroughs>
     <h1>Walkthroughs</h1>
     <p class="page-intro">Architecture explains the reusable system. These walkthroughs apply it to a fictional Atlas request and a separate operator-triggered knowledge update.</p>
@@ -69,9 +69,9 @@ import SourceMap from '../components/SourceMap.astro';
               <Diagram
                 previewSrc="/diagrams/manual-ingestion-preview.svg"
                 htmlUrl="/diagrams/manual-ingestion.html"
-                alt="Manual ingestion architecture diagram"
-                title="Manual ingestion"
-                caption="The manual ingestion path for prepared text into the retrieval service."
+                alt="Ingestion architecture diagram"
+                title="Ingestion"
+                caption="The ingestion path for prepared text into the retrieval service."
               />
             </div>
           </div>
@@ -226,11 +226,11 @@ import SourceMap from '../components/SourceMap.astro';
 <script>
   import walkthroughs from '../data/walkthroughs.json';
 const focusMap: Record<string, string> = {
-  'current-question': 'web runtime',
-  'grounding': 'runtime retrieval bge qdrant',
-  'bounded-reasoning': 'runtime retrieval providers',
-  'plain-answer': 'runtime web',
-  'checkpoint-continuation': 'pg runtime'
+  'current-question': 'browser coordinator',
+  'grounding': 'coordinator retrieval',
+  'bounded-reasoning': 'coordinator retrieval models',
+  'plain-answer': 'coordinator answer browser',
+  'checkpoint-continuation': 'state coordinator'
 };
   import { parseFlowParam, findStepIndexById, canNext, canPrev, nextState, prevState, resetState, buildUrl } from '../lib/walkthrough-state.mjs';
   import { sourceUrl } from '../lib/constants.mjs';

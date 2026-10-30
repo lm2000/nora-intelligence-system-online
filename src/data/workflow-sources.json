@@ -1,21 +1,31 @@
 {
-  "scope": "Local artifact-review workflow presentation; copied from the owning harness checkout. Does not change the established source pin.",
+  "repository": "lm2000/nora-ai-knowledge-agent-harness-public",
+  "commit": "f9cea261f0b33217028fe31e39ff88b5a10c3d4a",
+  "scope": "Workflow diagrams from the published Harness; full inventory in source-manifest.json.",
   "files": {
-    "public/diagrams/artifact-review-flow.html": {
-      "source": "architecture/diagrams/artifact-review-flow.html",
-      "sha256": "b05edbea82e30317bc8c7557ff608893d49aa06a0a3085ade25b1a9d818b248e"
-    },
     "public/diagrams/artifact-review-flow.gif": {
-      "source": "architecture/diagrams/artifact-review-flow.gif",
-      "sha256": "3125235f24059d68d332b9fdd58cbe1aba9770cd4fae3c542721eb8537a55f3d"
+      "source": "docs/architecture/diagrams/artifact-review-flow.gif",
+      "sha256": "5037fd9aacfa962d09957ebb4f9bc4aa0094cf32cf5c11e696110d8d85b0c441"
     },
-    "public/diagrams/harness-workflows.html": {
-      "source": "architecture/diagrams/harness-workflows.html",
-      "sha256": "81525c4e2b04b22c6eb5928332c680a6afc7e654e7a71a4c894563a4e604b78d"
+    "public/diagrams/artifact-review-flow.html": {
+      "source": "docs/architecture/diagrams/artifact-review-flow.html",
+      "sha256": "425e26c832b92f6ba47ae5a32f4332012a3d0f5d54545f9ea933a335e9617600"
     },
     "public/diagrams/harness-workflows.gif": {
-      "source": "architecture/diagrams/harness-workflows.gif",
-      "sha256": "2cbe0e5a2b3f8fe1135bc027ffa5abfcfc82191f1e3fbd497b37eb61b4a73733"
+      "source": "docs/architecture/diagrams/harness-workflows.gif",
+      "sha256": "bc5484ac01e604801f657c526b4452bc9ff41da2804ada6609a8b68cd5a11e78"
+    },
+    "public/diagrams/harness-workflows.html": {
+      "source": "docs/architecture/diagrams/harness-workflows.html",
+      "sha256": "93e8b75478e27bbc54f24ba6f0a2f0cf8d272f34ba072aa4692e9b11ec7d43d2"
+    },
+    "public/diagrams/judge-registry.gif": {
+      "source": "docs/architecture/diagrams/judge-registry.gif",
+      "sha256": "22f2d795978cb595493c76b18d391b1ef130bc0e11b903a0db03c71558c66fb6"
+    },
+    "public/diagrams/judge-registry.html": {
+      "source": "docs/architecture/diagrams/judge-registry.html",
+      "sha256": "ca78e1b9e3539d61a3fbc2f6ab0db9542fa9e224bcca393da9c5aa3236882508"
     }
   }
 }

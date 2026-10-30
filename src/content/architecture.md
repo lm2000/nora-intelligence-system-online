@@ -1,19 +1,21 @@
 ## Purpose
 
-The knowledge assistant (NIS) presented by Nora SuperIntelligence Lab separates conversation handling from knowledge retrieval and document preparation. A user asks one question through a single assistant; a shared retrieval service finds prepared passages; an agent produces a plain answer and retains the conversation state in PostgreSQL.
+Nora SuperIntelligence Lab’s AI agent harness separates retained knowledge, task coordination and model inference. The Knowledge Backbone keeps prepared source text and a searchable index outside a model’s finite context window. Retrieval MCP finds and reads evidence for each bounded request.
 
 ## Example
 
-If a user asks, "Prepare a brief for the Atlas project handover," the assistant establishes the context, retrieves relevant decisions and notes, and explains supported points and gaps. Exported documents are dated snapshots, so a saved calendar item alone cannot establish a current meeting. The assistant answers using the accepted one-assistant request path. Browser AG-UI and the embedded FastMCP tool reach the same Coordination operation. LiteLLM supplies the shared MCP gateway, while direct FastMCP remains available. Model selection, OSS Deep Agents/LangGraph, and PostgreSQL checkpoints stay inside NIS.
+For “Prepare an Atlas handover brief,” the AI Coordinator plans the task, retrieves the release plan and decisions, delegates focused work and synthesizes a draft. Role-based feedback guides revision; the Synthetic Owner scores progress and recommends acceptance or further work. A qualifying result goes to the Real Owner, whose approval is final and whose change requests form a second revision loop.
 
 ## Approach and Tradeoffs
 
-UI, Coordination, gateway, Retrieval, shared BGE, Qdrant, and PostgreSQL have separate service boundaries. Conversion, preparation, embedding, and import are temporary operator-triggered jobs that do not run inside conversations. Deep Agents is the harness, LangChain supplies model/tool abstractions, and LangGraph supplies execution and state machinery. These libraries run together inside Coordination, which does not wrap the Deep Agent in a second custom agent loop. The gateway adds a process and network hop, so no measured cost or latency saving is claimed.
+Browser HTTP/AG-UI and MCP clients reach the same coordinator. The MCP Gateway (LiteLLM Proxy) provides tool access; the MCP Server (FastMCP) exposes `ask_nis`. Deep Agents/LangGraph and PostgreSQL checkpoints support the task lifecycle in Coordination. Orchestration assigns tasks and combines results, while simple, general, reasoning and specialized model routes select inference. Harbor Hub and Hugging Face are separate coordinator-selected evaluation routes.
+
+Retrieval owns query encoding through shared BGE, index access in Qdrant and reads of matching prepared text. Retained knowledge can grow independently of context, but preparation and relevance checks add work and useful evidence can still be missed. Explicit retrieval/model budgets bound execution without guaranteeing answer quality.
 
 ## Boundaries and Recovery
 
-The implementation uses the official LangGraph PostgreSQL checkpointer and stable thread identifiers. Browser history and checkpoints are different stores. Checkpoint persistence does not by itself demonstrate clean-target restoration, crash behavior, or exactly-once effects. Knowledge updates require assembly with the retained corpus before import. A failed acceptance check leaves the update incomplete for investigation. The ordinary operator procedure starts with backups, then prepares, imports, verifies, activates, and checks answers.
+Conversion, preparation, embedding and import/verification are four ingestion jobs outside conversations. Additions include retained knowledge; rebuilds use the complete desired source set. Backups precede preparation, followed by verification, activation and answer checks. Prepared text and the index form one release; PostgreSQL keeps conversation checkpoints separately. Checkpoint persistence alone does not establish clean-target restoration, crash behavior or exactly-once effects.
 
 ## Reference
 
-[Architecture Concept](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/10bd370c711afabdfc7b23b516911c31ff58bcb4/architecture/Architecture%20Concept.md)
+[Architecture concept](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/f9cea261f0b33217028fe31e39ff88b5a10c3d4a/docs/architecture/architecture-concept.md)

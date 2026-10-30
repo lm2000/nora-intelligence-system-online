@@ -21,13 +21,13 @@
       "source": "architecture/diagrams/case-evolution.html",
       "website": "public/diagrams/case-evolution.html",
       "source_sha256": "578eed7c8a9dd09f03076ffa875635a2035a0e4a8f8e6d8d12f99307b0eec538",
-      "website_sha256": "4919226a52b212087445d3fb2b9aa8eea6145f68bec737eff947439a7fcc14f5"
+      "website_sha256": "b781e4405ce92fcbc911639de1480816bc406cee585ab9c85d6a8a89bb350d80"
     },
     {
       "source": "architecture/diagrams/case-evolution.gif",
       "website": "public/diagrams/case-evolution.gif",
       "source_sha256": "7b77f8299bbac13e3547b04200e35723ee594600a9c41ec7040b42d867225916",
-      "website_sha256": "57a6801146d50141897e5ecede8a1d36f2d042f7bb0b7bc25616cb13696b4a09"
+      "website_sha256": "21a07b727d5610d30e4be580158d9eb90e043cbca7dcb0ec0bfe8c9f993e7ea9"
     },
     {
       "source": "architecture/diagrams/case-request.html",

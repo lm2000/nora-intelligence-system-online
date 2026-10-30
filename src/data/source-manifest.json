@@ -1,30 +1,231 @@
 {
   "repository": "lm2000/nora-ai-knowledge-agent-harness-public",
-  "commit": "10bd370c711afabdfc7b23b516911c31ff58bcb4",
+  "commit": "f9cea261f0b33217028fe31e39ff88b5a10c3d4a",
   "files": [
     {
-      "source": "architecture/diagrams/01-system-architecture.html",
-      "sha256": "bf73ccae982dd6bd46502e5a4fb6d7d5da6e0e2507b97b88dce556a47546658d"
+      "source": "docs/architecture/diagrams/01-system-architecture.gif",
+      "sha256": "6cae4c068e1e29d64074c8d9edccba694360ebd3f9e190eeab505a0ffc153b7f",
+      "website": "public/diagrams/01-system-architecture.gif",
+      "website_sha256": "6cae4c068e1e29d64074c8d9edccba694360ebd3f9e190eeab505a0ffc153b7f"
     },
     {
-      "source": "architecture/diagrams/01-system-architecture.gif",
-      "sha256": "236e2079a7867967c00f028b66d54aef3ea1ff5be33e8ab9f82879921dbdfc9d"
+      "source": "docs/architecture/diagrams/01-system-architecture.html",
+      "sha256": "5a9695e1889cdd66df15cb084de538443112590ac1c11109e54bcae0bc3fb7b4",
+      "website": "public/diagrams/01-system-architecture.html",
+      "website_sha256": "5a9695e1889cdd66df15cb084de538443112590ac1c11109e54bcae0bc3fb7b4",
+      "preview": "public/diagrams/01-system-architecture-preview.svg",
+      "preview_sha256": "4f1ada6bb5bcaf8d80d494e40d747374783f313ffd96eaba1b32fad069b1cdca"
     },
     {
-      "source": "architecture/diagrams/architecture-request-path.html",
-      "sha256": "7dfd30d29640d5fd9e0b576cc55e80ce06d8face52f27cd1084a3050ff3205c4"
+      "source": "docs/architecture/diagrams/02-question-to-answer.gif",
+      "sha256": "5a89b844495fbedf9ff6b22254bcb4aa42cdbe0e9273992d130d55a0f43968e9",
+      "website": "public/diagrams/02-question-to-answer.gif",
+      "website_sha256": "5a89b844495fbedf9ff6b22254bcb4aa42cdbe0e9273992d130d55a0f43968e9"
     },
     {
-      "source": "architecture/diagrams/architecture-request-path.gif",
-      "sha256": "3abc120523fbb93192b13af78c29282834d85406b91c86eca40aa6fe549a1f39"
+      "source": "docs/architecture/diagrams/02-question-to-answer.html",
+      "sha256": "1d77ed558d687e060d83c706ec85c8760274a39513f66a3ece74a0fbcc4e8608",
+      "website": "public/diagrams/02-question-to-answer.html",
+      "website_sha256": "1d77ed558d687e060d83c706ec85c8760274a39513f66a3ece74a0fbcc4e8608",
+      "preview": "public/diagrams/02-question-to-answer-preview.svg",
+      "preview_sha256": "52c6c56b80b1fd1c866b3d694084aa63ea76ca89199d5dac43d8b873669a0ab7"
     },
     {
-      "source": "architecture/diagrams/manual-ingestion.html",
-      "sha256": "fa1206d1753edee2e7731227d644617d8f127734e6583de26bd5ddf55329361f"
+      "source": "docs/architecture/diagrams/architecture-request-path.gif",
+      "sha256": "da596c5742797095f92027ed9e7cc5ba254a0e79770c6c388d19beac276529aa",
+      "website": "public/diagrams/architecture-request-path.gif",
+      "website_sha256": "da596c5742797095f92027ed9e7cc5ba254a0e79770c6c388d19beac276529aa"
     },
     {
-      "source": "architecture/diagrams/manual-ingestion.gif",
-      "sha256": "dd957c365f223ab147afd51a44a02ecbf652666dab54b7f150b3f56c81580ac8"
+      "source": "docs/architecture/diagrams/architecture-request-path.html",
+      "sha256": "cecd6c0610067e9101e4d1c8ca76ab356906a579b39aaf6386a44b0cad465543",
+      "website": "public/diagrams/architecture-request-path.html",
+      "website_sha256": "cecd6c0610067e9101e4d1c8ca76ab356906a579b39aaf6386a44b0cad465543",
+      "preview": "public/diagrams/architecture-request-path-preview.svg",
+      "preview_sha256": "ef1cfb4264516f571ca0517450d826215d65d65e37e8fa1182b9f5a689d84bd2"
+    },
+    {
+      "source": "docs/architecture/diagrams/artifact-review-flow.gif",
+      "sha256": "5037fd9aacfa962d09957ebb4f9bc4aa0094cf32cf5c11e696110d8d85b0c441",
+      "website": "public/diagrams/artifact-review-flow.gif",
+      "website_sha256": "5037fd9aacfa962d09957ebb4f9bc4aa0094cf32cf5c11e696110d8d85b0c441"
+    },
+    {
+      "source": "docs/architecture/diagrams/artifact-review-flow.html",
+      "sha256": "425e26c832b92f6ba47ae5a32f4332012a3d0f5d54545f9ea933a335e9617600",
+      "website": "public/diagrams/artifact-review-flow.html",
+      "website_sha256": "425e26c832b92f6ba47ae5a32f4332012a3d0f5d54545f9ea933a335e9617600",
+      "preview": "public/diagrams/artifact-review-flow-preview.svg",
+      "preview_sha256": "1a47232664fab3349ff8439a938e5c83a423a1c5a0258cfc1529803a2df1e33c"
+    },
+    {
+      "source": "docs/architecture/diagrams/container-service-inventory.gif",
+      "sha256": "12375e56499f4663dabedca481fbeae81f15faacc881e19e789fa0349bd9ec45",
+      "website": "public/diagrams/container-service-inventory.gif",
+      "website_sha256": "12375e56499f4663dabedca481fbeae81f15faacc881e19e789fa0349bd9ec45"
+    },
+    {
+      "source": "docs/architecture/diagrams/container-service-inventory.html",
+      "sha256": "ecd3c2d88dd9002d42d6b89610ff2d6c5a61dda0bb777aa3a5cc0de5dc0bfcf2",
+      "website": "public/diagrams/container-service-inventory.html",
+      "website_sha256": "ecd3c2d88dd9002d42d6b89610ff2d6c5a61dda0bb777aa3a5cc0de5dc0bfcf2",
+      "preview": "public/diagrams/container-service-inventory-preview.svg",
+      "preview_sha256": "88b5dc88443c6d29547c59125cb3aff6e38abbea3f21403ce1bd57b9cbd0581f"
+    },
+    {
+      "source": "docs/architecture/diagrams/conversation.gif",
+      "sha256": "a1c8020b6a894ca493de097111d3f2b52f88371b2e998fe012064847ff4b4a36",
+      "website": "public/diagrams/conversation.gif",
+      "website_sha256": "a1c8020b6a894ca493de097111d3f2b52f88371b2e998fe012064847ff4b4a36"
+    },
+    {
+      "source": "docs/architecture/diagrams/conversation.html",
+      "sha256": "f7e30ec02ccc7a8815993cab2544925039a8c6e88bf1fde4542b93f9b38a5e78",
+      "website": "public/diagrams/conversation.html",
+      "website_sha256": "f7e30ec02ccc7a8815993cab2544925039a8c6e88bf1fde4542b93f9b38a5e78",
+      "preview": "public/diagrams/conversation-preview.svg",
+      "preview_sha256": "e437703753d6e3345331c9fc4dffb784329eb97835a7b139b567ffd7fad6c1a4"
+    },
+    {
+      "source": "docs/architecture/diagrams/embedding-comparison-method.gif",
+      "sha256": "fb9aac1ef9066d56793e26cf9d2d9902a2b7bc3d01f859d288937c998a2dd7a3",
+      "website": "public/diagrams/embedding-comparison-method.gif",
+      "website_sha256": "fb9aac1ef9066d56793e26cf9d2d9902a2b7bc3d01f859d288937c998a2dd7a3"
+    },
+    {
+      "source": "docs/architecture/diagrams/embedding-comparison-method.html",
+      "sha256": "58574fa68f7b8bfb38c6440b0771369e97135b1c8a0405a7a500865e48953134",
+      "website": "public/diagrams/embedding-comparison-method.html",
+      "website_sha256": "58574fa68f7b8bfb38c6440b0771369e97135b1c8a0405a7a500865e48953134",
+      "preview": "public/diagrams/embedding-comparison-method-preview.svg",
+      "preview_sha256": "b14db035e0ee19ab8a925c9614703b8d50c994cbc4a13a78b75c6dd577ca9f39"
+    },
+    {
+      "source": "docs/architecture/diagrams/embedding-cpu-comparison.gif",
+      "sha256": "e7f2fb220d32d6796ef2c0d0d20456d0c3df07e8156b054879880c017978ecac",
+      "website": "public/diagrams/embedding-cpu-comparison.gif",
+      "website_sha256": "e7f2fb220d32d6796ef2c0d0d20456d0c3df07e8156b054879880c017978ecac"
+    },
+    {
+      "source": "docs/architecture/diagrams/embedding-cpu-comparison.html",
+      "sha256": "4255f15ed1b9820607bd91c4b2af9c4826ba2e987d3bbaf0663b6b9d380d9524",
+      "website": "public/diagrams/embedding-cpu-comparison.html",
+      "website_sha256": "4255f15ed1b9820607bd91c4b2af9c4826ba2e987d3bbaf0663b6b9d380d9524",
+      "preview": "public/diagrams/embedding-cpu-comparison-preview.svg",
+      "preview_sha256": "acdb839c2c4de5f25429648ca80d5360ff94658346d837bd2a5f1872228fb471"
+    },
+    {
+      "source": "docs/architecture/diagrams/harness-workflows.gif",
+      "sha256": "bc5484ac01e604801f657c526b4452bc9ff41da2804ada6609a8b68cd5a11e78",
+      "website": "public/diagrams/harness-workflows.gif",
+      "website_sha256": "bc5484ac01e604801f657c526b4452bc9ff41da2804ada6609a8b68cd5a11e78"
+    },
+    {
+      "source": "docs/architecture/diagrams/harness-workflows.html",
+      "sha256": "93e8b75478e27bbc54f24ba6f0a2f0cf8d272f34ba072aa4692e9b11ec7d43d2",
+      "website": "public/diagrams/harness-workflows.html",
+      "website_sha256": "93e8b75478e27bbc54f24ba6f0a2f0cf8d272f34ba072aa4692e9b11ec7d43d2",
+      "preview": "public/diagrams/harness-workflows-preview.svg",
+      "preview_sha256": "6c0c708e253aa7f072e5ba86fb6b72e8e105695021617e662de572393b6afff4"
+    },
+    {
+      "source": "docs/architecture/diagrams/ingestion-workflow.gif",
+      "sha256": "d64aa99fd3986682834a4785b5e3c2c367f97f2dc046a7b5c5d6b0a4e32b7a55",
+      "website": "public/diagrams/ingestion-workflow.gif",
+      "website_sha256": "d64aa99fd3986682834a4785b5e3c2c367f97f2dc046a7b5c5d6b0a4e32b7a55"
+    },
+    {
+      "source": "docs/architecture/diagrams/ingestion-workflow.html",
+      "sha256": "93ba77244c7267a746139b6015e9f89bf8a7d9f7fd5bf7ea2c8684c172ebfd7e",
+      "website": "public/diagrams/ingestion-workflow.html",
+      "website_sha256": "93ba77244c7267a746139b6015e9f89bf8a7d9f7fd5bf7ea2c8684c172ebfd7e",
+      "preview": "public/diagrams/ingestion-workflow-preview.svg",
+      "preview_sha256": "89c3055558128b3299e15fe3fa762a71a089c7e3cff77fafffb1fb351de43381"
+    },
+    {
+      "source": "docs/architecture/diagrams/judge-registry.gif",
+      "sha256": "22f2d795978cb595493c76b18d391b1ef130bc0e11b903a0db03c71558c66fb6",
+      "website": "public/diagrams/judge-registry.gif",
+      "website_sha256": "22f2d795978cb595493c76b18d391b1ef130bc0e11b903a0db03c71558c66fb6"
+    },
+    {
+      "source": "docs/architecture/diagrams/judge-registry.html",
+      "sha256": "ca78e1b9e3539d61a3fbc2f6ab0db9542fa9e224bcca393da9c5aa3236882508",
+      "website": "public/diagrams/judge-registry.html",
+      "website_sha256": "ca78e1b9e3539d61a3fbc2f6ab0db9542fa9e224bcca393da9c5aa3236882508",
+      "preview": "public/diagrams/judge-registry-preview.svg",
+      "preview_sha256": "ed64fb237e92a4473a1516d9778f612e777f91be58cc3d6c624b9cf4d75f6189"
+    },
+    {
+      "source": "docs/architecture/diagrams/manual-ingestion.gif",
+      "sha256": "9b8ee59e12d467c524bc85e0bf87a258a97cd197f8fd4bebdd1fb62b851b0a19",
+      "website": "public/diagrams/manual-ingestion.gif",
+      "website_sha256": "9b8ee59e12d467c524bc85e0bf87a258a97cd197f8fd4bebdd1fb62b851b0a19"
+    },
+    {
+      "source": "docs/architecture/diagrams/manual-ingestion.html",
+      "sha256": "168e243107c835fc61105a0a97cf63ad112016bff872849a6f8ab030742412bf",
+      "website": "public/diagrams/manual-ingestion.html",
+      "website_sha256": "168e243107c835fc61105a0a97cf63ad112016bff872849a6f8ab030742412bf",
+      "preview": "public/diagrams/manual-ingestion-preview.svg",
+      "preview_sha256": "f25bf263484457c17c345b5f72cc21dc01f6d9d9fdc338cd910a5a200813eda3"
+    },
+    {
+      "source": "docs/architecture/diagrams/model-routing.gif",
+      "sha256": "b4d2bfb618340ce2d46292c324ccd1d6213243c8dd9383da4fae23cf77334ee1",
+      "website": "public/diagrams/model-routing.gif",
+      "website_sha256": "b4d2bfb618340ce2d46292c324ccd1d6213243c8dd9383da4fae23cf77334ee1"
+    },
+    {
+      "source": "docs/architecture/diagrams/model-routing.html",
+      "sha256": "d793f2b41136898093b5170169e2c182e394d151a301ca7c77055fde237c8d73",
+      "website": "public/diagrams/model-routing.html",
+      "website_sha256": "d793f2b41136898093b5170169e2c182e394d151a301ca7c77055fde237c8d73",
+      "preview": "public/diagrams/model-routing-preview.svg",
+      "preview_sha256": "dde5ac687cd8bd6070347bd6688685a458738952849503fe00d61bc6b20f4631"
+    },
+    {
+      "source": "docs/architecture/diagrams/private-rollout.gif",
+      "sha256": "0d06c48f0e7057202e9e7a8d54e1231e61081c61e18bcd3f4e868a70ce9faaab",
+      "website": "public/diagrams/private-rollout.gif",
+      "website_sha256": "0d06c48f0e7057202e9e7a8d54e1231e61081c61e18bcd3f4e868a70ce9faaab"
+    },
+    {
+      "source": "docs/architecture/diagrams/private-rollout.html",
+      "sha256": "622373b05f50fbaad0585d9b3569e4fffbb7a335750601a28c3a28f26c89983e",
+      "website": "public/diagrams/private-rollout.html",
+      "website_sha256": "622373b05f50fbaad0585d9b3569e4fffbb7a335750601a28c3a28f26c89983e",
+      "preview": "public/diagrams/private-rollout-preview.svg",
+      "preview_sha256": "b356f50cf5049324573f67259dc96dde7deedd685cd74a522280d6c3cd6253ff"
+    },
+    {
+      "source": "docs/architecture/diagrams/public-source-release.gif",
+      "sha256": "ecf42253bce9771da963e6d24902bbee1fa967a16687a4bb853e0d295d916c31",
+      "website": "public/diagrams/public-source-release.gif",
+      "website_sha256": "ecf42253bce9771da963e6d24902bbee1fa967a16687a4bb853e0d295d916c31"
+    },
+    {
+      "source": "docs/architecture/diagrams/public-source-release.html",
+      "sha256": "86686b753e1cd65550d6d3eca0bb81a20a2c96db83b57519c0286c10b46fb36a",
+      "website": "public/diagrams/public-source-release.html",
+      "website_sha256": "86686b753e1cd65550d6d3eca0bb81a20a2c96db83b57519c0286c10b46fb36a",
+      "preview": "public/diagrams/public-source-release-preview.svg",
+      "preview_sha256": "a05c48295bb53123065e3037ad22a88697d76e13e10dc0d63842cc5e0074059b"
+    },
+    {
+      "source": "docs/architecture/diagrams/system-at-a-glance.gif",
+      "sha256": "6b260942184f0d43df2a4dd857b8c25850bb84aec7fc2c29daa7f0b29728d840",
+      "website": "public/diagrams/system-at-a-glance.gif",
+      "website_sha256": "6b260942184f0d43df2a4dd857b8c25850bb84aec7fc2c29daa7f0b29728d840"
+    },
+    {
+      "source": "docs/architecture/diagrams/system-at-a-glance.html",
+      "sha256": "5b9ad4616390c9b9e6e7eb6eb28aa5027506b6228c76035c2ffb18fcca37f52d",
+      "website": "public/diagrams/system-at-a-glance.html",
+      "website_sha256": "5b9ad4616390c9b9e6e7eb6eb28aa5027506b6228c76035c2ffb18fcca37f52d",
+      "preview": "public/diagrams/system-at-a-glance-preview.svg",
+      "preview_sha256": "94764e9b0e3a473151a611dbd653c61a465b66ea46253a6cf8b18814e65e25f6"
     }
-  ]
+  ],
+  "site_adaptation": "Canonical HTML/GIF pairs are copied byte-for-byte. The website extracts SVG and component details for its existing interactive viewer; preview SVGs are derived locally."
 }

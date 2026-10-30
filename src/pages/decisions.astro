@@ -4,10 +4,10 @@ import { href } from '../lib/constants.mjs';
 import PageIndex from '../components/PageIndex.astro';
 import { Content } from '../content/decisions.md';
 ---
-<SiteLayout title="Decisions — Nora SuperIntelligence Lab" description="Architecture decisions for Nora SuperIntelligence Lab’s knowledge assistant." path="/decisions/">
+<SiteLayout title="Decisions — Nora SuperIntelligence Lab" description="Architecture decisions for Nora SuperIntelligence Lab’s AI agent harness." path="/decisions/">
   <article class="container content-page" data-supporting-page="decisions">
     <h1 id="decisions">Decisions</h1>
-    <p class="page-intro" id="purpose">Current accepted choices for the knowledge assistant. Deployment evidence belongs on <a href={href('/validation/')}>Validation</a>; superseded choices remain in Git history.</p>
+    <p class="page-intro" id="purpose">Current accepted choices for the AI agent harness. Deployment evidence belongs on <a href={href('/validation/')}>Validation</a>; superseded choices remain in Git history.</p>
     <PageIndex />
     <Content />
   </article>

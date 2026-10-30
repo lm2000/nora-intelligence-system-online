@@ -105,4 +105,4 @@ The agency verifies the account signal, challenges the hypothesis, and checks th
 
 <h2 id="connection-to-the-lab" data-index-label="Related work">Related work</h2>
 
-Before connecting a workflow to customer data, use the [AI and data readiness assessment](../ai-data-readiness/). Explore the [AI Harness Landscape comparison framework](../ai-harness-landscape/) or the lab’s [knowledge-assistant architecture](../../architecture/).
+Before connecting a workflow to customer data, use the [AI and data readiness assessment](../ai-data-readiness/). Explore the [AI Harness Landscape comparison framework](../ai-harness-landscape/) or the lab’s [AI agent harness architecture](../../architecture/).

@@ -101,4 +101,4 @@ The candidate checks the experience story, decides what to emphasize, and answer
 
 <h2 id="connection-to-the-lab" data-index-label="Related work">Related work</h2>
 
-For the same brief-to-feedback pattern in a business setting, see [client research and agency workflow](../client-research/). Explore the [knowledge-assistant architecture](../../architecture/) or its [technical validation](../../validation/).
+For the same brief-to-feedback pattern in a business setting, see [client research and agency workflow](../client-research/). Explore the [AI agent harness architecture](../../architecture/) or its [technical validation](../../validation/).
