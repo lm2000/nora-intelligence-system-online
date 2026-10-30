@@ -21,20 +21,25 @@ pnpm build
 node scripts/check-site.mjs
 ```
 
-## Environment & Build
+## Checks and deployment
 
-The primary host is Vercel at `nora-intelligence-system.com`. GitHub Pages is a secondary host with the repository base path (`SITE_BASE=/nora-intelligence-system-online`).
+Vercel is the only host, at [nora-intelligence-system.com](https://nora-intelligence-system.com). GitHub stores the source and runs validation; GitHub Pages is disabled.
 
-To build for the Pages preview environment:
+Run the same checks locally, in GitHub Actions and during the Vercel build:
+
 ```bash
-SITE_BASE=/nora-intelligence-system-online SITE_URL=https://lm2000.github.io pnpm build
-SITE_BASE=/nora-intelligence-system-online node scripts/check-site.mjs
+pnpm install --frozen-lockfile
+pnpm validate
 ```
 
-To build for the root primary domain:
-```bash
-pnpm build
-```
+`validate` runs tests, Astro/TypeScript diagnostics, the production build and local link checks. A failure stops the command and blocks the Vercel deployment from becoming ready.
+
+- Pull requests to `main` run the **Website checks / Validate website** workflow. Vercel creates preview deployments for branches through its existing GitHub integration.
+- Merging or pushing to `main` runs the checks and starts a Vercel production build. Vercel runs `pnpm validate` independently, so production does not depend on a race with GitHub Actions.
+- Keep `main` as the Vercel project's production branch. The build/install settings and enabled Git deployments live in `vercel.json`.
+- No Vercel token is stored in GitHub Actions and no manual file upload is part of the normal release path. Keep the existing production deployment if validation or deployment fails.
+
+The site builds at the domain root. Historical Pages-era URLs in the preserved archive remain reference material, not a second hosting configuration.
 
 ## Pages and sources
 

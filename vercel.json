@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm run build",
+  "buildCommand": "pnpm validate",
   "outputDirectory": "dist",
   "framework": "astro",
   "installCommand": "pnpm install --frozen-lockfile",
@@ -94,5 +94,8 @@
       "destination": "/archive/use-cases/boutique-marketing-agency.html",
       "statusCode": 301
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": true
+  }
 }

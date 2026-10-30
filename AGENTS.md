@@ -40,7 +40,7 @@ Supporting reader indexes keep the original 170px rail and reserved content gutt
 
 Main-page indexes retain full desktop hero cards. In docked desktop state, constrain their height to the available viewport, scroll the numbered list internally and keep the current row visible. Compact mobile indexes hide only their navigation titles/descriptions and use 14px labels with 44px targets; all article content stays intact. Align mobile disclosure headers to each page’s content column, avoiding nested reader insets. Preserve original numbered badges and use the shared subtle teal active-row background and inset keyboard focus.
 
-Keep a shared footer Contact link to /use-cases/#workflow-contact, resolved through href() for root and GitHub Pages bases, with a 44px target. Home and Use cases display the approved selectable email through EmailAddress beside their existing mailto actions. Keep Home’s personal introduction in the hero; the founder teaser summarizes leadership and links to the full Founders page without repeating the introduction. Do not shorten the Founders profile to deduplicate Home.
+Keep a shared footer Contact link to /use-cases/#workflow-contact, resolved through href() at the production domain root, with a 44px target. Home and Use cases display the approved selectable email through EmailAddress beside their existing mailto actions. Keep Home’s personal introduction in the hero; the founder teaser summarizes leadership and links to the full Founders page without repeating the introduction. Do not shorten the Founders profile to deduplicate Home.
 
 Keep the Founders standalone mailto text link at least 44px tall without changing its visible font, color or wording. Center the contact row so the larger hit area does not shift the visual baseline of neighboring links. Mobile flow checks must distinguish responsive browser task completion from physical-device or human-participant usability testing.
 
@@ -49,3 +49,5 @@ Below 360px, keep header links at their natural content widths with two wrapped 
 OriginalIndex section jumps settle the destination dock state before measuring the scroll. Keep that state through the jump, then return to normal scroll tracking; cancel pending jumps on manual scroll input or resize. Preserve history, fragment entry, grouped-directory neutrality, mobile disclosure closure and internal active-row visibility. Validate the first jump from a fresh page, not only a second selection.
 
 Keep all three standalone Founders contact-group links (email, GitHub and LinkedIn) at least 44px tall, with the existing plain text-link styling and centered row alignment.
+
+Vercel is the only hosting platform. GitHub Actions validates pull requests and main; do not restore a Pages deployment workflow. Keep the Vercel Git integration enabled, main as its production branch and pnpm validate as its build command so tests, diagnostics, build and link checks gate every deployment. Use the same command locally.
