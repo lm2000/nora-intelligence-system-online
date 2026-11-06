@@ -1,5 +1,20 @@
 # Project Context
 
+## Website audit fixes — 2026-11-06
+
+Architecture distinguishes the question-answering graph in the pinned public
+Harness snapshot from the target delegation and evaluation design. Reproduce
+starts with the offline Atlas review replay, linked from the final Atlas
+walkthrough step. Interactive diagram controls use their visible SVG text as
+their accessible name. Canonical diagram assets and source pins are unchanged.
+
+Local verification passed: 23 tests, zero Astro diagnostics, 19 built pages
+and 812 checked links. Chromium at 1440px, 390px and 320px verified the replay
+handoff, history, keyboard diagram selection and zero axe label-in-name
+violations on Architecture with the full diagram open. The pinned replay ran
+in a fresh virtual environment and reported zero model calls. Deployment is
+pending.
+
 ## Harness source reference refresh — 2026-10-30
 
 Updated current Harness links, reproduction instructions, the shared source URL

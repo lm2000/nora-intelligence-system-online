@@ -2,6 +2,7 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 import Diagram from '../components/Diagram.astro';
 import SourceMap from '../components/SourceMap.astro';
+import { href } from '../lib/constants.mjs';
 ---
 <SiteLayout title="Walkthroughs — Nora SuperIntelligence Lab" description="A fictional Atlas example walkthrough for request handling and ingestion in Nora SuperIntelligence Lab's AI agent harness." path="/walkthroughs/" customIndex={true}>
   <div class="container walkthroughs-page" data-walkthroughs>
@@ -34,6 +35,7 @@ import SourceMap from '../components/SourceMap.astro';
           <summary>How this step works</summary>
           <div class="step-detail-content" data-step-detail-content></div>
         </details>
+        <p data-atlas-replay hidden>Try the separate Atlas artifact review example using saved fixtures. <a href={href('/reproduce/#atlas-replay')}>Run the Atlas replay</a>.</p>
         <div class="map-section" data-flow-map="request">
           <h3>System map focus</h3>
           <SourceMap initialFocus="" />
@@ -237,6 +239,7 @@ const focusMap: Record<string, string> = {
   import atlasExample from '../data/atlas-example.json';
 
   const container = document.querySelector<HTMLElement>('[data-walkthroughs]')!;
+  const atlasReplay = container.querySelector<HTMLElement>('[data-atlas-replay]')!;
   if (container) {
     const tabButtons = Array.from(container.querySelectorAll('[data-flow-tab]')) as HTMLElement[];
     const panels = container.querySelectorAll<HTMLElement>('[data-flow-panel]');
@@ -323,6 +326,7 @@ const focusMap: Record<string, string> = {
       renderPanels();
       renderStepList();
 
+      atlasReplay.hidden = state.flow !== 'request' || step.id !== 'checkpoint-continuation';
       state.counter.textContent = `Step ${state.stepIndex + 1} of ${state.steps.length}`;
       state.titleEl.textContent = step.title;
       state.titleEl.id = 'step-' + state.flow + '-' + step.id;

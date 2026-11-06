@@ -337,8 +337,12 @@ class InteractiveDiagram extends HTMLElement {
       n.setAttribute('role', 'button');
       n.setAttribute('aria-pressed', 'false');
       const id = n.id.replace(/^diagram-/, '');
-      const labelText = this.details[id]?.label || n.querySelector('text')?.textContent || id;
-      n.setAttribute('aria-label', 'Select component: ' + labelText);
+      const lines = Array.from(n.querySelectorAll('text'));
+      // SVG positions each line independently, so adjacent labels need text separators.
+      lines.forEach((line) => line.after(' '));
+      const visibleLabel = lines.map((line) => line.textContent.trim())
+        .join(' ').replace(/\s+/g, ' ').trim();
+      n.setAttribute('aria-label', visibleLabel || this.details[id]?.label || id);
     });
   }
 

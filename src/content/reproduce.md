@@ -1,8 +1,6 @@
-<h2 id="example" data-index-label="Setup">Prerequisites</h2>
+<h2 id="atlas-replay" data-index-label="Atlas replay">Run the Atlas review replay</h2>
 
-Use Python 3.12, Node.js 22.22 or newer, pnpm 12.8.1, Conda and Make. Development validation needs no inference credential or private corpus.
-
-<h2 id="approach-and-tradeoffs" data-index-label="Commands">Run the source checks</h2>
+Replay two saved reviews of a fictional Atlas briefing and see how an accepted finding carries into the next version. Use Python 3.12 with pip and Git. The example uses bundled fixtures and makes zero model calls.
 
 Clone the public harness repository and check out the pinned commit. Run these commands from the directory where you want the checkout:
 
@@ -11,6 +9,25 @@ git clone https://github.com/lm2000/nora-ai-knowledge-agent-harness-public.git
 cd nora-ai-knowledge-agent-harness-public
 git checkout 7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053
 ```
+
+From the pinned checkout, install the base package in a virtual environment and run the replay with a new output directory:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -c requirements.lock -e .
+nora review-example --output .private/atlas-review-cycle
+```
+
+The command reports `synthetic_cycle_complete` and writes `summary.json` in the output directory. Expect `atlas-v1` → `atlas-v2`, zero model calls, and a delivery decision of `requires_owner_review`. Choose a fresh output directory for each replay.
+
+<h2 id="example" data-index-label="Setup">Prerequisites</h2>
+
+Use Python 3.12, Node.js 22.22 or newer, pnpm 12.8.1, Conda and Make. Development validation needs no inference credential or private corpus.
+
+<h2 id="approach-and-tradeoffs" data-index-label="Commands">Run the source checks</h2>
+
+Use the pinned checkout from the [Atlas replay setup](#atlas-replay).
 
 From the repository root, create and activate the Conda environment, install the locked dependencies, and run validation:
 

@@ -20,7 +20,8 @@ test('walkthroughs names the reused request figure clearly', () => {
 });
 
 test('Architecture and Walkthroughs keep distinct roles and one compact step navigator per flow', () => {
-  assert.match(architecture, /The walkthrough applies those same boundaries to concrete scenarios/);
+  assert.match(architecture, /id="request-path" data-index-label="Shipped request path"/);
+  assert.match(architecture, /id="system-map" data-index-label="Target architecture"/);
   assert.match(architecture, /<a href=\{href\(`\/walkthroughs\/\?flow=request&step=\$\{firstRequestStep\}`\)\}>Walkthroughs<\/a>/);
   assert.equal((walkthroughs.match(/class="step-nav"/g) || []).length, 2);
   assert.doesNotMatch(walkthroughs, /walkthrough-index|Choose a flow|On this page/);

@@ -11,8 +11,8 @@ const firstRequestStep = walkthroughs.request[0].id;
 const indexEntries = [
   { id: 'overview', label: 'Overview', description: 'One AI coordinator, clear service boundaries' },
   { id: 'knowledge-backbone', label: 'Knowledge Backbone', description: 'Retained sources, bounded model context' },
-  { id: 'request-path', label: 'Request workflow', description: 'Coordination handles inference and retrieval' },
-  { id: 'system-map', label: 'Architecture', description: 'Browser UI, gateway, retrieval, and state' },
+  { id: 'request-path', label: 'Shipped request path', description: 'Follow a question through the public snapshot' },
+  { id: 'system-map', label: 'Target architecture', description: 'Service boundaries, delegation, and evaluation' },
   { id: 'model-routing', label: 'Models and orchestration', description: 'Delegate tasks, select inference, combine results' },
   { id: 'manual-ingestion', label: 'Ingestion', description: 'Preparation runs outside the conversation' },
   { id: 'decisions-tradeoffs', label: 'Decisions', description: 'Tradeoffs and the decisions route' }
@@ -26,7 +26,7 @@ const indexEntries = [
     <div class="shell hero-layout">
       <div class="hero-copy">
         <h1>One AI coordinator. Clear service boundaries.</h1>
-        <p class="hero-lede">Architecture shows the reusable system: who owns each responsibility, how a request moves, and why document preparation stays outside the conversation. The walkthrough applies those same boundaries to concrete scenarios.</p>
+        <p class="hero-lede">Follow a question through the public Harness snapshot, then explore the target design for specialist delegation and artifact evaluation. The walkthrough uses a fictional Atlas request.</p>
         <ul class="hero-signals" aria-label="Design principles">
           <li>Single coordinator</li>
           <li>Prepared knowledge</li>
@@ -63,35 +63,37 @@ const indexEntries = [
     </div>
   </section>
 
-  <section class="section workflow-section" id="request-path" data-index-label="Workflow">
+  <section class="section workflow-section" id="request-path" data-index-label="Shipped request path" aria-labelledby="request-path-heading">
     <div class="shell">
       <div class="section-heading section-heading--split">
         <div>
-          <p class="section-label">Request workflow</p>
+          <p class="section-label">Public Harness snapshot</p>
           <h2 id="request-path-heading">How one request reaches an answer.</h2>
         </div>
-        <p>The MCP Gateway provides tool access; the MCP Server exposes ask_nis; the AI Coordinator performs the work. It retrieves evidence, selects inference, checks the answer and retains a checkpoint. The Browser UI reaches the same Coordination operation directly through HTTP/AG-UI.</p>
+        <p>Browser requests via HTTP/AG-UI and MCP requests via <code>ask_nis</code> reach the same bounded graph in Coordination. The graph searches retained knowledge, can read a source passage, selects a model route, and saves conversation checkpoints in PostgreSQL.</p>
       </div>
-      <div class="diagram-figure--component" aria-labelledby="request-path-heading">
+      <p class="architecture-version"><a href={sourceUrl('src/nora/coordination.py')}>Read the request handlers</a> or <a href={sourceUrl('src/nora/agent.py')}>inspect the retrieval and inference graph</a> in the pinned source.</p>
+      <div class="diagram-figure--component">
         <Diagram
           showTitle={false}
           previewSrc="/diagrams/architecture-request-path-preview.svg"
-          title="Request path"
+          title="Request design"
+          purpose="This design view includes planning and synthesis for delegated work. The shipped answer path above uses a single graph with two retrieval tools."
           htmlUrl="/diagrams/architecture-request-path.html"
-          alt="Architecture request path diagram"
+          alt="Target request design showing planning, retrieval, generation, synthesis, and checkpointing."
         />
       </div>
     </div>
   </section>
 
-  <section class="section workflow-section" id="system-map" data-index-label="Architecture" aria-labelledby="system-map-heading">
+  <section class="section workflow-section" id="system-map" data-index-label="Target architecture" aria-labelledby="system-map-heading">
     <div class="shell">
       <div class="section-heading section-heading--split">
         <div>
-          <p class="section-label">Technical architecture</p>
+          <p class="section-label">Target architecture</p>
           <h2 id="system-map-heading">Components, state, and system boundaries.</h2>
         </div>
-        <p>The Coordination Layer groups the AI Coordinator and its interfaces. The Coordination service hosts Deep Agents/LangGraph and FastMCP; retrieval, inference, evaluation and conversation state have separate responsibilities.</p>
+        <p>The target design extends the Coordination Layer with specialist delegation and separate Harbor Hub and Hugging Face evaluation routes. The public snapshot runs the bounded question-answering graph and provides an offline artifact review replay.</p>
       </div>
       <ResponsiveSystemDiagram>
         <div class="diagram-figure--component" aria-labelledby="system-map-heading">
@@ -115,7 +117,7 @@ const indexEntries = [
           <p class="section-label">Models and orchestration</p>
           <h2 id="model-routing-heading">Assign the work. Select the inference.</h2>
         </div>
-        <p>Orchestration chooses the workflow, delegates bounded tasks and synthesizes their results. Model routing chooses suitable inference for each step: simple, general, reasoning or specialized. Ollama and Fireworks are backends; DeepSeek is a model family. Required capability and quality come before cost and latency assumptions.</p>
+        <p>In the target design, orchestration delegates bounded tasks and synthesizes their results. In the public snapshot, the model selector routes inference within the question-answering graph. Ollama and Fireworks are backends; DeepSeek is a model family. Required capability and quality come before cost and latency assumptions.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="model-routing-heading">
         <Diagram
