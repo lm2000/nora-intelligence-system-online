@@ -453,3 +453,10 @@ body:has(.build-story) .page-index .page-index-item a:focus-visible {
 body:has(.build-story) .page-index:not([hidden]) { padding: 8px; overflow: hidden; }
 body:has(.build-story) .page-index .page-index-item { margin: 0; }
 }
+
+/* Keep Home Current work clear of its docked desktop index. */
+@media (min-width: 1081px) {
+  html.has-docked-orchestration body:has(.hero--home) #example > .shell {
+    padding-right: 240px;
+  }
+}

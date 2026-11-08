@@ -21,6 +21,8 @@ nora review-example --output .private/atlas-review-cycle
 
 The command reports `synthetic_cycle_complete` and writes `summary.json` in the output directory. Expect `atlas-v1` → `atlas-v2`, zero model calls, and a delivery decision of `requires_owner_review`. Choose a fresh output directory for each replay.
 
+Read the revised briefing in `.private/atlas-review-cycle/revision/artifact.json` (the `text` field).
+
 <h2 id="example" data-index-label="Setup">Prerequisites</h2>
 
 Use Python 3.12, Node.js 22.22 or newer, pnpm 12.8.1, Conda and Make. Development validation needs no inference credential or private corpus.
