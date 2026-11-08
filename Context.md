@@ -1,5 +1,14 @@
 # Project Context
 
+## Header navigation revision — 2026-11-08
+
+Michael approved prioritizing desktop navigation: Motivation follows Home;
+the external Public harness button is removed from the header. Repository
+links elsewhere remain. Michael reviewed the local preview and approved publication of this
+isolated header follow-up on 2026-11-08.
+Comprehensive improvements remain isolated in the other worktree.
+
+
 ## Motivation-only release candidate — 2026-11-08
 
 First release bucket adds Motivation and its Home, build-story and footer links.

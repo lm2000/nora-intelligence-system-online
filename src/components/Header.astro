@@ -3,6 +3,7 @@ import { href, SITE_NAME, BASE } from '../lib/constants.mjs';
 
 const mainLinks = [
   { label: 'Home', path: '/' },
+  { label: 'Motivation', path: '/motivation/' },
   { label: 'Architecture', path: '/architecture/' },
   { label: 'Walkthroughs', path: '/walkthroughs/' },
   { label: 'Workflows', path: '/workflows/' },
@@ -24,7 +25,6 @@ const path = (Astro.url.pathname.startsWith(BASE) ? '/' + Astro.url.pathname.sli
         return <a href={href(l.path)} aria-current={isCurrent ? 'page' : undefined}>{l.label}</a>;
       })}
     </nav>
-    <a class="button button--small button--outline" href="https://github.com/lm2000/nora-ai-knowledge-agent-harness-public" target="_blank" rel="noreferrer">Public harness</a>
   </div>
 </header>
 <script>
