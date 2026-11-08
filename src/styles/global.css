@@ -407,3 +407,49 @@ body.has-page-index .page-index .page-index-item { margin: 0; }
     border-radius: 6px;
   }
 }
+
+/* Keep Architecture introductions readable on desktop. */
+@media (min-width:1081px) and (max-width:1599px) {
+  body:has(#request-path) .section-heading--split { grid-template-columns:1fr; gap:20px; align-items:start; }
+  body:has(#request-path) .section-heading--split > p { max-width:66ch; }
+}
+
+/* Match the existing reader-index style for desktop build-story pages. */
+@media (min-width:1081px){
+body:has(.build-story) .page-index .page-index-list { gap: 2px; }
+body:has(.build-story) .page-index .page-index-item a {
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 8px;
+  padding: 12px 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-transform: none;
+  border-radius: 6px;
+}
+body:has(.build-story) .page-index .page-index-item a::before {
+  flex: 0 0 20px;
+  color: inherit;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: normal;
+}
+body:has(.build-story) .page-index .page-index-item a::after { content: none; }
+body:has(.build-story) .page-index .page-index-item a:hover {
+  color: var(--ink);
+  background: rgba(178, 205, 219, 0.06);
+}
+body:has(.build-story) .page-index .page-index-item a[aria-current="location"] {
+  color: var(--color-teal);
+  background: rgba(115, 236, 217, 0.09);
+}
+body:has(.build-story) .page-index .page-index-item a:focus-visible {
+  color: var(--ink);
+  outline: 2px solid var(--color-teal);
+  outline-offset: -2px;
+}
+
+body:has(.build-story) .page-index:not([hidden]) { padding: 8px; overflow: hidden; }
+body:has(.build-story) .page-index .page-index-item { margin: 0; }
+}

@@ -12,6 +12,7 @@ const { title, summary, path, kind, returnAnchor, workflow } = Astro.props;
     <h1 id="overview">{title}</h1>
     <p class="page-intro">{summary}</p>
     <PageIndex />
+    <slot name="opening-example" />
     {workflow && <CaseWorkflowDiagram variant={workflow} />}
     <slot />
     <CaseStudyLinks returnAnchor={returnAnchor} />
@@ -21,6 +22,10 @@ const { title, summary, path, kind, returnAnchor, workflow } = Astro.props;
   .case-study { padding-block: 48px 80px; min-width: 0; }
   .case-study h1 { max-width: 18ch; overflow-wrap: break-word; }
   .page-intro { max-width: 65ch; color: var(--ink-soft); font-size: 18px; line-height: 1.7; }
+  .case-study :global(.opening-example) { margin-block: 28px 32px; padding-inline-start: 20px; border-inline-start: 2px solid var(--teal); max-width: 66ch; }
+  .case-study :global(.opening-example p) { margin: 0; color: var(--ink-soft); }
+  .case-study :global(.opening-example strong) { color: var(--ink); }
+  .case-study :global(.opening-example a) { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; }
   .case-study :global(h2) { margin-top: 2.5em; }
   .case-study :global(p), .case-study :global(li) { max-width: 68ch; line-height: 1.7; }
   .case-study :global(li) { margin-bottom: 12px; }
