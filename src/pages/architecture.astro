@@ -117,7 +117,7 @@ const indexEntries = [
           <p class="section-label">Models and orchestration</p>
           <h2 id="model-routing-heading">Assign the work. Select the inference.</h2>
         </div>
-        <p>In the target design, orchestration delegates bounded tasks and synthesizes their results. In the public snapshot, the model selector routes inference within the question-answering graph. Ollama and Fireworks are backends; DeepSeek is a model family. Required capability and quality come before cost and latency assumptions.</p>
+        <p>In the target design, orchestration delegates bounded tasks and synthesizes their results. In the public snapshot, the model selector routes inference within the question-answering graph. Ollama and Fireworks are backends; DeepSeek is a model family. The selector first considers capability and quality requirements, then configured cost and latency assumptions. If no candidate meets the requirements, it can rank the remaining viable models instead, so those requirements are not guaranteed.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="model-routing-heading">
         <Diagram
