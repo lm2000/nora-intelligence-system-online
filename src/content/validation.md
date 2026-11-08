@@ -1,4 +1,4 @@
-The latest published-source checks and earlier runtime experiments are separate evidence. Each record links its source snapshot; a passing source suite does not establish a live deployment or general answer reliability.
+The published-source checks for snapshot `7ea9e49` and earlier runtime experiments are separate evidence. Each record links its source snapshot; a passing source suite does not establish a live deployment or general answer reliability.
 
 <h2 id="validation-evidence" data-index-label="Evidence">Recorded validation evidence</h2>
 
@@ -54,4 +54,4 @@ The [successful GitHub Actions run](https://github.com/lm2000/nora-ai-knowledge-
 
 <h2 id="reference">Reference</h2>
 
-[Current source and container validation](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053/docs/evaluation/VALIDATION.md) · [Reproduce the source checks](../reproduce/)
+[Source and container validation at 7ea9e49](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053/docs/evaluation/VALIDATION.md) · [Reproduce the source checks](../reproduce/)
