@@ -34,7 +34,7 @@ const chapterPath = (key: string) => href(`/case-study/${key ? key + '/' : ''}`)
     </header>
     <PageIndex />
     <nav class="chapter-nav" aria-label="Build story chapters">
-      <ol>{chapters.map(([key, label]) => <li><a href={chapterPath(key)} aria-current={key === slug ? 'page' : undefined}>{label}</a></li>)}</ol>
+      <ol><li><a href={href('/motivation/')}>Why I built the Nora Harness</a></li>{chapters.map(([key, label]) => <li><a href={chapterPath(key)} aria-current={key === slug ? 'page' : undefined}>{label}</a></li>)}</ol>
     </nav>
     {diagram && <div class="story-diagram">
       <Diagram previewSrc={`/diagrams/${diagram}.gif`} htmlUrl={`/diagrams/${diagram}.html`} alt={diagramAlt || title} title={diagramAlt || title} purpose="Select a component for its responsibility and trade-off. This diagram explains the design, not measured performance." />

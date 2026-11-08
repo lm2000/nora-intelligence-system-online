@@ -32,6 +32,7 @@ const indexEntries = [
           <a class="button button--primary" href={href('/architecture/')}>Explore the architecture <span aria-hidden="true">→</span></a>
           <a class="button button--ghost" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow a walkthrough <span aria-hidden="true">→</span></a>
         </div>
+        <a class="text-link home-motivation" href={href('/motivation/')}>Why I built the Nora Harness <span aria-hidden="true">→</span></a>
       </div>
       <OriginalIndex tagline="HOME" title="Inside the lab" entries={indexEntries} ariaLabel="Home navigation" />
     </div>
@@ -164,4 +165,8 @@ div.founder-entry > p { margin: 0; }
   line-height: 1.6;
 }
 
+</style>
+
+<style>
+.home-motivation { display:inline-flex; align-items:center; gap:.5em; min-block-size:44px; margin-block-start:12px; }
 </style>

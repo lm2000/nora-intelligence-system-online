@@ -1,5 +1,16 @@
 # Project Context
 
+## Motivation-only release candidate — 2026-11-08
+
+First release bucket adds Motivation and its Home, build-story and footer links.
+The six primary tabs remain unchanged. Shared diagram navigation, responsive
+fixes, cross-page copy and Harness changes belong to a separate improvement
+bucket retained in nora-website-audit-fixes. Michael approved this candidate and authorized its commit and push on
+2026-11-08. Push the isolated `codex/motivation-only` branch; comprehensive
+improvements remain separate and uncommitted. Production publication is a
+separate action.
+
+
 ## Website audit fixes — 2026-11-06
 
 Architecture distinguishes the question-answering graph in the pinned public
