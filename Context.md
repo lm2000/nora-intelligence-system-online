@@ -1,5 +1,17 @@
 # Project Context
 
+## Knowledge-source publication — 2026-11-09
+
+Owner authorized the prepared source copy and paired Harness/site publication.
+The release candidate starts at current remote main, preserving its seven newer
+commits. Architecture adds one native paragraph naming project documents, design
+conversations, saved context and owned code; summaries remain linked derived
+documents. Current source links and both provenance manifests now use public
+Harness `b599231c556ff0662c36573361e96601d1830968`. All imported diagram hashes match; canonical assets and
+historical validation pins are unchanged. Local `pnpm validate` passed 23 tests, zero Astro diagnostics, 20 built pages
+and 889 links. Deployment readback is recorded after publication; no private
+source content is included.
+
 ## Header navigation revision — 2026-11-08
 
 Michael approved prioritizing desktop navigation: Motivation follows Home;

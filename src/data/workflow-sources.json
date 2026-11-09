@@ -1,6 +1,6 @@
 {
   "repository": "lm2000/nora-ai-knowledge-agent-harness-public",
-  "commit": "7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053",
+  "commit": "b599231c556ff0662c36573361e96601d1830968",
   "scope": "Workflow diagrams from the published Harness; full inventory in source-manifest.json.",
   "files": {
     "public/diagrams/artifact-review-flow.gif": {
