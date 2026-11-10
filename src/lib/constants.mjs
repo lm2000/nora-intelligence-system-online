@@ -28,7 +28,7 @@ export function href(path) {
 
 export const SITE_NAME = 'Nora SuperIntelligence Lab';
 
-export const SOURCE_COMMIT = 'b599231c556ff0662c36573361e96601d1830968';
+export const SOURCE_COMMIT = '1f44e9accce179f1b9a812489fff0c61410b871b';
 export const SOURCE_REPO = 'lm2000/nora-ai-knowledge-agent-harness-public';
 
 export function sourceUrl(path, heading = '') {

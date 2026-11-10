@@ -1,5 +1,19 @@
 # Project Context
 
+## Documentation and source pin refresh — 2026-11-10
+
+Owner authorized publication of the updated private/public Harness documentation
+and the paired website source pin. Public Harness
+`1f44e9accce179f1b9a812489fff0c61410b871b` adds the generic verified staging
+retirement contract and a sanitized deployment record for the 24 successful summaries.
+Current source links, reproduction checkout, README and both provenance
+manifests now reference that commit. All 32 imported canonical diagram hashes
+match; diagram bytes, visible copy/layout, historical evidence pins and
+case-study provenance remain unchanged. No ingestion or uncertain-job action
+is part of this publication. Local `pnpm validate` passed 23 tests, zero diagnostics, 20 pages and
+889 checked links. Exact CI/Vercel deployment readback is recorded in the owning
+Harness publication ledger against the matching website commit.
+
 ## Knowledge-source publication — 2026-11-09
 
 Owner authorized the prepared source copy and paired Harness/site publication.

@@ -18,4 +18,4 @@ Conversion, preparation, embedding and import/verification are four ingestion jo
 
 ## Reference
 
-[Architecture concept](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/b599231c556ff0662c36573361e96601d1830968/docs/architecture/architecture-concept.md)
+[Architecture concept](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/1f44e9accce179f1b9a812489fff0c61410b871b/docs/architecture/architecture-concept.md)

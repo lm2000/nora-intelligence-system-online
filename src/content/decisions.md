@@ -44,4 +44,4 @@ See the [ingestion walkthrough](../walkthroughs/?flow=ingestion&step=backup) and
 
 <h2 id="reference">Reference</h2>
 
-[Architecture decisions](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/b599231c556ff0662c36573361e96601d1830968/docs/Decisions.md) · [Artifact evaluation and revision](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/b599231c556ff0662c36573361e96601d1830968/docs/workflows/artifact-review/README.md)
+[Architecture decisions](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/1f44e9accce179f1b9a812489fff0c61410b871b/docs/Decisions.md) · [Artifact evaluation and revision](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/blob/1f44e9accce179f1b9a812489fff0c61410b871b/docs/workflows/artifact-review/README.md)
