@@ -58,6 +58,7 @@ The summaries above identify the task. These notes examine a surrounding capabil
   <summary>Brellium · Findings that reach a reviewer</summary>
   <p><a href="https://www.brellium.com/">Brellium describes</a> pre-billing review of clinical notes, specific issue flags and resolution steps, and integration with an existing EHR.</p>
   <p><strong>Investigate:</strong> Can reviewers trace a finding to the note and rule, correct it, and verify that the correction reached the relevant workflow?</p>
+  <p><a href="#brellium-chart-review-pilot">See the proposed chart-review pilot.</a></p>
 </details>
 <details class="research-note">
   <summary>Arbiter · Care coordination beyond a reminder</summary>
@@ -108,6 +109,35 @@ Reduced preparation effort may become more capacity, a better service, or a lowe
 Retaining a conversation does not by itself establish organizational learning. Ask how knowledge is corrected, refreshed, shared, and restricted between people.
 
 For a practical way to turn these questions into a first pilot, see [AI and data readiness](../ai-data-readiness/).
+
+<h2 id="brellium-chart-review-pilot" data-index-label="Brellium pilot">Worked example: pre-bill chart review</h2>
+
+[Brellium describes](https://www.brellium.com/) reviewing clinical notes before billing and surfacing findings with resolution steps. This proposed customer pilot tests whether a valid finding leads to a verified correction in the record before billing.
+
+### Follow one finding through to closure
+
+1. **Receive the chart.** Identify the encounter and note version.
+2. **Produce a finding.** Link the flag to the note excerpt and applicable rule version.
+3. **Review and decide.** A reviewer confirms or dismisses the flag and records a reason.
+4. **Verify the correction.** Confirm the update in the operational record before closing the finding.
+
+<details class="research-note">
+  <summary>Test changed notes, disputed flags, failed corrections, and missed issues</summary>
+  <ul>
+    <li><strong>Changed note.</strong> Re-evaluate against the latest version and retain the original finding and decision trail.</li>
+    <li><strong>Disputed flag.</strong> Record the reason and route unresolved cases to the policy owner with the original evidence.</li>
+    <li><strong>Failed correction.</strong> Keep the finding open and reconcile against the record before retrying to avoid a duplicate correction.</li>
+    <li><strong>Missed issue.</strong> Have clinicians adjudicate a sample of flagged and unflagged charts to estimate missed issues and false alerts.</li>
+  </ul>
+</details>
+
+### Measure quality first, then test closure
+
+Start in **shadow mode** with no writes to the electronic health record. Compare flags with clinician-adjudicated charts from the same eligible population. Then run a **limited reviewer-assisted trial**. Staff make corrections through their existing workflow and the pilot verifies the resulting record. Use the same eligibility rules and rubric for the baseline. Record permitted chart references, note and rule versions, reviewer decisions, and timestamps.
+
+Measure reviewer minutes per eligible chart, time from a valid finding to a verified correction, the share of reviewed flags upheld, missed issues, and the share of valid findings resolved before billing. Set quality and closure thresholds in advance. Expand only if the workflow meets them and reduces review effort, including rework.
+
+Brellium’s [Lightfully case study](https://www.brellium.com/case-studies/lightfully-behavioral-health) reports an 87% reduction in chart-review time from a prior workload of about 20 hours a week. This is a reported customer outcome. Establish a separate baseline for the proposed pilot.
 
 <h2 id="venture-research" data-index-label="Venture research">Use the framework for venture-capital market research</h2>
 
