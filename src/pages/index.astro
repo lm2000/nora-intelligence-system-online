@@ -26,11 +26,11 @@ const indexEntries = [
       <div class="hero-copy">
         <h1>{site.home.heading} {site.home.headingEmphasis}</h1>
         <p class="hero-lede">{site.home.intro}</p>
-        <LabIntroduction />
         <div class="hero-actions home-actions">
           <a class="button button--primary" href={href('/architecture/')}>Explore the architecture <span aria-hidden="true">→</span></a>
           <a class="button button--ghost" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow a walkthrough <span aria-hidden="true">→</span></a>
         </div>
+        <LabIntroduction />
         <a class="text-link home-motivation" href={href('/motivation/')}>Why I built Nora <span aria-hidden="true">→</span></a>
       </div>
       <OriginalIndex tagline="HOME" title="Inside the lab" entries={indexEntries} ariaLabel="Home navigation" />

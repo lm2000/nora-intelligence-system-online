@@ -8,6 +8,11 @@
       "source": {
         "path": "docs/architecture/architecture-concept.md",
         "heading": "One question"
+      },
+      "summary": {
+        "input": "A question and a new or existing conversation ID.",
+        "operation": "Send the request from the browser to Coordination.",
+        "result": "The coordinator has the question and available conversation state."
       }
     },
     {
@@ -18,6 +23,11 @@
       "source": {
         "path": "docs/agents/README.md",
         "heading": "Answer behavior"
+      },
+      "summary": {
+        "input": "The Atlas question and the active knowledge release.",
+        "operation": "Search the matching index and read relevant source passages.",
+        "result": "Evidence identifies the pending load test and rollback rehearsal."
       }
     },
     {
@@ -28,6 +38,11 @@
       "source": {
         "path": "docs/agents/README.md",
         "heading": "Answer behavior"
+      },
+      "summary": {
+        "input": "The question, retrieved evidence and request budgets.",
+        "operation": "Reason over the evidence within the retrieval and model-call limits.",
+        "result": "A draft answer identifies the supported blockers or an evidence gap."
       }
     },
     {
@@ -38,6 +53,11 @@
       "source": {
         "path": "docs/architecture/architecture-concept.md",
         "heading": "One question"
+      },
+      "summary": {
+        "input": "The draft answer and supporting evidence.",
+        "operation": "Return a concise response; apply a bounded repair if needed.",
+        "result": "“The load test and rollback rehearsal remain.”"
       }
     },
     {
@@ -48,6 +68,11 @@
       "source": {
         "path": "docs/architecture/architecture-concept.md",
         "heading": "Storage, deployment and evidence"
+      },
+      "summary": {
+        "input": "The completed turn and its stable conversation ID.",
+        "operation": "Save the turn through the LangGraph PostgreSQL checkpointer.",
+        "result": "A follow-up can continue the conversation using the same ID."
       }
     }
   ],
@@ -60,6 +85,11 @@
       "source": {
         "path": "docs/workflows/ingestion/README.md",
         "heading": "Backups and activation"
+      },
+      "summary": {
+        "input": "The current database state, prepared documents and configuration.",
+        "operation": "Save Qdrant and PostgreSQL backups with the matching bundle.",
+        "result": "A saved baseline is available before preparation starts."
       }
     },
     {
@@ -70,6 +100,11 @@
       "source": {
         "path": "docs/workflows/ingestion/README.md",
         "heading": "Processing contract"
+      },
+      "summary": {
+        "input": "Selected original documents.",
+        "operation": "Extract text and prepare deterministic chunks with source identities.",
+        "result": "Prepared text, content hashes and stable chunk identities."
       }
     },
     {
@@ -80,6 +115,11 @@
       "source": {
         "path": "docs/workflows/ingestion/README.md",
         "heading": "Processing contract"
+      },
+      "summary": {
+        "input": "Prepared chunks and pinned BGE model metadata.",
+        "operation": "Encode the chunks in bounded batches through shared BGE.",
+        "result": "Document vectors and the embedding job record."
       }
     },
     {
@@ -90,6 +130,11 @@
       "source": {
         "path": "docs/workflows/ingestion/README.md",
         "heading": "Add documents while retaining an existing bundle"
+      },
+      "summary": {
+        "input": "An immutable complete base and an embedded document delta.",
+        "operation": "Merge the base and delta without dropping stored knowledge.",
+        "result": "A new, self-contained knowledge bundle."
       }
     },
     {
@@ -100,6 +145,11 @@
       "source": {
         "path": "docs/workflows/ingestion/README.md",
         "heading": "Ingestion stages"
+      },
+      "summary": {
+        "input": "The embedded bundle and its matching document manifest.",
+        "operation": "Verify identities and counts, then load a fresh Qdrant collection.",
+        "result": "An imported collection and job record, ready for activation checks."
       }
     },
     {
@@ -110,6 +160,11 @@
       "source": {
         "path": "docs/workflows/ingestion/knowledge-base-update-checklist.md",
         "heading": ""
+      },
+      "summary": {
+        "input": "The verified collection and matching prepared documents.",
+        "operation": "Explicitly activate the release, then check answers and conversation reload.",
+        "result": "Accept the update only if checks pass; otherwise keep it incomplete."
       }
     }
   ]

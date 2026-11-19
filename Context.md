@@ -1,3 +1,13 @@
+# Home and walkthrough refinements — 2026-11-19
+
+Michael approved audit recommendations 1 and 3 and authorized validation, Vercel deployment and live verification. The production baseline is editorial integration `69eeac6`, which preserved the approved lab introduction video; the earlier local-only records below are historical.
+
+Home now places its existing architecture and walkthrough actions before the video. Walkthroughs show input, operation and result for all eleven steps; mobile uses a native step picker while desktop retains numbered navigation. Final request and ingestion steps provide contextual follow-up links. The request-only reference diagram is hidden for ingestion. Existing query deep links, next/previous/reset, browser history, source pins and canonical assets are retained.
+
+Local validation passed 23 tests, zero diagnostics, 20 built pages and 878 link checks. Responsive browser checks covered Home action order, every walkthrough step, final-step links, mobile selection and Back restoration, reset, desktop navigation, and no page overflow at 1440/390/320 CSS pixels. Production release evidence is recorded separately after deployment.
+
+---
+
 # Editorial overhaul — integrated locally
 
 Michael authorized reconciliation and local integration without publication. Local main was fast-forwarded to code commit `7169f3d5aa850adf8a2ff5fdb8f202ea2acf547b`, combining the refined editorial overhaul with useful pending OpenDesign changes. Validation was rerun in the original main checkout: 23 tests, zero Astro diagnostics, 20 built pages and 872 checked links passed. No push, publication or deployment was performed.
