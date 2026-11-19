@@ -33,7 +33,7 @@
     {
       "id": "plain-answer",
       "title": "Plain Answer",
-      "description": "The AI coordinator returns a concise answer without internal IDs.",
+      "description": "The AI Coordinator returns a concise answer without internal IDs.",
       "detail": "The generated answer omits citation cards and internal IDs, providing a direct response. If a requested word cap is missed, a no-tool repair may be used within the model allowance.",
       "source": {
         "path": "docs/architecture/architecture-concept.md",
@@ -85,8 +85,8 @@
     {
       "id": "assemble",
       "title": "Assemble",
-      "description": "Combine retained knowledge with new delta documents.",
-      "detail": "To add documents without losing retained knowledge, prepare and embed a delta first. Assembly merges the immutable complete base with the delta into a new self-contained bundle.",
+      "description": "Combine stored knowledge with new delta documents.",
+      "detail": "To add documents without losing stored knowledge, prepare and embed a delta first. Assembly merges the immutable complete base with the delta into a new self-contained bundle.",
       "source": {
         "path": "docs/workflows/ingestion/README.md",
         "heading": "Add documents while retaining an existing bundle"

@@ -21,9 +21,6 @@ const indexEntries = [
 
 <SiteLayout title="Home — Nora SuperIntelligence Lab" description="I lead Nora SuperIntelligence Lab, an independent lab building an AI agent harness centered on an AI coordinator." path="/" customIndex={true}>
   <section class="hero hero--home" id="overview" data-index-label="Overview">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
     <div class="shell hero-layout">
       <div class="hero-copy">
         <h1>{site.home.heading} {site.home.headingEmphasis}</h1>
@@ -32,7 +29,7 @@ const indexEntries = [
           <a class="button button--primary" href={href('/architecture/')}>Explore the architecture <span aria-hidden="true">→</span></a>
           <a class="button button--ghost" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow a walkthrough <span aria-hidden="true">→</span></a>
         </div>
-        <a class="text-link home-motivation" href={href('/motivation/')}>Why I built the Nora Harness <span aria-hidden="true">→</span></a>
+        <a class="text-link home-motivation" href={href('/motivation/')}>Why I built Nora <span aria-hidden="true">→</span></a>
       </div>
       <OriginalIndex tagline="HOME" title="Inside the lab" entries={indexEntries} ariaLabel="Home navigation" />
     </div>
@@ -45,7 +42,7 @@ const indexEntries = [
           <p class="section-label">Current work</p>
           <h2>An AI agent harness.</h2>
         </div>
-        <p>Nora connects retained knowledge, agents and tools across three workflows: question answering, ingestion, and artifact evaluation and revision. Explore the system’s boundaries, follow a request, or examine how feedback improves an artifact.</p>
+        <p>Nora connects retrieval, agents, and tools across three workflows: question answering, ingestion, and artifact evaluation and revision. Explore the system’s boundaries, follow a request, or examine how feedback improves an artifact.</p>
       </div>
       <HomeArchitectureMap />
       <div class="hero-actions home-actions">
@@ -73,15 +70,15 @@ const indexEntries = [
       <div class="foundation-list" role="list">
         <div role="listitem">
           <span>01</span>
-          <p><strong>Start with a concrete use case</strong> to guide what the system needs to do.</p>
+          <p>A concrete use case guides what the system needs to do.</p>
         </div>
         <div role="listitem">
           <span>02</span>
-          <p><strong>Keep responsibilities clear.</strong> Separate coordination, knowledge and execution so each can evolve independently.</p>
+          <p>Coordination, knowledge, and execution stay separate so each can evolve independently.</p>
         </div>
         <div role="listitem">
           <span>03</span>
-          <p><strong>Make the work inspectable.</strong> Keep source, architectural decisions, and checks available for review.</p>
+          <p>Work stays inspectable: sources, architectural decisions, and checks are available for review.</p>
         </div>
       </div>
     </div>

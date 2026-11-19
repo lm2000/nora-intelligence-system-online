@@ -1,8 +1,8 @@
 <h2 id="example" data-index-label="Knowledge and context">Knowledge beyond a conversation</h2>
 
-**Choice.** The Knowledge Backbone retains prepared source text and a searchable Qdrant index outside model context. Retrieval MCP searches and reads the passages needed for a task. For example, an Atlas release briefing can draw on retained release notes without attaching the entire document collection to every request.
+**Choice.** Prepared source text and its searchable Qdrant index persist outside model context. Retrieval MCP searches and reads the passages needed for a task. For example, an Atlas release briefing can draw on stored release notes without attaching the entire document collection to every request.
 
-**Why.** Useful knowledge outlives a conversation and can exceed a model's context window. Retained knowledge grows independently while each request uses bounded context.
+**Why.** Useful knowledge outlives a conversation and can exceed a model's context window. Stored knowledge grows independently while each request uses bounded context.
 
 **Tradeoff.** Preparation, indexing and relevance checks add work, and retrieval can miss useful evidence. A larger knowledge store alone does not establish answer quality.
 
@@ -28,7 +28,7 @@ See [Architecture](../architecture/#system-map) for the component boundaries.
 
 **Choice.** Conversion, deterministic preparation, embedding, and import/verification are four operator-triggered jobs outside conversations. Shared BGE encodes queries and documents. Preparation preserves meaning without generated per-source summaries or rewrites. Prepared text and its matching Qdrant collection form one release.
 
-**Why.** Separate ingestion keeps long-running writes out of the answer path and makes source identity and activation explicit. Additions include retained knowledge; rebuilds use the complete desired source set.
+**Why.** Separate ingestion keeps long-running writes out of the answer path and makes source identity and activation explicit. Additions include stored knowledge; rebuilds use the complete desired source set.
 
 **Tradeoff.** Updates require an operator and a complete release. The procedure is backup-first, then prepare, import, verify, activate, and check answers. Failed acceptance leaves the update incomplete for investigation. Local releases and generation-pinned GCS releases are supported boundaries; the deployment record owns the active installation. A literal Retrieval release pin needs an explicit deployment change.
 

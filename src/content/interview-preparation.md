@@ -83,4 +83,4 @@ The candidate approves the brief, corrects its emphasis and decides how to use i
 
 <h2 id="connection-to-the-lab" data-index-label="Related work">Related work</h2>
 
-See [client research and reviewed pitches](../client-research/) for the same architecture applied to an account brief, the [Harness architecture](../../architecture/) for component responsibilities, and [Validation](../../validation/) for the project’s actual evidence.
+See [client research and reviewed pitches](../client-research/) for the same architecture applied to an account brief, the [harness architecture](../../architecture/) for component responsibilities, and [Validation](../../validation/) for the project’s actual evidence.

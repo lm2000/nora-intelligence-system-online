@@ -1,4 +1,4 @@
-// Normalize the metadata formats used by the pinned Harness diagrams.
+// Normalize the metadata formats used by the pinned harness diagrams.
 // Source HTML stays unchanged; only its SVG and descriptive data are embedded.
 function decodeAttribute(value) {
   const entities = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>' };

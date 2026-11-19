@@ -1,6 +1,6 @@
 ## Purpose
 
-Nora SuperIntelligence Lab’s AI agent harness separates retained knowledge, task coordination and model inference. The Knowledge Backbone keeps prepared source text and a searchable index outside a model’s finite context window. Retrieval MCP finds and reads evidence for each bounded request.
+Nora SuperIntelligence Lab’s AI agent harness separates stored knowledge, task coordination and model inference. Prepared source text and its matching search index persist outside a model’s finite context window. Retrieval MCP finds and reads evidence for each bounded request.
 
 ## Example
 
@@ -10,11 +10,11 @@ For “Prepare an Atlas handover brief,” the AI Coordinator plans the task, re
 
 Browser HTTP/AG-UI and MCP clients reach the same coordinator. The MCP Gateway (LiteLLM Proxy) provides tool access; the MCP Server (FastMCP) exposes `ask_nis`. Deep Agents/LangGraph and PostgreSQL checkpoints support the task lifecycle in Coordination. Orchestration assigns tasks and combines results, while simple, general, reasoning and specialized model routes select inference. Harbor Hub and Hugging Face are separate coordinator-selected evaluation routes.
 
-Retrieval owns query encoding through shared BGE, index access in Qdrant and reads of matching prepared text. Retained knowledge can grow independently of context, but preparation and relevance checks add work and useful evidence can still be missed. Explicit retrieval/model budgets bound execution without guaranteeing answer quality.
+Retrieval owns query encoding through shared BGE, index access in Qdrant and reads of matching prepared text. Stored knowledge can grow independently of context, but preparation and relevance checks add work and useful evidence can still be missed. Explicit retrieval/model budgets bound execution without guaranteeing answer quality.
 
 ## Boundaries and Recovery
 
-Conversion, preparation, embedding and import/verification are four ingestion jobs outside conversations. Additions include retained knowledge; rebuilds use the complete desired source set. Backups precede preparation, followed by verification, activation and answer checks. Prepared text and the index form one release; PostgreSQL keeps conversation checkpoints separately. Checkpoint persistence alone does not establish clean-target restoration, crash behavior or exactly-once effects.
+Conversion, preparation, embedding and import/verification are four ingestion jobs outside conversations. Additions include stored knowledge; rebuilds use the complete desired source set. Backups precede preparation, followed by verification, activation and answer checks. Prepared text and the index form one release; PostgreSQL keeps conversation checkpoints separately. Checkpoint persistence alone does not establish clean-target restoration, crash behavior or exactly-once effects.
 
 ## Reference
 

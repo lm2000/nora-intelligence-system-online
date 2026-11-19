@@ -88,4 +88,4 @@ The strategist verifies the account signal, challenges the hypothesis and approv
 
 <h2 id="connection-to-the-lab" data-index-label="Related work">Related work</h2>
 
-Use [AI and data readiness](../ai-data-readiness/) to assess integration prerequisites. Compare the [career preparation workflow](../interview-preparation/) or inspect the [Harness architecture](../../architecture/) and its [validation evidence](../../validation/).
+Use [AI and data readiness](../ai-data-readiness/) to assess integration prerequisites. Compare the [career preparation workflow](../interview-preparation/) or inspect the [harness architecture](../../architecture/) and its [validation evidence](../../validation/).

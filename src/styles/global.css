@@ -232,7 +232,6 @@ body:has(#request-path) .diagram-figure--component{width:100%;min-width:0;margin
     margin: 0;
     opacity: 0;
   }
-  .orchestration-card--nav.is-docked .loop-line { display: none; }
 }
 
 /* Keep fixed indexes visually separate from long reading content. */
@@ -380,8 +379,7 @@ body.has-page-index .page-index .page-index-item { margin: 0; }
   .contents-disclosure > .orchestration-card--nav { padding: 8px; }
   .contents-disclosure .card-kicker,
   .contents-disclosure .orchestration-card--nav > h2,
-  .contents-disclosure .mini-flow small,
-  .contents-disclosure .loop-line { display: none; }
+  .contents-disclosure .mini-flow small { display: none; }
   .contents-disclosure .mini-flow { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 0; }
   .contents-disclosure .mini-flow li {
     min-height: 44px;

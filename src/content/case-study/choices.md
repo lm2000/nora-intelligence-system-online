@@ -6,7 +6,7 @@ diagram: "case-request"
 diagramAlt: "Requirements, eligible models, configured scoring and a supported answer"
 ---
 
-The [Decisions](../../decisions/) page explains the accepted AI coordinator boundaries. This chapter records additional design options considered for the direct API candidate.
+The [Decisions](../../decisions/) page explains the accepted AI Coordinator boundaries. This chapter records additional design options considered for the direct API candidate.
 
 ## Components
 

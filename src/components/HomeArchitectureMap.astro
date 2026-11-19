@@ -13,7 +13,7 @@ import { href } from '../lib/constants.mjs';
 <details class="home-map-full" open><summary>Explore the full system map</summary>  <div class="home-map-scroll" role="region" aria-label="Simplified AI agent harness architecture" tabindex="0">
     <svg class="home-map" viewBox="0 0 780 620" role="img" aria-labelledby="home-map-title" aria-describedby="home-map-description" xmlns="http://www.w3.org/2000/svg">
       <title id="home-map-title">AI agent harness system map</title>
-      <desc id="home-map-description">Browser HTTP/AG-UI and MCP clients reach one AI Coordinator. The MCP Gateway supplies tool access and FastMCP exposes ask_nis. The coordinator plans, delegates, selects model routes and synthesizes results. Retrieval MCP uses shared BGE, Qdrant and prepared text as the Knowledge Backbone. Ingestion prepares knowledge outside conversations. Separate Harbor Hub and Hugging Face routes support review before Real Owner approval; PostgreSQL keeps checkpoints.</desc>
+      <desc id="home-map-description">Browser HTTP/AG-UI and MCP clients reach one AI Coordinator. The MCP Gateway supplies tool access and FastMCP exposes ask_nis. The coordinator plans, delegates, selects model routes and synthesizes results. Retrieval MCP searches and reads prepared source text using shared BGE and Qdrant. Ingestion prepares knowledge outside conversations. Separate Harbor Hub and Hugging Face routes support review before human approval; PostgreSQL keeps checkpoints.</desc>
       <defs>
         <marker id="home-map-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#879ab1" />
@@ -117,7 +117,7 @@ import { href } from '../lib/constants.mjs';
     </svg>
   </div></details>
   <figcaption>
-    <p>The Knowledge Backbone pairs prepared text with its search index. Ingestion updates it outside conversations. Separate evaluation routes provide feedback; the Synthetic Owner recommends, and the Real Owner gives final approval.</p>
+    <p>Prepared source text and its matching Qdrant index form one knowledge release. Ingestion updates them outside conversations. Separate evaluation routes return feedback; the Synthetic Owner scores and recommends, and the Real Owner gives final human approval.</p>
     <a href={href('/architecture/#system-map')}>Explore the full architecture <span aria-hidden="true">→</span></a>
   </figcaption>
 </figure>

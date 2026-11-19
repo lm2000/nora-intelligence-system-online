@@ -264,7 +264,7 @@ body.editorial-site .orchestration-card--nav:not(.is-docked) {
   background:transparent;
   box-shadow:none;
 }
-body.editorial-site .orchestration-card--nav::before, body.editorial-site .loop-line {
+body.editorial-site .orchestration-card--nav::before {
   display:none;
 }
 body.editorial-site .orchestration-card--nav:not(.is-docked) > h2 {

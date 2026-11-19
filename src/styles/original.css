@@ -310,40 +310,6 @@ a:focus-visible {
   background: var(--navy);
 }
 
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.16;
-  background-image:
-    linear-gradient(rgba(126, 171, 196, 0.24) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(126, 171, 196, 0.24) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(to bottom, black, transparent 86%);
-}
-
-.hero-glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(2px);
-  pointer-events: none;
-}
-
-.hero-glow--one {
-  width: 560px;
-  height: 560px;
-  top: -260px;
-  right: 4%;
-  background: radial-gradient(circle, rgba(93, 85, 231, 0.32), transparent 68%);
-}
-
-.hero-glow--two {
-  width: 520px;
-  height: 520px;
-  bottom: -300px;
-  left: 22%;
-  background: radial-gradient(circle, rgba(18, 190, 158, 0.25), transparent 68%);
-}
-
 .hero-layout {
   position: relative;
   z-index: 2;
@@ -441,16 +407,14 @@ a:focus-visible {
   font-size: 0.62rem;
 }
 
-.orchestration-card--nav .mini-flow small,
-.orchestration-card--nav .loop-line {
+.orchestration-card--nav .mini-flow small {
   max-height: 80px;
   overflow: hidden;
   opacity: 1;
   transition: max-height 240ms ease, opacity 160ms ease;
 }
 
-.orchestration-card--nav.is-docked .mini-flow small,
-.orchestration-card--nav.is-docked .loop-line {
+.orchestration-card--nav.is-docked .mini-flow small {
   max-height: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -484,7 +448,6 @@ a:focus-visible {
   height: 7px;
   border-radius: 50%;
   background: #78e7d2;
-  box-shadow: 0 0 0 7px rgba(120, 231, 210, 0.1);
 }
 
 .hero-copy h1 {
@@ -666,25 +629,6 @@ a:focus-visible {
   margin-top: 1px;
   color: #8ca6b5;
   font-size: 0.75rem;
-}
-
-.loop-line {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.loop-line span {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--teal), transparent);
-}
-
-.loop-line em {
-  color: #8ca6b5;
-  font-size: 0.7rem;
-  font-style: normal;
 }
 
 .proof-band {
@@ -1662,7 +1606,7 @@ a:focus-visible {
   }
 
   .brand span::after {
-    content: "Nora AI Lab";
+    content: "Nora SuperIntelligence Lab";
     font-size: 0.82rem;
     font-weight: 750;
   }

@@ -4,28 +4,29 @@ import PageIndex from '../components/PageIndex.astro';
 import Diagram from '../components/Diagram.astro';
 import { href, sourceUrl } from '../lib/constants.mjs';
 ---
-<SiteLayout title="Workflows — Nora SuperIntelligence Lab" description="How the AI Coordinator connects knowledge, role-based evaluation and two owner-review loops." path="/workflows/">
+<SiteLayout title="Workflows — Nora SuperIntelligence Lab" description="How the AI Coordinator connects knowledge, role-based evaluation and human approval." path="/workflows/">
   <article class="container content-page" data-supporting-page="workflows">
     <h1>Workflows</h1>
-    <p class="page-intro">Question answering uses retained knowledge. Ingestion prepares it. Artifact evaluation and revision turns judge feedback into work the owner can approve.</p>
+    <p class="page-intro">Question answering uses retrieved knowledge. Ingestion prepares it. Artifact evaluation and revision turns judge feedback into work ready for human review.</p>
     <PageIndex />
     <nav class="workflow-map" aria-label="Choose a workflow">
       <a href={href('/walkthroughs/?flow=request')}><strong>Question answering</strong><span>Retrieve relevant evidence, synthesize an answer and retain the conversation.</span></a>
       <a href={href('/walkthroughs/?flow=ingestion')}><strong>Ingestion</strong><span>Prepare and verify a knowledge release before making it available to retrieval.</span></a>
-      <a href={href('#artifact-review')}><strong>Artifact evaluation and revision</strong><span>Collect judge feedback, revise against owner criteria and obtain final human approval.</span></a>
+      <a href={href('#artifact-review')}><strong>Artifact evaluation and revision</strong><span>Collect judge feedback, revise against the review criteria and obtain final human approval.</span></a>
     </nav>
 
+    <span id="shared-coordination" aria-hidden="true"></span>
     <h2 id="harness" data-index-label="Shared coordination">One coordinator, three workflows</h2>
     <p>The AI Coordinator connects question answering and artifact review to shared knowledge and model services. Ingestion runs outside conversations. Follow the <a href={href('/walkthroughs/?flow=request')}>request walkthrough</a> or <a href={href('/walkthroughs/?flow=ingestion')}>ingestion walkthrough</a> for execution steps; this page focuses on preparing judges and using their feedback.</p>
     <div class="workflow-diagram"><Diagram showTitle={false} title="Harness workflows" previewSrc="/diagrams/harness-workflows-preview.svg" htmlUrl="/diagrams/harness-workflows.html" alt="Question answering, ingestion and artifact evaluation share the harness and its knowledge services." /></div>
 
     <h2 id="judge-registry" data-index-label="Judge registry">Prepare judges before running a review</h2>
     <p>Research into the role, domain and relevant sources informs each judge definition: its perspective, rubric, criteria, dataset and examples. Version those definitions separately from the artifact being reviewed.</p>
-    <p>Prepared Harbor tasks and datasets form the <strong>NIS Judge Registry</strong>. Select the roles a task needs: CTO, AI Architect, Hiring Manager, Senior Engineer, Domain Expert or Synthetic Owner. These are synthetic review perspectives; several roles using one model can share the same blind spots.</p>
+    <p>Prepared Harbor tasks and datasets form the judge registry, named <strong>NIS Judge Registry</strong> in the source. Select the roles a task needs: CTO, AI Architect, Hiring Manager, Senior Engineer, Domain Expert or Synthetic Owner. These are synthetic review perspectives; several roles using one model can share the same blind spots.</p>
     <div class="workflow-diagram"><Diagram showTitle={false} title="NIS Judge Registry" previewSrc="/diagrams/judge-registry-preview.svg" htmlUrl="/diagrams/judge-registry.html" alt="Research informs versioned role judge definitions and prepared Harbor tasks and datasets." /></div>
     <p>The Synthetic Owner definition draws on sanitized analysis of relevant owner interactions and preferences. It gives a recommendation; it does not replace the person’s final decision.</p>
 
-    <h2 id="artifact-review" data-index-label="Evaluate and revise">Two review loops, one final owner</h2>
+    <h2 id="artifact-review" data-index-label="Evaluate and revise">Two review loops, one final human approval</h2>
     <p>Freeze the artifact, source evidence, task brief and judge versions. The AI Coordinator selects the relevant judges, dispatches evaluations and aggregates the returned findings while retaining each role’s evidence and reasoning.</p>
     <div class="workflow-diagram"><Diagram showTitle={false} title="Artifact evaluation and feedback" previewSrc="/diagrams/artifact-review-flow-preview.svg" htmlUrl="/diagrams/artifact-review-flow.html" alt="The AI Coordinator collects Harbor Hub and Hugging Face feedback. Synthetic Owner scoring drives an inner revision loop; Real Owner approval or changes drive the outer loop." /></div>
     <ol>
@@ -43,10 +44,11 @@ import { href, sourceUrl } from '../lib/constants.mjs';
       <dt>“Add an open-questions section.”</dt><dd>If the current version already has one, mark the suggestion already resolved.</dd>
     </dl>
     <p><strong>Retrieval quality</strong> asks whether search and read found the right evidence. <strong>Artifact quality</strong> asks whether the output uses that evidence accurately and serves the task. Keep those evaluations separate.</p>
-    <p>The <a href={sourceUrl('docs/workflows/artifact-review/README.md', 'Local example')}>saved-review example</a> replays captured feedback and records explicit decisions without making model calls. <a href={href('/reproduce/#atlas-replay')}>Run the Atlas replay</a>. <a href={href('/validation/')}>Validation</a> separates those local contracts from live execution evidence. Explore the <a href={href('/architecture/')}>architecture</a>, follow a <a href={href('/walkthroughs/')}>knowledge walkthrough</a>, or read the <a href={sourceUrl('docs/workflows/artifact-review/README.md')}>artifact-review guide in the public Harness</a>.</p>
+    <p>The <a href={sourceUrl('docs/workflows/artifact-review/README.md', 'Local example')}>saved-review example</a> replays captured feedback and records explicit decisions without making model calls. <a href={href('/reproduce/#atlas-replay')}>Run the Atlas replay</a>. <a href={href('/validation/')}>Validation</a> separates those local contracts from live execution evidence. Explore the <a href={href('/architecture/')}>architecture</a>, follow a <a href={href('/walkthroughs/')}>knowledge walkthrough</a>, or read the <a href={sourceUrl('docs/workflows/artifact-review/README.md')}>artifact-review guide in the public harness</a>.</p>
   </article>
 </SiteLayout>
 <style>
+  #shared-coordination { display: block; scroll-margin-top: calc(var(--header-height) + 24px); }
   .content-page { padding-top: 40px; padding-bottom: 64px; min-width: 0; }
   p, li, dd { font-size: 18px; line-height: 1.7; max-width: 66ch; color: var(--ink-soft); }
   .workflow-map { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 32px 0 40px; }

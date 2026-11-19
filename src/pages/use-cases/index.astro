@@ -6,7 +6,7 @@ import { href } from '../../lib/constants.mjs';
 
 const entries = [
   { id: 'overview', label: 'Overview', description: 'Lab work and research' },
-  { id: 'knowledge-assistant', label: 'Knowledge Q&A', description: 'Answers from retained sources' },
+  { id: 'knowledge-assistant', label: 'Knowledge Q&A', description: 'Answers from retrieved sources' },
   { id: 'interview-preparation', label: 'Job search', description: 'Search, prepare, and keep learning' },
   { id: 'client-research', label: 'Client research', description: 'Research and pitch preparation' },
   { id: 'ai-data-readiness', label: 'AI/data readiness', description: 'Choose and scope a first pilot' },
@@ -14,15 +14,13 @@ const entries = [
   { id: 'workflow-contact', label: 'Contact', description: 'Discuss a similar workflow' }
 ];
 ---
-<SiteLayout title="Use cases — Nora SuperIntelligence Lab" description="Explore AI coordination, job-search automation, agency workflows, AI/data readiness, and AI Harness Landscape research from Nora SuperIntelligence Lab." path="/use-cases/" customIndex={true} socialImage="/images/social/use-cases.png" socialImageAlt="Nora SuperIntelligence Lab — AI and data workflow examples. AI coordinators, career automation, agency research and venture diligence.">
+<SiteLayout title="Use cases — Nora SuperIntelligence Lab" description="Explore AI coordination, job-search automation, agency workflows, AI/data readiness, and AI Harness Landscape research from Nora SuperIntelligence Lab." path="/use-cases/" customIndex={true} socialImage="/images/social/use-cases.png" socialImageAlt="Nora SuperIntelligence Lab — AI and data workflow examples. AI Coordinators, career automation, agency research and venture diligence.">
   <section class="hero use-cases-hero" id="overview" data-index-label="Overview">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
+
     <div class="shell hero-layout">
       <div class="hero-copy">
         <h1>Use cases.</h1>
-        <p class="hero-lede">See how retained knowledge and reviewed work apply to a concrete task. Explore three application workflows, then use the assessment and research methods to choose what to build.</p>
+        <p class="hero-lede">See how retrieved knowledge and reviewed work apply to a concrete task. Explore three application workflows, then use the assessment and research methods to choose what to build.</p>
       </div>
       <OriginalIndex tagline="Nora SuperIntelligence Lab" title="Use cases" entries={entries} ariaLabel="Use cases navigation" grouped={true} />
     </div>
@@ -35,7 +33,7 @@ const entries = [
         <article id="knowledge-assistant" class="use-case-entry">
           <p class="section-label">Implemented project</p>
           <h3>Knowledge-grounded question answering</h3>
-          <p>Find an answer in prepared documents and continue with retained context. Follow a fictional Atlas question through retrieval, tools, and conversation state.</p>
+          <p>Find an answer in prepared documents and continue with saved conversation context. Follow a fictional Atlas question through retrieval, tools, and conversation state.</p>
           <a class="text-link" href={href('/walkthroughs/?flow=request&step=current-question')}>Follow the example <span aria-hidden="true">→</span></a>
         </article>
         <article id="interview-preparation" class="use-case-entry">
@@ -83,7 +81,7 @@ const entries = [
 <style>
   .use-cases-hero, .use-cases-hero .hero-layout { min-height: 0; }
   .use-cases-hero .hero-layout { padding-block: 32px; }
-  .use-cases-hero :global(.mini-flow small), .use-cases-hero :global(.loop-line) { display: none; }
+  .use-cases-hero :global(.mini-flow small) { display: none; }
   .use-cases-hero :global(.mini-flow li) { min-height: 44px; margin-bottom: 4px; }
   .use-cases-hero :global(.mini-flow a) { display: flex; align-items: center; min-height: 44px; }
   .use-case-directory { padding-block: 36px 64px; }

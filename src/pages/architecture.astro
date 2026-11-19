@@ -9,8 +9,8 @@ import walkthroughs from '../data/walkthroughs.json';
 const firstRequestStep = walkthroughs.request[0].id;
 
 const indexEntries = [
-  { id: 'overview', label: 'Overview', description: 'One AI coordinator, clear service boundaries' },
-  { id: 'knowledge-backbone', label: 'Knowledge Backbone', description: 'Retained sources, bounded model context' },
+  { id: 'overview', label: 'Overview', description: 'One AI Coordinator, clear service boundaries' },
+  { id: 'knowledge-backbone', label: 'Retrieval index', description: 'Stored sources, bounded model context' },
   { id: 'request-path', label: 'Shipped request path', description: 'Follow a question through the public snapshot' },
   { id: 'system-map', label: 'Target architecture', description: 'Service boundaries, delegation, and evaluation' },
   { id: 'model-routing', label: 'Models and orchestration', description: 'Delegate tasks, select inference, combine results' },
@@ -20,13 +20,11 @@ const indexEntries = [
 ---
 <SiteLayout title="Architecture — Nora SuperIntelligence Lab" description="System architecture for Nora SuperIntelligence Lab’s AI agent harness: Browser UI, Coordination, and MCP gateway with clear service boundaries." path="/architecture/" customIndex={true}>
   <section class="hero" id="overview" data-index-label="Overview">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
+
     <div class="shell hero-layout">
       <div class="hero-copy">
-        <h1>One AI coordinator. Clear service boundaries.</h1>
-        <p class="hero-lede">Follow a question through the public Harness snapshot, then explore the target design for specialist delegation and artifact evaluation. The walkthrough uses a fictional Atlas request.</p>
+        <h1>One AI Coordinator. Clear service boundaries.</h1>
+        <p class="hero-lede">Follow a question through the public harness snapshot, then explore the target design for specialist delegation and artifact evaluation. The walkthrough uses a fictional Atlas request.</p>
         <ul class="hero-signals" aria-label="Design principles">
           <li>Single coordinator</li>
           <li>Prepared knowledge</li>
@@ -42,12 +40,12 @@ const indexEntries = [
     </div>
   </section>
 
-  <section class="section workflow-section" id="knowledge-backbone" data-index-label="Knowledge Backbone" aria-labelledby="knowledge-backbone-heading">
+  <section class="section workflow-section" id="knowledge-backbone" data-index-label="Retrieval index" aria-labelledby="knowledge-backbone-heading">
     <div class="shell">
       <div class="section-heading section-heading--split">
         <div>
-          <p class="section-label">Knowledge Backbone</p>
-          <h2 id="knowledge-backbone-heading">Retained knowledge, bounded context.</h2>
+          <p class="section-label">Retrieval index</p>
+          <h2 id="knowledge-backbone-heading">Stored sources, bounded context.</h2>
         </div>
         <p>A model request has a finite context window. Prepared source text and its searchable index persist outside that window; Retrieval MCP selects the relevant passages for each task. The corpus can grow independently of a conversation, while retrieval quality determines what reaches the model.</p>
       </div>
@@ -55,7 +53,7 @@ const indexEntries = [
         <Diagram
           showTitle={false}
           previewSrc="/diagrams/02-question-to-answer-preview.svg"
-          title="Knowledge Backbone"
+          title="Retrieval index"
           htmlUrl="/diagrams/02-question-to-answer.html"
           alt="Ingestion prepares matching text and index releases; Retrieval MCP uses shared BGE to find and read evidence for a bounded model request."
         />
@@ -67,10 +65,10 @@ const indexEntries = [
     <div class="shell">
       <div class="section-heading section-heading--split">
         <div>
-          <p class="section-label">Public Harness snapshot</p>
+          <p class="section-label">Public harness snapshot</p>
           <h2 id="request-path-heading">How one request reaches an answer.</h2>
         </div>
-        <p>Browser requests via HTTP/AG-UI and MCP requests via <code>ask_nis</code> reach the same bounded graph in Coordination. The graph searches retained knowledge, can read a source passage, selects a model route, and saves conversation checkpoints in PostgreSQL.</p>
+        <p>Browser requests via HTTP/AG-UI and MCP requests via <code>ask_nis</code> reach the same bounded graph in Coordination. The graph searches the retrieval index, can read a source passage, selects a model route, and saves conversation checkpoints in PostgreSQL.</p>
       </div>
       <p class="architecture-version"><a href={sourceUrl('src/nora/coordination.py')}>Read the request handlers</a> or <a href={sourceUrl('src/nora/agent.py')}>inspect the retrieval and inference graph</a> in the pinned source.</p>
       <div class="diagram-figure--component">
@@ -102,7 +100,7 @@ const indexEntries = [
             title="System architecture"
             previewSrc="/diagrams/01-system-architecture-preview.svg"
             htmlUrl="/diagrams/01-system-architecture.html"
-            alt="System architecture connecting browser and MCP clients to one AI Coordinator, specialist work, model routes, retained knowledge, evaluation and conversation state."
+            alt="System architecture connecting browser and MCP clients to one AI Coordinator, specialist work, model routes, the retrieval index, evaluation and conversation state."
           />
         </div>
       </ResponsiveSystemDiagram>
@@ -139,7 +137,7 @@ const indexEntries = [
           <h2 id="manual-ingestion-heading">Preparation stays outside the conversation.</h2>
           <p>Selected knowledge can include project documents, design conversations, saved context, and owned source code. Preserve substantive text and its source version; keep summaries as linked derived documents.</p>
         </div>
-        <p>Conversion, preparation, embedding, and import/verification are four operator-triggered jobs. They preserve originals and prepare matching text and index releases. Backups precede preparation; verification precedes activation and answer checks. Additions include retained knowledge, and rebuilds use the complete desired set.</p>
+        <p>Conversion, preparation, embedding, and import/verification are four operator-triggered jobs. They preserve originals and prepare matching text and index releases. Backups precede preparation; verification precedes activation and answer checks. Additions include stored knowledge, and rebuilds use the complete desired set.</p>
       </div>
       <div class="diagram-figure--component" aria-labelledby="manual-ingestion-heading">
         <Diagram

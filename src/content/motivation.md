@@ -1,5 +1,5 @@
 ---
-title: Why I built the Nora Harness
+title: Why I built Nora
 opening: >-
   When I return to a project after a few weeks, I want to know what I decided, what evidence I used, and what still needs work. I also want to choose which models handle the work, control what data they receive, and see whether a revision addresses the feedback. I found tools that solved parts of that problem. I built Nora to bring those pieces together in a system I could operate and improve myself.
 ---
@@ -9,7 +9,7 @@ opening: >-
 <div class="section-heading section-heading--split">
 <div>
 <p class="section-label">Knowledge</p>
-<h2 id="knowledge-heading">Private Knowledge Backbone</h2>
+<h2 id="knowledge-heading">Private knowledge and retrieval</h2>
 </div>
 <p>I wanted my notes, research, and project decisions to be useful across conversations.</p>
 </div>
@@ -32,7 +32,7 @@ Nora prepares documents separately, uses BGE to embed excerpts, and indexes thos
 </div>
 <div class="motivation-prose">
 
-The Knowledge Backbone holds the source material. PostgreSQL checkpoints let me pick up the conversation. Versioned corpus releases let me update the knowledge independently of the conversation history.
+The prepared document collection holds the source material. PostgreSQL checkpoints let me pick up the conversation. Versioned corpus releases let me update the knowledge independently of the conversation history.
 
 </div>
 </div>

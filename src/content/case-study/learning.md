@@ -4,7 +4,7 @@ description: "Human direction, bounded AI work, independent critique and the lim
 slug: "learning"
 ---
 
-Michael set the goals, scope, and architecture decisions for the AI agent harness. AI assisted with research, bounded source changes, and critique; Michael reviewed the results and decided what counted as evidence. The public Harness source and recorded validation show what a reader can inspect. The direct API candidate remains an undeployed design record.
+Michael set the goals, scope, and architecture decisions for the AI agent harness. AI assisted with research, bounded source changes, and critique; Michael reviewed the results and decided what counted as evidence. The public harness source and recorded validation show what a reader can inspect. The direct API candidate remains an undeployed design record.
 
 ## Ownership
 
@@ -47,7 +47,7 @@ A simple future sanity exercise runs Nora first and OpenClaw second; Codex is ex
 
 ## Source availability
 
-The current Architecture, Decisions and Reproduce pages use the [updated public Harness snapshot](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/tree/7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053); Validation retains separate pins for historical checks. This historical design story draws on an earlier local source candidate and private evidence register. Candidate module names are code references, not links to a published implementation. The private register is not reproduced here.
+The current Architecture, Decisions and Reproduce pages use the [updated public harness snapshot](https://github.com/lm2000/nora-ai-knowledge-agent-harness-public/tree/7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053); Validation retains separate pins for historical checks. This historical design story draws on an earlier local source candidate and private evidence register. Candidate module names are code references, not links to a published implementation. The private register is not reproduced here.
 
 ## Further reading
 

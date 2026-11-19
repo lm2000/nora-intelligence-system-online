@@ -4,9 +4,9 @@ import OriginalIndex from '../components/OriginalIndex.astro';
 import { Content, frontmatter } from '../content/motivation.md';
 
 const { title, opening } = frontmatter;
-const description = 'The design choices behind the Nora Harness, from retained knowledge and conversation state to model routing and artifact review.';
+const description = 'The design choices behind Nora, from retrieved knowledge and conversation state to model routing and artifact review.';
 const indexEntries = [
-  { id: 'private-knowledge-backbone', label: 'Knowledge Backbone', description: 'Keep sources useful across conversations' },
+  { id: 'private-knowledge-backbone', label: 'Retrieval index', description: 'Keep sources useful across conversations' },
   { id: 'conversation-continuity', label: 'Conversation continuity', description: 'Return to the evidence and the thread' },
   { id: 'workflow-composition', label: 'Workflow composition', description: 'Give each step a clear job and handoff' },
   { id: 'model-routing-for-quality-cost-and-latency', label: 'Model routing', description: 'Compare quality, cost, and latency' },
@@ -17,9 +17,6 @@ const indexEntries = [
 ---
 <SiteLayout title={`${title} — Nora SuperIntelligence Lab`} description={description} path="/motivation/" customIndex={true}>
   <section class="hero" aria-labelledby="motivation">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
-    <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
     <div class="shell hero-layout">
       <div class="hero-copy">
         <h1 id="motivation">{title}</h1>
