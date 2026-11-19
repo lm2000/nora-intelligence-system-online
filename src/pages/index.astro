@@ -3,6 +3,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import OriginalIndex from '../components/OriginalIndex.astro';
 import EmailAddress from '../components/EmailAddress.astro';
 import HomeArchitectureMap from '../components/HomeArchitectureMap.astro';
+import LabIntroduction from '../components/LabIntroduction.astro';
 import { href } from '../lib/constants.mjs';
 import site from '../data/site.json';
 import walkthroughs from '../data/walkthroughs.json';
@@ -28,6 +29,7 @@ const indexEntries = [
       <div class="hero-copy">
         <h1>{site.home.heading} {site.home.headingEmphasis}</h1>
         <p class="hero-lede">{site.home.intro}</p>
+        <LabIntroduction />
         <div class="hero-actions home-actions">
           <a class="button button--primary" href={href('/architecture/')}>Explore the architecture <span aria-hidden="true">→</span></a>
           <a class="button button--ghost" href={href(`/walkthroughs/?flow=request&step=${firstRequestStep}`)}>Follow a walkthrough <span aria-hidden="true">→</span></a>

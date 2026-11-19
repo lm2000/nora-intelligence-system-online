@@ -573,3 +573,14 @@ All 18 legacy redirect entries reach the expected live destination and content. 
 ## Vercel-only release path — 2026-10-29
 
 The owner approved removing GitHub Pages and using the existing Vercel Git integration for branch previews and automatic production deployments from main. The implementation replaces the Pages workflow with read-only validation on pull requests and main, shares pnpm validate between GitHub Actions and Vercel, and removes the active Pages build base. The release checks cover tests, Astro diagnostics, the production build and link validation; a failed Vercel build leaves the prior production deployment in place. Remote Pages disablement, the first validation run and the Git-triggered deployment are verified during this rollout. Existing historical release notes above retain their original context.
+
+## Lab introduction video — publication approved
+
+Added the owner-requested 30-second video in the Home hero, immediately after the introduction and before the primary actions. Native controls,
+user-initiated playback, a poster, a text description, and CC BY 4.0 music attribution
+are included. Canonical diagram assets and source pins are unchanged. This isolated
+candidate passed pnpm validate (23 tests, zero diagnostics, 20 pages, 892 links).
+Michael approved publication on the website and public Harness repository.
+Browser checks cover 1440px, 390px and 320px layouts and full 30-second playback
+with unmuted audio and working seek. Publication readback is retained in the
+local film verification record.

@@ -1,0 +1,33 @@
+# Nora SuperIntelligence Lab introduction
+
+A 30-second visual overview of retrieval, an illustrative Atlas answer, and
+artifact review with human approval. The film is an architectural explanation;
+the Atlas example is fictional. There is music and no spoken narration.
+
+Watch the introduction.mp4 file in this directory.
+
+## Music attribution
+
+“Tech Live” by Kevin MacLeod (incompetech.com), licensed under
+[Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/).
+[Original track](https://incompetech.com/music/royalty-free/index.html?Search=Search&isrc=USUAN1700030),
+ISRC USUAN1700030. Adaptation: first 30 seconds, loudness normalization,
+0.25-second fade-in, and 1.2-second fade-out.
+
+## Visual sources
+
+The architecture graphics are adapted from the public Harness diagram set:
+system-at-a-glance, question-to-answer, manual-ingestion, and artifact-review-flow.
+The source snapshot is 1f44e9accce179f1b9a812489fff0c61410b871b.
+Typography uses the system sans-serif fallback; labels and topology are preserved.
+Motion is adapted from the selected OpenMotion reference; the reference audio
+is excluded. The self-contained HTML player embeds GSAP 3.15.0, which retains
+its upstream copyright and [standard license](https://gsap.com/standard-license/).
+Music retains its separate license; repository software licensing does not
+replace that attribution.
+
+## Playback
+
+Download introduction.html and open it in a browser. Select Play to start the
+animation and music; use the seek, mute, and replay controls to review it.
+The MP4 uses H.264 video and AAC audio at 1280 × 720, 30 fps, for 30 seconds.
