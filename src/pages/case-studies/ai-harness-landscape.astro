@@ -29,32 +29,7 @@ const intro = 'From models to useful AI products: a public-source comparison of 
   </article>
 </SiteLayout>
 
-<script>
-  const wrapTables = () => {
-    const article = document.querySelector('.ai-harness-page');
-    if (!article) return;
-    article.querySelectorAll('table').forEach((table, index) => {
-      if (table.closest('.table-scroll')) return;
-      const wrapper = document.createElement('div');
-      wrapper.className = 'table-scroll';
-      wrapper.setAttribute('tabindex', '0');
-      wrapper.setAttribute('role', 'region');
-      wrapper.setAttribute('aria-label', `Scrollable table ${index + 1}`);
-      table.parentNode?.insertBefore(wrapper, table);
-      wrapper.appendChild(table);
-      const cue = document.createElement('p');
-      cue.className = 'table-swipe-note';
-      cue.textContent = 'Swipe the table to read all columns.';
-      wrapper.before(cue);
-    });
-  };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', wrapTables);
-  } else {
-    wrapTables();
-  }
-</script>
 
 <style>
   .ai-harness-page :global(.research-note) { margin-block: 12px; border-bottom: 1px solid var(--line); }
@@ -63,8 +38,6 @@ const intro = 'From models to useful AI products: a public-source comparison of 
   .ai-harness-page :global(.research-note summary:focus-visible) { outline: 2px solid var(--teal-light); outline-offset: 4px; }
   .ai-harness-page :global(.research-note p) { margin-block: 0 18px; }
   .ai-harness-page :global(h3) { margin-top: 32px; }
-  :global(.table-swipe-note) { display: none; }
-  @media (max-width: 680px) { :global(.table-swipe-note) { display: block; font-size: 15px; color: var(--ink-soft); margin: 24px 0 8px; } }
   .content-page { padding-top: 40px; padding-bottom: 40px; }
   .content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
   .content-page :global(h2) { margin-top: 2.5em; }
@@ -75,58 +48,4 @@ const intro = 'From models to useful AI products: a public-source comparison of 
   .comparison-map-section h2 { margin: 0 0 12px; }
   .map-note { margin: 0 0 18px; max-width: 66ch; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
 
-  :global(.table-scroll) {
-    max-width: 100%;
-    margin-top: 28px;
-    overflow-x: auto;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: rgba(11, 36, 54, 0.58);
-    -webkit-overflow-scrolling: touch;
-  }
-  :global(.table-scroll:focus-visible) {
-    outline: 3px solid rgba(55, 208, 181, 0.7);
-    outline-offset: 4px;
-  }
-  :global(.table-scroll table) {
-    width: 100%;
-    min-width: 640px;
-    border-collapse: collapse;
-    font-size: 0.92rem;
-    line-height: 1.55;
-  }
-  :global(.table-scroll caption) {
-    padding: 20px 22px 16px;
-    color: var(--ink);
-    font-size: 1.1rem;
-    font-weight: 720;
-    text-align: left;
-  }
-  :global(.table-scroll th),
-  :global(.table-scroll td) {
-    padding: 18px 16px;
-    border-top: 1px solid var(--line);
-    vertical-align: top;
-    text-align: left;
-  }
-  :global(.table-scroll thead th) {
-    color: var(--teal-light);
-    background: rgba(7, 24, 39, 0.62);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  :global(.table-scroll tbody tr:nth-child(even)) {
-    background: rgba(7, 24, 39, 0.22);
-  }
-  :global(.table-scroll code) { color: var(--ink); font-size: 0.9em; }
-  :global(.table-scroll a) { color: var(--color-muted-blue); font-weight: 650; }
-
-  @media (max-width: 680px) {
-    :global(.table-scroll) {
-      margin-inline: -4px;
-      border-radius: var(--radius-sm);
-    }
-  }
 </style>

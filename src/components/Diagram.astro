@@ -15,9 +15,10 @@ interface Props {
   purpose?: string;
   showTitle?: boolean;
   compactMobile?: boolean;
+  showMobileSummary?: boolean;
 }
 
-const { previewSrc, htmlUrl, alt, caption, title, purpose, showTitle = true, compactMobile = true } = Astro.props;
+const { previewSrc, htmlUrl, alt, caption, title, purpose, showTitle = true, compactMobile = true, showMobileSummary = true } = Astro.props;
 
 const base = (previewSrc.split('/').pop() || '')
   .replace('-preview.svg', '')
@@ -67,7 +68,7 @@ const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
 
   {isInteractive ? (
     <responsive-diagram>
-      {summaryRows && <dl class="diagram-mobile-summary" aria-label={`${derivedTitle} overview`}>
+      {summaryRows && showMobileSummary && <dl class="diagram-mobile-summary" aria-label={`${derivedTitle} overview`}>
         {summaryRows.map(([label, text]) => <div><dt>{label}</dt><dd>{text}</dd></div>)}
       </dl>}
       <details class="diagram-full" data-compact={Boolean(summaryRows)} open>

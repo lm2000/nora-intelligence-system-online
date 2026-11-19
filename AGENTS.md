@@ -64,3 +64,7 @@ Place diagram details beside the figure only when at least 1600px of viewport wi
 Integration preparation does not authorize publishing, pushing or deploying. Exclude local comparison toolbars, localhost links and preview-only robots directives from the integration source.
 
 Diagram presentation uses `src/lib/diagram-presentation.mjs` for color-only navy adaptation and `src/data/diagram-summaries.json` for compact mobile overviews. Keep canonical `public/diagrams/` files and provenance pins unchanged for presentation work. Preserve role colors, labels, IDs, geometry and every relationship. Shared Diagram full views start closed on mobile and open on desktop; existing system-map and walkthrough disclosures own their full topology without nested compact wrappers.
+
+## Reading and mobile refinements
+
+Workflows retains one page-owned explanation of the review loops and its full diagram disclosures; suppress redundant mobile diagram summaries only where the surrounding page already explains that content. Build-story chapters use a native compact chapter disclosure below 1081px, with chapter position and current-page marking, while preserving the separate section index and Previous/Next links. Landscape and historical research tables stack labelled records below 681px; retain one semantic table, all cell text/source links, header associations and bookmarks, with labels generated during the Markdown build.

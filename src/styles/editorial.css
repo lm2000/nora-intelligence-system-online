@@ -592,3 +592,31 @@ body.editorial-site .motivation .briefing-criteria dd { color:#b7cbd6; }
 body.editorial-site .motivation .briefing-handoff,
 body.editorial-site .motivation .briefing-feedback-bridge,
 body.editorial-site .motivation .briefing-return { border-color:#456174; }
+
+/* One semantic research table: columns on desktop, labelled records on mobile. */
+.editorial-site .research-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--navy-2);
+}
+.editorial-site .research-table-wrap:focus-visible { outline: 2px solid var(--teal-light); outline-offset: 4px; }
+.editorial-site table.research-table { display: table; width: 100%; min-width: 640px; max-width: none; border-collapse: collapse; font-size: .93rem; line-height: 1.55; }
+.editorial-site .research-table th, .editorial-site .research-table td { padding: 18px 16px; border-top: 1px solid var(--line); vertical-align: top; text-align: left; }
+.editorial-site .research-table thead th { color: var(--teal-light); font-size: .75rem; font-weight: 700; }
+.editorial-site .research-table tbody tr:nth-child(even) { background: var(--navy-2); }
+.editorial-site .research-cell-label { display: none; }
+@media (max-width: 680px) {
+  .editorial-site .research-table-wrap { overflow: visible; border: 0; background: none; }
+  .editorial-site table.research-table { display: block; min-width: 0; max-width: 100%; }
+  .editorial-site .research-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .editorial-site .research-table tbody { display: grid; gap: 20px; }
+  .editorial-site .research-table tbody tr { display: block; min-width: 0; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--navy-2); }
+  .editorial-site .research-table tbody td, .editorial-site .research-table tbody th { display: block; min-width: 0; width: auto; padding: 0; border: 0; overflow-wrap: anywhere; }
+  .editorial-site .research-table tbody td + td { margin-top: 18px; }
+  .editorial-site .research-cell-label { display: block; margin-bottom: 6px; color: var(--ink); font-weight: 700; }
+  .editorial-site .research-table tbody td:first-child { color: var(--ink); font-weight: 700; }
+  .editorial-site .research-table a { display: inline-flex; align-items: center; min-height: 44px; max-width: 100%; }
+}

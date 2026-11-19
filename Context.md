@@ -1,3 +1,13 @@
+# Reading and mobile refinements — 2026-11-19
+
+Michael approved the three live-audit recommendations and authorized validation, Vercel deployment and live verification. Workflows keeps its chooser, unique technical constraints, full diagrams and both owner revision returns, with redundant mobile summaries suppressed only on that page. The five build-story chapters use a compact native chapter disclosure below 1081px, retain their section index and Previous/Next links, and show the current chapter position.
+
+Landscape and historical research tables now render field labels during the existing Markdown build and stack below 681px. They retain one semantic table, real headers, explicit cell associations, source links and all original cell content. The existing Astro Markdown processor and its matching Satteri package are direct build dependencies at their already-installed versions; no new client table script is used. Validation evidence tables and other Markdown remain unchanged.
+
+Local rendered comparisons preserve every table cell's original text/links and every prior bookmark across the affected pages. Browser checks cover 320/390px records, chapter keyboard expansion and selection, all five chapter positions, desktop expansion/tables, and zero page overflow. Independent code review found no blockers. Final local validation passed 28 tests, zero diagnostics and 888 link checks. Deployment receipts are recorded separately after production readback.
+
+---
+
 # Introduction refinements — 2026-11-19
 
 Michael approved three copy refinements and authorized validation, deployment and live verification. Validation now has one opening paragraph; all evidence rows, source pins and detailed limits remain unchanged. Founders names Michael and his engineering focus in its subtitle without shortening the profile. The resume chapter has a relevant historical-process note; other build-story chapters retain their existing design-record note. Local validation passed 24 tests, zero diagnostics and 886 link checks; desktop/mobile review found no page overflow in the checked views.

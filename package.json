@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@astrojs/markdown-satteri": "0.4.3",
+    "satteri": "0.10.5",
     "typescript": "^6.0.3"
   },
   "packageManager": "pnpm@12.8.1"

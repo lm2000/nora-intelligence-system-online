@@ -179,6 +179,12 @@ importers:
       '@astrojs/check':
         specifier: 0.9.10
         version: 0.9.10(@emnapi/runtime@1.11.3)(prettier@3.9.10)(typescript@6.0.3)
+      '@astrojs/markdown-satteri':
+        specifier: 0.4.3
+        version: 0.4.3
+      satteri:
+        specifier: 0.10.5
+        version: 0.10.5
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
