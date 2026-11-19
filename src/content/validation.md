@@ -1,5 +1,3 @@
-The published-source checks for snapshot `7ea9e49` and earlier runtime experiments are separate evidence. Each record links its source snapshot; a passing source suite does not establish a live deployment or general answer reliability.
-
 <h2 id="validation-evidence" data-index-label="Evidence">Recorded validation evidence</h2>
 
 The table keeps the environment, observed result, and qualification together.

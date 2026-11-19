@@ -1,3 +1,9 @@
+# Introduction refinements — 2026-11-19
+
+Michael approved three copy refinements and authorized validation, deployment and live verification. Validation now has one opening paragraph; all evidence rows, source pins and detailed limits remain unchanged. Founders names Michael and his engineering focus in its subtitle without shortening the profile. The resume chapter has a relevant historical-process note; other build-story chapters retain their existing design-record note. Local validation passed 24 tests, zero diagnostics and 886 link checks; desktop/mobile review found no page overflow in the checked views.
+
+---
+
 # Responsive navy diagrams — 2026-11-19
 
 Michael authorized extending compact mobile summaries and full-diagram disclosures, matching the navy presentation, validation and production deployment. Website-only color adaptation preserves the canonical diagram assets, source pins, geometry, labels and topology. The shared component covers retrieval, request, routing, ingestion, workflows, judge registry, artifact review and historical build-story diagrams. Existing system and walkthrough full-map disclosures retain their ownership without nested compact summaries. The native Motivation briefing diagram uses the same navy role colors through editorial stylesheet overrides.

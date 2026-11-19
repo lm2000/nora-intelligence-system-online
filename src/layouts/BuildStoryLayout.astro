@@ -30,7 +30,9 @@ const chapterPath = (key: string) => href(`/case-study/${key ? key + '/' : ''}`)
     <header class="story-heading">
       <h1>{title}</h1>
       <p class="story-intro">{description}</p>
-      <p class="draft-note">Design record. This story compares the used LiteLLM gateway baseline with a direct API source candidate; the candidate was not deployed.</p>
+      <p class="draft-note">{slug === 'career'
+        ? 'Historical process example. Role research and resume drafts were checked against source evidence, with wording decisions kept under human review.'
+        : 'Design record. This story compares the used LiteLLM gateway baseline with a direct API source candidate; the candidate was not deployed.'}</p>
     </header>
     <PageIndex />
     <nav class="chapter-nav" aria-label="Build story chapters">
