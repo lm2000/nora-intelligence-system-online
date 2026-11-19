@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { href, SITE_NAME } from '../lib/constants.mjs';
 import '../styles/global.css';
+import '../styles/editorial.css';
 
 interface Props {
   title: string;
@@ -51,7 +52,7 @@ const showIndex = !customIndex && !routePath.includes('walkthroughs') && routePa
   </>}
   <meta name="twitter:card" content={socialImageUrl ? 'summary_large_image' : 'summary'} />
 </head>
-<body class={customIndex ? 'has-custom-index' : (showIndex ? 'has-page-index' : '')}>
+<body class={'editorial-site ' + (customIndex ? 'has-custom-index' : (showIndex ? 'has-page-index' : ''))}>
   <a class="skip-link" href="#main">Skip to content</a>
   <Header />
   <main id="main" {...(customIndex ? { 'data-page-index': 'custom' } : {})}>

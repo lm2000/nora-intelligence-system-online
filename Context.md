@@ -1,3 +1,17 @@
+# Selected editorial overhaul — local integration candidate
+
+Michael selected the complete overhaul after comparing Evolution and Overhaul, then authorized refinement and integration preparation without publication. The candidate is isolated on `codex/editorial-overhaul`, based on `0044c73419b35ac060a3caebc164d6eee317c69a`. The original main checkout and its 37 pending OpenDesign edits remain untouched.
+
+The candidate uses the selected editorial composition, a more compact hero, a clearer pale-teal primary action, native mobile index/map disclosures and adjacent diagram details only from 1600px. Public Sans and the selected visual rules are documented in DESIGN.md and the matching design metadata. Canonical diagram bytes, source pins, factual copy, contact details and old bookmarks remain unchanged. Comparison-only toolbars, localhost links and preview robots directives are excluded from application source.
+
+Validation: `pnpm validate` passes 23 tests, zero Astro diagnostics, 20 pages and 872 checked links. Browser checks cover nine routes at 1280px, 390px and 320px with no page overflow, broken images or missing primary links. Fresh desktop and mobile index jumps settle below the header with the destination selected; mobile selection closes the disclosure. Walkthrough next/back and diagram Enter/Escape behavior passed. Wide-layout structure was also checked in a 1600px review frame. These are responsive browser checks, not physical-device or participant usability tests.
+
+Independent review found a category-tag contrast issue caused by the retained light-theme scoped selectors. HomeArchitectureMap now exposes a theme variable, with every category tag verified at 8.55:1 or better on its rendered dark surface. Review screenshots and browser receipts are under `.private/editorial-review/`.
+
+The branch is a local review candidate. It has not been merged, pushed, deployed or accepted as the final public version. Four files overlap the original pending edits: Header.astro, HomeArchitectureMap.astro, OriginalIndex.astro and pages/index.astro. Preserve those pending edits until their owner explicitly reconciles or retires them.
+
+---
+
 # Project Context
 
 ## Documentation and source pin refresh — 2026-11-10

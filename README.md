@@ -41,6 +41,10 @@ pnpm validate
 
 The site builds at the domain root. Historical Pages-era URLs in the preserved archive remain reference material, not a second hosting configuration.
 
+## Selected editorial presentation
+
+`src/styles/editorial.css` applies the selected editorial design after the retained original stylesheets. See `DESIGN.md` for its tokens and responsive behavior, and `docs/superpowers/plans/2026-11-19-editorial-integration.md` for the local integration boundary and verification record.
+
 ## Pages and sources
 
 - The website is a static build with in-page HTML diagram interactions and a guided fictional walkthrough. It has no live chat functionality.

@@ -158,7 +158,7 @@ const { title, tagline, entries, ariaLabel = 'Page navigation', grouped = false 
       frame = requestAnimationFrame(function () {
         frame = undefined;
         var header = document.querySelector('header');
-        var line = Math.ceil(header ? header.getBoundingClientRect().height : 86) + 26;
+        var line = Math.ceil(header ? header.getBoundingClientRect().bottom : 86) + 26;
         var doc = document.documentElement;
         var nearBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 120;
         var current = sections[0].section.id;

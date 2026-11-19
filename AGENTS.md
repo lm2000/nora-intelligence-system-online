@@ -53,3 +53,12 @@ OriginalIndex section jumps settle the destination dock state before measuring t
 Keep all three standalone Founders contact-group links (email, GitHub and LinkedIn) at least 44px tall, with the existing plain text-link styling and centered row alignment.
 
 Vercel is the only hosting platform. GitHub Actions validates pull requests and main; do not restore a Pages deployment workflow. Keep the Vercel Git integration enabled, main as its production branch and pnpm validate as its build command so tests, diagnostics, build and link checks gate every deployment. Use the same command locally.
+
+
+## Selected editorial overhaul
+
+Michael selected the complete editorial overhaul for refinement and local integration preparation. For this revision, `src/styles/editorial.css` owns the selected presentation and loads after the retained original stylesheets. Use Public Sans, a flat dark navy hero, restrained teal accents, a stronger primary action and an editorial reading sequence. Main-page desktop hero directories may use a horizontal numbered layout; preserve OriginalIndex docking, history, fragment access, mobile disclosures and active-row behavior. Supporting reader indexes retain their existing rail.
+
+Place diagram details beside the figure only when at least 1600px of viewport width is available; narrower layouts preserve map width by stacking the details. Home keeps a compact mobile system overview with the full topology available through a native disclosure. Preserve all factual content, the full lab name, the six primary routes, existing contact details, older bookmarks, canonical diagram assets and source pins. This selected direction supersedes the older grid/glow, pill-button and split-heading requirements for presentation only.
+
+Integration preparation does not authorize publishing, pushing or deploying. Exclude local comparison toolbars, localhost links and preview-only robots directives from the integration source.

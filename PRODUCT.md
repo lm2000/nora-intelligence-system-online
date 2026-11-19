@@ -44,3 +44,8 @@ Public harness architecture snapshot 7ea9e4915f4e1ad446aeaf077ccbbbfc1aa2d053 su
 ## Page ownership and orientation
 
 Architecture owns the diagrams and service boundaries; its closing section links to the technical detail pages. Decisions owns accepted choices, Validation owns dated evidence and limitations, and Reproduce owns the procedure for running the pinned public harness checks. Supporting pages use a compact title and introduction followed by their mobile index. Shared source links distinguish the Nora harness from the website. Founders keeps Michael’s profile and expertise together, followed by opportunities and one contact group. Existing fragment links remain supported.
+
+
+## Selected presentation
+
+The owner selected the editorial overhaul after comparing two complete local variants. Preserve the technical portfolio audience, page ownership and route behavior. The chosen presentation uses Public Sans, flat navy surfaces, larger editorial headings, numbered section directories and source-derived figures. Original stylesheets remain as the shared baseline; editorial.css supplies the selected overrides. Keep the personal introduction on Home and the full Founders material. Canonical diagram assets and factual source pins remain unchanged.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-14T00:00:00Z",
-  "title": "Design System: Nora SuperIntelligence Lab",
+  "generatedAt": "2026-11-19T00:00:00Z",
+  "title": "Nora SuperIntelligence Lab \u2014 Editorial engineering portfolio",
   "extensions": {
     "colorMeta": {
       "navy-deep": {
@@ -22,7 +22,7 @@
       "navy-surface": {
         "role": "neutral",
         "displayName": "Navy Surface",
-        "canonical": "#0b2436",
+        "canonical": "#0d2738",
         "tonalRamp": [
           "#050f16",
           "#0b2436",
@@ -37,7 +37,7 @@
       "paper-dark": {
         "role": "neutral",
         "displayName": "Dark Paper",
-        "canonical": "#0b1d2b",
+        "canonical": "#071827",
         "tonalRamp": [
           "#050d14",
           "#0b1d2b",
@@ -128,156 +128,85 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headlines only; compact overrides cascade from original-navigation.css."
+        "fontFamily": "Public Sans, sans-serif",
+        "fontSize": "clamp(2.6rem, 5.1vw, 4.55rem)",
+        "fontWeight": 800,
+        "lineHeight": 1.01,
+        "letterSpacing": "-0.04em"
       },
       "body": {
         "displayName": "Body",
-        "purpose": "All prose; Inter everywhere, 15px/1.65 in ink-soft."
+        "fontFamily": "Public Sans, sans-serif",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "lineHeight": 1.65
       }
     },
-    "shadows": [
-      {
-        "name": "shadow",
-        "value": "0 24px 70px rgba(9, 30, 48, 0.13)",
-        "purpose": "Light-ground feature cards, metric card."
-      },
-      {
-        "name": "shadow-soft",
-        "value": "0 14px 44px rgba(9, 30, 48, 0.08)",
-        "purpose": "Light-ground standard cards and diagram figures."
-      },
-      {
-        "name": "primary-halo",
-        "value": "0 14px 34px rgba(28, 210, 177, 0.22)",
-        "purpose": "Teal glow under the primary pill; deepens on hover."
-      },
-      {
-        "name": "glass-card",
-        "value": "0 28px 80px rgba(0, 0, 0, 0.22)",
-        "purpose": "Orchestration glass card over the hero."
-      }
-    ],
+    "shadows": [],
     "motion": [
       {
-        "name": "ease-state",
+        "name": "state",
         "value": "160ms ease",
-        "purpose": "Color/underline hover transitions."
-      },
-      {
-        "name": "ease-lift",
-        "value": "180ms ease",
-        "purpose": "Button transform + shadow hover."
-      },
-      {
-        "name": "ease-dock",
-        "value": "240ms ease",
-        "purpose": "Docked index position and size morph."
+        "purpose": "Existing control state transitions; reduced motion remains respected."
       }
     ],
     "breakpoints": [
       {
-        "name": "sm",
+        "name": "mobile",
         "value": "680px"
       },
       {
-        "name": "md",
-        "value": "860px"
+        "name": "docked-index",
+        "value": "1081px"
       },
       {
-        "name": "lg",
-        "value": "1080px"
-      },
-      {
-        "name": "xl",
-        "value": "1280px"
+        "name": "adjacent-details",
+        "value": "1600px"
       }
     ]
   },
   "components": [
     {
-      "name": "Header Nav",
-      "kind": "nav",
-      "refersTo": "site-nav",
-      "description": "Sticky blurred navy header; teal-violet underline marks current page.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\">Home</a><a class=\"ds-current\" href=\"#\">Architecture</a><a href=\"#\">Walkthroughs</a></nav>",
-      "css": ".ds-nav { display:flex; gap:26px; background:rgba(7,24,39,.94); backdrop-filter:blur(18px); padding:0 24px; align-items:center; min-height:86px; border-bottom:1px solid rgba(255,255,255,.11); font-family:Inter,ui-sans-serif,system-ui,sans-serif; } .ds-nav a { color:#bbccd7; font-size:14px; font-weight:600; text-decoration:none; transition:color 160ms ease; } .ds-nav a:hover { color:#fff; } .ds-nav .ds-current { color:#fff; position:relative; } .ds-nav .ds-current::after { content:\"\"; position:absolute; left:0; right:0; bottom:-10px; height:2px; border-radius:2px; background:linear-gradient(90deg,#13b99d,#7067f0); }"
-    },
-    {
-      "name": "Primary Pill",
+      "name": "Primary action",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Teal-gradient call to action with dark-green text and teal halo.",
-      "html": "<button class=\"ds-btn-primary\">Follow a request \u2192</button>",
-      "css": ".ds-btn-primary { min-height:52px; padding:0 22px; display:inline-flex; align-items:center; gap:12px; border:1px solid transparent; border-radius:999px; color:#05271f; background:linear-gradient(135deg,#62efd3,#a7f5e6); box-shadow:0 14px 34px rgba(28,210,177,.22); font-family:Inter,ui-sans-serif,system-ui,sans-serif; font-size:.94rem; font-weight:720; cursor:pointer; transition:transform 180ms ease, box-shadow 180ms ease; } .ds-btn-primary:hover { transform:translateY(-2px); box-shadow:0 18px 42px rgba(28,210,177,.31); } .ds-btn-primary:focus-visible { outline:3px solid rgba(55,208,181,.7); outline-offset:3px; }"
+      "description": "Pale teal action with dark text and 6px corners.",
+      "css": "background:#bff5e9;color:#071827;border:1px solid #bff5e9;border-radius:6px;padding:12px 18px;min-height:44px;"
     },
     {
-      "name": "Outline Pill",
-      "kind": "button",
-      "refersTo": "button-outline",
-      "description": "Translucent white pill for secondary actions like the header GitHub link.",
-      "html": "<button class=\"ds-btn-outline\">View GitHub</button>",
-      "css": ".ds-btn-outline { min-height:40px; padding:0 18px; display:inline-flex; align-items:center; border:1px solid rgba(255,255,255,.25); border-radius:999px; color:#fff; background:rgba(255,255,255,.04); font-family:Inter,ui-sans-serif,system-ui,sans-serif; font-size:.82rem; font-weight:720; cursor:pointer; transition:background-color 180ms ease, border-color 180ms ease, transform 180ms ease; } .ds-btn-outline:hover { transform:translateY(-2px); border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.09); } .ds-btn-outline:focus-visible { outline:3px solid rgba(55,208,181,.7); outline-offset:3px; }"
-    },
-    {
-      "name": "Numbered Hero Card",
-      "kind": "card",
+      "name": "Main section directory",
+      "kind": "nav",
       "refersTo": "orchestration-card",
-      "description": "Glass card with teal-violet top bar and numbered mini-flow list.",
-      "html": "<aside class=\"ds-ocard\"><ol class=\"ds-flow\"><li><span>01</span><div><strong>Overview</strong><small>Clear service boundaries</small></div></li><li><span>02</span><div><strong>Architecture</strong><small>System map</small></div></li></ol></aside>",
-      "css": ".ds-ocard { position:relative; padding:34px; border:1px solid rgba(255,255,255,.13); border-radius:28px; background:linear-gradient(150deg,rgba(255,255,255,.095),rgba(255,255,255,.035)); box-shadow:0 28px 80px rgba(0,0,0,.22); backdrop-filter:blur(18px); font-family:Inter,ui-sans-serif,system-ui,sans-serif; color:#eef7fb; } .ds-ocard::before { content:\"\"; position:absolute; top:0; right:34px; left:34px; height:2px; background:linear-gradient(90deg,transparent,#13b99d,#7067f0,transparent); } .ds-flow { margin:0; padding:0; list-style:none; display:grid; gap:14px; } .ds-flow li { display:grid; grid-template-columns:42px 1fr; gap:14px; } .ds-flow li>span { width:35px; height:35px; display:grid; place-items:center; border:1px solid rgba(116,222,202,.35); border-radius:10px; color:#8de8d7; background:rgba(55,208,181,.08); font-size:.68rem; font-weight:800; } .ds-flow strong { display:block; font-size:.92rem; } .ds-flow small { color:#8ca6b5; font-size:.75rem; }"
+      "description": "Numbered horizontal desktop directory with the retained docked behavior and native mobile disclosure."
     },
     {
-      "name": "Docked Index",
-      "kind": "custom",
-      "refersTo": "orchestration-card-nav-docked",
-      "description": "Shrunk fixed index after hero scroll; teal marks current section.",
-      "html": "<nav class=\"ds-dock\"><ol><li><span>01</span><a href=\"#\">Overview</a></li><li><span>02</span><a class=\"ds-on\" href=\"#\">Architecture</a></li><li><span>03</span><a href=\"#\">Decisions</a></li></ol></nav>",
-      "css": ".ds-dock { width:238px; padding:17px 18px 18px; border:1px solid rgba(176,219,229,.11); border-radius:28px; background:rgba(7,24,39,.08); box-shadow:0 8px 22px rgba(1,11,18,.08); backdrop-filter:blur(4px) saturate(110%); font-family:Inter,ui-sans-serif,system-ui,sans-serif; } .ds-dock ol { margin:0; padding:0; list-style:none; display:grid; gap:9px; } .ds-dock li { display:grid; grid-template-columns:43px 1fr; align-items:center; min-height:34px; } .ds-dock li>span { width:27px; height:27px; display:grid; place-items:center; border:1px solid rgba(116,222,202,.35); border-radius:9px; color:#8de8d7; background:rgba(55,208,181,.08); font-size:.62rem; font-weight:800; } .ds-dock a { color:#edf7fb; font-size:.82rem; font-weight:600; text-decoration:none; transition:color 160ms ease; } .ds-dock a:hover, .ds-dock a.ds-on { color:#72ead8; } .ds-dock a:focus-visible { outline:3px solid rgba(114,234,216,.7); outline-offset:5px; border-radius:5px; }"
+      "name": "Component detail",
+      "kind": "figure",
+      "refersTo": "diagram-interactive",
+      "description": "Canonical diagram and selected detail side by side from 1600px; stacked below that width."
     }
   ],
   "narrative": {
-    "northStar": "The Dark Lab Blueprint",
-    "overview": "The interface reads as a working blueprint pinned up inside a lab: deep-navy canvas, a faint engineering grid, and soft teal and violet glows marking where energy concentrates. Pages open with a confident white headline, then spacious dark bands carry dense technical detail. The original stylesheets are imported byte-for-byte and hold highest precedence; Inter is the single font voice, depth comes from glow and glass blur rather than shadows on dark cards.",
+    "northStar": "Editorial engineering portfolio",
+    "overview": "A flat navy reading experience with strong typography, restrained teal actions and source-derived figures.",
     "keyCharacteristics": [
-      "Deep-navy blueprint canvas with faint grid and teal/violet radial glows",
-      "One font voice (Inter) with tight -0.035em tracking on headlines",
-      "Pill buttons; teal-gradient primary is the single loud accent",
-      "Numbered orchestration card doubles as a docked floating page index",
-      "Split section headings; 112\u2013120px bands on alternating dark tones"
+      "Public Sans throughout",
+      "Flat navy hero",
+      "Numbered section directory",
+      "Canonical source diagrams",
+      "Responsive selected-component details"
     ],
     "rules": [
       {
-        "name": "The Two-Glow Rule",
-        "body": "Every hero carries exactly two radial glows \u2014 violet top-right, teal bottom-left \u2014 at low opacity over the grid.",
-        "section": "colors"
+        "name": "Preserve evidence",
+        "body": "Do not change canonical diagram assets, source pins, factual content or older bookmarks.",
+        "section": "content"
       },
       {
-        "name": "The Teal Means State Rule",
-        "body": "Teal marks interactivity and current state; body copy is never teal, it stays ink or ink-soft.",
-        "section": "colors"
-      },
-      {
-        "name": "The One Family Rule",
-        "body": "Inter does all the work; Public Sans stays imported for legacy helpers but must not style new elements.",
-        "section": "typography"
-      },
-      {
-        "name": "The Flat Dark Surface Rule",
-        "body": "Cards on the navy foundation cast no shadows; elevation is glass blur, the primary halo, or light-section cards only.",
-        "section": "elevation"
+        "name": "Readability before adjacency",
+        "body": "Stack component details below the figure at widths under 1600px.",
+        "section": "figures"
       }
-    ],
-    "dos": [
-      "Do set heroes on var(--navy) with the grid layer plus exactly the teal and violet glows.",
-      "Do open every section with an uppercase teal section-label before the h2.",
-      "Do reuse legacy DOM classes (.shell, .nav-wrap, .hero-layout, .orchestration-card, .section-heading--split) instead of re-deriving layout.",
-      "Do give dark-ground interactive elements the 3px teal focus ring with 3px offset."
-    ],
-    "donts": [
-      "Don't apply Public Sans (or any non-Inter face) to body or headline text.",
-      "Don't put drop shadows on cards sitting on the navy foundation; flat dark surfaces are the norm.",
-      "Don't introduce a second accent hue beyond the teal family and single violet counterpoint.",
-      "Don't write teal body copy; prose stays ink or ink-soft."
     ]
   }
 }

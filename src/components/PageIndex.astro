@@ -221,7 +221,7 @@ function initPageIndex(): void {
       frame = undefined;
       const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
       const header = document.querySelector('header');
-      const line = Math.ceil(header ? header.getBoundingClientRect().height : 80) + 26;
+      const line = Math.ceil(header ? header.getBoundingClientRect().bottom : 80) + 26;
       let current = sections[0].id;
       for (const { id, el } of sections) {
         if (el.getBoundingClientRect().top <= line) current = id;
