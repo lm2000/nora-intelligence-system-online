@@ -1,0 +1,31 @@
+---
+import { href } from '../lib/constants.mjs';
+---
+
+<figure class="lab-introduction" aria-labelledby="lab-introduction-title">
+  <h3 id="lab-introduction-title">Nora SuperIntelligence Lab in 30 seconds</h3>
+  <p id="lab-introduction-summary">A visual introduction to the harness: retrieval, a source-attributed answer, and artifact review. The Atlas example is illustrative.</p>
+  <video controls playsinline preload="none" width="1280" height="720"
+    poster={href('/media/nora-introduction/poster.webp')}
+    aria-label="Nora SuperIntelligence Lab introduction" aria-describedby="lab-introduction-summary">
+    <source src={href('/media/nora-introduction/introduction.mp4')} type="video/mp4" />
+    <p><a href={href('/media/nora-introduction/introduction.mp4')}>Watch the introduction</a>.</p>
+  </video>
+  <figcaption>
+    <details>
+      <summary>Video description and music credit</summary>
+      <p>There is music and no spoken narration. The lab title opens onto the system architecture. A document enters the retrieval workflow; the fictional Atlas question returns an answer naming the load test and rollback rehearsal. The review flow shows evaluator feedback followed by human approval. The film closes with the lab name and website.</p>
+      <p>Music: “Tech Live” by <a href="https://incompetech.com/music/royalty-free/index.html?Search=Search&amp;isrc=USUAN1700030">Kevin MacLeod</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Trimmed to 30 seconds, normalized, and faded in and out.</p>
+    </details>
+  </figcaption>
+</figure>
+
+<style>
+  .lab-introduction { width: min(100%, 760px); margin: 32px 0; }
+  h3 { margin: 0 0 12px; }
+  p { max-width: 72ch; }
+  video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #071827; border: 1px solid var(--line); border-radius: 8px; margin-top: 20px; }
+  figcaption { margin-top: 12px; font-size: 14px; }
+  summary { display: list-item; cursor: pointer; min-height: 44px; padding: 12px 0; }
+  summary:focus-visible { outline: 2px solid #21d4b4; outline-offset: 4px; }
+</style>
