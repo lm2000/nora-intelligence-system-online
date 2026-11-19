@@ -1,3 +1,17 @@
+# Editorial overhaul — integrated locally
+
+Michael authorized reconciliation and local integration without publication. Local main was fast-forwarded to code commit `7169f3d5aa850adf8a2ff5fdb8f202ea2acf547b`, combining the refined editorial overhaul with useful pending OpenDesign changes. Validation was rerun in the original main checkout: 23 tests, zero Astro diagnostics, 20 built pages and 872 checked links passed. No push, publication or deployment was performed.
+
+Reconciliation retained clearer retrieval/storage wording, simpler Home principles and motivation text, and removal of unused hero/index decoration. It preserved the full lab name, the six main tabs, the personal Home introduction, named Synthetic Owner/Real Owner roles, canonical diagrams, source pins, contact details and existing bookmarks. Workflows retains both #harness and the clearer #shared-coordination alias. Review corrected wording that had conflated prepared document storage with its matching Qdrant index.
+
+The four overlapping files are reconciled: Header keeps approved branding/navigation; HomeArchitectureMap combines precise storage/retrieval copy with the responsive themed map; OriginalIndex combines dead-caption removal with the settled jump and activation fixes; Home combines simpler copy with the selected layout and personal introduction.
+
+All 37 original pending file versions were verified byte-for-byte in recovery stash `1ca53eae98c3a94ad2c35906ce81e381a583402c`. An exact patch, file copies and SHA-256 manifest are saved under `/Users/michael.lm/Projects/nora-website-variants/integration/pending-before-reconciliation/`. Do not blindly pop this stash: its useful edits are already integrated, and its superseded branding/navigation changes must not be reapplied.
+
+This local integration supersedes the earlier candidate-only boundary below. Production publication still requires separate authorization.
+
+---
+
 # Selected editorial overhaul — local integration candidate
 
 Michael selected the complete overhaul after comparing Evolution and Overhaul, then authorized refinement and integration preparation without publication. The candidate is isolated on `codex/editorial-overhaul`, based on `0044c73419b35ac060a3caebc164d6eee317c69a`. The original main checkout and its 37 pending OpenDesign edits remain untouched.

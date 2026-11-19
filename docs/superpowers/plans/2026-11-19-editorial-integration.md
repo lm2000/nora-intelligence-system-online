@@ -25,3 +25,7 @@ The original main checkout contains 37 pending OpenDesign modifications. They ar
 ## Later integration
 
 This local branch is based on committed main 0044c73, excluding the original checkout's 37 pending OpenDesign changes. The four overlapping paths are Header.astro, HomeArchitectureMap.astro, OriginalIndex.astro and pages/index.astro. Do not apply this candidate over that dirty checkout or discard those edits implicitly. Review the candidate in its isolated worktree, reconcile any independently retained changes, then integrate through the project's normal process. A push to the production branch can trigger Vercel; no push or deployment is part of this task.
+
+## Authorized local integration completed
+
+The owner subsequently authorized reconciliation and local integration, retaining the no-publication boundary. Useful pending changes were reconciled and committed as 7169f3d. Local main was fast-forwarded to that commit and pnpm validate passed there: 23 tests, zero diagnostics,20 pages and 872 links. The original 37 pending file versions are preserved in stash 1ca53eae98c3a94ad2c35906ce81e381a583402c and an exact patch/file/manifest backup under the comparison workspace's integration/pending-before-reconciliation directory. Header, HomeArchitectureMap, OriginalIndex and Home are reconciled. Prepared source storage remains distinct from its Qdrant index. Old #harness and new #shared-coordination both remain. No push or deployment was performed. Do not reapply the full recovery stash over the combined result.
