@@ -23,11 +23,27 @@ Deep Agents and LangGraph remain the execution foundation across both. The direc
 ## Why not a second orchestrator
 CrewAI is excluded from the target. The documented design keeps one execution-state owner; the inspected evidence does not establish a CrewAI trial. The exclusion is recorded without claiming CrewAI was benchmarked or proven worse.
 
-## Four providers became three
+<h2 id="four-providers-became-three" data-index-label="Provider scope">Four providers became three</h2>
+
+Provider scope was narrowed by an explicit owner decision. The record does not establish a comparative provider benchmark.
+
+<details class="historical-record" data-history-anchor="four-providers-became-three">
+<summary>Historical provider-scope decision</summary>
+
 The original platform candidate listed four providers. Michael's decision removed Hermes, leaving three targets — Ollama Cloud, Fireworks, and DeepSeek — and active provider support has been removed. The platform setup guide now describes the three-provider scope.
+
+</details>
 
 ## What the data actually is
 Ingestion runs as four separate jobs with no per-source LLM rewriting. Three stores hold three different meanings: the corpus, BGE embeddings in Qdrant over prepared text aligned to each release; conversation checkpoints in PostgreSQL; and explicit saved memory, written with provenance and confirmed by Michael, deliberately kept out of the corpus. Qdrant is a vector index, not a knowledge graph.
 
-## Where the candidate stands
+<h2 id="where-the-candidate-stands" data-index-label="Evidence boundary">Keep source inspection, client checks and rollout separate</h2>
+
+Inspecting source, accepting a client and deploying a route establish different things. The direct route transfers streaming, tool-calling, continuation and authentication responsibilities into the service; its source record alone does not establish a completed cutover.
+
+<details class="historical-record" data-history-anchor="where-the-candidate-stands">
+<summary>Historical candidate and client-check status</summary>
+
 The direct-platform source candidate was inspected locally — explicit memory, tools, dashboard — but never deployed, and publication is pending, so its module paths appear only as code references. Nora is the first functional client. OpenClaw is the second client, with its direct sanity check still pending. Codex is excluded from current functional acceptance, though it historically worked as an MCP/RAG client, not a prompt-only one. The remaining implementation work and Nora/OpenClaw sanity checks belong to the main refactoring task; its latency comparison comes afterward.
+
+</details>

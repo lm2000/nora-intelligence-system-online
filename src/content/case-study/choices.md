@@ -8,7 +8,16 @@ diagramAlt: "Requirements, eligible models, configured scoring and a supported a
 
 The [Decisions](../../decisions/) page explains the accepted AI Coordinator boundaries. This chapter records additional design options considered for the direct API candidate.
 
-## Components
+<h2 id="components" data-index-label="Component decisions">Separate execution, knowledge and integration responsibilities</h2>
+
+The component choices keep three responsibilities explicit:
+
+- **One execution owner.** Deep Agents and LangGraph keep task execution and durable state within Coordination. Direct provider access makes protocol compatibility the service’s responsibility.
+- **A separate knowledge release.** BGE and Qdrant connect query encoding to prepared sources. The text and index must stay aligned when a release changes.
+- **Controlled tool access.** Integration schemas, allowlists and approvals belong to the coordinator, independently of model inference.
+
+<details class="historical-record" data-history-anchor="components">
+<summary>Historical component inventory and tool status</summary>
 
 | Component | Responsibility and tradeoff | Evidence | Status |
 | --- | --- | --- | --- |
@@ -28,7 +37,40 @@ The [Decisions](../../decisions/) page explains the accepted AI Coordinator boun
 | Hermes | Removed from the candidate set by Michael's decision | [Architecture evolution](../evolution/) | Removed from active provider support; historical decision retained |
 | LiteLLM | Model gateway of the used baseline route | [Architecture](../../architecture/) | Still deployed, outside target |
 
-## Target providers
+</details>
+
+<h2 id="routing-a-filter-bounds-and-one-fallback" data-index-label="Routing bounds">Filter for capability before scoring cost and latency</h2>
+
+For the direct-platform candidate described in this chapter, a request to reason through an architecture trade-off raises the quality bar, so the selector's strict capability and tool filter runs first, and only surviving models are scored on assumed cost and latency — never the reverse. If nothing qualifies, routing fails explicitly; there is no silent downgrade to a weaker default. An ordinary request uses one model. Explicit independent verification can use at most two branches. Retrieval is bounded at three calls, including automatic grounding and any memory lookup; model calls at 4, including synthesis and repair across continuations. Fallback fires at most once, only before visible output, never after. These are bounds on work per request, not proof of answer quality. Receipts: `src/nora/selector.py`, `src/nora/model_api.py`.
+
+<h2 id="tools-keep-execution-ownership-explicit" data-index-label="Tool ownership">Keep tool execution and write approval explicit</h2>
+
+Client-supplied functions return to the client for execution. Internal NIS tools execute inside NIS. Inside NIS, an allowlist governs Composio and MCP access, each tool bound to a validated argument schema and an explicit account or endpoint. Writes never fire automatically: they produce a proposal that waits for approval, and uncertain actions are not silently replayed.
+
+<details class="historical-record" data-history-anchor="tools-keep-execution-ownership-explicit">
+<summary>Historical connected-tool checks</summary>
+
+Live receipts so far: a Gmail read passed; Dropbox authorization is expired; an independent Superhuman MCP path is unverified.
+
+</details>
+
+<h2 id="cost-pressure-honestly-bounded" data-index-label="Cost boundary">Separate allowance pressure from measured API cost</h2>
+
+Provider flexibility was motivated by allowance pressure. Subscription allowances and API billing are different measures; the recorded work makes no savings claim.
+
+<details class="historical-record" data-history-anchor="cost-pressure-honestly-bounded">
+<summary>Historical cost context</summary>
+
+Cost motivation here is Michael-reported: native provider allowances are the pressure behind trimming layers. It is not a platform-setup story about configuring a subscription, and a subscription allowance is never treated as API billing. The actual billed comparison cost between direct routes and the gateway is unknown. This project claims no savings — only allowance pressure as one motivation for provider flexibility.
+
+</details>
+
+<h2 id="target-providers" data-index-label="Provider checks">Treat compatibility checks as bounded evidence</h2>
+
+Provider probes check specific interfaces on a tested snapshot. They do not rank providers by latency, cost or answer quality.
+
+<details class="historical-record" data-history-anchor="target-providers">
+<summary>Historical provider targets and probe receipts</summary>
 
 | Provider | Status | Synthetic probe receipt |
 | --- | --- | --- |
@@ -38,17 +80,17 @@ The [Decisions](../../decisions/) page explains the accepted AI Coordinator boun
 
 These are live synthetic checks of compatibility, not benchmarks — the per-call probe timings do not establish a controlled latency comparison, and billed comparison costs remain unknown. [AI and evidence](../learning/) summarizes the historical receipts. They apply to the tested snapshot; the latest scope governs future checks.
 
-## Routing: a filter, bounds, and one fallback
-For the direct-platform candidate described in this chapter, a request to reason through an architecture trade-off raises the quality bar, so the selector's strict capability and tool filter runs first, and only surviving models are scored on assumed cost and latency — never the reverse. If nothing qualifies, routing fails explicitly; there is no silent downgrade to a weaker default. An ordinary request uses one model. Explicit independent verification can use at most two branches. Retrieval is bounded at three calls, including automatic grounding and any memory lookup; model calls at 4, including synthesis and repair across continuations. Fallback fires at most once, only before visible output, never after. These are bounds on work per request, not proof of answer quality. Receipts: `src/nora/selector.py`, `src/nora/model_api.py`.
+</details>
 
-## Tools: keep execution ownership explicit
-Client-supplied functions return to the client for execution. Internal NIS tools execute inside NIS. Inside NIS, an allowlist governs Composio and MCP access, each tool bound to a validated argument schema and an explicit account or endpoint. Writes never fire automatically: they produce a proposal that waits for approval, and uncertain actions are not silently replayed. Live receipts so far: a Gmail read passed; Dropbox authorization is expired; an independent Superhuman MCP path is unverified.
+<h2 id="what-is-proven-and-what-is-not" data-index-label="Source boundary">Keep candidate evidence distinct from deployment</h2>
 
-## Cost pressure, honestly bounded
-Cost motivation here is Michael-reported: native provider allowances are the pressure behind trimming layers. It is not a platform-setup story about configuring a subscription, and a subscription allowance is never treated as API billing. The actual billed comparison cost between direct routes and the gateway is unknown. This project claims no savings — only allowance pressure as one motivation for provider flexibility.
+The component and provider records concern an unpublished, undeployed direct-platform candidate. The maintained [Architecture](../../architecture/) and [Validation](../../validation/) pages own the public system boundaries and recorded checks.
 
-## What is proven and what is not
+<details class="historical-record" data-history-anchor="what-is-proven-and-what-is-not">
+<summary>Historical source paths and hosting boundary</summary>
+
 The source candidate can be inspected in: `src/nora/agent.py`, `src/nora/selector.py`, `src/nora/model_api.py`, `src/nora/integrations.py`, `src/nora/platform_state.py`, and `src/nora/providers.py`. The direct-platform candidate is unpublished and undeployed, so its rows stay labeled as targets. GCP remains the documented hosting environment; nothing here claims a move away from it. Until the planned measurement runs, the tables above state status, not superiority.
 
+</details>
 
 Primary technical references: [Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview), [MCP](https://modelcontextprotocol.io/docs/getting-started/intro), and [DeepSeek thinking-mode behavior](https://api-docs.deepseek.com/guides/thinking_mode/). These explain upstream interfaces; the NIS source and receipts establish what this project actually used.

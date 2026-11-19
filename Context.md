@@ -1,3 +1,11 @@
+# Historical build-story reading refinements — 2026-11-19
+
+Michael approved tightening the historical chapters and authorized validation, Vercel deployment and live verification. Evolution, Tools and routing, AI and evidence and the resume example now lead with engineering decisions and lessons. Original component/provider inventories, connected-tool checks, dashboard and review-model notes, unfinished checks and the claim-evidence map remain in native historical-record disclosures. The overview, diagrams, source pins and historical qualifications are unchanged.
+
+All previous rendered IDs, table cell text/links and link destinations are preserved. Existing section fragments reveal the matching record, including bookmarks to descendants inside a disclosure. Browser checks passed all fifteen historical-record section links, a nested table-header link, keyboard activation, 320/390px reflow and desktop defaults; no page overflow or browser errors were observed. Independent review found no material issues. Release readback is recorded in the private publication receipt.
+
+---
+
 # Reading and mobile refinements — 2026-11-19
 
 Michael approved the three live-audit recommendations and authorized validation, Vercel deployment and live verification. Workflows keeps its chooser, unique technical constraints, full diagrams and both owner revision returns, with redundant mobile summaries suppressed only on that page. The five build-story chapters use a compact native chapter disclosure below 1081px, retain their section index and Previous/Next links, and show the current chapter position.
