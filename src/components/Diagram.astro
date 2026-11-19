@@ -1,6 +1,8 @@
 ---
 import { href } from '../lib/constants.mjs';
 import detailOverrides from '../data/diagram-details.json';
+import { navyDiagram } from '../lib/diagram-presentation.mjs';
+import mobileSummaries from '../data/diagram-summaries.json';
 import { parseDiagramSource } from '../lib/diagram-source.mjs';
 interface Props {
   previewSrc: string;
@@ -12,9 +14,10 @@ interface Props {
   title?: string;
   purpose?: string;
   showTitle?: boolean;
+  compactMobile?: boolean;
 }
 
-const { previewSrc, htmlUrl, alt, caption, title, purpose, showTitle = true } = Astro.props;
+const { previewSrc, htmlUrl, alt, caption, title, purpose, showTitle = true, compactMobile = true } = Astro.props;
 
 const base = (previewSrc.split('/').pop() || '')
   .replace('-preview.svg', '')
@@ -36,7 +39,7 @@ if (htmlUrl) {
   if (basename && files[`../../public/diagrams/${basename}`]) {
     const rawHtml = files[`../../public/diagrams/${basename}`] as string;
     const parsed = parseDiagramSource(rawHtml);
-    svgString = parsed.svg;
+    svgString = navyDiagram(parsed.svg);
     details = parsed.details;
   }
 }
@@ -52,6 +55,7 @@ for (const key of keys) {
   if (overrides[key]) details[key].detail = overrides[key];
 }
 const isInteractive = keys.length > 0 && svgString.length > 0;
+const summaryRows = compactMobile ? (mobileSummaries as Record<string, string[][]>)[htmlUrl?.split('/').pop() || ''] : undefined;
 const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
 ---
 
@@ -62,6 +66,12 @@ const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
   </div>}
 
   {isInteractive ? (
+    <responsive-diagram>
+      {summaryRows && <dl class="diagram-mobile-summary" aria-label={`${derivedTitle} overview`}>
+        {summaryRows.map(([label, text]) => <div><dt>{label}</dt><dd>{text}</dd></div>)}
+      </dl>}
+      <details class="diagram-full" data-compact={Boolean(summaryRows)} open>
+        <summary>Explore the full {derivedTitle.toLowerCase()} diagram</summary>
     <interactive-diagram>
       <div class="diagram-interactive" data-diagram-interactive>
         <div class="diagram-viewport" data-diagram-viewport>
@@ -94,6 +104,8 @@ const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
         <script type="application/json" data-diagram-details set:html={detailsJson}></script>
       </div>
     </interactive-diagram>
+      </details>
+    </responsive-diagram>
   ) : (
     <div class="diagram-static-wrapper">
       <img src={href(previewSrc)} alt={alt} loading="lazy" />
@@ -105,6 +117,17 @@ const detailsJson = JSON.stringify(details).replace(/</g, '\\u003c');
 
 <style>
 .diagram { margin: 0; }
+responsive-diagram { display: block; min-width: 0; }
+.diagram-mobile-summary, .diagram-full > summary { display: none; }
+@media (max-width: 768px) {
+  .diagram-mobile-summary { display: grid; gap: 16px; margin: 0 0 20px; }
+  .diagram-mobile-summary > div { padding-left: 16px; border-left: 2px solid var(--color-teal); }
+  .diagram-mobile-summary dt { color: var(--color-ink); font-weight: 700; margin-bottom: 4px; }
+  .diagram-mobile-summary dd { color: var(--color-body); margin: 0; font-size: 15px; line-height: 1.6; }
+  .diagram-full[data-compact="true"] > summary { display: list-item; padding: 14px 4px; min-height: 52px; cursor: pointer; color: var(--color-teal); font-weight: 600; border-block: 1px solid var(--color-border); }
+  .diagram-full > summary:focus-visible { outline: 2px solid var(--color-teal); outline-offset: 3px; }
+  .diagram-full[data-compact="true"] interactive-diagram { margin-top: 20px; }
+}
 .diagram-header { margin-bottom: 20px; }
 .diagram-title {
   font-family: inherit;
@@ -133,7 +156,7 @@ interactive-diagram { display: block; }
   display: flex;
   justify-content: center;
 }
-.diagram-svg-host { width: 100%; background: #fff; border-radius: 8px; }
+.diagram-svg-host { width: 100%; background: #132231; border: 1px solid var(--color-border); border-radius: 8px; }
 .diagram-swipe-hint { display: none; text-align: center; font-size: 13px; color: var(--color-secondary); margin: 8px 0 0; }
 .diagram-static-wrapper { width: 100%; }
 .diagram-static-wrapper img { width: 100%; max-width: 100%; height: auto; display: block; }
@@ -190,6 +213,16 @@ figcaption { margin-top: 16px; }
 </style>
 
 <script>
+import { bindDiagramDisclosure } from '../lib/responsive-diagram.mjs';
+class ResponsiveDiagram extends HTMLElement {
+  private disconnectViewport?: () => void;
+  connectedCallback() {
+    const details = this.querySelector<HTMLDetailsElement>(':scope > details[data-compact="true"]');
+    if (details) this.disconnectViewport = bindDiagramDisclosure(details, matchMedia('(max-width: 768px)'));
+  }
+  disconnectedCallback() { this.disconnectViewport?.(); }
+}
+if (!customElements.get('responsive-diagram')) customElements.define('responsive-diagram', ResponsiveDiagram);
 class InteractiveDiagram extends HTMLElement {
   private observers: IntersectionObserver[] = [];
   private rafId: number | null = null;
@@ -312,16 +345,17 @@ class InteractiveDiagram extends HTMLElement {
       ${cssText}
       svg { min-width: 0 !important; width: 100%; height: auto; max-width: 100%; }
       text { font-family: inherit; }
+      svg { background: #132231; color: #edf5f8; }
       .node { cursor: pointer; outline: none; }
-      .node:hover rect { stroke: #075973; }
-      .node:focus-visible rect { stroke: #075973; stroke-width: 2.5; }
+      .node:hover rect { stroke: #a4e9df; }
+      .node:focus-visible rect { stroke: #a4e9df; stroke-width: 2.5; }
       .node.active rect {
         stroke-width: 3.5;
         filter: drop-shadow(0 3px 5px #254c6a55);
-        stroke: #075973 !important;
-        fill: #f0fbff !important;
+        stroke: #a4e9df !important;
+        fill: #123f49 !important;
       }
-      .edge.active path { stroke: #075973; stroke-width: 3; }
+      .edge.active path { stroke: #a4e9df; stroke-width: 3; }
     `;
     root.appendChild(style);
     root.appendChild(svg);

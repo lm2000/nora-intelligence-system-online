@@ -1,0 +1,156 @@
+{
+  "02-question-to-answer.html": [
+    [
+      "Prepare sources",
+      "Ingestion preserves source text and prepares document embeddings and a matching Qdrant index."
+    ],
+    [
+      "Retrieve evidence",
+      "Retrieval MCP encodes the question with shared BGE, searches the index and reads prepared text."
+    ],
+    [
+      "Answer",
+      "Relevant passages return to the coordinator for a grounded response."
+    ]
+  ],
+  "architecture-request-path.html": [
+    [
+      "One coordinator",
+      "The same AI Coordinator appears at planning and completion; these are two stages, not two services."
+    ],
+    [
+      "Evidence and inference",
+      "Retrieval MCP returns source evidence. A selected model route generates the response."
+    ],
+    [
+      "Conversation state",
+      "PostgreSQL retains conversation content independently of inference."
+    ]
+  ],
+  "01-system-architecture.html": [
+    [
+      "Client entry",
+      "Browser HTTP/AG-UI and MCP clients reach the Coordination Layer through their respective paths."
+    ],
+    [
+      "Shared coordination",
+      "One AI Coordinator connects question answering, artifact review and specialist delegation."
+    ],
+    [
+      "Supporting services",
+      "Retrieval, models, evaluation and conversation state have separate responsibilities. Ingestion runs outside conversations."
+    ]
+  ],
+  "model-routing.html": [
+    [
+      "Request",
+      "The AI Coordinator receives the task, context and constraints."
+    ],
+    [
+      "Select inference",
+      "The design separates simple, general, reasoning and specialized model routes."
+    ],
+    [
+      "Combine results",
+      "The same coordinator gathers results, synthesizes and checks the response."
+    ]
+  ],
+  "manual-ingestion.html": [
+    [
+      "Prepare",
+      "Selected sources pass through conversion and deterministic preparation."
+    ],
+    [
+      "Encode and import",
+      "Shared BGE generates embeddings; import verifies a complete bundle into a fresh index."
+    ],
+    [
+      "Activate",
+      "The operator selects matching prepared documents and index as the retrieval release."
+    ]
+  ],
+  "harness-workflows.html": [
+    [
+      "Question answering",
+      "A client question reaches the AI Coordinator, retrieval and model services, then returns a plain answer."
+    ],
+    [
+      "Ingestion",
+      "Source documents become a prepared, encoded knowledge release that is verified and activated."
+    ],
+    [
+      "Artifact review",
+      "Selected judges provide feedback. Synthetic Owner scoring and Real Owner approval have separate revision returns."
+    ]
+  ],
+  "judge-registry.html": [
+    [
+      "Research",
+      "Role, domain and relevant source evidence inform judge definitions."
+    ],
+    [
+      "Prepare judges",
+      "Versioned personas, rubrics, criteria, datasets and examples become prepared Harbor tasks."
+    ],
+    [
+      "Reuse",
+      "The NIS Judge Registry holds reusable definitions. Select the perspectives needed for each evaluation."
+    ]
+  ],
+  "artifact-review-flow.html": [
+    [
+      "Evaluate",
+      "The AI Coordinator routes the artifact and brief separately to Harbor Hub and Hugging Face, then aggregates feedback."
+    ],
+    [
+      "Synthetic Owner",
+      "Scoring recommends acceptance or revision. Below threshold, the artifact and brief return for revision and evaluation."
+    ],
+    [
+      "Real Owner",
+      "Qualifying work reaches the person. Approval completes review; requested changes return through revision and evaluation."
+    ]
+  ],
+  "case-system.html": [
+    [
+      "Historical target",
+      "Client interfaces reach the direct NIS API and one Deep Agents/LangGraph execution owner."
+    ],
+    [
+      "Separate services",
+      "The diagram connects model providers, Retrieval MCP, allowlisted tools and PostgreSQL."
+    ],
+    [
+      "Operator ingestion",
+      "Manual conversion, preparation, embedding and import remain separate from requests. This is the historical design record, not a rollout claim."
+    ]
+  ],
+  "case-evolution.html": [
+    [
+      "Used gateway path",
+      "The recorded client path passes through the LiteLLM gateway to NIS Coordination and a selected provider."
+    ],
+    [
+      "Direct target",
+      "The accepted target connects the client to NIS Coordination and a LangChain direct adapter."
+    ],
+    [
+      "Separate records",
+      "The two paths are alternatives on record; the diagram does not establish a completed cutover or performance comparison."
+    ]
+  ],
+  "case-request.html": [
+    [
+      "Requirements",
+      "The historical direct-platform candidate starts from a question and explicit task requirements."
+    ],
+    [
+      "Selection and bounds",
+      "An eligible inventory is scored using configured assumptions; no eligible route produces an explicit failure."
+    ],
+    [
+      "Evidence and response",
+      "The bounded graph searches and reads one prepared release before returning and checkpointing a supported answer."
+    ]
+  ]
+}

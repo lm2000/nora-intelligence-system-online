@@ -1,5 +1,6 @@
 ---
 import { href } from '../lib/constants.mjs';
+import { navyDiagram } from '../lib/diagram-presentation.mjs';
 import systemSvg from '../../public/diagrams/01-system-architecture-preview.svg?raw';
 
 interface Props {
@@ -12,7 +13,7 @@ const svgUrl = href('/diagrams/01-system-architecture-preview.svg');
 ---
 
 <source-map data-active={initialFocus}>
-  <template data-source-svg set:html={systemSvg}></template>
+  <template data-source-svg set:html={navyDiagram(systemSvg)}></template>
   <noscript>
     <img class="fallback-img" src={svgUrl} alt="System architecture fallback showing Browser UI AG-UI connects directly to Coordination. MCP clients separately use LiteLLM MCP gateway to embedded FastMCP or direct FastMCP." loading="lazy" />
   </noscript>
@@ -30,7 +31,7 @@ source-map .map-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+  background: #132231;
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 16px;
@@ -118,11 +119,11 @@ class SourceMap extends HTMLElement {
           .node.active rect {
             stroke-width: 3.5;
             filter: drop-shadow(0 3px 5px #254c6a55);
-            stroke: #075973 !important;
-            fill: #f0fbff !important;
+            stroke: #a4e9df !important;
+            fill: #123f49 !important;
           }
           .edge.active path {
-            stroke: #075973;
+            stroke: #a4e9df;
             stroke-width: 3;
           }
         `;
@@ -152,9 +153,9 @@ class SourceMap extends HTMLElement {
           @media (max-width: 768px) {
             .full-map { display: none !important; }
             .mobile-focus { display: block; width: 100%; }
-            .mobile-overview { display: block; width: 100%; color: #075973; font: 600 15px system-ui, sans-serif; }
+            .mobile-overview { display: block; width: 100%; color: #a4e9df; font: 600 15px system-ui, sans-serif; }
             summary { padding: 16px 0; min-height: 44px; cursor: pointer; }
-            summary:focus-visible, .overview-scroll:focus-visible { outline: 2px solid #075973; outline-offset: 2px; }
+            summary:focus-visible, .overview-scroll:focus-visible { outline: 2px solid #a4e9df; outline-offset: 2px; }
             .overview-scroll { overflow-x: auto; }
             .overview-svg { width: 1000px; max-width: none; }
           }

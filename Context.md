@@ -1,3 +1,11 @@
+# Responsive navy diagrams — 2026-11-19
+
+Michael authorized extending compact mobile summaries and full-diagram disclosures, matching the navy presentation, validation and production deployment. Website-only color adaptation preserves the canonical diagram assets, source pins, geometry, labels and topology. The shared component covers retrieval, request, routing, ingestion, workflows, judge registry, artifact review and historical build-story diagrams. Existing system and walkthrough full-map disclosures retain their ownership without nested compact summaries. The native Motivation briefing diagram uses the same navy role colors through editorial stylesheet overrides.
+
+The automated presentation invariant compares all eleven source-derived SVGs after removing color literals; every other byte must match. Existing provenance tests continue to verify imported assets and previews. Local browser checks cover mobile summaries/expansion, desktop open topology, Enter/Escape selection, pause, and contained reflow at 320px/390px. Final local validation passed 24 tests, zero diagnostics, 20 built pages and 886 link checks. The prior Home/walkthrough refinements were published as `6e9db6a`; release receipts remain outside public source.
+
+---
+
 # Home and walkthrough refinements — 2026-11-19
 
 Michael approved audit recommendations 1 and 3 and authorized validation, Vercel deployment and live verification. The production baseline is editorial integration `69eeac6`, which preserved the approved lab introduction video; the earlier local-only records below are historical.

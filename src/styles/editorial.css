@@ -570,3 +570,25 @@ body.editorial-site .diagram-fallback summary {
   top: calc(var(--header-height) + 18px);
 }
 }
+
+/* Native briefing diagram: same role colors as the source-derived SVG adapter. */
+body.editorial-site .motivation .briefing-canvas {
+  background:#132231; color:#edf5f8; border-color:#456174;
+}
+body.editorial-site .motivation .briefing-flow { --flow-accent:#79b9ef; }
+body.editorial-site .motivation .briefing-flow--comparison { --flow-accent:#b5a1ef; }
+body.editorial-site .motivation .briefing-flow > strong { color:#edf5f8; }
+body.editorial-site .motivation .briefing-flow li { background:#142d43; }
+body.editorial-site .motivation .briefing-flow--comparison li,
+body.editorial-site .motivation .briefing-feedback { background:#29233f; }
+body.editorial-site .motivation .briefing-feedback { color:#edf5f8; border-color:#b5a1ef; }
+body.editorial-site .motivation .briefing-feedback-bridge,
+body.editorial-site .motivation .briefing-feedback .briefing-lane-label,
+body.editorial-site .motivation .briefing-criteria dt { color:#b5a1ef; }
+body.editorial-site .motivation .briefing-flow li > span,
+body.editorial-site .motivation .briefing-handoff,
+body.editorial-site .motivation .briefing-feedback p,
+body.editorial-site .motivation .briefing-criteria dd { color:#b7cbd6; }
+body.editorial-site .motivation .briefing-handoff,
+body.editorial-site .motivation .briefing-feedback-bridge,
+body.editorial-site .motivation .briefing-return { border-color:#456174; }
