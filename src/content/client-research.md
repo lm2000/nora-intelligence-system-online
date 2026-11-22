@@ -28,18 +28,6 @@ Account selection and artifact quality answer different questions. Select **rese
   <dt>Software company C · Pass</dt><dd>A product announcement alone does not connect the account to the agency’s service strengths. Leave it out of this round.</dd>
 </dl>
 
-<h2 id="example-account-brief" data-index-label="Worked example">Replace a broad promise with a testable first step</h2>
-
-**Synthetic scenario:** Retailer A is expanding its online storefront. The observation is invented for this example; a real brief would link it to a source.
-
-> **First draft:** “We can improve your growth by optimizing acquisition.”
->
-> **Finance-perspective finding:** The draft promises an outcome without showing how campaign effects would be separated from customer-mix changes.
->
-> **Revised pitch:** “How are you connecting acquisition spend with repeat purchases? We could start by mapping the measurement approach and identifying one gap to investigate.”
->
-> **Brief update:** Record repeat-purchase measurement as a hypothesis, leave the reporting stack unknown, and add a discovery question about data ownership.
-
 <h2 id="pitch-package" data-index-label="Deliverable">Keep the reasoning with the message</h2>
 
 The package contains the selection reason, sourced account brief, likely buyer roles, approved agency proof, value hypothesis, message draft and discovery questions. Freeze these with the source and rubric versions before evaluation. Keep approval attached to that exact version; subsequent edits require review again.

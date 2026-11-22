@@ -1,6 +1,6 @@
 <h2 id="choose-one-useful-workflow" data-index-label="Purpose">Choose one useful workflow before building</h2>
 
-For a team with several AI ideas, the first decision is which problem deserves a pilot and whether the available data can support it. This assessment method adapts the AI and data consulting material into a practical workflow: compare opportunities, inspect the data and architecture, choose a baseline, and define a first test.
+The assessment produces a ranked shortlist, a data-gap review and one pilot brief. The brief names the task, baseline, evaluation criteria and responsibilities needed for a build decision.
 
 <h2 id="assessment-inputs" data-index-label="Inputs">Start with the work and its owner</h2>
 

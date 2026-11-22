@@ -2,7 +2,7 @@
 
 A candidate has several opportunities, changing role descriptions and feedback scattered across messages and notes. The useful output is a stage brief: what this conversation tests, which experience supports the candidate’s position, what to practice and what remains unknown.
 
-The example below follows a fictional platform-engineering opportunity. It illustrates a system design, not a claimed hiring outcome or a deployed integration.
+The worked example follows a fictional platform-engineering opportunity. It illustrates a system design, not a claimed hiring outcome or a deployed integration.
 
 <h2 id="preparation-inputs" data-index-label="Inputs and state">Keep sources, opportunity state and drafts separate</h2>
 
@@ -27,20 +27,6 @@ Email and calendar adapters read invitations and commitments; a tracker stores o
 **Failure handling:** retry reads safely; deduplicate repeated intake events by source ID. If a write times out, reconcile the destination before retrying. Record whether an action is proposed, approved, confirmed or unresolved. A drafted message is not a sent message, and an unconfirmed calendar write is not a scheduled interview.
 
 **Trade-off:** separate records and versioning add bookkeeping, but make stale evidence, mistaken matches and interrupted actions recoverable. Use a small relevant evidence set rather than copying the entire history into every prompt.
-
-<h2 id="example-preparation-pack" data-index-label="Worked example">A brief that improves after review</h2>
-
-**Fictional task:** prepare for a system-design round about order-event processing.
-
-> **First draft:** “Use an idempotent consumer and commit the offset after processing.”
->
-> **Senior Engineer finding:** This names a pattern but leaves the failure behavior unexplained. What happens if the process stops after committing the result but before committing the offset?
->
-> **Revised brief:** Persist the event’s idempotency key and result atomically in the same transaction, then commit the offset. If the event is replayed, the stored key prevents a second application of the change. External side effects require their own idempotency or outbox design.
->
-> **Next drill:** Explain that sequence in two minutes, including the transaction boundary and what changes when the side effect is external.
-
-The candidate must still choose an actual experience example and explain their own contribution. The fictional exercise supplies a practice problem, not personal achievement evidence.
 
 <h2 id="career-evaluation" data-index-label="Evaluation">Evaluate the brief against the task</h2>
 

@@ -11,7 +11,32 @@ import { Content } from '../content/reproduce.md';
     <Content />
   </article>
 </SiteLayout>
+<script>
+  import { copyCommandGroup } from '../lib/command-copy.mjs';
+  document.querySelectorAll<HTMLElement>('[data-supporting-page="reproduce"] pre').forEach((pre, index) => {
+    const code = pre.querySelector('code');
+    if (!code) return;
+    const toolbar = document.createElement('div');
+    toolbar.className = 'command-copy-toolbar';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = 'Copy commands';
+    button.setAttribute('aria-label', `Copy commands, group ${index + 1}`);
+    const status = document.createElement('span');
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-atomic', 'true');
+    button.addEventListener('click', () => copyCommandGroup({button, status, code, clipboard: navigator.clipboard}));
+    toolbar.append(button, status);
+    pre.before(toolbar);
+  });
+</script>
 <style>
+:global(.command-copy-toolbar) { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-top: 24px; }
+:global(.command-copy-toolbar button) { min-height: 44px; padding: 8px 16px; color: var(--teal-light); background: var(--navy-2); border: 1px solid var(--line); border-radius: var(--radius-sm); font: inherit; cursor: pointer; }
+:global(.command-copy-toolbar button:focus-visible) { outline: 3px solid var(--teal-light); outline-offset: 3px; }
+:global(.command-copy-toolbar button:disabled) { cursor: wait; opacity: .65; }
+:global(.command-copy-toolbar [role="status"]) { font-size: .875rem; color: var(--ink-soft); }
+
 .content-page { padding-top: 40px; padding-bottom: 40px; }
 .content-page :global(p) { font-size: 18px; line-height: 1.7; max-width: 66ch; }
 .content-page :global(h2) { margin-top: 2.5em; }

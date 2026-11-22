@@ -14,7 +14,13 @@ const stages = [
 
 <section class="case-flow-section" aria-labelledby="system-design">
   <h2 id="system-design" data-index-label="Architecture">From context to an approved {career ? 'brief' : 'package'}</h2>
-  <p class="flow-intro">The AI Coordinator plans the work, dispatches reviews and collects results throughout this illustrative flow. Expand a stage to see its responsibility.</p>
+  <p class="flow-intro">The AI Coordinator plans the work, dispatches reviews and collects results throughout this illustrative flow. Explore the stages and their review responsibilities.</p>
+  <div class="compact-flow" aria-label="Workflow overview">
+    <p>Context → AI Coordinator → {career ? 'stage brief' : 'account package'} → role judges → Synthetic Owner → Real Owner.</p>
+    <p>Either owner can return the draft for revision and another evaluation.</p>
+  </div>
+  <details class="full-case-flow" open>
+    <summary class="full-flow-toggle">Explore all six stages and revision paths</summary>
   <figure class="case-flow" aria-label={career ? 'Career preparation architecture and review loops' : 'Client research architecture and review loops'}>
     <ol class="flow-stages">
       {stages.map((stage, index) => (
@@ -39,9 +45,28 @@ const stages = [
       <p>Coordinator-selected evaluation routes: Harbor Hub for prepared tasks and results; Hugging Face for judge-model access. Neither approves an external action.</p>
     </figcaption>
   </figure>
+  </details>
 </section>
 
+<script>
+  import { bindDiagramDisclosure } from '../lib/responsive-diagram.mjs';
+  document.querySelectorAll<HTMLDetailsElement>('.full-case-flow').forEach(details => {
+    bindDiagramDisclosure(details, window.matchMedia('(max-width: 680px)'));
+  });
+</script>
+
 <style>
+  .compact-flow { display: none; }
+  .full-case-flow { border: 0; background: transparent; }
+  .full-flow-toggle { display: none; }
+  @media (max-width: 680px) {
+    .compact-flow { display: block; color: var(--ink-soft); }
+    .compact-flow p { margin-block: 0 12px; }
+    .full-case-flow { border-block: 1px solid var(--line); }
+    .full-flow-toggle { display: list-item; color: var(--teal-light); padding: 14px 8px; }
+    .full-case-flow[open] .case-flow { padding-block: 16px; }
+  }
+
   .case-flow-section { margin-top: 40px; container-type: inline-size; }
   .case-flow-section h2 { margin: 0 0 12px; }
   .flow-intro { color: var(--ink-soft); margin-bottom: 24px; }

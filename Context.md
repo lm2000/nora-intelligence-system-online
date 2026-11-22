@@ -1,3 +1,13 @@
+# Case-study reading and command copying — 2026-11-22
+
+Michael approved bringing worked examples forward, compact mobile workflows, shorter directory/readiness introductions and command copying, with validation and production publication. The career and client examples now precede architecture and retain their exact example text and original bookmarks. Mobile shows a short flow overview and a native disclosure containing all six stages, both owner revision returns and the original knowledge/state details. Desktop keeps the complete topology.
+
+Reproduce progressively adds four Copy commands controls. They copy the exact displayed code, disable during the write and announce success or manual-copy guidance on failure; the source commands and pinned commit are unchanged. Existing content and native disclosures remain available without JavaScript. Unit checks cover exact multiline copying, pending state, rejected/unavailable clipboard and retry. Browser checks cover mobile/desktop disclosure defaults, keyboard expansion, six stages/two returns, early example order, copy feedback and contained command scrolling. Clipboard fidelity is asserted at the browser API call boundary in tests; the embedded browser's clipboard readback does not expose the copied value.
+
+All existing rendered IDs on the five affected routes are preserved. Canonical diagram assets and provenance pins are unchanged. Independent code review found no blockers. Exact validation and deployment readbacks are recorded in the private release receipt.
+
+---
+
 # Historical build-story reading refinements — 2026-11-19
 
 Michael approved tightening the historical chapters and authorized validation, Vercel deployment and live verification. Evolution, Tools and routing, AI and evidence and the resume example now lead with engineering decisions and lessons. Original component/provider inventories, connected-tool checks, dashboard and review-model notes, unfinished checks and the claim-evidence map remain in native historical-record disclosures. The overview, diagrams, source pins and historical qualifications are unchanged.
